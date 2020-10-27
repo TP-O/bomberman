@@ -5,15 +5,17 @@ import java.io.IOException;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
-
 import javax.imageio.ImageIO;
+import helper.Helper;
 
 public class FileLoader
 {
+    private static String assetPath = Helper.config("App.AssetPath");
+
     public static BufferedImage loadImage(String path)
     {
         try {
-            File f = new File("/home/TP-O/Desktop/repo/Games/boom/res" + path);
+            File f = new File(assetPath + path);
             
             return ImageIO.read(f);
         }
@@ -31,7 +33,7 @@ public class FileLoader
         StringBuilder SBuilder = new StringBuilder();
 
         try {
-            FileReader f = new FileReader("/home/TP-O/Desktop/repo/Games/boom/res" + path);
+            FileReader f = new FileReader(assetPath + path);
 
             BufferedReader BReader = new BufferedReader(f);
             

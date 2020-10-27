@@ -1,7 +1,7 @@
 package core.game;
 
 import java.awt.Graphics;
-import helper.file.FileLoader;
+import helper.Helper;
 import core.tile.Tile;
 
 public class Map
@@ -45,7 +45,7 @@ public class Map
 
     public void loadMap(String path)
     {
-        String mapString = FileLoader.loadFileAsString(path);
+        String mapString = Helper.loadFileAsString(path);
         String[] tokens = mapString.split("\\s+");
 
         width = Integer.parseInt(tokens[0]);

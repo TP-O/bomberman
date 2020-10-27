@@ -1,9 +1,8 @@
 package core.asset;
 
 import java.awt.image.BufferedImage;
-
-import helper.file.FileLoader;
 import helper.sheet.SpriteSheet;
+import helper.Helper;
 
 public class Asset
 {
@@ -11,8 +10,8 @@ public class Asset
     
     public static void init()
     {
-        SpriteSheet obstacleSheet = new SpriteSheet(FileLoader.loadImage("/image/obstacles/obstacle01.png"));
-        SpriteSheet charactersSheet = new SpriteSheet(FileLoader.loadImage("/image/characters/characters01.png"));
+        SpriteSheet obstacleSheet = Helper.createSpriteSheet(Helper.loadImage("/image/obstacles/obstacle01.png"));
+        SpriteSheet charactersSheet = Helper.createSpriteSheet(Helper.loadImage("/image/characters/characters01.png"));
 
         rock = obstacleSheet.crop(42, 84, 40, 42);
         tree = obstacleSheet.crop(10, 20, 60, 65);
