@@ -2,42 +2,49 @@ package core.state;
 
 import java.awt.Graphics;
 
-import core.entity.characters.Characters;
-import core.entity.characters.CharactersBuilder;
 import core.game.Game;
-import core.game.Map;
+import app.controller.MapController;
+import app.controller.CharacterController;
 
 public class GameState extends State
 {
-    private Characters player;
+    private MapController mapController;
 
-    private Map map;
+    private CharacterController characterController;
 
-    public GameState(Game game)
+    public GameState(Game game, CharacterController charactersController)
     {
         super(game);
+        this.mapController = new MapController(game);
+        this.characterController = charactersController;
+        this.init();
+    }
 
-        player = new CharactersBuilder("Player")
-            .setGame(game)
-            .setX(35)
-            .setY(35)
-            .build();
+    public void init()
+    {
+        characterController.create(
+            CharacterController.builder
+                .setType("Player")
+                .setGame(game)
+                .setX(250)
+                .setY(250)
+                .build());
 
-        map = new Map(game, "/map01.txt");
+        mapController.load("map01");
     }
 
     public void tick()
     {
-        player.tick();
-        map.tick();
+        characterController.getPlayer().tick();
+        mapController.getMap().tick();
 
         // make the camera record the player
-        game.getCamera().recordEntity(player);
+        game.getCameraService().focusOn(characterController.getPlayer());
     }
 
     public void render(Graphics graphics)
     {
-        map.render(graphics);
-        player.render(graphics);
+        mapController.getMap().render(graphics);
+        characterController.getPlayer().render(graphics);
     }
 }

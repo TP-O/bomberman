@@ -4,7 +4,7 @@ public class App
 {
     public static void main(String[] args)
     {
-        GameController game = new GameController("Boom", 448, 448);
+        GameController game = new GameController(448, 448);
 
         game.launch();
     }

@@ -7,9 +7,9 @@ public abstract class State
 {
     protected Game game;
 
-    public State(Game inGame)
+    public State(Game game)
     {
-        game = inGame;
+        this.game = game;
     }
 
     public abstract void tick();

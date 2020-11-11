@@ -1,17 +1,17 @@
 package core.entity;
 
-public abstract class Entity
+public class Entity
 {
     protected float x, y;
 
     protected int width, height;
 
-    public Entity(float inX, float inY, int inWidth, int inHeight)
+    public Entity(float x, float y, int width, int height)
     {
-        x = inX;
-        y = inY;
-        width = inWidth;
-        height = inHeight;
+        this.x = x;
+        this.y = y;
+        this.width = width;
+        this.height = height;
     }
 
     public float getX()
@@ -19,9 +19,19 @@ public abstract class Entity
         return x;
     }
 
+    public void setX(float x)
+    {
+        this.x = x;
+    }
+
     public float getY()
     {
         return y;
+    }
+
+    public void setY(float y)
+    {
+        this.y = y;
     }
 
     public int getWidth()
@@ -29,8 +39,18 @@ public abstract class Entity
         return width;
     }
 
+    public void setWidth(int width)
+    {
+        this.width = width;
+    }
+
     public int getHeight()
     {
         return height;
+    }
+
+    public void setHeight(int height)
+    {
+        this.height = height;
     }
 }

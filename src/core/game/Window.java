@@ -4,7 +4,7 @@ import javax.swing.JFrame;
 import java.awt.Canvas;
 import java.awt.Dimension;
 
-public class Display
+public class Window
 {
     private String title;
 
@@ -16,7 +16,7 @@ public class Display
 
     private Canvas canvas;
 
-    public Display(String inTitle, int inWidth, int inHeight)
+    public Window(String inTitle, int inWidth, int inHeight)
     {
         title = inTitle;
         width = inWidth;

@@ -3,25 +3,21 @@ package core.game;
 import java.awt.image.BufferStrategy;
 import java.awt.Graphics;
 
-import core.asset.Asset;
-
 import app.controller.StateController;
 
-import core.service.camera.*;
-import core.service.keyboard.*;
-import core.service.ServiceSubcriber;
+import core.service.camera.CameraService;
+import core.service.keyboard.KeyService;
+import core.service.ServiceProvider;
 
 public class Game implements Runnable
 {
-    private String title;
-
     private int width;
 
     private int height;
 
     private boolean running = false;
 
-    private Display display;
+    private Window window;
 
     private BufferStrategy bs;
 
@@ -32,23 +28,63 @@ public class Game implements Runnable
     // State controller
     private StateController stateController;
 
-    // Subcriber
-    private ServiceSubcriber subcriber;
+    // Provider
+    private ServiceProvider provider;
 
-    // Key listener
-    private KeyManager keyManager;
-
-    // Cameraman
-    private CameraMan camera;
-
-    public Game(String inTitle, int inWidth, int inHeight)
+    public Game(int inWidth, int inHeight)
     {
-        title = inTitle;
         width = inWidth;
         height = inHeight;
+    }
 
-        // Create the window
-        display = new Display(title, width, height);
+    public int getWidth()
+    {
+        return width;
+    }
+
+    public int getHeight()
+    {
+        return height;
+    }
+
+    public Window getWindow()
+    {
+        return window;
+    }
+
+    public void setWindow(Window window)
+    {
+        this.window = window;
+    }
+
+    public ServiceProvider getProvider()
+    {
+        return provider;
+    }
+
+    public void setProvider(ServiceProvider serviceProvider)
+    {
+        this.provider = serviceProvider;
+    }
+
+    public KeyService getKeyService()
+    {
+        return provider.keyService;
+    }
+
+    public CameraService getCameraService()
+    {
+        return provider.cameraService;
+    }
+
+    public StateController getStateController()
+    {
+        return stateController;
+    }
+
+    public void setStateController(StateController stateController)
+    {
+        this.stateController = stateController;
     }
 
     public synchronized void start()
@@ -75,46 +111,17 @@ public class Game implements Runnable
         }
     }
 
-    public void init()
-    {
-        // Initialize image, sound,...
-        Asset.init();
-
-        // Display the window
-        display.display();
-
-        // Register services
-        subcriber = new ServiceSubcriber(this);
-        subcriber.register();
-
-        // Camera Service
-        camera = subcriber.cameraMan;
-
-        // Key manager Service
-        keyManager = subcriber.keyManager;
-
-        // Initialize state controller
-        stateController = new StateController(this);
-        stateController.setState("GameState");
-    }
-
     public void tick()
     {
-        if (stateController.getState() != null) {
-            stateController.tick();
-        }
-        else {
-            System.out.println("Can not detect game's state!");
-            System.exit(1);
-        }
+        stateController.tick();
     }
 
     public void render()
     {
-        bs = display.getCanvas().getBufferStrategy();
+        bs = window.getCanvas().getBufferStrategy();
 
         if (bs == null) {
-            display.getCanvas().createBufferStrategy(3);
+            window.getCanvas().createBufferStrategy(3);
             return;
         }
 
@@ -124,13 +131,7 @@ public class Game implements Runnable
         graphics.clearRect(0, 0, width, height);
 
         // Render image
-        if (stateController.getState() != null) {
-            stateController.render(graphics);
-        }
-        else {
-            System.out.println("Can not detect game's state!");
-            System.exit(1);
-        }
+        stateController.render(graphics);
 
         bs.show();
         graphics.dispose();
@@ -140,8 +141,6 @@ public class Game implements Runnable
     // Run the game
     public void run()
     {
-        init();
-
         // Update times per seconds
         int fps = 60;
         double timePerTick = 1000000000/fps;
@@ -169,31 +168,5 @@ public class Game implements Runnable
 
             render();
         }
-    }
-
-    // Setters and Getters
-    public Display getDisplay()
-    {
-        return display;
-    }
-
-    public KeyManager getKeyManager()
-    {
-        return keyManager;
-    }
-
-    public CameraMan getCamera()
-    {
-        return camera;
-    }
-
-    public int getWidth()
-    {
-        return width;
-    }
-
-    public int getHeight()
-    {
-        return height;
     }
 }
