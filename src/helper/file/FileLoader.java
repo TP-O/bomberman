@@ -10,12 +10,14 @@ import helper.Helper;
 
 public class FileLoader
 {
-    private static String assetPath = Helper.config("App.AssetPath");
+    private static String imageDir = Helper.config("App.ImageDir");
+
+    private static String mapDir = Helper.config("App.MapDir");
 
     public static BufferedImage loadImage(String path)
     {
         try {
-            File f = new File(assetPath + path);
+            File f = new File(imageDir + path);
             
             return ImageIO.read(f);
         }
@@ -33,7 +35,7 @@ public class FileLoader
         StringBuilder SBuilder = new StringBuilder();
 
         try {
-            FileReader f = new FileReader(assetPath + path);
+            FileReader f = new FileReader(mapDir + path);
 
             BufferedReader BReader = new BufferedReader(f);
             

@@ -14,7 +14,7 @@ public class MapController
 
     public void load(String mapName)
     {
-        map.loadMap("/maps/" + mapName + ".txt");
+        map.loadMap(mapName + ".txt");
     }
 
     public Map getMap()

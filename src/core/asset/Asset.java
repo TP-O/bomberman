@@ -10,8 +10,8 @@ public class Asset
     
     public static void init()
     {
-        SpriteSheet obstacleSheet = Helper.createSpriteSheet(Helper.loadImage("/image/obstacles/obstacle01.png"));
-        SpriteSheet charactersSheet = Helper.createSpriteSheet(Helper.loadImage("/image/characters/characters01.png"));
+        SpriteSheet obstacleSheet = Helper.createSpriteSheet(Helper.loadImage("obstacles/obstacle01.png"));
+        SpriteSheet charactersSheet = Helper.createSpriteSheet(Helper.loadImage("characters/characters01.png"));
 
         rock = obstacleSheet.crop(42, 84, 40, 42);
         tree = obstacleSheet.crop(10, 20, 60, 65);
