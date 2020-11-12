@@ -4,20 +4,19 @@ import java.awt.Graphics;
 import java.util.HashMap;
 import java.util.Map;
 
-import core.game.Game;
 import core.state.*;
 
 public class StateController
 {
-    private Game game;
+    private GameController gameController;
 
     private State currentState;
 
     private Map<String, State> states;
 
-    public StateController(Game game)
+    public StateController(GameController gameController)
     {
-        this.game = game;
+        this.gameController = gameController;
         this.bindAllState();
         this.currentState = states.get("GameState");
     }
@@ -25,9 +24,9 @@ public class StateController
     private void bindAllState()
     {
         states = new HashMap<String, State>();
-        states.put("GameState", new GameState(game, new CharacterController()));
-        states.put("MenuState", new MenuState(game));
-        states.put("SettingState", new SettingState(game));
+        states.put("GameState", new GameState(gameController, new CharacterController()));
+        states.put("MenuState", new MenuState(gameController));
+        states.put("SettingState", new SettingState(gameController));
     }
 
     public void changeTo(String stateName)

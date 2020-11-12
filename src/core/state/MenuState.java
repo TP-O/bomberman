@@ -1,13 +1,13 @@
 package core.state;
 
 import java.awt.Graphics;
-import core.game.Game;
+import app.controller.GameController;
 
 public class MenuState extends State
 {
-    public MenuState(Game game)
+    public MenuState(GameController gameController)
     {
-        super(game);
+        super(gameController);
     }
 
     public void tick()

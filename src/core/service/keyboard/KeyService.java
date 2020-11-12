@@ -3,7 +3,7 @@ package core.service.keyboard;
 import java.awt.event.KeyListener;
 import java.awt.event.KeyEvent;
 import core.service.Service;
-import core.game.Game;
+import app.controller.GameController;
 import helper.Helper;
 
 public class KeyService implements KeyListener, Service
@@ -66,8 +66,8 @@ public class KeyService implements KeyListener, Service
         }
     }
 
-    public void register(Game game)
+    public void register(GameController gameController)
     {
-        game.getWindow().getFrame().addKeyListener(this);
+        gameController.getWindow().getFrame().addKeyListener(this);
     }
 }

@@ -2,7 +2,7 @@ package core.state;
 
 import java.awt.Graphics;
 
-import core.game.Game;
+import app.controller.GameController;
 import app.controller.MapController;
 import app.controller.CharacterController;
 
@@ -12,10 +12,10 @@ public class GameState extends State
 
     private CharacterController characterController;
 
-    public GameState(Game game, CharacterController charactersController)
+    public GameState(GameController gameController, CharacterController charactersController)
     {
-        super(game);
-        this.mapController = new MapController(game);
+        super(gameController);
+        this.mapController = new MapController(gameController);
         this.characterController = charactersController;
         this.init();
     }
@@ -25,7 +25,7 @@ public class GameState extends State
         characterController.create(
             CharacterController.builder
                 .setType("Player")
-                .setGame(game)
+                .setGame(gameController)
                 .setX(250)
                 .setY(250)
                 .build());
@@ -39,7 +39,7 @@ public class GameState extends State
         mapController.getMap().tick();
 
         // make the camera record the player
-        game.getCameraService().focusOn(characterController.getPlayer());
+        gameController.getCameraService().focusOn(characterController.getPlayer());
     }
 
     public void render(Graphics graphics)

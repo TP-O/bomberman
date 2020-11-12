@@ -1,15 +1,15 @@
 package core.state;
 
 import java.awt.Graphics;
-import core.game.Game;
+import app.controller.GameController;
 
 public abstract class State
 {
-    protected Game game;
+    protected GameController gameController;
 
-    public State(Game game)
+    public State(GameController gameController)
     {
-        this.game = game;
+        this.gameController = gameController;
     }
 
     public abstract void tick();

@@ -3,6 +3,7 @@ package core.game;
 import java.awt.Graphics;
 import helper.Helper;
 import core.tile.Tile;
+import app.controller.GameController;
 
 public class Map
 {
@@ -10,11 +11,11 @@ public class Map
 
     private int[][] tiles;
 
-    private Game game;
+    private GameController gameController;
 
-    public Map(Game game)
+    public Map(GameController gameController)
     {
-        this.game = game;
+        this.gameController = gameController;
     }    
 
     public void tick()
@@ -24,17 +25,17 @@ public class Map
 
     public void render(Graphics graphics)
     {
-        int xStart = (int) Math.max(0, game.getCameraService().getXOffset() / Tile.WIDTH);
-        int xEnd = (int) Math.min(width, (game.getCameraService().getXOffset() + game.getWidth()) / Tile.WIDTH + 1);
-        int yStart = (int) Math.max(0, game.getCameraService().getYOffset() / Tile.HEIGHT);
-        int yEnd = (int) Math.min(height, (game.getCameraService().getYOffset() + game.getHeight()) / Tile.HEIGHT + 1);
+        int xStart = (int) Math.max(0, gameController.getCameraService().getXOffset() / Tile.WIDTH);
+        int xEnd = (int) Math.min(width, (gameController.getCameraService().getXOffset() + gameController.getWidth()) / Tile.WIDTH + 1);
+        int yStart = (int) Math.max(0, gameController.getCameraService().getYOffset() / Tile.HEIGHT);
+        int yEnd = (int) Math.min(height, (gameController.getCameraService().getYOffset() + gameController.getHeight()) / Tile.HEIGHT + 1);
 
         for (int x = xStart; x < xEnd; x++) {
             for (int y = yStart; y < yEnd; y++) {
                 Tile.tiles[tiles[x][y]].render(graphics,
                     // The tiles move rely on camera's coordinates
-                    (int) (x*Tile.WIDTH - game.getCameraService().getXOffset()),
-                    (int) (y*Tile.HEIGHT - game.getCameraService().getYOffset()));
+                    (int) (x*Tile.WIDTH - gameController.getCameraService().getXOffset()),
+                    (int) (y*Tile.HEIGHT - gameController.getCameraService().getYOffset()));
             }
         }   
     }

@@ -2,27 +2,27 @@ package core.entity.character;
 
 import java.awt.Graphics;
 import core.asset.Asset;
-import core.game.Game;
+import app.controller.GameController;
 
 public class Player extends Character
 {
-    public Player(Game game, float x, float y, int width, int height, int health, int damage, float speed)
+    public Player(GameController gameController, float x, float y, int width, int height, int health, int damage, float speed)
     {
-        super(game , x, y, width, height, health, damage, speed, Asset.player);
+        super(gameController , x, y, width, height, health, damage, speed, Asset.player);
     }
 
     public void tick()
     {
-        if (game.getKeyService().up.pressed) {
+        if (gameController.getKeyService().up.pressed) {
             y -= speed;
         }
-        if (game.getKeyService().down.pressed) {
+        if (gameController.getKeyService().down.pressed) {
             y += speed;
         }
-        if (game.getKeyService().left.pressed) {
+        if (gameController.getKeyService().left.pressed) {
             x -= speed;
         }
-        if (game.getKeyService().right.pressed) {
+        if (gameController.getKeyService().right.pressed) {
             x += speed;
         }
     }
@@ -30,8 +30,8 @@ public class Player extends Character
     public void render(Graphics graphics)
     {
         graphics.drawImage(BImage,
-            (int) (x - game.getCameraService().getXOffset()),
-            (int) (y - game.getCameraService().getYOffset()),
+            (int) (x - gameController.getCameraService().getXOffset()),
+            (int) (y - gameController.getCameraService().getYOffset()),
             width, height, null);
     }
 }

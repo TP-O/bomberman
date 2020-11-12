@@ -1,8 +1,8 @@
 package core.service;
 
-import core.game.Game;
+import app.controller.GameController;
 
 public interface Service
 {
-    public void register(Game game); 
+    public void register(GameController gameController); 
 }

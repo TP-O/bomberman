@@ -1,15 +1,14 @@
 package app.controller;
 
 import core.game.Map;
-import core.game.Game;
 
 public class MapController
 {
     private Map map;
     
-    public MapController(Game game)
+    public MapController(GameController gameController)
     {
-        this.map = new Map(game);
+        this.map = new Map(gameController);
     }
 
     public void load(String mapName)

@@ -1,20 +1,20 @@
 package core.service;
 
-import core.game.Game;
+import app.controller.GameController;
 import core.service.camera.CameraService;
 import core.service.keyboard.KeyService;
 
 public class ServiceProvider
 {
-    private Game game;
+    private GameController gameController;
 
     public CameraService cameraService;
 
     public KeyService keyService;
 
-    public ServiceProvider(Game game)
+    public ServiceProvider(GameController gameController)
     {
-        this.game = game;
+        this.gameController = gameController;
     }
 
     public void register()
@@ -22,7 +22,7 @@ public class ServiceProvider
         keyService = new KeyService();
         cameraService = new CameraService();
 
-        keyService.register(game);
-        cameraService.register(game);
+        keyService.register(gameController);
+        cameraService.register(gameController);
     }
 }

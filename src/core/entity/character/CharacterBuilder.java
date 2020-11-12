@@ -1,6 +1,6 @@
 package core.entity.character;
 
-import core.game.Game;
+import app.controller.GameController;
 import helper.Helper;
 
 public class CharacterBuilder
@@ -17,7 +17,7 @@ public class CharacterBuilder
 
     private String type = "Player";
 
-    private Game game;
+    private GameController gameController;
 
     public CharacterBuilder()
     {
@@ -86,9 +86,9 @@ public class CharacterBuilder
         return this;
     }
 
-    public CharacterBuilder setGame(Game game)
+    public CharacterBuilder setGame(GameController gameController)
     {
-        this.game = game;
+        this.gameController = gameController;
 
         return this;
     }
@@ -96,7 +96,7 @@ public class CharacterBuilder
     public Character build()
     {
         if (type == "Player") {
-            return new Player(game, x, y, width, height, health, damge, speed);
+            return new Player(gameController, x, y, width, height, health, damge, speed);
         }
         else {
             throw new Error("Can not find type: " + type);

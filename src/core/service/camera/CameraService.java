@@ -1,12 +1,12 @@
 package core.service.camera;
 
-import core.game.Game;
+import app.controller.GameController;
 import core.entity.Entity;
 import core.service.Service;
 
 public class CameraService implements Service
 {
-    private Game game;
+    private GameController gameController;
 
     private float xOffset, yOffset = 0.0f;
 
@@ -23,12 +23,12 @@ public class CameraService implements Service
     public void focusOn(Entity entity)
     {
         // Make the camera always follows the entity
-        xOffset = entity.getX() - game.getWidth() / 2 + entity.getWidth() / 2;
-        yOffset = entity.getY() - game.getHeight() / 2 + entity.getHeight() / 2;
+        xOffset = entity.getX() - gameController.getWidth() / 2 + entity.getWidth() / 2;
+        yOffset = entity.getY() - gameController.getHeight() / 2 + entity.getHeight() / 2;
     }
 
-    public void register(Game game)
+    public void register(GameController gameController)
     {
-        this.game = game;
+        this.gameController = gameController;
     }
 }
