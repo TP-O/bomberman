@@ -3,6 +3,7 @@ package core.game;
 import java.awt.image.BufferStrategy;
 import java.awt.Graphics;
 
+import app.controller.MapController;
 import app.controller.StateController;
 
 import core.service.camera.CameraService;
@@ -30,6 +31,8 @@ public class Game implements Runnable
 
     // Provider
     private ServiceProvider provider;
+
+    private MapController mapController;
 
     public Game(int inWidth, int inHeight)
     {
@@ -85,6 +88,16 @@ public class Game implements Runnable
     public void setStateController(StateController stateController)
     {
         this.stateController = stateController;
+    }
+
+    public MapController getMapController()
+    {
+        return mapController;
+    }
+
+    public void setMapController(MapController mapController)
+    {
+        this.mapController = mapController;
     }
 
     public synchronized void start()

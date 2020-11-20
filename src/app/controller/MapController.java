@@ -9,6 +9,7 @@ public class MapController
     public MapController(GameController gameController)
     {
         this.map = new Map(gameController);
+        gameController.setMapController(this);
     }
 
     public void load(String mapName)

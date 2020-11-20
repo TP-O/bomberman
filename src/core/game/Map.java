@@ -55,4 +55,17 @@ public class Map
             }
         }   
     }
+
+    public Tile getTiles(int x, int y)
+    {
+        if ((x/Tile.WIDTH) < 0
+            || (y/Tile.HEIGHT) < 0
+            || (x/Tile.WIDTH) >= width
+            || (y/Tile.HEIGHT) >= height
+        ) {
+            return Tile.tiles[0];
+        }
+
+        return Tile.tiles[tiles[x/Tile.WIDTH][y/Tile.HEIGHT]];
+    }
 }

@@ -70,6 +70,16 @@ public class GameController
         game.setStateController(stateController);
     }
 
+    public MapController getMapController()
+    {
+        return game.getMapController();
+    }
+
+    public void setMapController(MapController mapController)
+    {
+        game.setMapController(mapController);
+    }
+
     public void bootstrap()
     {
         // Initialize image, sound,...

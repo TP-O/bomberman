@@ -50,4 +50,13 @@ public abstract class Character extends Entity
     {
         this.speed = speed;
     }
+
+    public boolean isCollied(int x, int y)
+    {
+        return gameController
+            .getMapController()
+            .getMap()
+            .getTiles(x, y)
+            .solid;
+    }
 }
