@@ -18,6 +18,16 @@ public class Map
         this.gameController = gameController;
     }    
 
+    public int getWidth()
+    {
+        return width;
+    }
+
+    public int getHeight()
+    {
+        return height;
+    }
+
     public void tick()
     {
         //

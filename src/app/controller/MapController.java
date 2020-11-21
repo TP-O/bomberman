@@ -12,6 +12,16 @@ public class MapController
         gameController.setMapController(this);
     }
 
+    public int getWidth()
+    {
+        return map.getWidth();
+    }
+
+    public int getHeight()
+    {
+        return map.getHeight();
+    }
+
     public void load(String mapName)
     {
         map.loadMap(mapName + ".txt");
