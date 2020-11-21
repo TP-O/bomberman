@@ -6,6 +6,6 @@ public class TreeTile extends Tile
 {
     public TreeTile(int id)
     {
-        super(Asset.tree, id);
+        super(Asset.tree, id, true);
     }    
 }
