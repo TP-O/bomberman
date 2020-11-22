@@ -68,14 +68,8 @@ public class Map
 
     public Tile getTiles(int x, int y)
     {
-        if ((x/Tile.WIDTH) < 0
-            || (y/Tile.HEIGHT) < 0
-            || (x/Tile.WIDTH) >= width
-            || (y/Tile.HEIGHT) >= height
-        ) {
-            return Tile.tiles[0];
-        }
-
-        return Tile.tiles[tiles[x/Tile.WIDTH][y/Tile.HEIGHT]];
+        return x < 0 || y < 0 || x >= width || y >= height
+            ? Tile.tiles[0]
+            : Tile.tiles[tiles[x][y]];
     }
 }

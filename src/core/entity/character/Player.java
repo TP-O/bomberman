@@ -2,11 +2,14 @@ package core.entity.character;
 
 import java.awt.Graphics;
 import core.asset.Asset;
+import helper.Helper;
 import app.controller.GameController;
 
 public class Player extends Character
 {
     private int space = 5;
+
+    private int margin = 4;
 
     public Player(GameController gameController, float x, float y, int width, int height, int health, int damage, float speed)
     {
@@ -16,26 +19,34 @@ public class Player extends Character
     public void tick()
     {
         if (gameController.getKeyService().up.pressed
-            && !isCollied((int) x, (int) (y - space))
-            && !isCollied((int) (x + 1), (int) (y - space))
+            && !isCollied(Helper.getXOfTile(x), Helper.getYOfTile(y - margin))
+            && !isCollied(Helper.getXOfTile(x + space), Helper.getYOfTile(y - margin))
+            && !isCollied(Helper.getXOfTile(x + width), Helper.getYOfTile(y - margin))
+            && !isCollied(Helper.getXOfTile(x + width - space), Helper.getYOfTile(y - margin))
         ) {
             y -= speed;
         }
         if (gameController.getKeyService().down.pressed
-            && !isCollied((int) x, (int) (y + height + space))
-            && !isCollied((int) (x + 1), (int) (y + height + space))
+            && !isCollied(Helper.getXOfTile(x), Helper.getYOfTile(y + height + margin))
+            && !isCollied(Helper.getXOfTile(x + space), Helper.getYOfTile(y + height + margin))
+            && !isCollied(Helper.getXOfTile(x + width), Helper.getYOfTile(y + height + margin))
+            && !isCollied(Helper.getXOfTile(x + width - space), Helper.getYOfTile(y + height + margin))
         ) {
             y += speed;
         }
         if (gameController.getKeyService().left.pressed
-            && !isCollied((int) (x -space), (int) y)
-            && !isCollied((int) (x -space), (int) (y + 1))
+            && !isCollied(Helper.getXOfTile(x - margin), Helper.getYOfTile(y))
+            && !isCollied(Helper.getXOfTile(x - margin), Helper.getYOfTile(y + space))
+            && !isCollied(Helper.getXOfTile(x - margin), Helper.getYOfTile(y + height))
+            && !isCollied(Helper.getXOfTile(x - margin), Helper.getYOfTile(y + height - space))
         ) {
             x -= speed;
         }
         if (gameController.getKeyService().right.pressed
-            && !isCollied((int) (x + width + space), (int) y)
-            && !isCollied((int) (x + width + space), (int) (y + 1))
+            && !isCollied(Helper.getXOfTile(x + width + margin), Helper.getYOfTile(y))
+            && !isCollied(Helper.getXOfTile(x + width + margin), Helper.getYOfTile(y + space))
+            && !isCollied(Helper.getXOfTile(x + width + margin), Helper.getYOfTile(y + height))
+            && !isCollied(Helper.getXOfTile(x + width + margin), Helper.getYOfTile(y + height - space))
         ) {
             x += speed;
         }
