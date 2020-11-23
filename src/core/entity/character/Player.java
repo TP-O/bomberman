@@ -2,13 +2,10 @@ package core.entity.character;
 
 import java.awt.Graphics;
 import core.asset.Asset;
-import helper.Helper;
 import app.controller.GameController;
 
 public class Player extends Character
 {
-    private int margin = 4;
-
     public Player(GameController gameController, float x, float y, int width, int height, int health, int damage, float speed)
     {
         super(gameController , x, y, width, height, health, damage, speed, Asset.player);
@@ -16,29 +13,20 @@ public class Player extends Character
 
     public void tick()
     {
-        if (gameController.getKeyService().up.pressed
-            && !isCollied(Helper.getXOfTile(x), Helper.getYOfTile(y - margin))
-            && !isCollied(Helper.getXOfTile(x + width), Helper.getYOfTile(y - margin))
-        ) {
-            y -= speed;
+        if (gameController.getKeyService().up.pressed) {
+            moveUp(speed);
         }
-        if (gameController.getKeyService().down.pressed
-            && !isCollied(Helper.getXOfTile(x), Helper.getYOfTile(y + height + margin))
-            && !isCollied(Helper.getXOfTile(x + width), Helper.getYOfTile(y + height + margin))
-        ) {
-            y += speed;
+
+        if (gameController.getKeyService().down.pressed) {
+            moveDown(speed);
         }
-        if (gameController.getKeyService().left.pressed
-            && !isCollied(Helper.getXOfTile(x - margin), Helper.getYOfTile(y))
-            && !isCollied(Helper.getXOfTile(x - margin), Helper.getYOfTile(y + height))
-        ) {
-            x -= speed;
+
+        if (gameController.getKeyService().left.pressed) {
+            moveLeft(speed);
         }
-        if (gameController.getKeyService().right.pressed
-            && !isCollied(Helper.getXOfTile(x + width + margin), Helper.getYOfTile(y))
-            && !isCollied(Helper.getXOfTile(x + width + margin), Helper.getYOfTile(y + height))
-        ) {
-            x += speed;
+        
+        if (gameController.getKeyService().right.pressed) {
+            moveRight(speed);
         }
     }
 

@@ -1,6 +1,8 @@
 package core.entity.character;
 
 import core.entity.Entity;
+import helper.Helper;
+
 import java.awt.Graphics;
 import app.controller.GameController;
 import java.awt.image.BufferedImage;
@@ -16,6 +18,8 @@ public abstract class Character extends Entity
     protected float speed;
 
     protected BufferedImage BImage;
+
+    protected int margin = 4;
 
     public Character(GameController gameController, float x, float y, int width, int height, int health, int damage, float speed, BufferedImage BIimage)
     {
@@ -58,5 +62,45 @@ public abstract class Character extends Entity
             .getMap()
             .getTiles(x, y)
             .isSolid();
+    }
+
+    protected void moveUp(float distance)
+    {
+        boolean upperLeftCornerCollied = isCollied(Helper.getXOfTile(x), Helper.getYOfTile(y - margin));
+        boolean upperRightCornerCollied = isCollied(Helper.getXOfTile(x + width), Helper.getYOfTile(y - margin));
+
+        if (!upperLeftCornerCollied && !upperRightCornerCollied) {
+            y -= distance;
+        }
+    }
+
+    public void moveDown(float distance)
+    {
+        boolean lowerLeftCornerCollied = isCollied(Helper.getXOfTile(x), Helper.getYOfTile(y + height + margin));
+        boolean lowerRightCornerCollied = isCollied(Helper.getXOfTile(x + width), Helper.getYOfTile(y + height + margin));
+
+        if (!lowerLeftCornerCollied && !lowerRightCornerCollied) {
+            y += distance;
+        }
+    }
+
+    public void moveLeft(float distance)
+    {
+        boolean upperLeftCornerCollied = isCollied(Helper.getXOfTile(x - margin), Helper.getYOfTile(y));
+        boolean lowerLeftCornerCollied = isCollied(Helper.getXOfTile(x - margin), Helper.getYOfTile(y + height));
+
+        if (!upperLeftCornerCollied && !lowerLeftCornerCollied) {
+            x -= distance;
+        }
+    }
+
+    public void moveRight(float distance)
+    {
+        boolean upperRightCornerCollied = isCollied(Helper.getXOfTile(x + width + margin), Helper.getYOfTile(y));
+        boolean lowerRightCornerCollied = isCollied(Helper.getXOfTile(x + width + margin), Helper.getYOfTile(y + height));
+
+        if (!upperRightCornerCollied && !lowerRightCornerCollied) {
+            x += distance;
+        }
     }
 }
