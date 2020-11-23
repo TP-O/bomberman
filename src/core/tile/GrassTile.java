@@ -4,8 +4,8 @@ import core.asset.Asset;
 
 public class GrassTile extends Tile
 {
-    public GrassTile(int id)
+    public GrassTile()
     {
-        super(Asset.grass, id);
+        super(Asset.grass);
     }
 }

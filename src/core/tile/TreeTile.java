@@ -4,8 +4,8 @@ import core.asset.Asset;
 
 public class TreeTile extends Tile
 {
-    public TreeTile(int id)
+    public TreeTile()
     {
-        super(Asset.tree, id, true);
+        super(Asset.tree, true);
     }    
 }

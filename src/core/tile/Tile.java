@@ -5,33 +5,31 @@ import java.awt.Graphics;
 
 public abstract class Tile
 {
-    protected int id;
+    protected boolean solid;
 
     protected BufferedImage BImage;
 
-    public boolean solid;
-
-    public static Tile[] tiles = new Tile[255];
+    public static int totalTiles = 0;
 
     public static final int WIDTH = 64, HEIGHT = 64;
 
-    // Init tiles
-    private static Tile grassTile = new GrassTile(0);
-    private static Tile rockTile = new RockTile(1);
-    private static Tile treeTile = new TreeTile(2);
-
-    public Tile(BufferedImage inBImage, int id)
+    public Tile(BufferedImage BImage)
     {
-        BImage = inBImage;
-        solid = false;
-        tiles[id] = this;
+        totalTiles++;
+        this.solid = false;
+        this.BImage = BImage;
     }
     
-    public Tile(BufferedImage inBImage, int id, boolean isSolid)
+    public Tile(BufferedImage BImage, boolean solid)
     {
-        BImage = inBImage;
-        solid = isSolid;
-        tiles[id] = this;
+        totalTiles++;
+        this.solid = solid;
+        this.BImage = BImage;
+    }
+
+    public boolean isSolid()
+    {
+        return solid;
     }
 
     public void tick()

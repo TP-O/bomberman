@@ -4,6 +4,7 @@ import java.awt.Graphics;
 import helper.Helper;
 import core.tile.Tile;
 import app.controller.GameController;
+import app.controller.TileController;
 
 public class Map
 {
@@ -42,7 +43,7 @@ public class Map
 
         for (int x = xStart; x < xEnd; x++) {
             for (int y = yStart; y < yEnd; y++) {
-                Tile.tiles[tiles[x][y]].render(graphics,
+                TileController.tiles.get(tiles[x][y]).render(graphics,
                     // The tiles move rely on camera's coordinates
                     (int) (x*Tile.WIDTH - gameController.getCameraService().getXOffset()),
                     (int) (y*Tile.HEIGHT - gameController.getCameraService().getYOffset()));
@@ -69,7 +70,7 @@ public class Map
     public Tile getTiles(int x, int y)
     {
         return x < 0 || y < 0 || x >= width || y >= height
-            ? Tile.tiles[0]
-            : Tile.tiles[tiles[x][y]];
+            ? TileController.tiles.get(0)
+            : TileController.tiles.get(tiles[x][y]);
     }
 }

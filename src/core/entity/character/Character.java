@@ -57,6 +57,6 @@ public abstract class Character extends Entity
             .getMapController()
             .getMap()
             .getTiles(x, y)
-            .solid;
+            .isSolid();
     }
 }

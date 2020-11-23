@@ -4,8 +4,8 @@ import core.asset.Asset;
 
 public class RockTile extends Tile
 {
-    public RockTile(int id)
+    public RockTile()
     {
-        super(Asset.rock, id, true);
+        super(Asset.rock, true);
     }    
 }

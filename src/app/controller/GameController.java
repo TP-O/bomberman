@@ -93,6 +93,9 @@ public class GameController
         setProvider(new ServiceProvider(this));
         getProvider().register();
 
+        // Initialize tiles
+        TileController.init();
+
         // Initialize state controller
         setStateController(new StateController(this));
         getStateController().changeTo("GameState");
