@@ -19,7 +19,9 @@ public abstract class Character extends Entity
 
     protected BufferedImage BImage;
 
-    protected int margin = 4;
+    protected int padding = 25;
+
+    protected int margin = 5;
 
     public Character(GameController gameController, float x, float y, int width, int height, int health, int damage, float speed, BufferedImage BIimage)
     {
@@ -66,8 +68,8 @@ public abstract class Character extends Entity
 
     protected void moveUp(float distance)
     {
-        boolean upperLeftCornerCollied = isCollied(Helper.getXOfTile(x), Helper.getYOfTile(y - margin));
-        boolean upperRightCornerCollied = isCollied(Helper.getXOfTile(x + width), Helper.getYOfTile(y - margin));
+        boolean upperLeftCornerCollied = isCollied(Helper.getXOfTile(x + padding), Helper.getYOfTile(y + padding - margin));
+        boolean upperRightCornerCollied = isCollied(Helper.getXOfTile(x + width - padding), Helper.getYOfTile(y + padding - margin));
 
         if (!upperLeftCornerCollied && !upperRightCornerCollied) {
             y -= distance;
@@ -76,8 +78,8 @@ public abstract class Character extends Entity
 
     public void moveDown(float distance)
     {
-        boolean lowerLeftCornerCollied = isCollied(Helper.getXOfTile(x), Helper.getYOfTile(y + height + margin));
-        boolean lowerRightCornerCollied = isCollied(Helper.getXOfTile(x + width), Helper.getYOfTile(y + height + margin));
+        boolean lowerLeftCornerCollied = isCollied(Helper.getXOfTile(x + padding), Helper.getYOfTile(y + height - padding + margin));
+        boolean lowerRightCornerCollied = isCollied(Helper.getXOfTile(x + width - padding), Helper.getYOfTile(y + height - padding + margin));
 
         if (!lowerLeftCornerCollied && !lowerRightCornerCollied) {
             y += distance;
@@ -86,8 +88,8 @@ public abstract class Character extends Entity
 
     public void moveLeft(float distance)
     {
-        boolean upperLeftCornerCollied = isCollied(Helper.getXOfTile(x - margin), Helper.getYOfTile(y));
-        boolean lowerLeftCornerCollied = isCollied(Helper.getXOfTile(x - margin), Helper.getYOfTile(y + height));
+        boolean upperLeftCornerCollied = isCollied(Helper.getXOfTile(x + padding- margin), Helper.getYOfTile(y + padding));
+        boolean lowerLeftCornerCollied = isCollied(Helper.getXOfTile(x + padding - margin), Helper.getYOfTile(y + height - padding));
 
         if (!upperLeftCornerCollied && !lowerLeftCornerCollied) {
             x -= distance;
@@ -96,8 +98,8 @@ public abstract class Character extends Entity
 
     public void moveRight(float distance)
     {
-        boolean upperRightCornerCollied = isCollied(Helper.getXOfTile(x + width + margin), Helper.getYOfTile(y));
-        boolean lowerRightCornerCollied = isCollied(Helper.getXOfTile(x + width + margin), Helper.getYOfTile(y + height));
+        boolean upperRightCornerCollied = isCollied(Helper.getXOfTile(x + width - padding + margin), Helper.getYOfTile(y + padding));
+        boolean lowerRightCornerCollied = isCollied(Helper.getXOfTile(x + width - padding + margin), Helper.getYOfTile(y + height - padding));
 
         if (!upperRightCornerCollied && !lowerRightCornerCollied) {
             x += distance;
