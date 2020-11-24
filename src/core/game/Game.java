@@ -8,6 +8,7 @@ import app.controller.StateController;
 
 import core.service.camera.CameraService;
 import core.service.keyboard.KeyService;
+import helper.Helper;
 import core.service.ServiceProvider;
 
 public class Game implements Runnable
@@ -155,7 +156,7 @@ public class Game implements Runnable
     public void run()
     {
         // Update times per seconds
-        int fps = 60;
+        int fps = Integer.parseInt(Helper.config("Game.fps"));
         double timePerTick = 1000000000/fps;
         double delta = 0;
         long now;
