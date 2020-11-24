@@ -17,11 +17,11 @@ public abstract class Character extends Entity
 
     protected float speed;
 
-    protected BufferedImage BImage;
+    protected BufferedImage[] BImage;
 
     protected int margin = 4;
 
-    public Character(GameController gameController, float x, float y, int width, int height, int health, int damage, float speed, BufferedImage BIimage)
+    public Character(GameController gameController, float x, float y, int width, int height, int health, int damage, float speed, BufferedImage[] BIimage)
     {
         super(x, y, width, height);
         this.BImage = BIimage;
