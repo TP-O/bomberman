@@ -1,14 +1,15 @@
 package core.asset;
 
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
 
 public class Animation
 {    
     private int speed, index;
     private long lastTime, timer;
-    private BufferedImage[] frames;
+    private ArrayList<BufferedImage> frames;
 
-    public Animation(int speed, BufferedImage[] frames)
+    public Animation(int speed, ArrayList<BufferedImage> frames)
     {
         this.speed = speed;
         this.frames = frames;
@@ -27,7 +28,7 @@ public class Animation
             index++;
             timer = 0;
 
-            if (index >= frames.length) {
+            if (index >= frames.size()) {
                 index = 0;
             }
         }
@@ -35,6 +36,6 @@ public class Animation
 
     public BufferedImage getCurrentFrame()
     {
-        return frames[index];
+        return frames.get(index);
     }
 }
