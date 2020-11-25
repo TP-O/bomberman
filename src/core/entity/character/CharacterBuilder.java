@@ -1,7 +1,7 @@
 package core.entity.character;
 
 import app.controller.GameController;
-import core.entity.character.player.Kid;
+import core.entity.character.player.*;
 import helper.Helper;
 
 public class CharacterBuilder
@@ -98,6 +98,9 @@ public class CharacterBuilder
     {
         if (type == "Kid") {
             return new Kid(gameController, x, y, width, height, health, damge, speed);
+        }
+        else if (type == "Monk") {
+            return new Monk(gameController, x, y, width, height, health, damge, speed);
         }
         else {
             throw new Error("Can not find type: " + type);

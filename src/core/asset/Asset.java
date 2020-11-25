@@ -8,11 +8,12 @@ import helper.Helper;
 public class Asset
 {
     public static BufferedImage rock, tree, grass, mushroom, cherry, maple;
-    public static SpriteSheet kid;
+    public static SpriteSheet kid, monk;
                                           
     public static void init()
     {
         kid = Helper.createSpriteSheet(Helper.loadImage("characters/characters01.png"));
+        monk = Helper.createSpriteSheet(Helper.loadImage("characters/characters02.png"));
         SpriteSheet obstacleSheet = Helper.createSpriteSheet(Helper.loadImage("obstacles/obstacle01.png"));
         
         initObstacle(obstacleSheet);
