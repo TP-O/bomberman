@@ -12,33 +12,22 @@ public abstract class Player extends Character
     
     public void tick()
     {
-        aniDown.tick(); 
-        aniUp.tick();
-        aniLeft.tick();
-        aniRight.tick();
-        aniStand.tick();
-        
-        xMove = 0;
-        yMove = 0;
+        super.tick();
 
         if (gameController.getKeyService().up.pressed) {
             moveUp(speed);
-            yMove = -speed;
         }
 
         if (gameController.getKeyService().down.pressed) {
             moveDown(speed);
-            yMove = speed;
         }
 
         if (gameController.getKeyService().left.pressed) {
             moveLeft(speed);
-            xMove = -speed;
         }
         
         if (gameController.getKeyService().right.pressed) {
             moveRight(speed);
-            xMove = speed;
         }
     }
 }

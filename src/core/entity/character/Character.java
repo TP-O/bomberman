@@ -1,7 +1,7 @@
 package core.entity.character;
 
 import app.controller.GameController;
-import core.asset.Animation;
+import core.game.Animation;
 import core.entity.Entity;
 import helper.Helper;
 
@@ -21,9 +21,9 @@ public abstract class Character extends Entity
 
     protected GameController gameController;
 
-    protected float xMove, yMove;
+    protected BufferedImage currentFrame;
 
-    protected Animation aniDown, aniUp, aniLeft, aniRight, aniStand;
+    protected Animation animationUp, animationDown, animationLeft, animationRight, animationStand;
 
     protected ArrayList<BufferedImage> up, down, left, right, stand;
 
@@ -36,11 +36,13 @@ public abstract class Character extends Entity
         this.gameController = gameController;
 
         loadCharacterImage();
-        aniUp = new Animation(500, up);
-        aniDown = new Animation(500, down);
-        aniLeft = new Animation(500, left);
-        aniRight = new Animation(500, right);
-        aniStand = new Animation(500, stand);
+
+        // Init animation
+        animationUp = new Animation(250, up);
+        animationDown = new Animation(250, down);
+        animationLeft = new Animation(250, left);
+        animationRight = new Animation(250, right);
+        animationStand = new Animation(250, stand);
     }
 
     public int getHealth()
@@ -80,6 +82,8 @@ public abstract class Character extends Entity
         if (!upperLeftCornerCollied && !upperRightCornerCollied) {
             y -= distance;
         }
+
+        currentFrame = animationUp.getCurrentFrame();
     }
 
     public void moveDown(float distance)
@@ -90,6 +94,8 @@ public abstract class Character extends Entity
         if (!lowerLeftCornerCollied && !lowerRightCornerCollied) {
             y += distance;
         }
+
+        currentFrame = animationDown.getCurrentFrame();
     }
 
     public void moveLeft(float distance)
@@ -100,6 +106,8 @@ public abstract class Character extends Entity
         if (!upperLeftCornerCollied && !lowerLeftCornerCollied) {
             x -= distance;
         }
+
+        currentFrame = animationLeft.getCurrentFrame();
     }
 
     public void moveRight(float distance)
@@ -110,36 +118,30 @@ public abstract class Character extends Entity
         if (!upperRightCornerCollied && !lowerRightCornerCollied) {
             x += distance;
         }
+
+        currentFrame = animationRight.getCurrentFrame();
+    }
+
+    public void tick()
+    {
+        // Update animation
+        animationUp.tick();
+        animationDown.tick(); 
+        animationLeft.tick();
+        animationRight.tick();
+        animationStand.tick();
+
+        currentFrame = animationStand.getCurrentFrame();
     }
 
     public void render(Graphics graphics)
     {
-        graphics.drawImage(getCurrentAnimationFrame(),
+        graphics.drawImage(currentFrame,
             (int) (x - gameController.getCameraService().getXOffset()),
             (int) (y - gameController.getCameraService().getYOffset()),
             width, height, null);
     }
 
-    private BufferedImage getCurrentAnimationFrame()
-    {
-        if (xMove < 0) {
-            return aniLeft.getCurrentFrame();
-        }
-        else if (xMove > 0) {
-            return aniRight.getCurrentFrame();
-        }
-        else if (yMove < 0) {
-            return aniUp.getCurrentFrame();
-        }
-        else if (yMove > 0) {
-            return aniDown.getCurrentFrame();
-        }
-        else {
-            return aniStand.getCurrentFrame();
-        }
-    }
-
-    abstract public void tick();
-
+    // Load character images
     abstract protected void loadCharacterImage();
 }

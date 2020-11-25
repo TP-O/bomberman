@@ -1,4 +1,4 @@
-package core.asset;
+package core.game;
 
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
@@ -11,10 +11,10 @@ public class Animation
 
     public Animation(int speed, ArrayList<BufferedImage> frames)
     {
+        index = 0;
+        timer = 0;
         this.speed = speed;
         this.frames = frames;
-        this.index = 0;
-        this.timer = 0;
         this.lastTime = System.currentTimeMillis();
     }
 
