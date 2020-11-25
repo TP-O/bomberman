@@ -24,7 +24,7 @@ public class GameState extends State
     {
         characterController.create(
             CharacterController.builder
-                .setType("Player")
+                .setType("Kid")
                 .setGame(gameController)
                 .setX(250)
                 .setY(250)
