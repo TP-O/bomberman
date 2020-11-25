@@ -22,13 +22,13 @@ public class CharacterBuilder
 
     public CharacterBuilder()
     {
-        this.x = Integer.parseInt(Helper.config("Character.X"));
-        this.y = Integer.parseInt(Helper.config("Character.Y"));
-        this.width = Integer.parseInt(Helper.config("Character.Width"));
-        this.height = Integer.parseInt(Helper.config("Character.Height"));
-        this.health = Integer.parseInt(Helper.config("Character.Health"));
-        this.damge  = Integer.parseInt(Helper.config("Character.Damage"));
-        this.speed = Float.parseFloat(Helper.config("Character.Speed"));
+        this.x = Helper.config("Character.X");
+        this.y = Helper.config("Character.Y");
+        this.width = Helper.config("Character.Width");
+        this.height = Helper.config("Character.Height");
+        this.health = Helper.config("Character.Health");
+        this.damge  = Helper.config("Character.Damage");
+        this.speed = Helper.config("Character.Speed");
     }
 
     public CharacterBuilder setType(String type)

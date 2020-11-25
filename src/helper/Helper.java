@@ -9,7 +9,7 @@ import helper.sheet.SpriteSheet;
 
 public class Helper
 {
-    public static String config(String name)
+    public static <T> T config(String name)
     {
         return Config.get(name);
     }

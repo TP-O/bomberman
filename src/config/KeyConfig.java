@@ -4,11 +4,11 @@ import java.awt.event.KeyEvent;
 
 public class KeyConfig
 {
-    public static String Up = String.valueOf(KeyEvent.VK_W);
+    public static int Up = KeyEvent.VK_W;
 
-    public static String Down = String.valueOf(KeyEvent.VK_S);
+    public static int Down = KeyEvent.VK_S;
 
-    public static String Left = String.valueOf(KeyEvent.VK_A);
+    public static int Left = KeyEvent.VK_A;
 
-    public static String Right = String.valueOf(KeyEvent.VK_D);
+    public static int Right = KeyEvent.VK_D;
 }

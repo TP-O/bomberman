@@ -156,7 +156,7 @@ public class Game implements Runnable
     public void run()
     {
         // Update times per seconds
-        int fps = Integer.parseInt(Helper.config("Game.fps"));
+        int fps = Helper.config("Game.FPS");
         double timePerTick = 1000000000/fps;
         double delta = 0;
         long now;

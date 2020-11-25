@@ -29,10 +29,10 @@ public class KeyService implements KeyListener, Service
         left = new Key();
         right = new Key();
 
-        keyUp = Integer.parseInt(Helper.config("Key.Up"));
-        keyDown = Integer.parseInt(Helper.config("Key.Down"));
-        keyLeft = Integer.parseInt(Helper.config("Key.Left"));
-        keyRight = Integer.parseInt(Helper.config("Key.Right"));
+        keyUp = Helper.config("Key.Up");
+        keyDown = Helper.config("Key.Down");
+        keyLeft = Helper.config("Key.Left");
+        keyRight = Helper.config("Key.Right");
     }
 
     public void keyPressed(KeyEvent event)

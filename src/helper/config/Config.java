@@ -18,12 +18,13 @@ public class Config
         return result;
     }
 
-    public static String get(String name)
+    @SuppressWarnings("all")
+    public static <T> T get(String name)
     {
         try {
             String[] result = Config.split(name);
             Class cls = Class.forName("config." + result[0] +"Config");
-            String val = (String) (cls.getField(result[1]).get(null));
+            T val = (T) (cls.getField(result[1]).get(null));
 
             return val;
         }
