@@ -7,6 +7,7 @@ import helper.Helper;
 import core.service.ServiceProvider;
 import core.service.camera.CameraService;
 import core.service.keyboard.KeyService;
+import core.service.mouse.MouseService;
 
 public class GameController
 {
@@ -55,6 +56,11 @@ public class GameController
         return game.provider.keyService;
     }
 
+    public MouseService getMouseService()
+    {
+        return game.provider.mouseService;
+    }
+
     public CameraService getCameraService()
     {
         return game.provider.cameraService;
@@ -98,7 +104,7 @@ public class GameController
 
         // Initialize state controller
         setStateController(new StateController(this));
-        getStateController().changeTo("GameState");
+        getStateController().changeTo("MenuState");
     }
 
     public void start()

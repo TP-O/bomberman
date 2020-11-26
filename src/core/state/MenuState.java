@@ -12,7 +12,7 @@ public class MenuState extends State
 
     public void tick()
     {
-        //
+        System.out.println(gameController.getMouseService().mouseX);
     }    
 
     public void render(Graphics graphics)
