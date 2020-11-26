@@ -14,19 +14,19 @@ public abstract class Player extends Character
     {
         super.tick();
 
-        if (gameController.getKeyService().up.pressed) {
+        if (gameController.getKeyService().up.isPressed()) {
             moveUp(speed);
         }
 
-        if (gameController.getKeyService().down.pressed) {
+        if (gameController.getKeyService().down.isPressed()) {
             moveDown(speed);
         }
 
-        if (gameController.getKeyService().left.pressed) {
+        if (gameController.getKeyService().left.isPressed()) {
             moveLeft(speed);
         }
         
-        if (gameController.getKeyService().right.pressed) {
+        if (gameController.getKeyService().right.isPressed()) {
             moveRight(speed);
         }
     }
