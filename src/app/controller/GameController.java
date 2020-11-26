@@ -22,62 +22,62 @@ public class GameController
 
     public int getWidth()
     {
-        return game.getWidth();
+        return game.width;
     }
 
     public int getHeight()
     {
-        return game.getHeight();
+        return game.height;
     }
 
     public Window getWindow()
     {
-        return game.getWindow();
+        return game.window;
     }
 
     public void setWindow(Window window)
     {
-        game.setWindow(window);
+        game.window = window;
     }
 
     public ServiceProvider getProvider()
     {
-        return game.getProvider();
+        return game.provider;
     }
 
     public void setProvider(ServiceProvider serviceProvider)
     {
-        game.setProvider(serviceProvider);
+        game.provider = serviceProvider;
     }
 
     public KeyService getKeyService()
     {
-        return game.getKeyService();
+        return game.provider.keyService;
     }
 
     public CameraService getCameraService()
     {
-        return game.getCameraService();
+        return game.provider.cameraService;
     }
 
     public StateController getStateController()
     {
-        return game.getStateController();
+        return game.stateController;
     }
 
     public void setStateController(StateController stateController)
     {
-        game.setStateController(stateController);
+        game.stateController = stateController;
     }
 
     public MapController getMapController()
     {
-        return game.getMapController();
+        return game.mapController;
     }
 
     public void setMapController(MapController mapController)
     {
-        game.setMapController(mapController);
+        game.mapController = mapController;
     }
 
     public void bootstrap()

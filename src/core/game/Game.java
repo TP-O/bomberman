@@ -6,99 +6,35 @@ import java.awt.Graphics;
 import app.controller.MapController;
 import app.controller.StateController;
 
-import core.service.camera.CameraService;
-import core.service.keyboard.KeyService;
 import helper.Helper;
 import core.service.ServiceProvider;
 
 public class Game implements Runnable
 {
-    private int width;
+    public int width;
 
-    private int height;
+    public int height;
 
     private boolean running = false;
 
-    private Window window;
+    public Window window;
 
     private BufferStrategy bs;
 
-    private Graphics graphics;
+    public Graphics graphics;
 
-    private Thread thread;
+    public Thread thread;
 
-    // State controller
-    private StateController stateController;
+    public ServiceProvider provider;
 
-    // Provider
-    private ServiceProvider provider;
+    public MapController mapController;
 
-    private MapController mapController;
+    public StateController stateController;
 
-    public Game(int inWidth, int inHeight)
+    public Game(int width, int height)
     {
-        width = inWidth;
-        height = inHeight;
-    }
-
-    public int getWidth()
-    {
-        return width;
-    }
-
-    public int getHeight()
-    {
-        return height;
-    }
-
-    public Window getWindow()
-    {
-        return window;
-    }
-
-    public void setWindow(Window window)
-    {
-        this.window = window;
-    }
-
-    public ServiceProvider getProvider()
-    {
-        return provider;
-    }
-
-    public void setProvider(ServiceProvider serviceProvider)
-    {
-        this.provider = serviceProvider;
-    }
-
-    public KeyService getKeyService()
-    {
-        return provider.keyService;
-    }
-
-    public CameraService getCameraService()
-    {
-        return provider.cameraService;
-    }
-
-    public StateController getStateController()
-    {
-        return stateController;
-    }
-
-    public void setStateController(StateController stateController)
-    {
-        this.stateController = stateController;
-    }
-
-    public MapController getMapController()
-    {
-        return mapController;
-    }
-
-    public void setMapController(MapController mapController)
-    {
-        this.mapController = mapController;
+        this.width = width;
+        this.height = height;
     }
 
     public synchronized void start()
