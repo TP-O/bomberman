@@ -1,7 +1,7 @@
 package core.entity.character;
 
 import app.controller.GameController;
-import core.game.Animation;
+import core.entity.Animation;
 import core.entity.Entity;
 import helper.Helper;
 

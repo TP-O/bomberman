@@ -1,4 +1,4 @@
-package core.game;
+package core.entity;
 
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
