@@ -26,7 +26,7 @@ public class StateController
         states = new HashMap<String, State>();
         states.put("GameState", new GameState(gameController, new CharacterController()));
         states.put("MenuState", new MenuState(gameController));
-        states.put("SettingState", new SettingState(gameController));
+        states.put("CharacterState", new CharacterState(gameController));
     }
 
     public void changeTo(String stateName)

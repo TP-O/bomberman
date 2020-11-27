@@ -9,11 +9,13 @@ public class Asset
 {
     public static BufferedImage rock, tree, grass, mushroom, cherry, maple;
     public static SpriteSheet kid, monk;
+    public static SpriteSheet ui;
                                           
     public static void init()
     {
         kid = Helper.createSpriteSheet(Helper.loadImage("characters/characters01.png"));
         monk = Helper.createSpriteSheet(Helper.loadImage("characters/characters02.png"));
+        ui = Helper.createSpriteSheet(Helper.loadImage("ui/ui02.jpg"));
         SpriteSheet obstacleSheet = Helper.createSpriteSheet(Helper.loadImage("obstacles/obstacle01.png"));
         
         initObstacle(obstacleSheet);
