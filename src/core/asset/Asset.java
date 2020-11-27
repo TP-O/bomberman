@@ -8,7 +8,9 @@ import helper.Helper;
 public class Asset
 {
     public static BufferedImage rock, tree, grass, mushroom, cherry, maple;
+    public static SpriteSheet kid, monk;
     public static SpriteSheet kid, monk, shadow, kirito, goku, satoshi;
+    public static SpriteSheet ui;
                                           
     public static void init()
     {
@@ -18,6 +20,7 @@ public class Asset
         kirito = Helper.createSpriteSheet(Helper.loadImage("characters/characters04.png"));
         goku = Helper.createSpriteSheet(Helper.loadImage("characters/characters05.png"));
         satoshi = Helper.createSpriteSheet(Helper.loadImage("characters/characters06.png"));
+        ui = Helper.createSpriteSheet(Helper.loadImage("ui/ui02.jpg"));
         SpriteSheet obstacleSheet = Helper.createSpriteSheet(Helper.loadImage("obstacles/obstacle01.png"));
         
         initObstacle(obstacleSheet);

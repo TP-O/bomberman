@@ -10,17 +10,27 @@ public class KeyService implements KeyListener, Service
 {
     public class Key
     {
-        public boolean pressed = false;
+        private boolean pressed;
+
+        public Key()
+        {
+            pressed = false;
+        }
 
         public void toggle(boolean isPressed)
         {
             pressed = isPressed;
         }
+
+        public boolean isPressed()
+        {
+            return pressed;
+        }
     }
 
     public Key up, down, left, right;
 
-    public int keyUp, keyDown, keyLeft, keyRight;
+    private int keyUp, keyDown, keyLeft, keyRight;
 
     public KeyService()
     {

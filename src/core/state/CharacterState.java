@@ -3,9 +3,9 @@ package core.state;
 import java.awt.Graphics;
 import app.controller.GameController;
 
-public class SettingState extends State
+public class CharacterState extends State
 {
-    public SettingState(GameController gameController)
+    public CharacterState(GameController gameController)
     {
         super(gameController);
     }
