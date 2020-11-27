@@ -8,9 +8,9 @@ import helper.Helper;
 public class Asset
 {
     public static BufferedImage rock, tree, grass, mushroom, cherry, maple;
-    public static SpriteSheet kid, monk;
     public static SpriteSheet kid, monk, shadow, kirito, goku, satoshi;
     public static SpriteSheet ui;
+
                                           
     public static void init()
     {
