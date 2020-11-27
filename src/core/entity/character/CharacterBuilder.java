@@ -102,6 +102,18 @@ public class CharacterBuilder
         else if (type == "Monk") {
             return new Monk(gameController, x, y, width, height, health, damge, speed);
         }
+        else if (type == "Shadow") {
+            return new Shadow(gameController, x, y, width, height, health, damge, speed);
+        } 
+        else if (type == "Kirito") {
+            return new Kirito(gameController, x, y, width, height, health, damge, speed);
+        }
+        else if (type == "Goku") {
+            return new Goku(gameController, x, y, width, height, health, damge, speed);      
+        }
+        else if (type == "Satoshi") {
+            return new Satoshi(gameController, x, y, width, height, health, damge, speed);     
+        }
         else {
             throw new Error("Can not find type: " + type);
         }

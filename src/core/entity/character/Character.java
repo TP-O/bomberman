@@ -40,11 +40,11 @@ public abstract class Character extends Entity
         loadCharacterImage();
 
         // Init animation
-        animationUp = new Animation(250, up);
-        animationDown = new Animation(250, down);
-        animationLeft = new Animation(250, left);
-        animationRight = new Animation(250, right);
-        animationStand = new Animation(250, stand);
+        animationUp = new Animation(200, up);
+        animationDown = new Animation(200, down);
+        animationLeft = new Animation(200, left);
+        animationRight = new Animation(200, right);
+        animationStand = new Animation(200, stand);
     }
 
     public int getHealth()

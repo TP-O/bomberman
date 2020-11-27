@@ -21,18 +21,26 @@ public class Kid extends Player
         right = new ArrayList<BufferedImage>();
         stand = new ArrayList<BufferedImage>();
 
-        down.add(Asset.kid.crop(250, 0, 190, 280));
-        down.add(Asset.kid.crop(500, 0, 190, 280));
-       
-        up.add(Asset.kid.crop(250, 300, 190, 280));
-        up.add(Asset.kid.crop(500, 300, 190, 280));
-      
-        left.add(Asset.kid.crop(250, 580, 190, 280));
-        left.add(Asset.kid.crop(510, 580, 190, 280));
+        up.add(Asset.kid.crop(252, 296, 177, 266));
+        up.add(Asset.kid.crop(10, 296, 187, 243));
+        up.add(Asset.kid.crop(527, 296, 177, 266));
+        up.add(Asset.kid.crop(10, 296, 187, 243));
         
-        right.add(Asset.kid.crop(280, 850, 190, 280));
-        right.add(Asset.kid.crop(525, 850, 190, 280));
+        down.add(Asset.kid.crop(252, 21, 177, 265));
+        down.add(Asset.kid.crop(11, 21, 187, 243));
+        down.add(Asset.kid.crop(505, 21, 177, 265));
+        down.add(Asset.kid.crop(11, 21, 187, 243));
+      
+        left.add(Asset.kid.crop(263, 580, 155, 256));
+        left.add(Asset.kid.crop(11, 580, 143, 245));
+        left.add(Asset.kid.crop(515, 580, 155, 256));
+        left.add(Asset.kid.crop(11, 580, 143, 245));
+        
+        right.add(Asset.kid.crop(284, 867, 155, 255));
+        right.add(Asset.kid.crop(42, 867, 145, 244));
+        right.add(Asset.kid.crop(525, 867, 155, 255));
+        right.add(Asset.kid.crop(42, 867, 145, 244));
 
-        stand.add(Asset.kid.crop(0, 0, 190, 280));
+        stand.add(Asset.kid.crop(11, 21, 187, 243));
     }
 }
