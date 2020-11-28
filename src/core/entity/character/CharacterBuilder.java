@@ -1,7 +1,7 @@
 package core.entity.character;
 
 import app.controller.GameController;
-import core.entity.character.MONSTER.cat;
+import core.entity.character.monster.*;
 import core.entity.character.player.*;
 import helper.Helper;
 
@@ -115,8 +115,8 @@ public class CharacterBuilder
         else if (type == "Satoshi") {
             return new Satoshi(gameController, x, y, width, height, health, damge, speed);     
         }
-        else if(type == "cat") {
-            return new cat(gameController, x, y, width, height, health, damge, speed);
+        else if(type == "Cat") {
+            return new Cat(gameController, x, y, width, height, health, damge, speed);
         }
         else {
             throw new Error("Can not find type: " + type);

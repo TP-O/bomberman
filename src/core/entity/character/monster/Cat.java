@@ -20,19 +20,18 @@ public class Cat extends Monster
         right = new ArrayList<BufferedImage>();
         stand = new ArrayList<BufferedImage>();
 
-        up.add(Asset.Cat.crop(19, 190, 116, 148));
-        up.add(Asset.Cat.crop(178, 192, 121, 149));
+        up.add(Asset.cat.crop(19, 190, 116, 148));
+        up.add(Asset.cat.crop(178, 192, 121, 149));
         
-        down.add(Asset.Cat.crop(19, 0, 118, 170));
-        down.add(Asset.Cat.crop(178, 5, 123, 168));
+        down.add(Asset.cat.crop(19, 0, 118, 170));
+        down.add(Asset.cat.crop(178, 5, 123, 168));
 
-        left.add(Asset.Cat.crop(16, 363, 142, 123));
-        left.add(Asset.Cat.crop(176, 369, 142, 120));
+        left.add(Asset.cat.crop(16, 363, 142, 123));
+        left.add(Asset.cat.crop(176, 369, 142, 120));
         
-        right.add(Asset.Cat.crop(0, 535, 146, 103));
-        right.add(Asset.Cat.crop(163, 526, 152, 113));
+        right.add(Asset.cat.crop(0, 535, 146, 103));
+        right.add(Asset.cat.crop(163, 526, 152, 113));
 
-        stand.add(Asset.Cat.crop(19, 0, 118, 170));
+        stand.add(Asset.cat.crop(19, 0, 118, 170));
     }
 }
-

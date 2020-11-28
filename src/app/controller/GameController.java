@@ -104,7 +104,7 @@ public class GameController
 
         // Initialize state controller
         setStateController(new StateController(this));
-        getStateController().changeTo("MenuState");
+        getStateController().changeTo("GameState");
     }
 
     public void start()
