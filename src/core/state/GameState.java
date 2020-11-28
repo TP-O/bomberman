@@ -74,7 +74,7 @@ public class GameState extends State
             CharacterController.builder
                 .setType("BlueBoss")
                 .setGame(gameController)
-                .setX(450)
+                .setX(350)
                 .setY(500)
                 .build());
         
@@ -90,7 +90,7 @@ public class GameState extends State
         characterController.getCharacters().get(3).tick();
         characterController.getCharacters().get(4).tick();
         characterController.getCharacters().get(5).tick();
-        characterController.getCharacters().get(5).tick();
+        characterController.getCharacters().get(6).tick();
 
         // make the camera record the player
         gameController.getCameraService().focusOn(characterController.getPlayer());
@@ -105,6 +105,6 @@ public class GameState extends State
         characterController.getCharacters().get(3).render(graphics);
         characterController.getCharacters().get(4).render(graphics);
         characterController.getCharacters().get(5).render(graphics);
-        characterController.getCharacters().get(5).render(graphics);
+        characterController.getCharacters().get(6).render(graphics);
     }
 }
