@@ -32,10 +32,50 @@ public class GameState extends State
         
         characterController.create(
             CharacterController.builder
-                .setType("Cat")
+                .setType("AlolanPersian")
                 .setGame(gameController)
                 .setX(500)
                 .setY(250)
+                .build());
+        
+        characterController.create(
+            CharacterController.builder
+                .setType("ShinyZygarde")
+                .setGame(gameController)
+                .setX(800)
+                .setY(250)
+                .build());
+
+        characterController.create(
+            CharacterController.builder
+                .setType("Scorbunny")
+                .setGame(gameController)
+                .setX(800)
+                .setY(300)
+                .build());
+        
+        characterController.create(
+            CharacterController.builder
+                .setType("Bulbasaur")
+                .setGame(gameController)
+                .setX(400)
+                .setY(300)
+                .build());
+        
+        characterController.create(
+            CharacterController.builder
+                .setType("RedBoss")
+                .setGame(gameController)
+                .setX(400)
+                .setY(500)
+                .build());
+
+        characterController.create(
+            CharacterController.builder
+                .setType("BlueBoss")
+                .setGame(gameController)
+                .setX(450)
+                .setY(500)
                 .build());
         
         mapController.load("map01");
@@ -46,6 +86,11 @@ public class GameState extends State
         mapController.getMap().tick();
         characterController.getPlayer().tick();
         characterController.getCharacters().get(1).tick();
+        characterController.getCharacters().get(2).tick();
+        characterController.getCharacters().get(3).tick();
+        characterController.getCharacters().get(4).tick();
+        characterController.getCharacters().get(5).tick();
+        characterController.getCharacters().get(5).tick();
 
         // make the camera record the player
         gameController.getCameraService().focusOn(characterController.getPlayer());
@@ -56,5 +101,10 @@ public class GameState extends State
         mapController.getMap().render(graphics);
         characterController.getPlayer().render(graphics);
         characterController.getCharacters().get(1).render(graphics);
+        characterController.getCharacters().get(2).render(graphics);
+        characterController.getCharacters().get(3).render(graphics);
+        characterController.getCharacters().get(4).render(graphics);
+        characterController.getCharacters().get(5).render(graphics);
+        characterController.getCharacters().get(5).render(graphics);
     }
 }

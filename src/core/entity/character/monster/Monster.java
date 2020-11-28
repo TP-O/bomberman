@@ -13,5 +13,6 @@ public abstract class Monster extends Character
     public void tick()
     {
         super.tick();
+        moveRight(1);
     }
 }
