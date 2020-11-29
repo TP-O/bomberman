@@ -38,4 +38,12 @@ public class Helper
     {
         return (int) y / Tile.HEIGHT;
     }
+
+    public static boolean inSquare(float x, float y, float qx, float qy, int width, int height)
+    {
+        return x >= qx
+            && x <= qx + width
+            && y >= qy
+            && y <= qy + height;
+    }
 }

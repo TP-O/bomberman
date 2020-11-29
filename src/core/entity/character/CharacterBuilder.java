@@ -1,6 +1,7 @@
 package core.entity.character;
 
 import app.controller.GameController;
+import core.entity.character.monster.*;
 import core.entity.character.player.*;
 import helper.Helper;
 
@@ -113,6 +114,24 @@ public class CharacterBuilder
         }
         else if (type == "Satoshi") {
             return new Satoshi(gameController, x, y, width, height, health, damge, speed);     
+        }
+        else if(type == "AlolanPersian") {
+            return new AlolanPersian(gameController, x, y, width, height, health, damge, speed);
+        }
+        else if(type == "ShinyZygarde") {
+            return new ShinyZygarde(gameController, x, y, width, height, health, damge, speed);
+        }
+        else if(type == "Scorbunny") {
+            return new Scorbunny(gameController, x, y, width, height, health, damge, speed);
+        }
+        else if(type == "Bulbasaur") {
+            return new Bulbasaur(gameController, x, y, width, height, health, damge, speed);
+        }
+        else if(type == "RedBoss") {
+            return new RedBoss(gameController, x, y, width, height, health, damge, speed);
+        }
+        else if(type == "BlueBoss") {
+            return new BlueBoss(gameController, x, y, width, height, health, damge, speed);
         }
         else {
             throw new Error("Can not find type: " + type);

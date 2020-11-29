@@ -21,6 +21,8 @@ public abstract class Character extends Entity
 
     protected int margin = 5;
 
+    protected boolean collied = false;
+
     protected GameController gameController;
 
     protected BufferedImage currentFrame;
@@ -67,6 +69,16 @@ public abstract class Character extends Entity
         this.speed = speed;
     }
 
+    public int getDamage()
+    {
+        return damage;
+    }
+
+    public void setDamage(int damage)
+    {
+        this.damage = damage;
+    }
+
     public boolean isCollied(int x, int y)
     {
         return gameController
@@ -83,6 +95,10 @@ public abstract class Character extends Entity
 
         if (!upperLeftCornerCollied && !upperRightCornerCollied) {
             y -= distance;
+            collied = false;
+        }
+        else {
+            collied = true;
         }
 
         currentFrame = animationUp.getCurrentFrame();
@@ -95,6 +111,10 @@ public abstract class Character extends Entity
 
         if (!lowerLeftCornerCollied && !lowerRightCornerCollied) {
             y += distance;
+            collied = false;
+        }
+        else {
+            collied = true;
         }
 
         currentFrame = animationDown.getCurrentFrame();
@@ -107,6 +127,10 @@ public abstract class Character extends Entity
 
         if (!upperLeftCornerCollied && !lowerLeftCornerCollied) {
             x -= distance;
+            collied = false;
+        }
+        else {
+            collied = true;
         }
 
         currentFrame = animationLeft.getCurrentFrame();
@@ -119,6 +143,10 @@ public abstract class Character extends Entity
 
         if (!upperRightCornerCollied && !lowerRightCornerCollied) {
             x += distance;
+            collied = false;
+        }
+        else {
+            collied = true;
         }
 
         currentFrame = animationRight.getCurrentFrame();

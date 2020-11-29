@@ -1,43 +1,45 @@
 package app.controller;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import core.entity.character.Character;
 import core.entity.character.CharacterBuilder;
 
 public class CharacterController
 {
-    private ArrayList<Character> characters;
+    private static Character player;
 
-    public static final int PLAYER_INDEX = 0;
+    private static ArrayList<Character> monsters = new ArrayList<Character>();
 
     public static CharacterBuilder builder = new CharacterBuilder();
 
-    public CharacterController()
+    public static Character getPlayer()
     {
-        this.characters = new ArrayList<Character>();
-    }
-
-    public ArrayList<Character> getCharacters()
-    {
-        return characters;
-    }
-
-    public Character getPlayer()
-    {
-        if (characters.get(0) == null) {
+        if (CharacterController.player == null) {
             throw new Error("Can not find Player");
         }
-        return characters.get(0);
+
+        return CharacterController.player;
     }
 
-    public void create(Character character)
+    public static void setPlayer(Character player)
     {
-        this.characters.add(character);
+        CharacterController.player = player;
     }
 
-    public void destroy(Character character)
+    public static ArrayList<Character> getMonsters()
     {
-        this.characters.remove(character);
+        return CharacterController.monsters;
+    }
+
+    public static void setMonsters(List<Character> monsters)
+    {
+        CharacterController.monsters.addAll(monsters);
+    }
+
+    public static void destroyMonster(Character monster)
+    {
+        CharacterController.monsters.remove(monster);
     }
 }
