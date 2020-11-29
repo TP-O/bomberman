@@ -8,43 +8,38 @@ import core.entity.character.CharacterBuilder;
 
 public class CharacterController
 {
-    private ArrayList<Character> characters;
+    private static Character player;
 
-    public static final int PLAYER_INDEX = 0;
+    private static ArrayList<Character> monsters = new ArrayList<Character>();
 
     public static CharacterBuilder builder = new CharacterBuilder();
 
-    public CharacterController()
+    public static Character getPlayer()
     {
-        characters = new ArrayList<Character>();
-    }
-
-    public ArrayList<Character> getCharacters()
-    {
-        return characters;
-    }
-
-    public Character getPlayer()
-    {
-        if (characters.get(PLAYER_INDEX) == null) {
+        if (CharacterController.player == null) {
             throw new Error("Can not find Player");
         }
 
-        return characters.get(PLAYER_INDEX);
+        return CharacterController.player;
     }
 
-    public void setPlayer(Character player)
+    public static void setPlayer(Character player)
     {
-        characters.add(PLAYER_INDEX, player);
+        CharacterController.player = player;
     }
 
-    public void create(List<Character> monsters)
+    public static ArrayList<Character> getMonsters()
     {
-        characters.addAll(monsters);
+        return CharacterController.monsters;
     }
 
-    public void destroy(Character character)
+    public static void setMonsters(List<Character> monsters)
     {
-        characters.remove(character);
+        CharacterController.monsters.addAll(monsters);
+    }
+
+    public static void destroyMonster(Character monster)
+    {
+        CharacterController.monsters.remove(monster);
     }
 }

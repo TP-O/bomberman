@@ -24,18 +24,6 @@ public abstract class Monster extends Character
         super(gameController, x, y, width, height, health, damage, speed);
         moveIndex = random.nextInt(Direction.values().length);
     }
-    
-    public void tick()
-    {
-        super.tick();
-        
-        if (collied) {
-            moveRandomly(true);
-        }
-        else {
-            moveRandomly(false);
-        }
-    }
 
     private void moveRandomly(boolean reset)
     {
@@ -58,6 +46,18 @@ public abstract class Monster extends Character
                 break;
             default:
                 break;
+        }
+    }
+
+    public void tick()
+    {
+        super.tick();
+        
+        if (collied) {
+            moveRandomly(true);
+        }
+        else {
+            moveRandomly(false);
         }
     }
 }

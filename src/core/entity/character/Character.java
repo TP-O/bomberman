@@ -69,6 +69,16 @@ public abstract class Character extends Entity
         this.speed = speed;
     }
 
+    public int getDamage()
+    {
+        return damage;
+    }
+
+    public void setDamage(int damage)
+    {
+        this.damage = damage;
+    }
+
     public boolean isCollied(int x, int y)
     {
         return gameController

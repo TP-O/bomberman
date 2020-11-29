@@ -12,29 +12,28 @@ public class GameState extends State
 {
     private MapController mapController;
 
-    private CharacterController characterController;
-
     public GameState(GameController gameController, CharacterController charactersController)
     {
         super(gameController);
         this.mapController = new MapController(gameController);
-        this.characterController = charactersController;        
         init();
     }
 
     public void tick()
     {
         mapController.getMap().tick();
-        characterController.getCharacters().forEach(character -> character.tick());
+        CharacterController.getPlayer().tick();
+        CharacterController.getMonsters().forEach(monster -> monster.tick());
 
         // make the camera record the player
-        gameController.getCameraService().focusOn(characterController.getPlayer());
+        gameController.getCameraService().focusOn(CharacterController.getPlayer());
     }
 
     public void render(Graphics graphics)
     {
         mapController.getMap().render(graphics);
-        characterController.getCharacters().forEach(character -> character.render(graphics));
+        CharacterController.getPlayer().render(graphics);
+        CharacterController.getMonsters().forEach(monster -> monster.render(graphics));
     }
 
     private void init()
@@ -51,9 +50,9 @@ public class GameState extends State
 
     private void initPlayer()
     {
-        characterController.setPlayer(
+        CharacterController.setPlayer(
             CharacterController.builder
-                .setType("Kirito")
+                .setType("Goku")
                 .setGame(gameController)
                 .setX(250)
                 .setY(250)
@@ -101,6 +100,6 @@ public class GameState extends State
                 .build(),
         };
 
-        characterController.create(Arrays.asList(monsters));
+        CharacterController.setMonsters(Arrays.asList(monsters));
     }
 }
