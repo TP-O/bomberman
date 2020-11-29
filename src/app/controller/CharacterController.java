@@ -1,6 +1,7 @@
 package app.controller;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import core.entity.character.Character;
 import core.entity.character.CharacterBuilder;
@@ -15,7 +16,7 @@ public class CharacterController
 
     public CharacterController()
     {
-        this.characters = new ArrayList<Character>();
+        characters = new ArrayList<Character>();
     }
 
     public ArrayList<Character> getCharacters()
@@ -25,19 +26,25 @@ public class CharacterController
 
     public Character getPlayer()
     {
-        if (characters.get(0) == null) {
+        if (characters.get(PLAYER_INDEX) == null) {
             throw new Error("Can not find Player");
         }
-        return characters.get(0);
+
+        return characters.get(PLAYER_INDEX);
     }
 
-    public void create(Character character)
+    public void setPlayer(Character player)
     {
-        this.characters.add(character);
+        characters.add(PLAYER_INDEX, player);
+    }
+
+    public void create(List<Character> monsters)
+    {
+        characters.addAll(monsters);
     }
 
     public void destroy(Character character)
     {
-        this.characters.remove(character);
+        characters.remove(character);
     }
 }
