@@ -7,6 +7,7 @@ public class Asset
 {
     public static SpriteSheet ui;
     public static SpriteSheet obstacle;
+    public static SpriteSheet explosion, bomb;
     public static SpriteSheet kid, monk, shadow, kirito, goku, satoshi;
     public static SpriteSheet alolanPersian, shinyZygarde, scorbunny, bulbasaur, redBoss, blueBoss;
                                           
@@ -33,5 +34,9 @@ public class Asset
         bulbasaur = Helper.createSpriteSheet(Helper.loadImage("characters/monsters04.png"));
         redBoss = Helper.createSpriteSheet(Helper.loadImage("characters/monsters05.png"));
         blueBoss = Helper.createSpriteSheet(Helper.loadImage("characters/monsters05.png"));
+
+        // Bomb sheets
+        explosion = Helper.createSpriteSheet(Helper.loadImage("bombs/explosion.png"));
+        bomb = Helper.createSpriteSheet(Helper.loadImage("bombs/bomb.png"));
     }
 }

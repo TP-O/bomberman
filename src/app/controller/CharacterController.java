@@ -11,6 +11,8 @@ import core.entity.character.player.Player;
 
 public class CharacterController
 {
+    public static ArrayList<Character> trash = new ArrayList<Character>();
+
     public Character getPlayer()
     {
         if (PlayerModel.get() == null) {
@@ -20,7 +22,7 @@ public class CharacterController
         return PlayerModel.get();
     }
 
-    public void setPlayer(Character player)
+    public void createPlayer(Character player)
     {
         PlayerModel.set((Player) player);
     }
@@ -32,7 +34,7 @@ public class CharacterController
     }
 
     @SuppressWarnings("unchecked")
-    public void setMonsters(List<? extends Character> monsters)
+    public void createMonsters(List<? extends Character> monsters)
     {
         MonsterModel.insert((List<Monster>) monsters);
     }

@@ -46,7 +46,7 @@ public class ViewController
                 .setY(250)
                 .build();
         
-        character.setPlayer(player);
+        character.createPlayer(player);
 
         // Create monster
         Character[] monsters = {
@@ -88,10 +88,17 @@ public class ViewController
                 .build(),
         };
 
-        character.setMonsters(Arrays.asList(monsters));
+        character.createMonsters(Arrays.asList(monsters));
+
+        // Create bombs
+        BombController bomb = new BombController();
+
+        // Create explosions
+        ExplosionController explosion = new ExplosionController();
 
         // Init view
-        View view = new GameView(game, map.getMap(), character.getPlayer(), character.getMonsters());
+        View view = new GameView(game, map.getMap(), character.getPlayer(),
+                character.getMonsters(), bomb.getBombs(), explosion.getExplosions());
 
         return view;
     }
