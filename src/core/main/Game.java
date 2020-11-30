@@ -1,11 +1,9 @@
-package core.game;
+package core.main;
 
 import java.awt.image.BufferStrategy;
 import java.awt.Graphics;
 
 import app.controller.MapController;
-import app.controller.StateController;
-
 import helper.Helper;
 import core.service.ServiceProvider;
 
@@ -27,9 +25,7 @@ public class Game implements Runnable
 
     public ServiceProvider provider;
 
-    public MapController mapController;
-
-    public StateController stateController;
+    public MapController map;
 
     public Game(int width, int height)
     {
@@ -63,7 +59,7 @@ public class Game implements Runnable
 
     public void tick()
     {
-        stateController.tick();
+        Router.tick();
     }
 
     public void render()
@@ -81,7 +77,7 @@ public class Game implements Runnable
         graphics.clearRect(0, 0, width, height);
 
         // Render image
-        stateController.render(graphics);
+        Router.render(graphics);
 
         bs.show();
         graphics.dispose();

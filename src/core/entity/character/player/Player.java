@@ -2,19 +2,19 @@ package core.entity.character.player;
 
 import core.entity.character.Character;
 import helper.Helper;
-import app.controller.CharacterController;
 import app.controller.GameController;
+import app.model.MonsterModel;
 
 public abstract class Player extends Character
 {
-    public Player(GameController gameController, float x, float y, int width, int height, int health, int damage, float speed)
+    public Player(GameController game, float x, float y, int width, int height, int health, int damage, float speed)
     {
-        super(gameController , x, y, width, height, health, damage, speed);
+        super(game , x, y, width, height, health, damage, speed);
     }
 
     private void detectAttack()
     {
-        CharacterController.getMonsters().forEach(monster -> {
+        MonsterModel.all().forEach(monster -> {
             boolean upperLeftCornerCollied = Helper.inSquare(x + padding, y + padding,
                     monster.getX(), monster.getY(), monster.getWidth(), monster.getHeight());
             boolean lowerLeftCornerCollied = Helper.inSquare(x + padding, y + height - padding,
@@ -41,19 +41,19 @@ public abstract class Player extends Character
 
         detectAttack();
 
-        if (gameController.getKeyService().up.isPressed()) {
+        if (game.getKeyService().up.isPressed()) {
             moveUp(speed);
         }
 
-        if (gameController.getKeyService().down.isPressed()) {
+        if (game.getKeyService().down.isPressed()) {
             moveDown(speed);
         }
 
-        if (gameController.getKeyService().left.isPressed()) {
+        if (game.getKeyService().left.isPressed()) {
             moveLeft(speed);
         }
         
-        if (gameController.getKeyService().right.isPressed()) {
+        if (game.getKeyService().right.isPressed()) {
             moveRight(speed);
         }
     }

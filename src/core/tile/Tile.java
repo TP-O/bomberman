@@ -9,22 +9,20 @@ public abstract class Tile
 
     protected BufferedImage BImage;
 
-    public static int totalTiles = 0;
-
     public static final int WIDTH = 64, HEIGHT = 64;
 
-    public Tile(BufferedImage BImage)
+    public Tile()
     {
-        totalTiles++;
-        this.solid = false;
-        this.BImage = BImage;
+        solid = false;
+
+        loadTileImage();
     }
     
-    public Tile(BufferedImage BImage, boolean solid)
+    public Tile(boolean solid)
     {
-        totalTiles++;
         this.solid = solid;
-        this.BImage = BImage;
+
+        loadTileImage();
     }
 
     public boolean isSolid()
@@ -32,13 +30,10 @@ public abstract class Tile
         return solid;
     }
 
-    public void tick()
-    {
-        //
-    }
-
     public void render(Graphics graphics, int x, int y)
     {
         graphics.drawImage(BImage, x, y, WIDTH, HEIGHT, null);
     }
+
+    protected abstract void loadTileImage();
 }

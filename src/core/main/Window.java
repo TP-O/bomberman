@@ -1,4 +1,4 @@
-package core.game;
+package core.main;
 
 import javax.swing.JFrame;
 import java.awt.Canvas;

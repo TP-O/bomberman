@@ -1,28 +1,29 @@
-package core.ui.button;
+package core.UI.button;
 
 import java.awt.Graphics;
 
 import app.controller.GameController;
 import core.asset.Asset;
+import core.main.Router;
 
 public class PlayButton extends Button
 {
 
-    public PlayButton(GameController gameController, boolean disable)
+    public PlayButton(GameController game, boolean disable)
     {
-        super(gameController, disable);
+        super(game, disable);
     }
 
-    public PlayButton(GameController gameController, int x, int y, int width, int height, boolean disable)
+    public PlayButton(GameController game, int x, int y, int width, int height, boolean disable)
     {
-        super(gameController, x, y, width, height, disable);
+        super(game, x, y, width, height, disable);
     }
 
     @Override
     protected void loadSize()
     {
-        x = gameController.getWidth()/2 - 166/2;
-        y = gameController.getHeight()/2 - 52/2 - 80;
+        x = game.getWidth()/2 - 166/2;
+        y = game.getHeight()/2 - 52/2 - 80;
         width = 166;
         height = 70;
     }
@@ -51,7 +52,7 @@ public class PlayButton extends Button
     @Override
     public void onClick()
     {
-        gameController.getStateController().changeTo("GameState");
+        Router.redirect("Game");
     }
 
     @Override

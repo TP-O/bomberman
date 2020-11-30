@@ -1,9 +1,11 @@
 package app.controller;
 
-import core.game.Game;
+import app.model.TileModel;
 import core.asset.Asset;
-import core.game.Window;
+import core.main.Game;
+import core.main.Window;
 import helper.Helper;
+import router.RouterRegistration;
 import core.service.ServiceProvider;
 import core.service.camera.CameraService;
 import core.service.keyboard.KeyService;
@@ -15,10 +17,13 @@ public class GameController
 
     private String name;
 
+    private RouterRegistration router;
+
     public GameController(int width, int height)
     {
-        this.name = Helper.config("App.Name");
-        this.game = new Game(width, height);
+        name = Helper.config("App.Name");
+        game = new Game(width, height);
+        router = new RouterRegistration(this);
     }
 
     public int getWidth()
@@ -66,30 +71,20 @@ public class GameController
         return game.provider.cameraService;
     }
 
-    public StateController getStateController()
+    public MapController getMap()
     {
-        return game.stateController;
+        return game.map;
     }
 
-    public void setStateController(StateController stateController)
+    public void setMap(MapController map)
     {
-        game.stateController = stateController;
-    }
-
-    public MapController getMapController()
-    {
-        return game.mapController;
-    }
-
-    public void setMapController(MapController mapController)
-    {
-        game.mapController = mapController;
+        game.map = map;
     }
 
     public void bootstrap()
     {
         // Initialize image, sound,...
-        Asset.init();
+        Asset.loadImage();
 
         // Display the window
         setWindow(new Window(name, getWidth(), getHeight()));
@@ -100,11 +95,10 @@ public class GameController
         getProvider().register();
 
         // Initialize tiles
-        TileController.init();
+        TileModel.loadData();
 
-        // Initialize state controller
-        setStateController(new StateController(this));
-        getStateController().changeTo("GameState");
+        // Register router
+        router.register();
     }
 
     public void start()

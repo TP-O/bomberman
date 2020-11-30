@@ -7,7 +7,7 @@ import core.tile.Tile;
 
 public class CameraService implements Service
 {
-    private GameController gameController;
+    private GameController game;
 
     private float xOffset, yOffset = 0.0f;
 
@@ -24,8 +24,8 @@ public class CameraService implements Service
     public void focusOn(Entity entity)
     {
         // Make the camera always follows the entity
-        xOffset = entity.getX() - gameController.getWidth() / 2 + entity.getWidth() / 2;
-        yOffset = entity.getY() - gameController.getHeight() / 2 + entity.getHeight() / 2;
+        xOffset = entity.getX() - game.getWidth() / 2 + entity.getWidth() / 2;
+        yOffset = entity.getY() - game.getHeight() / 2 + entity.getHeight() / 2;
 
         checkOffsets();
     }
@@ -35,20 +35,20 @@ public class CameraService implements Service
         if (xOffset < 0) {
             xOffset = 0;
         }
-        else if (xOffset + gameController.getWidth() > gameController.getMapController().getWidth()*Tile.WIDTH) {
-            xOffset = gameController.getMapController().getWidth()*Tile.WIDTH - gameController.getWidth();
+        else if (xOffset + game.getWidth() > game.getMap().getWidth()*Tile.WIDTH) {
+            xOffset = game.getMap().getWidth()*Tile.WIDTH - game.getWidth();
         }
 
         if (yOffset < 0) {
             yOffset = 0;
         }
-        else if (yOffset + gameController.getHeight() > gameController.getMapController().getHeight()*Tile.HEIGHT) {
-            yOffset = gameController.getMapController().getHeight()*Tile.HEIGHT - gameController.getHeight();
+        else if (yOffset + game.getHeight() > game.getMap().getHeight()*Tile.HEIGHT) {
+            yOffset = game.getMap().getHeight()*Tile.HEIGHT - game.getHeight();
         }
     }
 
-    public void register(GameController gameController)
+    public void register(GameController game)
     {
-        this.gameController = gameController;
+        this.game = game;
     }
 }

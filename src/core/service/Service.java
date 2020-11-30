@@ -4,5 +4,5 @@ import app.controller.GameController;
 
 public interface Service
 {
-    public void register(GameController gameController); 
+    public void register(GameController game); 
 }

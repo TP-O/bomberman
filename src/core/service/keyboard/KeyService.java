@@ -76,8 +76,8 @@ public class KeyService implements KeyListener, Service
         }
     }
 
-    public void register(GameController gameController)
+    public void register(GameController game)
     {
-        gameController.getWindow().getFrame().addKeyListener(this);
+        game.getWindow().getFrame().addKeyListener(this);
     }
 }

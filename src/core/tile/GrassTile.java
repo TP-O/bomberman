@@ -4,8 +4,8 @@ import core.asset.Asset;
 
 public class GrassTile extends Tile
 {
-    public GrassTile()
+    protected void loadTileImage()
     {
-        super(Asset.grass);
+        BImage = Asset.obstacle.crop(0, 0, 25, 25);
     }
 }

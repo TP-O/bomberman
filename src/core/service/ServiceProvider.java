@@ -7,7 +7,7 @@ import core.service.mouse.MouseService;
 
 public class ServiceProvider
 {
-    private GameController gameController;
+    private GameController game;
 
     public CameraService cameraService;
 
@@ -15,9 +15,9 @@ public class ServiceProvider
 
     public MouseService mouseService;
 
-    public ServiceProvider(GameController gameController)
+    public ServiceProvider(GameController game)
     {
-        this.gameController = gameController;
+        this.game = game;
     }
 
     public void register()
@@ -26,8 +26,8 @@ public class ServiceProvider
         cameraService = new CameraService();
         mouseService = new MouseService();
 
-        keyService.register(gameController);
-        cameraService.register(gameController);
-        mouseService.register(gameController);
+        keyService.register(game);
+        cameraService.register(game);
+        mouseService.register(game);
     }
 }

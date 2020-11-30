@@ -1,10 +1,10 @@
-package core.game;
+package core.main;
 
 import java.awt.Graphics;
 import helper.Helper;
 import core.tile.Tile;
 import app.controller.GameController;
-import app.controller.TileController;
+import app.model.TileModel;
 
 public class Map
 {
@@ -43,7 +43,7 @@ public class Map
 
         for (int x = xStart; x < xEnd; x++) {
             for (int y = yStart; y < yEnd; y++) {
-                TileController.tiles.get(tiles[x][y]).render(graphics,
+                TileModel.get(tiles[x][y]).render(graphics,
                     // The tiles move rely on camera's coordinates
                     (int) (x*Tile.WIDTH - gameController.getCameraService().getXOffset()),
                     (int) (y*Tile.HEIGHT - gameController.getCameraService().getYOffset()));
@@ -70,7 +70,7 @@ public class Map
     public Tile getTiles(int x, int y)
     {
         return x < 0 || y < 0 || x >= width || y >= height
-            ? TileController.tiles.get(0)
-            : TileController.tiles.get(tiles[x][y]);
+            ? TileModel.get(0)
+            : TileModel.get(tiles[x][y]);
     }
 }

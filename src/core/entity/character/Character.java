@@ -23,7 +23,7 @@ public abstract class Character extends Entity
 
     protected boolean collied = false;
 
-    protected GameController gameController;
+    protected GameController game;
 
     protected BufferedImage currentFrame;
 
@@ -31,13 +31,13 @@ public abstract class Character extends Entity
 
     protected ArrayList<BufferedImage> up, down, left, right, stand;
 
-    public Character(GameController gameController, float x, float y, int width, int height, int health, int damage, float speed)
+    public Character(GameController game, float x, float y, int width, int height, int health, int damage, float speed)
     {
         super(x, y, width, height);
         this.speed = speed;
         this.damage = damage;
         this.health = health;
-        this.gameController = gameController;
+        this.game = game;
 
         loadCharacterImage();
 
@@ -81,8 +81,8 @@ public abstract class Character extends Entity
 
     public boolean isCollied(int x, int y)
     {
-        return gameController
-            .getMapController()
+        return game
+            .getMap()
             .getMap()
             .getTiles(x, y)
             .isSolid();
@@ -175,8 +175,8 @@ public abstract class Character extends Entity
     public void render(Graphics graphics)
     {
         graphics.drawImage(currentFrame,
-            (int) (x - gameController.getCameraService().getXOffset()),
-            (int) (y - gameController.getCameraService().getYOffset()),
+            (int) (x - game.getCameraService().getXOffset()),
+            (int) (y - game.getCameraService().getYOffset()),
             width, height, null);
     }
 

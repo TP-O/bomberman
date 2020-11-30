@@ -1,15 +1,15 @@
 package app.controller;
 
-import core.game.Map;
+import core.main.Map;
 
 public class MapController
 {
     private Map map;
     
-    public MapController(GameController gameController)
+    public MapController(GameController game)
     {
-        this.map = new Map(gameController);
-        gameController.setMapController(this);
+        map = new Map(game);
+        game.setMap(this);
     }
 
     public int getWidth()

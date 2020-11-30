@@ -19,9 +19,9 @@ public abstract class Monster extends Character
 
     private static Random random = new Random();
 
-    public Monster(GameController gameController, float x, float y, int width, int height, int health, int damage, float speed)
+    public Monster(GameController game, float x, float y, int width, int height, int health, int damage, float speed)
     {
-        super(gameController, x, y, width, height, health, damage, speed);
+        super(game, x, y, width, height, health, damage, speed);
         moveIndex = random.nextInt(Direction.values().length);
     }
 

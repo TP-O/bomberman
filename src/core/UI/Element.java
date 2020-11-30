@@ -1,4 +1,4 @@
-package core.ui;
+package core.UI;
 
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
@@ -12,7 +12,7 @@ public abstract class Element
 
     protected int width, height;
 
-    protected GameController gameController;
+    protected GameController game;
 
     protected BufferedImage currentImage;
 
@@ -58,23 +58,23 @@ public abstract class Element
         return BImages;
     }
 
-    public Element(GameController gameController)
+    public Element(GameController game)
     {
-        this.gameController = gameController;
-        this.BImages = new ArrayList<BufferedImage>();
+        this.game = game;
+        BImages = new ArrayList<BufferedImage>();
 
         loadSize();
         loadUIImage();
     }
 
-    public Element(GameController gameController, int x, int y, int width, int height)
+    public Element(GameController game, int x, int y, int width, int height)
     {
         this.x = x;
         this.y = y;
         this.width = width;
         this.height = height;
-        this.gameController = gameController;
-        this.BImages = new ArrayList<BufferedImage>();
+        this.game = game;
+        BImages = new ArrayList<BufferedImage>();
 
         loadUIImage();
     }

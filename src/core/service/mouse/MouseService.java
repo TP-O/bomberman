@@ -96,11 +96,11 @@ public class MouseService implements Service, MouseListener, MouseMotionListener
         }
     }
 
-    public void register(GameController gameController)
+    public void register(GameController game)
     {
-        gameController.getWindow().getFrame().addMouseListener(this);
-        gameController.getWindow().getFrame().addMouseMotionListener(this);
-        gameController.getWindow().getCanvas().addMouseListener(this);
-        gameController.getWindow().getCanvas().addMouseMotionListener(this);
+        game.getWindow().getFrame().addMouseListener(this);
+        game.getWindow().getFrame().addMouseMotionListener(this);
+        game.getWindow().getCanvas().addMouseListener(this);
+        game.getWindow().getCanvas().addMouseMotionListener(this);
     }
 }

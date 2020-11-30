@@ -4,8 +4,8 @@ import core.asset.Asset;
 
 public class MushroomTile extends Tile
 {
-    public MushroomTile()
+    protected void loadTileImage()
     {
-        super(Asset.mushroom);
+        BImage = Asset.obstacle.crop(312, 15, 34, 33);
     }
 }

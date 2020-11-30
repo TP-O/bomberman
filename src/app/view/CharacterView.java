@@ -1,13 +1,13 @@
-package core.state;
+package app.view;
 
 import java.awt.Graphics;
 import app.controller.GameController;
 
-public class CharacterState extends State
+public class CharacterView extends View
 {
-    public CharacterState(GameController gameController)
+    public CharacterView(GameController game)
     {
-        super(gameController);
+        super(game);
     }
 
     public void tick()

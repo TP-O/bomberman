@@ -6,6 +6,11 @@ public class TreeTile extends Tile
 {
     public TreeTile()
     {
-        super(Asset.tree, true);
-    }    
+        super(true);
+    }
+
+    protected void loadTileImage()
+    {
+        BImage = Asset.obstacle.crop(9, 23, 56, 64);
+    }
 }
