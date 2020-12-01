@@ -5,6 +5,7 @@ import core.entity.Animation;
 import core.entity.Entity;
 import helper.Helper;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
@@ -178,6 +179,11 @@ public abstract class Character extends Entity
             (int) (x - game.getCameraService().getXOffset()),
             (int) (y - game.getCameraService().getYOffset()),
             width, height, null);
+ 
+        graphics.setColor(Color.BLACK);
+        graphics.drawRect((int) x - 1, (int) y - 21, width + 1, 11);   
+        graphics.setColor(Color.RED);
+        graphics.fillRect((int) x, (int) y - 20, width*(health / 100), 10);
     }
 
     // Load character images
