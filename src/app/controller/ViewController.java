@@ -5,6 +5,7 @@ import java.util.Arrays;
 
 import app.view.*;
 import core.UI.button.*;
+import core.UI.button.CharactersButtons.*;
 import core.entity.character.Character;
 import core.entity.character.CharacterBuilder;
 
@@ -21,12 +22,12 @@ public class ViewController
     {
         ArrayList<Button> buttons = new ArrayList<Button>();
         buttons.add(new PlayButton(game, false));
-        buttons.add(new CharacterSelectionButton(game, false));
         buttons.add(new QuitButton(game, false));
-
+      
         View view = new MenuView(game, buttons);
 
         return view;
+
     }
 
     public View game()
@@ -98,7 +99,17 @@ public class ViewController
 
     public View character()
     {
-        View view = new CharacterView(game);
+        ArrayList<Button> characterselects = new ArrayList<Button>();
+        characterselects.add(new KidSelection(game, false));
+        characterselects.add(new MonkSelection(game, false));
+        characterselects.add(new ShadowSelection(game, false));
+        characterselects.add(new KiritoSelection(game, false));
+        characterselects.add(new GokuSelection(game, false));
+        characterselects.add(new SatoshiSelection(game, false));
+        characterselects.add(new StartButton(game, false));
+        characterselects.add(new ReturnButton(game, false));
+
+        View view = new CharacterView(game, characterselects);
 
         return view;
     }

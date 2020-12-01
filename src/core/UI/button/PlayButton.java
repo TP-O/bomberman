@@ -22,17 +22,17 @@ public class PlayButton extends Button
     @Override
     protected void loadSize()
     {
-        x = game.getWidth()/2 - 166/2;
-        y = game.getHeight()/2 - 52/2 - 80;
-        width = 166;
-        height = 70;
+        x = game.getWidth()/2 - 148/2;
+        y = game.getHeight()/2 - 48/2 - 60;
+        width = 148;
+        height = 48;
     }
 
     @Override
     protected void loadUIImage()
     {
-        BImages.add(Asset.ui.crop(104, 2000, 528, 332));
-        BImages.add(Asset.ui.crop(1136, 1984, 528, 332));
+        BImages.add(Asset.ui01.crop(47, 108, 82, 24));
+        BImages.add(Asset.ui02.crop(80, 182, 133, 40));
 
         currentImage = BImages.get(0);
     }
@@ -52,7 +52,7 @@ public class PlayButton extends Button
     @Override
     public void onClick()
     {
-        Router.redirect("Game");
+        Router.redirect("Character");
     }
 
     @Override

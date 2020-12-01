@@ -1,19 +1,22 @@
-package core.UI.button;
+package core.UI.button.CharactersButtons;
 
-import java.awt.Graphics;
+import core.UI.button.Button;
 
 import app.controller.GameController;
+
 import core.asset.Asset;
+import core.main.Router;
+import java.awt.Graphics;
 
-public class QuitButton extends Button
+public class ReturnButton extends Button
 {
-
-    public QuitButton(GameController game, boolean disable)
+    
+    public ReturnButton(GameController game, boolean disable)
     {
         super(game, disable);
     }
 
-    public QuitButton(GameController game, int x, int y, int width, int height, boolean disable)
+    public ReturnButton(GameController game, int x, int y, int width, int height, boolean disable)
     {
         super(game, x, y, width, height, disable);
     }
@@ -21,17 +24,17 @@ public class QuitButton extends Button
     @Override
     protected void loadSize()
     {
-        x = game.getWidth()/2 - 158/2;
-        y = game.getHeight()/2 - 48/2;
-        width = 158;
-        height = 48;
+        x = game.getWidth()/2 - 148/2 - 635;
+        y = game.getHeight()/2 - 48/2 - 285;
+        width = 148;
+        height = 38;
     }
 
     @Override
     protected void loadUIImage()
     {
-        BImages.add(Asset.ui01.crop(145, 250, 82, 25));
-        BImages.add(Asset.ui02.crop(243, 416, 132, 41));
+        BImages.add(Asset.ui01.crop(47, 249, 81, 25));
+        BImages.add(Asset.ui02.crop(81, 417, 132, 40));
 
         currentImage = BImages.get(0);
     }
@@ -51,7 +54,7 @@ public class QuitButton extends Button
     @Override
     public void onClick()
     {
-        System.exit(0);
+        Router.redirect("Menu");
     }
 
     @Override
