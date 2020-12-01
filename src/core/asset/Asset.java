@@ -5,7 +5,7 @@ import helper.Helper;
 
 public class Asset
 {
-    public static SpriteSheet ui;
+    public static SpriteSheet ui01, ui02, ui03;
     public static SpriteSheet obstacle;
     public static SpriteSheet kid, monk, shadow, kirito, goku, satoshi;
     public static SpriteSheet alolanPersian, shinyZygarde, scorbunny, bulbasaur, redBoss, blueBoss;
@@ -16,7 +16,10 @@ public class Asset
         obstacle = Helper.createSpriteSheet(Helper.loadImage("obstacles/obstacle01.png"));
 
         // UI sheets
-        ui = Helper.createSpriteSheet(Helper.loadImage("ui/ui02.jpg"));
+        ui01 = Helper.createSpriteSheet(Helper.loadImage("ui/ui01.png"));
+        ui02 = Helper.createSpriteSheet(Helper.loadImage("ui/ui02.jpg"));
+        ui03 = Helper.createSpriteSheet(Helper.loadImage("ui/ui03.png")); 
+        
 
         // Player sheets
         kid = Helper.createSpriteSheet(Helper.loadImage("characters/characters01.png"));

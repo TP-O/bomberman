@@ -1,20 +1,20 @@
-package core.UI.button;
+package core.UI.button.CharactersButtons;
 
-import java.awt.Graphics;
+import core.UI.button.Button;
 
 import app.controller.GameController;
 import core.asset.Asset;
-import core.main.Router;
+import java.awt.Graphics;
 
-public class CharacterSelectionButton extends Button
+public class ShadowSelection extends Button
 {
-
-    public CharacterSelectionButton(GameController game, boolean disable)
+    
+    public ShadowSelection(GameController game, boolean disable)
     {
-        super(game, disable);
+        super(game,disable);
     }
 
-    public CharacterSelectionButton(GameController game, int x, int y, int width, int height, boolean disable)
+    public ShadowSelection(GameController game, int x, int y, int width, int height, boolean disable)
     {
         super(game, x, y, width, height, disable);
     }
@@ -22,17 +22,17 @@ public class CharacterSelectionButton extends Button
     @Override
     protected void loadSize()
     {
-        x = game.getWidth()/2 - 166/2;
-        y = game.getHeight()/2 - 52/2;
-        width = 166;
-        height = 70;
+        x = game.getWidth()/2 - 100/2 - 270;
+        y = game.getHeight()/2 - 48/2 + 80;
+        width = 100;
+        height = 100;
     }
 
     @Override
     protected void loadUIImage()
     {
-        BImages.add(Asset.ui.crop(80, 2496, 904, 332));
-        BImages.add(Asset.ui.crop(2408, 2488, 984, 332));
+        BImages.add(Asset.ui03.crop(6, 50, 38, 38));
+        BImages.add(Asset.ui03.crop(190, 50, 38, 38));
 
         currentImage = BImages.get(0);
     }
@@ -42,17 +42,18 @@ public class CharacterSelectionButton extends Button
     {
         currentImage = BImages.get(0);
     }
-
+        
     @Override
     public void onHover()
     {
         currentImage = BImages.get(1);
+        
     }
 
     @Override
     public void onClick()
     {
-        Router.redirect("Character");
+        currentImage = BImages.get(1);      
     }
 
     @Override

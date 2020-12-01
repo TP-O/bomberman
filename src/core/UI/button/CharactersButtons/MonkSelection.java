@@ -1,37 +1,38 @@
-package core.UI.button;
+package core.UI.button.CharactersButtons;
 
-import java.awt.Graphics;
+import core.UI.button.Button;
 
 import app.controller.GameController;
 import core.asset.Asset;
+import java.awt.Graphics;
 
-public class QuitButton extends Button
+public class MonkSelection extends Button
 {
-
-    public QuitButton(GameController game, boolean disable)
+    
+    public MonkSelection(GameController game, boolean disable)
     {
-        super(game, disable);
+        super(game,disable);
     }
 
-    public QuitButton(GameController game, int x, int y, int width, int height, boolean disable)
+    public MonkSelection(GameController game, int x, int y, int width, int height, boolean disable)
     {
         super(game, x, y, width, height, disable);
     }
-
+    
     @Override
     protected void loadSize()
     {
-        x = game.getWidth()/2 - 158/2;
-        y = game.getHeight()/2 - 48/2;
-        width = 158;
-        height = 48;
+        x = game.getWidth()/2 - 100/2 - 270;
+        y = game.getHeight()/2 - 48/2 - 80;
+        width = 100;
+        height = 100;
     }
 
     @Override
     protected void loadUIImage()
     {
-        BImages.add(Asset.ui01.crop(145, 250, 82, 25));
-        BImages.add(Asset.ui02.crop(243, 416, 132, 41));
+        BImages.add(Asset.ui03.crop(6, 50, 38, 38));
+        BImages.add(Asset.ui03.crop(190, 50, 38, 38));
 
         currentImage = BImages.get(0);
     }
@@ -41,7 +42,7 @@ public class QuitButton extends Button
     {
         currentImage = BImages.get(0);
     }
-
+            
     @Override
     public void onHover()
     {
@@ -51,12 +52,16 @@ public class QuitButton extends Button
     @Override
     public void onClick()
     {
-        System.exit(0);
+        currentImage = BImages.get(1);
     }
-
+ 
     @Override
     public void render(Graphics graphics)
     {
         graphics.drawImage(currentImage, x, y, width, height, null);
     }
 }
+
+
+
+

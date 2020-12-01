@@ -8,6 +8,8 @@ public abstract class Button extends Element
 
     protected boolean disable;
 
+    protected String type = "Kid";
+
     public Button(GameController game, boolean disable)
     {
         super(game);
@@ -23,6 +25,13 @@ public abstract class Button extends Element
     public boolean isDisable()
     {
         return disable;
+    }
+
+    public Button setType(String type)
+    {
+        this.type = type;
+
+        return this;
     }
 
     public void tick()
@@ -43,6 +52,8 @@ public abstract class Button extends Element
             waiting();
         }
     }
+
+    
 
     abstract public void waiting();
 
