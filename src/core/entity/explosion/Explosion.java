@@ -35,6 +35,11 @@ public abstract class Explosion extends Entity
         animation = new Animation(100, stand);
     }
 
+    public int getDamage()
+    {
+        return damage;
+    }
+
     public void tick()
     {
         long now = System.currentTimeMillis();

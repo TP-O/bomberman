@@ -40,7 +40,7 @@ public class ViewController
         CharacterController character = new CharacterController();
 
         // Create player
-        Character player = characterBuilder.setType("Goku")
+        Character player = characterBuilder.setType("Satoshi")
                 .setGame(game)
                 .setX(250)
                 .setY(250)
