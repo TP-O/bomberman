@@ -32,6 +32,8 @@ public abstract class Character extends Entity
 
     protected ArrayList<BufferedImage> up, down, left, right, stand;
 
+    protected static long attackedAt = System.currentTimeMillis();
+
     public Character(GameController game, float x, float y, int width, int height, int health, int damage, float speed)
     {
         super(x, y, width, height);
@@ -179,11 +181,12 @@ public abstract class Character extends Entity
             (int) (x - game.getCameraService().getXOffset()),
             (int) (y - game.getCameraService().getYOffset()),
             width, height, null);
- 
+        
+        // Display health status
         graphics.setColor(Color.BLACK);
         graphics.drawRect((int) x - 1, (int) y - 21, width + 1, 11);   
         graphics.setColor(Color.RED);
-        graphics.fillRect((int) x, (int) y - 20, width*(health / 100), 10);
+        graphics.fillRect((int) x, (int) y - 20, (int) (width*(health / 100.0)), 10);
     }
 
     // Load character images

@@ -29,8 +29,12 @@ public abstract class Player extends Character
                     || upperRightCornerCollied
                     || lowerRightCornerCollied
             ) {
-                health -= monster.getDamage();
-                System.out.print("Is attacked");    
+                long now = System.currentTimeMillis();
+
+                if (now - attackedAt >= 1000) {
+                    health -= monster.getDamage();
+                    attackedAt = now;
+                }
             }
         });
     }
