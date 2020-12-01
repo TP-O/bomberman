@@ -9,6 +9,7 @@ import java.util.ArrayList;
 
 import app.controller.BombController;
 import app.controller.ExplosionController;
+import app.controller.GameController;
 
 public abstract class Bomb extends Entity
 {
@@ -30,16 +31,30 @@ public abstract class Bomb extends Entity
 
     protected ExplosionController explosion;
 
-    public Bomb(float x, float y, int width, int height)
+    public Bomb(GameController game, float x, float y)
     {
-        super(x, y, width, height);
+        super(game, x, y, 0, 0);
 
+        loadSize();
         loadBombImage();
 
+        this.game = game;
         createdTime = System.currentTimeMillis();
         animation = new Animation(200, stand);
         explosion = new ExplosionController();
         bomb = new BombController();
+    }
+
+    protected float calculateExplosionX(int explosionWidth)
+    {
+        return x - width*((int) (explosionWidth / (2*width)));
+    }
+
+    protected float calculateExplosionY(int explosionHeight, boolean isCenter)
+    {
+        return isCenter
+                ? y - height*((int) (explosionHeight / (2*height)))
+                : y - height*2*((int) (explosionHeight / (2*height)));
     }
 
     public void tick()
@@ -60,10 +75,12 @@ public abstract class Bomb extends Entity
     public void render(Graphics graphics)
     {
         graphics.drawImage(currentFrame,
-                (int) (x - width/2),
-                (int) (y - height/2),
+                (int) (x - game.getCameraService().getXOffset()),
+                (int) (y - game.getCameraService().getYOffset()),
                 width, height, null);
     }
+
+    protected abstract void loadSize();
 
     protected abstract void loadBombImage();
 

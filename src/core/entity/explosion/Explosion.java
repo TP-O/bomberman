@@ -8,6 +8,7 @@ import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
 import app.controller.ExplosionController;
+import app.controller.GameController;
 
 public abstract class Explosion extends Entity
 {
@@ -23,16 +24,17 @@ public abstract class Explosion extends Entity
 
     protected BufferedImage currentFrame;
 
-    public Explosion(float x, float y, int width, int height, int timer, int damage)
+    public Explosion(GameController game, float x, float y, int width, int height, int timer, int damage)
     {
-        super(x, y, width, height);
+        super(game, x, y, width, height);
 
         loadExplosionImage();
         
+        this.game = game;
         this.timer = timer;
         this.damage = damage;
         createdTime = System.currentTimeMillis();
-        animation = new Animation(100, stand);
+        animation = new Animation(50, stand);
     }
 
     public int getDamage()
@@ -56,7 +58,12 @@ public abstract class Explosion extends Entity
 
     public void render(Graphics graphics)
     {
-        graphics.drawImage(currentFrame, (int) x, (int) y, width, height, null);
+        graphics.drawImage(currentFrame, (int) (x - game.getCameraService().getXOffset()),
+                (int) (y - game.getCameraService().getYOffset()), width, height, null);
+
+        
+        graphics.drawRect((int) (x - game.getCameraService().getXOffset()),
+                (int) (y - game.getCameraService().getYOffset()), width, height);
     }
 
     // Load bomb images

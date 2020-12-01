@@ -23,8 +23,6 @@ public abstract class Character extends Entity
 
     protected boolean collied = false;
 
-    protected GameController game;
-
     protected BufferedImage currentFrame;
 
     protected Animation animationUp, animationDown, animationLeft, animationRight, animationStand;
@@ -33,7 +31,7 @@ public abstract class Character extends Entity
 
     public Character(GameController game, float x, float y, int width, int height, int health, int damage, float speed)
     {
-        super(x, y, width, height);
+        super(game, x, y, width, height);
         this.speed = speed;
         this.damage = damage;
         this.health = health;
@@ -178,6 +176,10 @@ public abstract class Character extends Entity
             (int) (x - game.getCameraService().getXOffset()),
             (int) (y - game.getCameraService().getYOffset()),
             width, height, null);
+
+        graphics.drawRect((int) (x - game.getCameraService().getXOffset()),
+            (int) (y - game.getCameraService().getYOffset()),
+            width, height);
     }
 
     // Load character images
