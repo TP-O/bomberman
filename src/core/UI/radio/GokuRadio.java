@@ -1,4 +1,4 @@
-package core.UI.button.CharactersButtons;
+package core.UI.radio;
 
 import java.awt.Graphics;
 
@@ -8,17 +8,11 @@ import core.asset.Asset;
 
 import core.UI.button.Button;
 
-public class GokuSelection extends Button
+public class GokuRadio extends Button
 {
-    
-    public GokuSelection(GameController game, boolean disable)
+    public GokuRadio(GameController game, float positionX, float positionY, int xx, int yy)
     {
-        super(game,disable);
-    }
-
-    public GokuSelection(GameController game, int x, int y, int width, int height, boolean disable)
-    {
-        super(game, x, y, width, height, disable);
+        super(game, positionX, positionY, xx, yy);
     }
     
     @Override
@@ -33,28 +27,28 @@ public class GokuSelection extends Button
     @Override
     protected void loadUIImage()
     {
-        BImages.add(Asset.ui03.crop(6, 50, 38, 38));
-        BImages.add(Asset.ui03.crop(190, 50, 38, 38));
+        images.add(Asset.ui03.crop(6, 50, 38, 38));
+        images.add(Asset.ui03.crop(190, 50, 38, 38));
 
-        currentImage = BImages.get(0);
+        currentImage = images.get(0);
     }
 
     @Override
-    public void waiting()
+    public void onWait()
     {
-        currentImage = BImages.get(0);
+        currentImage = images.get(0);
     }
 
     @Override
     public void onHover()
     {
-        currentImage = BImages.get(1);
+        currentImage = images.get(1);
     }
 
     @Override
     public void onClick()
     {
-        currentImage = BImages.get(1);
+        currentImage = images.get(1);
     }
         
     @Override
@@ -63,7 +57,3 @@ public class GokuSelection extends Button
         graphics.drawImage(currentImage, x, y, width, height, null);
     }
 }
-
-
-
-

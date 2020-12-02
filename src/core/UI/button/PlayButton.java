@@ -8,22 +8,14 @@ import core.main.Router;
 
 public class PlayButton extends Button
 {
-
-    public PlayButton(GameController game, boolean disable)
+    public PlayButton(GameController game, float positionX, float positionY, int xx, int yy)
     {
-        super(game, disable);
-    }
-
-    public PlayButton(GameController game, int x, int y, int width, int height, boolean disable)
-    {
-        super(game, x, y, width, height, disable);
+        super(game, positionX, positionY, xx, yy);
     }
 
     @Override
     protected void loadSize()
     {
-        x = game.getWidth()/2 - 148/2;
-        y = game.getHeight()/2 - 48/2 - 60;
         width = 148;
         height = 48;
     }
@@ -31,22 +23,22 @@ public class PlayButton extends Button
     @Override
     protected void loadUIImage()
     {
-        BImages.add(Asset.ui01.crop(47, 108, 82, 24));
-        BImages.add(Asset.ui02.crop(80, 182, 133, 40));
+        images.add(Asset.ui01.crop(47, 108, 82, 24));
+        images.add(Asset.ui02.crop(80, 182, 133, 40));
 
-        currentImage = BImages.get(0);
+        currentImage = images.get(0);
     }
 
     @Override
-    public void waiting()
+    public void onWait()
     {
-        currentImage = BImages.get(0);
+        currentImage = images.get(0);
     }
 
     @Override
     public void onHover()
     {
-        currentImage = BImages.get(1);
+        currentImage = images.get(1);
     }
 
     @Override

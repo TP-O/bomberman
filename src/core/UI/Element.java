@@ -16,7 +16,23 @@ public abstract class Element
 
     protected BufferedImage currentImage;
 
-    protected ArrayList<BufferedImage> BImages;
+    protected ArrayList<BufferedImage> images;
+
+    protected boolean disable = false;
+
+    protected boolean clicked = false;
+
+    public Element(GameController game, float positionX, float positionY, int xx, int yy)
+    {
+        loadSize();
+
+        this.x = (int) (game.getWidth()*positionX - width/2 + xx);
+        this.y = (int) (game.getHeight()*positionY - height/2 + yy);
+        this.game = game;
+        images = new ArrayList<BufferedImage>();
+
+        loadUIImage();
+    }
 
     public int getX()
     {
@@ -53,37 +69,53 @@ public abstract class Element
         this.height = height;
     }
 
-    public ArrayList<BufferedImage> getBImages()
+    public ArrayList<BufferedImage> getImages()
     {
-        return BImages;
+        return images;
     }
 
-    public Element(GameController game)
+    public boolean isDisable()
     {
-        this.game = game;
-        BImages = new ArrayList<BufferedImage>();
-
-        loadSize();
-        loadUIImage();
+        return disable;
     }
 
-    public Element(GameController game, int x, int y, int width, int height)
+    public boolean isClicked()
     {
-        this.x = x;
-        this.y = y;
-        this.width = width;
-        this.height = height;
-        this.game = game;
-        BImages = new ArrayList<BufferedImage>();
-
-        loadUIImage();
+        return clicked;
     }
+
+    protected boolean isHovering()
+    {
+        return game.getMouseService().mouseX > x
+                && game.getMouseService().mouseX < x + width
+                && game.getMouseService().mouseY > y
+                && game.getMouseService().mouseY < y + height
+                && !disable;
+    }
+
+    public void tick()
+    {
+        if (isHovering()) {
+            onHover();
+
+            if (game.getMouseService().left.isPressed()) {
+                onClick();
+            }
+        }
+        else {
+            onWait();
+        }
+    }
+
+    abstract public void onWait();
+
+    abstract public void onHover();
+
+    abstract public void onClick();
 
     abstract protected void loadSize();
 
     abstract protected void loadUIImage();
-
-    abstract public void tick();
 
     abstract public void render(Graphics graphics);
 }

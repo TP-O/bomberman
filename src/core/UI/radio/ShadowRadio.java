@@ -1,4 +1,4 @@
-package core.UI.button.CharactersButtons;
+package core.UI.radio;
 
 import core.UI.button.Button;
 
@@ -6,17 +6,11 @@ import app.controller.GameController;
 import core.asset.Asset;
 import java.awt.Graphics;
 
-public class ShadowSelection extends Button
+public class ShadowRadio extends Button
 {
-    
-    public ShadowSelection(GameController game, boolean disable)
+    public ShadowRadio(GameController game, float positionX, float positionY, int xx, int yy)
     {
-        super(game,disable);
-    }
-
-    public ShadowSelection(GameController game, int x, int y, int width, int height, boolean disable)
-    {
-        super(game, x, y, width, height, disable);
+        super(game, positionX, positionY, xx, yy);
     }
 
     @Override
@@ -31,29 +25,29 @@ public class ShadowSelection extends Button
     @Override
     protected void loadUIImage()
     {
-        BImages.add(Asset.ui03.crop(6, 50, 38, 38));
-        BImages.add(Asset.ui03.crop(190, 50, 38, 38));
+        images.add(Asset.ui03.crop(6, 50, 38, 38));
+        images.add(Asset.ui03.crop(190, 50, 38, 38));
 
-        currentImage = BImages.get(0);
+        currentImage = images.get(0);
     }
 
     @Override
-    public void waiting()
+    public void onWait()
     {
-        currentImage = BImages.get(0);
+        currentImage = images.get(0);
     }
         
     @Override
     public void onHover()
     {
-        currentImage = BImages.get(1);
+        currentImage = images.get(1);
         
     }
 
     @Override
     public void onClick()
     {
-        currentImage = BImages.get(1);      
+        currentImage = images.get(1);      
     }
 
     @Override

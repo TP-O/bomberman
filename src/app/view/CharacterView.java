@@ -9,7 +9,6 @@ import core.UI.button.Button;
 public class CharacterView extends View
 {
     private ArrayList<Button> characterselects;
-    
 
     public CharacterView(GameController game, ArrayList<Button> characterselects)
     {

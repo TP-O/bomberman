@@ -1,13 +1,15 @@
 package core.UI.button;
 
+import app.controller.GameController;
+
+import core.asset.Asset;
+import core.main.Router;
+
 import java.awt.Graphics;
 
-import app.controller.GameController;
-import core.asset.Asset;
-
-public class QuitButton extends Button
+public class StartButton extends Button
 {
-    public QuitButton(GameController game, float positionX, float positionY, int xx, int yy)
+    public StartButton(GameController game, float positionX, float positionY, int xx, int yy)
     {
         super(game, positionX, positionY, xx, yy);
     }
@@ -22,8 +24,8 @@ public class QuitButton extends Button
     @Override
     protected void loadUIImage()
     {
-        images.add(Asset.ui01.crop(145, 250, 82, 25));
-        images.add(Asset.ui02.crop(243, 416, 132, 41));
+        images.add(Asset.ui01.crop(48, 73, 80, 25));
+        images.add(Asset.ui02.crop(80, 123, 132, 39));
 
         currentImage = images.get(0);
     }
@@ -43,7 +45,7 @@ public class QuitButton extends Button
     @Override
     public void onClick()
     {
-        System.exit(0);
+        Router.redirect("Game");
     }
 
     @Override
