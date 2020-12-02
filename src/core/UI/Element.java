@@ -107,11 +107,11 @@ public abstract class Element
         }
     }
 
-    abstract public void onWait();
+    abstract protected void onWait();
 
-    abstract public void onHover();
+    abstract protected void onHover();
 
-    abstract public void onClick();
+    abstract protected void onClick();
 
     abstract protected void loadSize();
 

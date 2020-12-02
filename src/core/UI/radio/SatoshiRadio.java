@@ -1,12 +1,11 @@
 package core.UI.radio;
 
-import core.UI.button.Button;
 import app.controller.GameController;
 import core.asset.Asset;
 
 import java.awt.Graphics;
 
-public class SatoshiRadio extends Button
+public class SatoshiRadio extends Radio
 {
     public SatoshiRadio(GameController game, float positionX, float positionY, int xx, int yy)
     {
@@ -16,8 +15,6 @@ public class SatoshiRadio extends Button
     @Override
     protected void loadSize()
     {    
-        x = game.getWidth()/2 - 100/2 + 210;
-        y = game.getHeight()/2 - 48/2 + 80;
         width = 100;
         height = 100;
     }
@@ -46,6 +43,7 @@ public class SatoshiRadio extends Button
     @Override
     public void onClick()
     {
+        super.onClick();
         currentImage = images.get(1);
     }
         

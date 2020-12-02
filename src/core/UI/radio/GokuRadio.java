@@ -5,10 +5,7 @@ import java.awt.Graphics;
 import app.controller.GameController;
 import core.asset.Asset;
 
-
-import core.UI.button.Button;
-
-public class GokuRadio extends Button
+public class GokuRadio extends Radio
 {
     public GokuRadio(GameController game, float positionX, float positionY, int xx, int yy)
     {
@@ -18,8 +15,6 @@ public class GokuRadio extends Button
     @Override
     protected void loadSize()
     {
-        x = game.getWidth()/2 - 100/2 + 50;
-        y = game.getHeight()/2 - 48/2 + 80;
         width = 100;
         height = 100;
     }
@@ -48,6 +43,7 @@ public class GokuRadio extends Button
     @Override
     public void onClick()
     {
+        super.onClick();
         currentImage = images.get(1);
     }
         

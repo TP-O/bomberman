@@ -5,8 +5,30 @@ import core.UI.Element;
 
 public abstract class Radio extends Element
 {
+    protected int id;
+
+    protected static int total = 0;
+
+    protected static int clickedId = -1;
+
     public Radio(GameController game, float positionX, float positionY, int xx, int yy)
     {
         super(game, positionX, positionY, xx, yy);
+        id = total++;
+    }
+
+    protected void onClick()
+    {
+        clickedId = id;
+    }
+
+    public void tick()
+    {
+        if (clickedId != -1 && clickedId == id) {
+            onClick();
+        }
+        else {
+            super.tick();
+        }
     }
 }

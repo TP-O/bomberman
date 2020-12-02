@@ -1,12 +1,10 @@
 package core.UI.radio;
 
-import core.UI.button.Button;
-
 import app.controller.GameController;
 import core.asset.Asset;
 import java.awt.Graphics;
 
-public class KiritoRadio extends Button
+public class KiritoRadio extends Radio
 {
     public KiritoRadio(GameController game, float positionX, float positionY, int xx, int yy)
     {
@@ -16,8 +14,6 @@ public class KiritoRadio extends Button
     @Override
     protected void loadSize()
     {
-        x = game.getWidth()/2 - 100/2 - 110;
-        y = game.getHeight()/2 - 48/2 + 80;
         width = 100;
         height = 100;
     }
@@ -48,6 +44,7 @@ public class KiritoRadio extends Button
     @Override
     public void onClick()
     {
+        super.onClick();
         currentImage = images.get(1);
     }
         

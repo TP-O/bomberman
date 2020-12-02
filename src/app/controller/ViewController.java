@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 import app.view.*;
+import core.UI.Element;
 import core.UI.button.*;
+import core.UI.radio.*;
 import core.entity.character.Character;
 import core.entity.character.CharacterBuilder;
 
@@ -97,17 +99,21 @@ public class ViewController
 
     public View character()
     {
-        ArrayList<Button> characterselects = new ArrayList<Button>();
-        characterselects.add(new KidSelection(game, false));
-        characterselects.add(new MonkSelection(game, false));
-        characterselects.add(new ShadowSelection(game, false));
-        characterselects.add(new KiritoSelection(game, false));
-        characterselects.add(new GokuSelection(game, false));
-        characterselects.add(new SatoshiSelection(game, false));
-        characterselects.add(new StartButton(game, false));
-        characterselects.add(new ReturnButton(game, false));
+        ArrayList<Element> elements = new ArrayList<Element>();
 
-        View view = new CharacterView(game, characterselects);
+        // Add buttons
+        elements.add(new StartButton(game, 0.5f, 0.5f, 0, 230));
+        elements.add(new ReturnButton(game, 0.5f, 0.5f, -635, -285));
+
+        // Add radios
+        elements.add(new KidRadio(game, 0.5f, 0.5f, -270, -240));
+        elements.add(new MonkRadio(game, 0.5f, 0.5f, -270, -80));
+        elements.add(new ShadowRadio(game, 0.5f, 0.5f, -270, 80));
+        elements.add(new KiritoRadio(game, 0.5f, 0.5f, -110, 80));
+        elements.add(new GokuRadio(game, 0.5f, 0.5f, 50, 80));
+        elements.add(new SatoshiRadio(game, 0.5f, 0.5f, 210, 80));
+
+        View view = new CharacterView(game, elements);
 
         return view;
     }

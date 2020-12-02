@@ -4,27 +4,27 @@ import java.awt.Graphics;
 import java.util.ArrayList;
 
 import app.controller.GameController;
-import core.UI.button.Button;
+import core.UI.Element;
 
 public class CharacterView extends View
 {
-    private ArrayList<Button> characterselects;
+    private ArrayList<Element> elements;
 
-    public CharacterView(GameController game, ArrayList<Button> characterselects)
+    public CharacterView(GameController game, ArrayList<Element> elements)
     {
         super(game);
-        this.characterselects = characterselects;
+        this.elements = elements;
     }
 
     public void tick()
     {
-        characterselects.forEach(button -> button.tick());
+        elements.forEach(button -> button.tick());
 
     }    
 
     public void render(Graphics graphics)
     {
-        characterselects.forEach(button -> button.render(graphics));
+        elements.forEach(button -> button.render(graphics));
         
     }
 }

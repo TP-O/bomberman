@@ -1,12 +1,10 @@
 package core.UI.radio;
 
-import core.UI.button.Button;
-
 import app.controller.GameController;
 import core.asset.Asset;
 import java.awt.Graphics;
 
-public class ShadowRadio extends Button
+public class ShadowRadio extends Radio
 {
     public ShadowRadio(GameController game, float positionX, float positionY, int xx, int yy)
     {
@@ -16,8 +14,6 @@ public class ShadowRadio extends Button
     @Override
     protected void loadSize()
     {
-        x = game.getWidth()/2 - 100/2 - 270;
-        y = game.getHeight()/2 - 48/2 + 80;
         width = 100;
         height = 100;
     }
@@ -41,12 +37,12 @@ public class ShadowRadio extends Button
     public void onHover()
     {
         currentImage = images.get(1);
-        
     }
 
     @Override
     public void onClick()
     {
+        super.onClick();
         currentImage = images.get(1);      
     }
 
