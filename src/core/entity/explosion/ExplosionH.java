@@ -9,9 +9,9 @@ import java.awt.image.BufferedImage;
 
 public class ExplosionH extends Explosion
 {
-    public ExplosionH(GameController game, float x, float y, int width, int height, int timer, int damage)
+    public ExplosionH(GameController game, float x, float y, int width, int height)
     {
-        super(game, x, y, width, height, timer, damage);
+        super(game, x, y, width, height);
     }
 
     @Override

@@ -13,19 +13,15 @@ import app.controller.GameController;
 
 public abstract class Bomb extends Entity
 {
-    protected int timer;
-
-    protected int range;
-
-    protected int damage;
+    protected int timer = 1000;
 
     protected long createdTime;
 
     protected Animation animation;
 
-    protected BufferedImage currentFrame;
+    protected BufferedImage currentImage;
 
-    protected ArrayList<BufferedImage> stand;
+    protected ArrayList<BufferedImage> images;
 
     protected BombController bomb;
 
@@ -33,28 +29,36 @@ public abstract class Bomb extends Entity
 
     public Bomb(GameController game, float x, float y)
     {
-        super(game, x, y, 0, 0);
+        super(game, x, y, 32, 32);
 
-        loadSize();
         loadBombImage();
 
         this.game = game;
-        createdTime = System.currentTimeMillis();
-        animation = new Animation(200, stand);
-        explosion = new ExplosionController();
+        this.x -= width / 2;
         bomb = new BombController();
+        explosion = new ExplosionController();
+        animation = new Animation(200, images);
+        createdTime = System.currentTimeMillis();
     }
 
-    protected float calculateExplosionX(int explosionWidth)
+    public int getTimer() {
+        return this.timer;
+    }
+
+    public void setTimer(int timer) {
+        this.timer = timer;
+    }
+
+    protected float calculateXOfExplosion(int explosionWidth)
     {
-        return x - width*((int) (explosionWidth / (2*width)));
+        return x - (explosionWidth / 2) + (width / 2);
     }
 
-    protected float calculateExplosionY(int explosionHeight, boolean isCenter)
+    protected float calculateYOfExplosion(int explosionHeight, boolean isCenter)
     {
         return isCenter
-                ? y - height*((int) (explosionHeight / (2*height)))
-                : y - height*2*((int) (explosionHeight / (2*height)));
+                ? y - (explosionHeight / 2) + (height / 2)
+                : y - explosionHeight + height;
     }
 
     public void tick()
@@ -66,21 +70,19 @@ public abstract class Bomb extends Entity
             // Throw the bomb in the trash
             BombController.trash.add(this);
         }
-
-        animation.tick();
-
-        currentFrame = animation.getCurrentFrame();
+        else {
+            animation.tick();
+            currentImage = animation.getCurrentFrame();
+        }
     }
 
     public void render(Graphics graphics)
     {
-        graphics.drawImage(currentFrame,
+        graphics.drawImage(currentImage,
                 (int) (x - game.getCameraService().getXOffset()),
                 (int) (y - game.getCameraService().getYOffset()),
                 width, height, null);
     }
-
-    protected abstract void loadSize();
 
     protected abstract void loadBombImage();
 

@@ -12,11 +12,7 @@ import app.controller.GameController;
 
 public abstract class Explosion extends Entity
 {
-    protected int timer;
-
     protected int damage;
-
-    protected long createdTime;
 
     protected Animation animation;
 
@@ -24,16 +20,13 @@ public abstract class Explosion extends Entity
 
     protected BufferedImage currentFrame;
 
-    public Explosion(GameController game, float x, float y, int width, int height, int timer, int damage)
+    public Explosion(GameController game, float x, float y, int width, int height)
     {
         super(game, x, y, width, height);
 
         loadExplosionImage();
         
         this.game = game;
-        this.timer = timer;
-        this.damage = damage;
-        createdTime = System.currentTimeMillis();
         animation = new Animation(50, stand);
     }
 
@@ -42,18 +35,20 @@ public abstract class Explosion extends Entity
         return damage;
     }
 
+    public void setDamge(int damage)
+    {
+        this.damage = damage;
+    }
+
     public void tick()
     {
-        long now = System.currentTimeMillis();
-
-        if (now - createdTime >= timer) {
-            // Throw the bomb in the trash
+        if (animation.getIndex() == stand.size() - 1) {
             ExplosionController.trash.add(this);
         }
-
-        animation.tick();
-
-        currentFrame = animation.getCurrentFrame();
+        else {
+            animation.tick();
+            currentFrame = animation.getCurrentFrame();
+        }
     }
 
     public void render(Graphics graphics)
@@ -66,6 +61,5 @@ public abstract class Explosion extends Entity
                 (int) (y - game.getCameraService().getYOffset()), width, height);
     }
 
-    // Load bomb images
     protected abstract void loadExplosionImage();
 }
