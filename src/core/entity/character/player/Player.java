@@ -1,5 +1,7 @@
 package core.entity.character.player;
 
+import core.entity.bomb.*;
+import core.entity.bomb.children.*;
 import core.entity.character.Character;
 import helper.Helper;
 import app.controller.GameController;
@@ -7,9 +9,19 @@ import app.model.MonsterModel;
 
 public abstract class Player extends Character
 {
+    BombingStrategy bombingStrategy;
+
     public Player(GameController game, float x, float y, int width, int height, int health, int damage, float speed)
     {
         super(game , x, y, width, height, health, damage, speed);
+
+        // Set default bomb of the player
+        bombingStrategy = new BombA(game);
+    }
+
+    public void setBombingStrategy(BombingStrategy bombingStrategy)
+    {
+        this.bombingStrategy = bombingStrategy;
     }
 
     private void detectAttack()
@@ -30,7 +42,6 @@ public abstract class Player extends Character
                     || lowerRightCornerCollied
             ) {
                 health -= monster.getDamage();
-                System.out.print("Is attacked");    
             }
         });
     }
@@ -55,6 +66,10 @@ public abstract class Player extends Character
         
         if (game.getKeyService().right.isPressed()) {
             moveRight(speed);
+        }
+
+        if (game.getKeyService().attack.isPressed()) {
+            bombingStrategy.placeBomb(x + width/2, y + height/2);
         }
     }
 }

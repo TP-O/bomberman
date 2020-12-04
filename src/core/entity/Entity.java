@@ -1,17 +1,28 @@
 package core.entity;
 
+import app.controller.GameController;
+
 public class Entity
 {
     protected float x, y;
 
     protected int width, height;
 
-    public Entity(float x, float y, int width, int height)
+    protected GameController game;
+
+    
+    public Entity(GameController game)
+    {
+        this.game = game;
+    }
+
+    public Entity(GameController game, float x, float y, int width, int height)
     {
         this.x = x;
         this.y = y;
         this.width = width;
         this.height = height;
+        this.game = game;
     }
 
     public float getX()
