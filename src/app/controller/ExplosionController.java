@@ -16,7 +16,7 @@ public class ExplosionController
 
     public void createExplosion(Explosion explosion)
     {
-        //Explosion temp = explosion;
+        // Clone the object and add it to the data
         try {
             ExplosionModel.insert((Explosion) explosion.clone());
         }

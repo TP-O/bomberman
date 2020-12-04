@@ -16,7 +16,7 @@ public abstract class Bomb extends Entity implements BombingStrategy
 {
     protected int timer = 1000;
 
-    protected long createdTime = -1;
+    protected long createdTime = 0;
 
     protected BombController bomb;
 
@@ -35,11 +35,16 @@ public abstract class Bomb extends Entity implements BombingStrategy
         loadBombImage();
 
         this.game = game;
-        this.x -= width / 2;
-        width = 32;
-        height = 32;
+
         bomb = new BombController();
         animation = new Animation(200, images);
+
+        // Set default position, width and height
+        x -= width / 2;
+        width = 32;
+        height = 32;
+
+        // Set default explosion of the bomb
         explosiveStrategy = new ExplosionA(game);
     }
 
@@ -56,11 +61,13 @@ public abstract class Bomb extends Entity implements BombingStrategy
         this.explosiveStrategy = explosionStrategy;
     }
 
+    // Find x to make the explosion wrap the bomb
     protected float calculateXOfExplosion(int explosionWidth)
     {
         return x - (explosionWidth / 2) + (width / 2);
     }
 
+    // Find y to make the explosion wrap the bomb
     protected float calculateYOfExplosion(int explosionHeight, boolean isCenter)
     {
         return isCenter
@@ -82,8 +89,10 @@ public abstract class Bomb extends Entity implements BombingStrategy
     {
         long now = System.currentTimeMillis();
 
-        if (createdTime != -1 && now - createdTime >= timer) {
+        // The bomb will be deleted if the time is up
+        if (createdTime != 0 && now - createdTime >= timer) {
             createExplosion();
+
             // Throw the bomb in the trash
             BombController.trash.add(this);
         }

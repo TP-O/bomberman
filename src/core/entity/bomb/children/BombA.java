@@ -34,6 +34,7 @@ public class BombA extends Bomb
         int explosionWidth = 2*width;
         int explosionHeight = 2*height;
 
+        // Create an explosion at the bomb spot
         explosiveStrategy.createExplosion(
                 calculateXOfExplosion(explosionWidth),
                 calculateYOfExplosion(explosionHeight, false),

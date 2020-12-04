@@ -56,12 +56,16 @@ public abstract class Explosion extends Entity implements ExplosiveStrategy, Clo
         this.width = width;
         this.height = height;
 
+        // Reset images
         animation.setIndex(0);
+        
+        // Add this explosion to data
         explosion.createExplosion(this);
     }
 
     public void tick()
     {
+        // The explosion will be deleted if all of images are rendered
         if (animation.getIndex() == images.size() - 1) {
             ExplosionController.trash.add(this);
         }

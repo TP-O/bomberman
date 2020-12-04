@@ -46,7 +46,8 @@ public class BombB extends Bomb
         int explosionHeight = 2*height;
 
         explosiveStrategy = new ExplosionD(game);
-
+        
+        // Create a plus-shaped explosion at the bomb spot
         explosiveStrategy.createExplosion(calculateXOfExplosion(explosionWidth),
                 calculateYOfExplosion(explosionHeight, true),
                 explosionWidth,

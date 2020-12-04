@@ -15,6 +15,7 @@ public abstract class Player extends Character
     {
         super(game , x, y, width, height, health, damage, speed);
 
+        // Set default bomb of the player
         bombingStrategy = new BombA(game);
     }
 
