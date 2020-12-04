@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import app.controller.BombController;
 import app.controller.GameController;
 
-public abstract class Bomb extends Entity implements BombingStrategy
+public abstract class Bomb extends Entity implements BombingStrategy, Cloneable
 {
     protected int timer = 1000;
 
@@ -46,6 +46,12 @@ public abstract class Bomb extends Entity implements BombingStrategy
 
         // Set default explosion of the bomb
         explosiveStrategy = new ExplosionA(game);
+    }
+
+    @Override
+    public Object clone() throws CloneNotSupportedException 
+    { 
+        return super.clone(); 
     }
 
     public int getTimer() {

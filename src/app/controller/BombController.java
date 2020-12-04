@@ -16,7 +16,13 @@ public class BombController
 
     public void createBomb(Bomb bomb)
     {
-        BombModel.insert(bomb);
+        // Clone the object and add it to the data
+        try {
+            BombModel.insert((Bomb) bomb.clone());
+        }
+        catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+        }
     }
 
     public void updateBomb(int index, Bomb bomb)
