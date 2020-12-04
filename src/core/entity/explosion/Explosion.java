@@ -10,24 +10,27 @@ import java.util.ArrayList;
 import app.controller.ExplosionController;
 import app.controller.GameController;
 
-public abstract class Explosion extends Entity
+public abstract class Explosion extends Entity implements ExplosiveStrategy
 {
     protected int damage;
 
     protected Animation animation;
 
-    protected ArrayList<BufferedImage> stand;
+    protected BufferedImage currentImage;
 
-    protected BufferedImage currentFrame;
+    protected ArrayList<BufferedImage> images;
 
-    public Explosion(GameController game, float x, float y, int width, int height)
+    protected ExplosionController explosion;
+
+    public Explosion(GameController game)
     {
-        super(game, x, y, width, height);
+        super(game, 0, 0, 0, 0);
 
         loadExplosionImage();
         
         this.game = game;
-        animation = new Animation(50, stand);
+        animation = new Animation(50, images);
+        explosion = new ExplosionController();
     }
 
     public int getDamage()
@@ -40,25 +43,32 @@ public abstract class Explosion extends Entity
         this.damage = damage;
     }
 
+    @Override
+    public void createExplosion(float x, float y, int width, int height)
+    {
+        this.x = x;
+        this.y = y;
+        this.width = width;
+        this.height = height;
+        
+        explosion.createExplosion(this);
+    }
+
     public void tick()
     {
-        if (animation.getIndex() == stand.size() - 1) {
+        if (animation.getIndex() == images.size() - 1) {
             ExplosionController.trash.add(this);
         }
         else {
             animation.tick();
-            currentFrame = animation.getCurrentFrame();
+            currentImage = animation.getCurrentFrame();
         }
     }
 
     public void render(Graphics graphics)
     {
-        graphics.drawImage(currentFrame, (int) (x - game.getCameraService().getXOffset()),
+        graphics.drawImage(currentImage, (int) (x - game.getCameraService().getXOffset()),
                 (int) (y - game.getCameraService().getYOffset()), width, height, null);
-
-        
-        graphics.drawRect((int) (x - game.getCameraService().getXOffset()),
-                (int) (y - game.getCameraService().getYOffset()), width, height);
     }
 
     protected abstract void loadExplosionImage();

@@ -1,8 +1,9 @@
 package core.entity.character.player;
 
-import core.entity.bomb.BombA;
-import core.entity.bomb.BombB;
+import core.entity.bomb.*;
+import core.entity.bomb.children.*;
 import core.entity.character.Character;
+import core.entity.explosion.children.*;
 import helper.Helper;
 import app.controller.BombController;
 import app.controller.GameController;
@@ -64,7 +65,9 @@ public abstract class Player extends Character
         }
 
         if (game.getKeyService().attack.isPressed()) {
-            bomb.createBomb(new BombB(game , x + width/2, y + height/2));
+            Bomb boom = new BombA(game , x + width/2, y + height/2);
+            boom.setExplosion(new ExplosionA(game));
+            bomb.createBomb(boom);
         }
     }
 }

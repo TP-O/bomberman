@@ -1,10 +1,11 @@
-package core.entity.bomb;
+package core.entity.bomb.children;
 
 import java.util.ArrayList;
 
 import app.controller.GameController;
 import core.asset.Asset;
-import core.entity.explosion.*;
+import core.entity.bomb.Bomb;
+import core.entity.explosion.children.*;
 
 import java.awt.image.BufferedImage;
 
@@ -29,15 +30,22 @@ public class BombA extends Bomb
     }
 
     @Override
+    protected void loadExplosion()
+    {
+        explosiveStrategy = new ExplosionB(game);
+    }
+
+    @Override
     protected void createExplosion()
     {
-        int explosionWidth = 3*width;
-        int explosionHeight = 3*height;
+        int explosionWidth = 2*width;
+        int explosionHeight = 2*height;
 
-        explosion.createExplosion(new ExplosionD(game,
+        explosiveStrategy.createExplosion(
                 calculateXOfExplosion(explosionWidth),
                 calculateYOfExplosion(explosionHeight, false),
                 explosionWidth,
-                explosionHeight));
+                explosionHeight
+        );
     }
 }

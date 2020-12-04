@@ -2,13 +2,13 @@ package core.entity.bomb;
 
 import core.entity.Animation;
 import core.entity.Entity;
+import core.entity.explosion.ExplosiveStrategy;
 
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
 import app.controller.BombController;
-import app.controller.ExplosionController;
 import app.controller.GameController;
 
 public abstract class Bomb extends Entity
@@ -17,26 +17,26 @@ public abstract class Bomb extends Entity
 
     protected long createdTime;
 
+    protected BombController bomb;
+
     protected Animation animation;
 
     protected BufferedImage currentImage;
 
     protected ArrayList<BufferedImage> images;
 
-    protected BombController bomb;
-
-    protected ExplosionController explosion;
+    protected ExplosiveStrategy explosiveStrategy;
 
     public Bomb(GameController game, float x, float y)
     {
         super(game, x, y, 32, 32);
 
         loadBombImage();
+        loadExplosion();
 
         this.game = game;
         this.x -= width / 2;
         bomb = new BombController();
-        explosion = new ExplosionController();
         animation = new Animation(200, images);
         createdTime = System.currentTimeMillis();
     }
@@ -59,6 +59,11 @@ public abstract class Bomb extends Entity
         return isCenter
                 ? y - (explosionHeight / 2) + (height / 2)
                 : y - explosionHeight + height;
+    }
+
+    public void setExplosion(ExplosiveStrategy explosionStrategy)
+    {
+        this.explosiveStrategy = explosionStrategy;
     }
 
     public void tick()
@@ -85,6 +90,8 @@ public abstract class Bomb extends Entity
     }
 
     protected abstract void loadBombImage();
+
+    protected abstract void loadExplosion();
 
     protected abstract void createExplosion();
 }
