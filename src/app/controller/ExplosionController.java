@@ -16,7 +16,13 @@ public class ExplosionController
 
     public void createExplosion(Explosion explosion)
     {
-        ExplosionModel.insert(explosion);
+        //Explosion temp = explosion;
+        try {
+            ExplosionModel.insert((Explosion) explosion.clone());
+        }
+        catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+        }
     }
 
     public void destroyExplosion(Explosion explosion)

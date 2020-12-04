@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import app.controller.ExplosionController;
 import app.controller.GameController;
 
-public abstract class Explosion extends Entity implements ExplosiveStrategy
+public abstract class Explosion extends Entity implements ExplosiveStrategy, Cloneable
 {
     protected int damage;
 
@@ -24,13 +24,18 @@ public abstract class Explosion extends Entity implements ExplosiveStrategy
 
     public Explosion(GameController game)
     {
-        super(game, 0, 0, 0, 0);
+        super(game);
 
         loadExplosionImage();
         
         this.game = game;
         animation = new Animation(50, images);
         explosion = new ExplosionController();
+    }
+
+    public Object clone() throws CloneNotSupportedException 
+    { 
+        return super.clone(); 
     }
 
     public int getDamage()
@@ -50,7 +55,8 @@ public abstract class Explosion extends Entity implements ExplosiveStrategy
         this.y = y;
         this.width = width;
         this.height = height;
-        
+
+        animation.setIndex(0);
         explosion.createExplosion(this);
     }
 

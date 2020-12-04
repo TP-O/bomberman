@@ -3,21 +3,24 @@ package core.entity.character.player;
 import core.entity.bomb.*;
 import core.entity.bomb.children.*;
 import core.entity.character.Character;
-import core.entity.explosion.children.*;
 import helper.Helper;
-import app.controller.BombController;
 import app.controller.GameController;
 import app.model.MonsterModel;
 
 public abstract class Player extends Character
 {
-    private BombController bomb;
+    BombingStrategy bombingStrategy;
 
     public Player(GameController game, float x, float y, int width, int height, int health, int damage, float speed)
     {
         super(game , x, y, width, height, health, damage, speed);
 
-        bomb = new BombController();
+        bombingStrategy = new BombA(game);
+    }
+
+    public void setBombingStrategy(BombingStrategy bombingStrategy)
+    {
+        this.bombingStrategy = bombingStrategy;
     }
 
     private void detectAttack()
@@ -65,9 +68,7 @@ public abstract class Player extends Character
         }
 
         if (game.getKeyService().attack.isPressed()) {
-            Bomb boom = new BombA(game , x + width/2, y + height/2);
-            boom.setExplosion(new ExplosionA(game));
-            bomb.createBomb(boom);
+            bombingStrategy.placeBomb(x + width/2, y + height/2);
         }
     }
 }

@@ -3,6 +3,7 @@ package core.entity.bomb;
 import core.entity.Animation;
 import core.entity.Entity;
 import core.entity.explosion.ExplosiveStrategy;
+import core.entity.explosion.children.ExplosionA;
 
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
@@ -11,11 +12,11 @@ import java.util.ArrayList;
 import app.controller.BombController;
 import app.controller.GameController;
 
-public abstract class Bomb extends Entity
+public abstract class Bomb extends Entity implements BombingStrategy
 {
     protected int timer = 1000;
 
-    protected long createdTime;
+    protected long createdTime = -1;
 
     protected BombController bomb;
 
@@ -27,18 +28,19 @@ public abstract class Bomb extends Entity
 
     protected ExplosiveStrategy explosiveStrategy;
 
-    public Bomb(GameController game, float x, float y)
+    public Bomb(GameController game)
     {
-        super(game, x, y, 32, 32);
+        super(game);
 
         loadBombImage();
-        loadExplosion();
 
         this.game = game;
         this.x -= width / 2;
+        width = 32;
+        height = 32;
         bomb = new BombController();
         animation = new Animation(200, images);
-        createdTime = System.currentTimeMillis();
+        explosiveStrategy = new ExplosionA(game);
     }
 
     public int getTimer() {
@@ -47,6 +49,11 @@ public abstract class Bomb extends Entity
 
     public void setTimer(int timer) {
         this.timer = timer;
+    }
+
+    public void setExplosiveStrategy(ExplosiveStrategy explosionStrategy)
+    {
+        this.explosiveStrategy = explosionStrategy;
     }
 
     protected float calculateXOfExplosion(int explosionWidth)
@@ -61,16 +68,21 @@ public abstract class Bomb extends Entity
                 : y - explosionHeight + height;
     }
 
-    public void setExplosion(ExplosiveStrategy explosionStrategy)
+    @Override
+    public void placeBomb(float x, float y)
     {
-        this.explosiveStrategy = explosionStrategy;
+        this.x = x;
+        this.y = y;
+
+        createdTime = System.currentTimeMillis();
+        bomb.createBomb(this);
     }
 
     public void tick()
     {
         long now = System.currentTimeMillis();
 
-        if (now - createdTime >= timer) {
+        if (createdTime != -1 && now - createdTime >= timer) {
             createExplosion();
             // Throw the bomb in the trash
             BombController.trash.add(this);
@@ -90,8 +102,6 @@ public abstract class Bomb extends Entity
     }
 
     protected abstract void loadBombImage();
-
-    protected abstract void loadExplosion();
 
     protected abstract void createExplosion();
 }

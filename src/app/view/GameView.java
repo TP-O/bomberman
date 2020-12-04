@@ -49,6 +49,10 @@ public class GameView extends View
         bombs.removeAll(BombController.trash);
         explosions.removeAll(ExplosionController.trash);
 
+        // Reset the trash
+        BombController.trash.clear();
+        ExplosionController.trash.clear();
+
         // Make the camera record the player
         game.getCameraService().focusOn(player);
     }

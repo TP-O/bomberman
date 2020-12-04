@@ -23,6 +23,11 @@ public class Animation
         return index;
     }
 
+    public void setIndex(int index)
+    {
+        this.index = index;
+    }
+
     public void tick()
     {
         timer += System.currentTimeMillis() - lastTime;

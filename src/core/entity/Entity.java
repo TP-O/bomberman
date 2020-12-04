@@ -10,6 +10,12 @@ public class Entity
 
     protected GameController game;
 
+    
+    public Entity(GameController game)
+    {
+        this.game = game;
+    }
+
     public Entity(GameController game, float x, float y, int width, int height)
     {
         this.x = x;

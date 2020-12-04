@@ -5,15 +5,14 @@ import java.util.ArrayList;
 import app.controller.GameController;
 import core.asset.Asset;
 import core.entity.bomb.Bomb;
-import core.entity.explosion.children.*;
 
 import java.awt.image.BufferedImage;
 
 public class BombA extends Bomb
 {
-    public BombA(GameController game, float x, float y)
+    public BombA(GameController game)
     {
-        super(game, x, y);
+        super(game);
     }
 
     @Override
@@ -27,12 +26,6 @@ public class BombA extends Bomb
         images.add(Asset.bomb.crop(647, 7, 207, 196));
         images.add(Asset.bomb.crop(852, 7, 207, 196));
         images.add(Asset.bomb.crop(1054, 7, 207, 196));
-    }
-
-    @Override
-    protected void loadExplosion()
-    {
-        explosiveStrategy = new ExplosionB(game);
     }
 
     @Override

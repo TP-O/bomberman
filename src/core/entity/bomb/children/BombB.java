@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import app.controller.GameController;
 import core.asset.Asset;
 import core.entity.bomb.Bomb;
-import core.entity.explosion.children.*;
+import core.entity.explosion.children.ExplosionD;
 
 import java.awt.image.BufferedImage;
 
@@ -13,9 +13,9 @@ public class BombB extends Bomb
 {
     private int range = 3;
 
-    public BombB(GameController game, float x, float y)
+    public BombB(GameController game)
     {
-        super(game, x, y);
+        super(game);
     }
 
     public int getRange() {
@@ -45,39 +45,30 @@ public class BombB extends Bomb
         int explosionWidth = 2*width;
         int explosionHeight = 2*height;
 
-        // explosion.createExplosion(new ExplosionK(game,
-        //         calculateXOfExplosion(explosionWidth),
-        //         calculateYOfExplosion(explosionHeight, true),
-        //         explosionWidth,
-        //         explosionHeight));
+        explosiveStrategy = new ExplosionD(game);
 
-        // for (int i = 1; i <= range; i++) {
-        //     explosion.createExplosion(new ExplosionK(game,
-        //             calculateXOfExplosion(explosionWidth),
-        //             calculateYOfExplosion(explosionHeight, true) - explosionHeight*i,
-        //             explosionWidth,
-        //             explosionHeight));
-        //     explosion.createExplosion(new ExplosionK(game,
-        //             calculateXOfExplosion(explosionWidth)+ explosionWidth*i,
-        //             calculateYOfExplosion(explosionHeight, true),
-        //             explosionWidth,
-        //             explosionHeight));
-        //     explosion.createExplosion(new ExplosionK(game,
-        //             calculateXOfExplosion(explosionWidth),
-        //             calculateYOfExplosion(explosionHeight, true) + explosionHeight*i,
-        //             explosionWidth,
-        //             explosionHeight));
-        //     explosion.createExplosion(new ExplosionK(game,
-        //             calculateXOfExplosion(explosionWidth) - explosionWidth*i,
-        //             calculateYOfExplosion(explosionHeight, true),
-        //             explosionWidth,
-        //             explosionHeight));
-        //} 
-    }
+        explosiveStrategy.createExplosion(calculateXOfExplosion(explosionWidth),
+                calculateYOfExplosion(explosionHeight, true),
+                explosionWidth,
+                explosionHeight);
 
-    @Override
-    protected void loadExplosion() {
-        // TODO Auto-generated method stub
-
+        for (int i = 1; i <= range; i++) {
+            explosiveStrategy.createExplosion(calculateXOfExplosion(explosionWidth),
+                    calculateYOfExplosion(explosionHeight, true) - explosionHeight*i,
+                    explosionWidth,
+                    explosionHeight);
+            explosiveStrategy.createExplosion(calculateXOfExplosion(explosionWidth)+ explosionWidth*i,
+                    calculateYOfExplosion(explosionHeight, true),
+                    explosionWidth,
+                    explosionHeight);
+            explosiveStrategy.createExplosion(calculateXOfExplosion(explosionWidth),
+                    calculateYOfExplosion(explosionHeight, true) + explosionHeight*i,
+                    explosionWidth,
+                    explosionHeight);
+            explosiveStrategy.createExplosion(calculateXOfExplosion(explosionWidth) - explosionWidth*i,
+                    calculateYOfExplosion(explosionHeight, true),
+                    explosionWidth,
+                    explosionHeight);
+        }
     }
 }
