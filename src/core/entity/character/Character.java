@@ -183,10 +183,10 @@ public abstract class Character extends Entity
             width, height, null);
         
         // Display health status
-        graphics.setColor(Color.BLACK);
-        graphics.drawRect((int) x - 1, (int) y - 21, width + 1, 11);   
+        graphics.setColor(Color.WHITE);
+        graphics.drawRect((int) x - 1, (int) y - 21, width + 1, 6);  
         graphics.setColor(Color.RED);
-        graphics.fillRect((int) x, (int) y - 20, (int) (width*(health / 100.0)), 10);
+        graphics.fillRect((int) x, (int) y - 20, (int) (width*(health / 100.0)), 5);
     }
 
     // Load character images
