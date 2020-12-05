@@ -24,6 +24,6 @@ public class RouterRegistration
 
     public void redirectToDefault()
     {
-        Router.redirect("Menu");
+        Router.redirect("Character");
     }
 }

@@ -4,8 +4,12 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 import app.view.*;
+import core.UI.Element;
 import core.UI.button.*;
-import core.UI.button.CharactersButtons.*;
+import core.UI.image.HomeBackground;
+import core.UI.image.SelectedCharacterBackground;
+import core.UI.image.SelectedCharacterImage;
+import core.UI.radio.*;
 import core.entity.character.Character;
 import core.entity.character.CharacterBuilder;
 
@@ -20,14 +24,18 @@ public class ViewController
 
     public View menu()
     {
-        ArrayList<Button> buttons = new ArrayList<Button>();
-        buttons.add(new PlayButton(game, false));
-        buttons.add(new QuitButton(game, false));
+        ArrayList<Element> elements = new ArrayList<Element>();
+
+        // Add background
+        elements.add(new HomeBackground(game, 0, 0, 702, 320));
+
+        // Add butons
+        elements.add(new PlayButton(game, 0.5f, 0.5f, 0, 0));
+        elements.add(new QuitButton(game, 0.5f, 0.6f, 0, 0));
       
-        View view = new MenuView(game, buttons);
+        View view = new MenuView(game, elements);
 
         return view;
-
     }
 
     public View game()
@@ -99,17 +107,31 @@ public class ViewController
 
     public View character()
     {
-        ArrayList<Button> characterselects = new ArrayList<Button>();
-        characterselects.add(new KidSelection(game, false));
-        characterselects.add(new MonkSelection(game, false));
-        characterselects.add(new ShadowSelection(game, false));
-        characterselects.add(new KiritoSelection(game, false));
-        characterselects.add(new GokuSelection(game, false));
-        characterselects.add(new SatoshiSelection(game, false));
-        characterselects.add(new StartButton(game, false));
-        characterselects.add(new ReturnButton(game, false));
+        ArrayList<Element> elements = new ArrayList<Element>();
 
-        View view = new CharacterView(game, characterselects);
+        // Add background
+        elements.add(new SelectedCharacterBackground(game, 0, 0, 702, 320));
+
+        // Add buttons
+        elements.add(new StartButton(game, 0.5f, 0.5f, 0, 230));
+        elements.add(new ReturnButton(game, 0.5f, 0.5f, -635, -285));
+
+        // Add radios
+        elements.add(new KidRadio(game, 0.5f, 0.5f, -270, -240));
+        elements.add(new MonkRadio(game, 0.5f, 0.5f, -270, -80));
+        elements.add(new ShadowRadio(game, 0.5f, 0.5f, -270, 80));
+        elements.add(new KiritoRadio(game, 0.5f, 0.5f, -110, 80));
+        elements.add(new GokuRadio(game, 0.5f, 0.5f, 50, 80));
+        elements.add(new SatoshiRadio(game, 0.5f, 0.5f, 210, 80));
+
+        // Share data
+        Element image = new SelectedCharacterImage(game, 0.51f, 0.3f, 10, -10);
+        elements.forEach(element -> image.shareWith(element));
+
+        // Add image
+        elements.add(image);
+
+        View view = new CharacterView(game, elements);
 
         return view;
     }
