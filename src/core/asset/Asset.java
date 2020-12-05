@@ -7,8 +7,16 @@ public class Asset
 {
     public static SpriteSheet ui;
     public static SpriteSheet obstacle;
+
+    // Bombs
+    public static SpriteSheet explosionA, explosionB, explosionC, explosionD,
+            explosionE, explosionF, explosionG, explosionH, explosionJ, explosionK,
+            explosionL, bomb;
+
+    // Characters
     public static SpriteSheet kid, monk, shadow, kirito, goku, satoshi;
-    public static SpriteSheet alolanPersian, shinyZygarde, scorbunny, bulbasaur, redBoss, blueBoss;
+    public static SpriteSheet alolanPersian, shinyZygarde, scorbunny, bulbasaur,
+            redBoss, blueBoss;
                                           
     public static void loadImage()
     {
@@ -33,5 +41,19 @@ public class Asset
         bulbasaur = Helper.createSpriteSheet(Helper.loadImage("characters/monsters04.png"));
         redBoss = Helper.createSpriteSheet(Helper.loadImage("characters/monsters05.png"));
         blueBoss = Helper.createSpriteSheet(Helper.loadImage("characters/monsters05.png"));
+
+        // Bomb sheets
+        explosionA = Helper.createSpriteSheet(Helper.loadImage("bombs/explosions01.png"));
+        explosionB = Helper.createSpriteSheet(Helper.loadImage("bombs/explosions02.png"));
+        explosionC = Helper.createSpriteSheet(Helper.loadImage("bombs/explosions03.png"));
+        explosionD = Helper.createSpriteSheet(Helper.loadImage("bombs/explosions04.png"));
+        explosionE = Helper.createSpriteSheet(Helper.loadImage("bombs/explosions05.png"));
+        explosionF = Helper.createSpriteSheet(Helper.loadImage("bombs/explosions06.png"));
+        explosionG = Helper.createSpriteSheet(Helper.loadImage("bombs/explosions07.png"));
+        explosionH = Helper.createSpriteSheet(Helper.loadImage("bombs/explosions08.png"));
+        explosionJ = Helper.createSpriteSheet(Helper.loadImage("bombs/explosions10.png"));
+        explosionK = Helper.createSpriteSheet(Helper.loadImage("bombs/explosions11.png"));
+        explosionL = Helper.createSpriteSheet(Helper.loadImage("bombs/explosions12.png"));
+        bomb = Helper.createSpriteSheet(Helper.loadImage("bombs/bomb.png"));
     }
 }
