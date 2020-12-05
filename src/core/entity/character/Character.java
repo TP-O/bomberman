@@ -91,11 +91,16 @@ public abstract class Character extends Entity
     }
 
     protected void displayHealthStatus(Graphics graphics)
-    {
+    {   
+        // Render the box
         graphics.setColor(Color.WHITE);
-        graphics.drawRect((int) x - 1, (int) y - 21, width + 1, 6);  
+        graphics.drawRect((int) (x - game.getCameraService().getXOffset() - 1),
+                (int) (y - game.getCameraService().getYOffset() - 21), width + 1, 6);
+        
+        // Render the health
         graphics.setColor(Color.RED);
-        graphics.fillRect((int) x, (int) y - 20, (int) (width*(health / 100.0)), 5);
+        graphics.fillRect((int) (x - game.getCameraService().getXOffset()),
+                (int) (y - game.getCameraService().getYOffset() - 20), (int) (width*(health / 100.0)), 5);
     }
 
     protected void moveUp(float distance)
