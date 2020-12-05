@@ -2,27 +2,27 @@ package app.view;
 
 import java.awt.Graphics;
 import java.util.ArrayList;
-
 import app.controller.GameController;
-import core.UI.button.Button;
+import core.UI.Element;
 
 public class MenuView extends View
 {
-    private ArrayList<Button> buttons;
+    private ArrayList<Element> elements;
 
-    public MenuView(GameController game, ArrayList<Button> buttons)
+    public MenuView(GameController game, ArrayList<Element> elements)
     {
         super(game);
-        this.buttons = buttons;
+
+        this.elements = elements;
     }
 
     public void tick()
     {
-        buttons.forEach(button -> button.tick());
+        elements.forEach(element -> element.tick());
     }
 
     public void render(Graphics graphics)
     {
-        buttons.forEach(button -> button.render(graphics));
+        elements.forEach(element -> element.render(graphics));
     }
 }

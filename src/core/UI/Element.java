@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 import app.controller.GameController;
 
-public abstract class Element
+public abstract class Element implements EventListener, Sharable
 {
     protected int x, y;
 
@@ -16,7 +16,13 @@ public abstract class Element
 
     protected BufferedImage currentImage;
 
-    protected ArrayList<BufferedImage> BImages;
+    protected Element sharedElement;
+
+    protected ArrayList<BufferedImage> images = new ArrayList<BufferedImage>();
+
+    protected boolean disable = false;
+
+    protected boolean clicked = false;
 
     public int getX()
     {
@@ -53,37 +59,87 @@ public abstract class Element
         this.height = height;
     }
 
-    public ArrayList<BufferedImage> getBImages()
+    public ArrayList<BufferedImage> getImages()
     {
-        return BImages;
+        return images;
     }
 
-    public Element(GameController game)
+    public void setCurrentImage(BufferedImage image)
+    {
+        currentImage = image;
+    }
+
+    public Element(GameController game, float positionX, float positionY, int xx, int yy)
     {
         this.game = game;
-        BImages = new ArrayList<BufferedImage>();
-
+        
         loadSize();
+        
+        // Display based on screen percentage
+        x = (int) (game.getWidth()*positionX - width/2 + xx);
+        y = (int) (game.getHeight()*positionY - height/2 + yy);
+
         loadUIImage();
     }
 
-    public Element(GameController game, int x, int y, int width, int height)
+    public boolean isDisable()
     {
-        this.x = x;
-        this.y = y;
-        this.width = width;
-        this.height = height;
-        this.game = game;
-        BImages = new ArrayList<BufferedImage>();
+        return disable;
+    }
 
-        loadUIImage();
+    @Override
+    public boolean isClicked()
+    {
+        return clicked;
+    }
+
+    @Override
+    public boolean isHovering()
+    {
+        return game.getMouseService().mouseX > x
+                && game.getMouseService().mouseX < x + width
+                && game.getMouseService().mouseY > y
+                && game.getMouseService().mouseY < y + height
+                && !disable;
+    }
+
+    @Override
+    public Element getSharedElement()
+    {
+        return sharedElement;
+    }
+
+    @Override
+    public void receiveElement(Element element)
+    {
+        sharedElement = element;
+    }
+
+    @Override
+    public void shareWith(Element element)
+    {
+        element.receiveElement(this);
+    }
+
+    public void tick()
+    {
+        if (isHovering()) {
+            onHover();
+            if (game.getMouseService().left.isPressed()) {
+                onClick();
+            }
+        }
+        else {
+            onWaiting();
+        }
+    }
+
+    public void render(Graphics graphics)
+    {
+        graphics.drawImage(currentImage, x, y, width, height, null);
     }
 
     abstract protected void loadSize();
 
     abstract protected void loadUIImage();
-
-    abstract public void tick();
-
-    abstract public void render(Graphics graphics);
 }

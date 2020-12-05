@@ -5,8 +5,11 @@ import helper.Helper;
 
 public class Asset
 {
-    public static SpriteSheet ui;
     public static SpriteSheet obstacle;
+  
+    // UI
+    public static SpriteSheet ui01, ui02, ui03;
+    public static SpriteSheet bg01, bg02;        
 
     // Bombs
     public static SpriteSheet explosionA, explosionB, explosionC, explosionD,
@@ -17,6 +20,8 @@ public class Asset
     public static SpriteSheet kid, monk, shadow, kirito, goku, satoshi;
     public static SpriteSheet alolanPersian, shinyZygarde, scorbunny, bulbasaur,
             redBoss, blueBoss;
+    public static SpriteSheet kidAvatar, monkAvatar, shadowAvatar, kiritoAvatar,
+            gokuAvatar, satoshiAvatar, kiritoBackground, gokuBackground, satoshiBackground;
                                           
     public static void loadImage()
     {
@@ -24,7 +29,24 @@ public class Asset
         obstacle = Helper.createSpriteSheet(Helper.loadImage("obstacles/obstacle01.png"));
 
         // UI sheets
-        ui = Helper.createSpriteSheet(Helper.loadImage("ui/ui02.jpg"));
+        ui01 = Helper.createSpriteSheet(Helper.loadImage("ui/ui01.png"));
+        ui02 = Helper.createSpriteSheet(Helper.loadImage("ui/ui02.png"));
+        ui03 = Helper.createSpriteSheet(Helper.loadImage("ui/ui03.png")); 
+
+        // Background sheets
+        bg01 = Helper.createSpriteSheet(Helper.loadImage("backgrounds/backgrounds01.jpg"));
+        bg02 = Helper.createSpriteSheet(Helper.loadImage("backgrounds/backgrounds02.jpg"));
+
+        //Characters Avatar sheets 
+        kidAvatar = Helper.createSpriteSheet(Helper.loadImage("ui/kid-avatar.png")); 
+        monkAvatar = Helper.createSpriteSheet(Helper.loadImage("ui/monk-avatar.png")); 
+        shadowAvatar = Helper.createSpriteSheet(Helper.loadImage("ui/shadow-avatar.png")); 
+        kiritoAvatar = Helper.createSpriteSheet(Helper.loadImage("ui/kirito-avatar.png")); 
+        gokuAvatar = Helper.createSpriteSheet(Helper.loadImage("ui/goku-avatar.png")); 
+        satoshiAvatar = Helper.createSpriteSheet(Helper.loadImage("ui/satoshi-avatar.jpg"));    
+        kiritoBackground = Helper.createSpriteSheet(Helper.loadImage("ui/kirito-background.png")); 
+        gokuBackground = Helper.createSpriteSheet(Helper.loadImage("ui/goku-background.jpg"));
+        satoshiBackground = Helper.createSpriteSheet(Helper.loadImage("ui/satoshi-background.jpg"));   
 
         // Player sheets
         kid = Helper.createSpriteSheet(Helper.loadImage("characters/characters01.png"));
