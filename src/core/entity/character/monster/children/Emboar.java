@@ -1,13 +1,14 @@
-package core.entity.character.monster;
+package core.entity.character.monster.children;
 
 import java.util.ArrayList;
 import app.controller.GameController;
 import java.awt.image.BufferedImage;
 import core.asset.Asset;
+import core.entity.character.monster.Monster;
 
-public class RedBoss extends Monster
+public class Emboar extends Monster
 {
-    public RedBoss(GameController gameController, float x, float y, int width, int height, int health, int damage, float speed)
+    public Emboar(GameController gameController, float x, float y, int width, int height, int health, int damage, float speed)
     {
         super(gameController, x, y, width, height, health, damage, speed);
     }

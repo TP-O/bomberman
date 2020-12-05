@@ -18,23 +18,54 @@ public abstract class Character extends Entity
 
     protected float speed;
 
-    protected int padding = 25;
-
     protected int margin = 5;
+
+    protected int padding = 25;
 
     protected boolean collied = false;
 
-    protected BufferedImage currentFrame;
+    protected static long attackedAt = 0;
 
-    protected Animation animationUp, animationDown, animationLeft, animationRight, animationStand;
+    protected BufferedImage currentFrame;
 
     protected ArrayList<BufferedImage> up, down, left, right, stand;
 
-    protected static long attackedAt = System.currentTimeMillis();
+    protected Animation animationUp, animationDown, animationLeft, animationRight, animationStand;
+
+    public int getHealth()
+    {
+        return health;
+    }
+
+    public void setHealth(int health)
+    {
+        this.health = health;
+    }
+
+    public int getDamage()
+    {
+        return damage;
+    }
+
+    public void setDamage(int damage)
+    {
+        this.damage = damage;
+    }
+
+    public float getSpeed()
+    {
+        return speed;
+    }
+
+    public void setSpeed(float speed)
+    {
+        this.speed = speed;
+    }
 
     public Character(GameController game, float x, float y, int width, int height, int health, int damage, float speed)
     {
         super(game, x, y, width, height);
+
         this.speed = speed;
         this.damage = damage;
         this.health = health;
@@ -50,43 +81,21 @@ public abstract class Character extends Entity
         animationStand = new Animation(200, stand);
     }
 
-    public int getHealth()
-    {
-        return health;
-    }
-
-    public void setHealth(int health)
-    {
-        this.health = health;
-    }
-
-    public float getSpeed()
-    {
-        return speed;
-    }
-
-    public void setSpeed(float speed)
-    {
-        this.speed = speed;
-    }
-
-    public int getDamage()
-    {
-        return damage;
-    }
-
-    public void setDamage(int damage)
-    {
-        this.damage = damage;
-    }
-
-    public boolean isCollied(int x, int y)
+    protected boolean isCollied(int x, int y)
     {
         return game
             .getMap()
             .getMap()
             .getTiles(x, y)
             .isSolid();
+    }
+
+    protected void displayHealthStatus(Graphics graphics)
+    {
+        graphics.setColor(Color.WHITE);
+        graphics.drawRect((int) x - 1, (int) y - 21, width + 1, 6);  
+        graphics.setColor(Color.RED);
+        graphics.fillRect((int) x, (int) y - 20, (int) (width*(health / 100.0)), 5);
     }
 
     protected void moveUp(float distance)
@@ -179,18 +188,9 @@ public abstract class Character extends Entity
             (int) (x - game.getCameraService().getXOffset()),
             (int) (y - game.getCameraService().getYOffset()),
             width, height, null);
-       
-        // Display health status
-        graphics.setColor(Color.WHITE);
-        graphics.drawRect((int) x - 1, (int) y - 21, width + 1, 6);  
-        graphics.setColor(Color.RED);
-        graphics.fillRect((int) x, (int) y - 20, (int) (width*(health / 100.0)), 5);
-
-        graphics.drawRect((int) (x - game.getCameraService().getXOffset()),
-            (int) (y - game.getCameraService().getYOffset()),
-            width, height);
+        
+        displayHealthStatus(graphics);
     }
 
-    // Load character images
     abstract protected void loadCharacterImage();
 }

@@ -1,6 +1,6 @@
 package config;
 
-public class CharacterConfig
+public class MonsterConfig
 {
     public static float X = 0;
 

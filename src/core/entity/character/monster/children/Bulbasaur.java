@@ -1,9 +1,10 @@
-package core.entity.character.monster;
+package core.entity.character.monster.children;
 
 import java.util.ArrayList;
 import app.controller.GameController;
 import java.awt.image.BufferedImage;
 import core.asset.Asset;
+import core.entity.character.monster.Monster;
 
 public class Bulbasaur extends Monster
 {

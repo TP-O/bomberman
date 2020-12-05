@@ -41,15 +41,19 @@ public abstract class Monster extends Character
             case UP:
                 moveUp(1);
                 break;
+
             case DOWN:
                 moveDown(1);
                 break;
+
             case LEFT:
                 moveLeft(1);
                 break;
+
             case RIGHT:
                 moveRight(1);
                 break;
+                
             default:
                 break;
         }

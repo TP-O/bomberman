@@ -1,10 +1,11 @@
-package core.entity.character.player;
+package core.entity.character.player.children;
 
 import java.util.ArrayList;
 
 import app.controller.GameController;
 import java.awt.image.BufferedImage;
 import core.asset.Asset;
+import core.entity.character.player.Player;
 
 public class Satoshi extends Player
 {

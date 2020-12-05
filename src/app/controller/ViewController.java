@@ -6,7 +6,7 @@ import java.util.Arrays;
 import app.view.*;
 import core.UI.button.*;
 import core.entity.character.Character;
-import core.entity.character.CharacterBuilder;
+import core.entity.character.builder.*;
 
 public class ViewController
 {
@@ -36,11 +36,12 @@ public class ViewController
         map.load("map01");
 
         // Init character builder and controller
-        CharacterBuilder characterBuilder = new CharacterBuilder();
+        CharacterBuilder playerBuilder = new PlayerBuilder();
+        CharacterBuilder monsterBuilder = new MonsterBuilder();
         CharacterController character = new CharacterController();
 
         // Create player
-        Character player = characterBuilder.setType("Satoshi")
+        Character player = playerBuilder.type("Satoshi")
                 .setGame(game)
                 .setX(250)
                 .setY(250)
@@ -50,38 +51,38 @@ public class ViewController
 
         // Create monster
         Character[] monsters = {
-            characterBuilder
-                .setType("AlolanPersian")
+            monsterBuilder
+                .type("AlolanPersian")
                 .setGame(game)
                 .setX(500)
                 .setY(250)
                 .build(),
-            characterBuilder
-                .setType("ShinyZygarde")
+            monsterBuilder
+                .type("ShinyZygarde")
                 .setGame(game)
                 .setX(800)
                 .setY(250)
                 .build(),
-            characterBuilder
-                .setType("Scorbunny")
+            monsterBuilder
+                .type("Scorbunny")
                 .setGame(game)
                 .setX(800)
                 .setY(300)
                 .build(),
-            characterBuilder
-                .setType("Bulbasaur")
+            monsterBuilder
+                .type("Bulbasaur")
                 .setGame(game)
                 .setX(400)
                 .setY(300)
                 .build(),
-            characterBuilder
-                .setType("RedBoss")
+            monsterBuilder
+                .type("Emboar")
                 .setGame(game)
                 .setX(400)
                 .setY(500)
                 .build(),
-            characterBuilder
-                .setType("BlueBoss")
+            monsterBuilder
+                .type("ShinyEmboar")
                 .setGame(game)
                 .setX(350)
                 .setY(500)
