@@ -11,7 +11,7 @@ import core.UI.image.SelectedCharacterBackground;
 import core.UI.image.SelectedCharacterImage;
 import core.UI.radio.*;
 import core.entity.character.Character;
-import core.entity.character.CharacterBuilder;
+import core.entity.character.builder.*;
 
 public class ViewController
 {
@@ -45,62 +45,70 @@ public class ViewController
         map.load("map01");
 
         // Init character builder and controller
-        CharacterBuilder characterBuilder = new CharacterBuilder();
+        CharacterBuilder playerBuilder = new PlayerBuilder();
+        CharacterBuilder monsterBuilder = new MonsterBuilder();
         CharacterController character = new CharacterController();
 
         // Create player
-        Character player = characterBuilder.setType("Goku")
+        Character player = playerBuilder.type("Satoshi")
                 .setGame(game)
                 .setX(250)
                 .setY(250)
                 .build();
         
-        character.setPlayer(player);
+        character.createPlayer(player);
 
         // Create monster
         Character[] monsters = {
-            characterBuilder
-                .setType("AlolanPersian")
+            monsterBuilder
+                .type("AlolanPersian")
                 .setGame(game)
                 .setX(500)
                 .setY(250)
                 .build(),
-            characterBuilder
-                .setType("ShinyZygarde")
+            monsterBuilder
+                .type("ShinyZygarde")
                 .setGame(game)
                 .setX(800)
                 .setY(250)
                 .build(),
-            characterBuilder
-                .setType("Scorbunny")
+            monsterBuilder
+                .type("Scorbunny")
                 .setGame(game)
                 .setX(800)
                 .setY(300)
                 .build(),
-            characterBuilder
-                .setType("Bulbasaur")
+            monsterBuilder
+                .type("Bulbasaur")
                 .setGame(game)
                 .setX(400)
                 .setY(300)
                 .build(),
-            characterBuilder
-                .setType("RedBoss")
+            monsterBuilder
+                .type("Emboar")
                 .setGame(game)
                 .setX(400)
                 .setY(500)
                 .build(),
-            characterBuilder
-                .setType("BlueBoss")
+            monsterBuilder
+                .type("ShinyEmboar")
                 .setGame(game)
                 .setX(350)
                 .setY(500)
                 .build(),
         };
 
-        character.setMonsters(Arrays.asList(monsters));
+        character.createMonsters(Arrays.asList(monsters));
+
+        // Create bombs
+        BombController bomb = new BombController();
+
+        // Create explosions
+        ExplosionController explosion = new ExplosionController();
 
         // Init view
-        View view = new GameView(game, map.getMap(), character.getPlayer(), character.getMonsters());
+        View view = new GameView(game, map.getMap(), character.getPlayer(),
+                character.getMonsters(), bomb.getBombs(), explosion.getExplosions());
 
         return view;
     }

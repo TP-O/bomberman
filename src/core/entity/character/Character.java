@@ -5,6 +5,7 @@ import core.entity.Animation;
 import core.entity.Entity;
 import helper.Helper;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
@@ -17,23 +18,54 @@ public abstract class Character extends Entity
 
     protected float speed;
 
-    protected int padding = 25;
-
     protected int margin = 5;
+
+    protected int padding = 25;
 
     protected boolean collied = false;
 
-    protected GameController game;
+    protected static long attackedAt = 0;
 
     protected BufferedImage currentFrame;
 
+    protected ArrayList<BufferedImage> up, down, left, right, stand;
+
     protected Animation animationUp, animationDown, animationLeft, animationRight, animationStand;
 
-    protected ArrayList<BufferedImage> up, down, left, right, stand;
+    public int getHealth()
+    {
+        return health;
+    }
+
+    public void setHealth(int health)
+    {
+        this.health = health;
+    }
+
+    public int getDamage()
+    {
+        return damage;
+    }
+
+    public void setDamage(int damage)
+    {
+        this.damage = damage;
+    }
+
+    public float getSpeed()
+    {
+        return speed;
+    }
+
+    public void setSpeed(float speed)
+    {
+        this.speed = speed;
+    }
 
     public Character(GameController game, float x, float y, int width, int height, int health, int damage, float speed)
     {
-        super(x, y, width, height);
+        super(game, x, y, width, height);
+
         this.speed = speed;
         this.damage = damage;
         this.health = health;
@@ -49,43 +81,26 @@ public abstract class Character extends Entity
         animationStand = new Animation(200, stand);
     }
 
-    public int getHealth()
-    {
-        return health;
-    }
-
-    public void setHealth(int health)
-    {
-        this.health = health;
-    }
-
-    public float getSpeed()
-    {
-        return speed;
-    }
-
-    public void setSpeed(float speed)
-    {
-        this.speed = speed;
-    }
-
-    public int getDamage()
-    {
-        return damage;
-    }
-
-    public void setDamage(int damage)
-    {
-        this.damage = damage;
-    }
-
-    public boolean isCollied(int x, int y)
+    protected boolean isCollied(int x, int y)
     {
         return game
             .getMap()
             .getMap()
             .getTiles(x, y)
             .isSolid();
+    }
+
+    protected void displayHealthStatus(Graphics graphics)
+    {   
+        // Render the box
+        graphics.setColor(Color.WHITE);
+        graphics.drawRect((int) (x - game.getCameraService().getXOffset() - 1),
+                (int) (y - game.getCameraService().getYOffset() - 21), width + 1, 6);
+        
+        // Render the health
+        graphics.setColor(Color.RED);
+        graphics.fillRect((int) (x - game.getCameraService().getXOffset()),
+                (int) (y - game.getCameraService().getYOffset() - 20), (int) (width*(health / 100.0)), 5);
     }
 
     protected void moveUp(float distance)
@@ -178,8 +193,9 @@ public abstract class Character extends Entity
             (int) (x - game.getCameraService().getXOffset()),
             (int) (y - game.getCameraService().getYOffset()),
             width, height, null);
+        
+        displayHealthStatus(graphics);
     }
 
-    // Load character images
     abstract protected void loadCharacterImage();
 }

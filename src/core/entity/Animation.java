@@ -18,6 +18,16 @@ public class Animation
         this.lastTime = System.currentTimeMillis();
     }
 
+    public int getIndex()
+    {
+        return index;
+    }
+
+    public void setIndex(int index)
+    {
+        this.index = index;
+    }
+
     public void tick()
     {
         timer += System.currentTimeMillis() - lastTime;

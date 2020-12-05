@@ -28,9 +28,9 @@ public class KeyService implements KeyListener, Service
         }
     }
 
-    public Key up, down, left, right;
+    public Key up, down, left, right, attack;
 
-    private int keyUp, keyDown, keyLeft, keyRight;
+    private int keyUp, keyDown, keyLeft, keyRight, keyAttack;
 
     public KeyService()
     {
@@ -38,11 +38,13 @@ public class KeyService implements KeyListener, Service
         down = new Key();
         left = new Key();
         right = new Key();
+        attack = new Key();
 
         keyUp = Helper.config("Key.Up");
         keyDown = Helper.config("Key.Down");
         keyLeft = Helper.config("Key.Left");
         keyRight = Helper.config("Key.Right");
+        keyAttack = KeyEvent.VK_ENTER;
     }
 
     public void keyPressed(KeyEvent event)
@@ -73,6 +75,9 @@ public class KeyService implements KeyListener, Service
         }
         if (keyCode == keyRight) {
             right.toggle(isPressed);
+        }
+        if (keyCode == keyAttack) {
+            attack.toggle(isPressed);
         }
     }
 
