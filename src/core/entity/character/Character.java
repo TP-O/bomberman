@@ -5,6 +5,7 @@ import core.entity.Animation;
 import core.entity.Entity;
 import helper.Helper;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
@@ -28,6 +29,8 @@ public abstract class Character extends Entity
     protected Animation animationUp, animationDown, animationLeft, animationRight, animationStand;
 
     protected ArrayList<BufferedImage> up, down, left, right, stand;
+
+    protected static long attackedAt = System.currentTimeMillis();
 
     public Character(GameController game, float x, float y, int width, int height, int health, int damage, float speed)
     {
@@ -176,6 +179,12 @@ public abstract class Character extends Entity
             (int) (x - game.getCameraService().getXOffset()),
             (int) (y - game.getCameraService().getYOffset()),
             width, height, null);
+       
+        // Display health status
+        graphics.setColor(Color.WHITE);
+        graphics.drawRect((int) x - 1, (int) y - 21, width + 1, 6);  
+        graphics.setColor(Color.RED);
+        graphics.fillRect((int) x, (int) y - 20, (int) (width*(health / 100.0)), 5);
 
         graphics.drawRect((int) (x - game.getCameraService().getXOffset()),
             (int) (y - game.getCameraService().getYOffset()),
