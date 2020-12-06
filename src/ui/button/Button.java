@@ -1,8 +1,7 @@
-package core.UI.button;
+package ui.button;
 
 import app.controller.GameController;
-import core.UI.Element;
-import java.awt.Graphics;
+import ui.Element;
 
 public abstract class Button extends Element
 {

@@ -1,7 +1,7 @@
-package core.UI.radio;
+package ui.radio;
 
 import app.controller.GameController;
-import core.UI.Element;
+import ui.Element;
 
 public abstract class Radio extends Element
 {

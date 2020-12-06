@@ -1,7 +1,7 @@
-package core.UI.image;
+package ui.image;
 
 import app.controller.GameController;
-import core.UI.Element;
+import ui.Element;
 
 public abstract class Image extends Element
 {

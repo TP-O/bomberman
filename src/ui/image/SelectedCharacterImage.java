@@ -1,4 +1,4 @@
-package core.UI.image;
+package ui.image;
 
 import app.controller.GameController;
 import core.asset.Asset;

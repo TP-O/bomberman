@@ -1,16 +1,16 @@
-package core.UI.image;
+package ui.image;
 
 import app.controller.GameController;
 import core.asset.Asset;
 
-public class HomeBackground extends Image
+public class SelectedCharacterBackground extends Image
 {
-    public HomeBackground(GameController game, float positionX, float positionY, int xx, int yy)
+    public SelectedCharacterBackground(GameController game, float positionX, float positionY, int xx, int yy)
     {
-		super(game, positionX, positionY, xx, yy);
-	}
+        super(game, positionX, positionY, xx, yy);
+    }
 
-	@Override
+    @Override
     public void onHover()
     {
         //
@@ -38,6 +38,6 @@ public class HomeBackground extends Image
     @Override
     protected void loadUIImage()
     {
-        currentImage = Asset.bg01.crop(0, 0, 1000, 750);
+        currentImage = Asset.bg02.crop(0, 0, 1000, 760);
     }
 }

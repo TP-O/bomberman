@@ -1,4 +1,4 @@
-package core.UI;
+package ui;
 
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;

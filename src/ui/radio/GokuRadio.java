@@ -1,21 +1,22 @@
-package core.UI.radio;
+package ui.radio;
+
+import java.awt.Graphics;
 
 import app.controller.GameController;
 import core.asset.Asset;
-import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 
-public class MonkRadio extends Radio
-{
+public class GokuRadio extends Radio
+{   
     private BufferedImage innerImage;
 
     private BufferedImage characterImage;
 
-    public MonkRadio(GameController game, float positionX, float positionY, int xx, int yy)
+    public GokuRadio(GameController game, float positionX, float positionY, int xx, int yy)
     {
         super(game, positionX, positionY, xx, yy);
     }
-    
+
     @Override
     protected void loadSize()
     {
@@ -28,8 +29,8 @@ public class MonkRadio extends Radio
     {
         images.add(Asset.ui03.crop(6, 50, 38, 38));
         images.add(Asset.ui03.crop(190, 50, 38, 38));
-        innerImage = Asset.monkAvatar.crop(0, 0, 351, 350);
-        characterImage = Asset.monkAvatar.crop(0, 0, 351, 350);
+        innerImage = Asset.gokuAvatar.crop(0, 0, 121, 145);
+        characterImage = Asset.gokuBackground.crop(0, 0, 1920, 1080);
 
         currentImage = images.get(0);
     }
@@ -39,7 +40,7 @@ public class MonkRadio extends Radio
     {
         currentImage = images.get(0);
     }
-            
+
     @Override
     public void onHover()
     {
@@ -54,12 +55,12 @@ public class MonkRadio extends Radio
         currentImage = images.get(1);
         sharedElement.setCurrentImage(characterImage);
     }
- 
+
     @Override
     public void render(Graphics graphics)
     {
         super.render(graphics);
 
-        graphics.drawImage(innerImage, x + 7, y + 7, 86, 86, null);
+        graphics.drawImage(innerImage, x + 7, y + 7 , 86, 86, null);
     }
 }

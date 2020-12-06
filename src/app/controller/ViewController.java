@@ -4,14 +4,12 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 import app.view.*;
-import core.UI.Element;
-import core.UI.button.*;
-import core.UI.image.HomeBackground;
-import core.UI.image.SelectedCharacterBackground;
-import core.UI.image.SelectedCharacterImage;
-import core.UI.radio.*;
 import core.entity.character.Character;
 import core.entity.character.builder.*;
+import ui.Element;
+import ui.button.*;
+import ui.image.*;
+import ui.radio.*;
 
 public class ViewController
 {

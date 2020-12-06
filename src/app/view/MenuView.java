@@ -3,7 +3,7 @@ package app.view;
 import java.awt.Graphics;
 import java.util.ArrayList;
 import app.controller.GameController;
-import core.UI.Element;
+import ui.Element;
 
 public class MenuView extends View
 {

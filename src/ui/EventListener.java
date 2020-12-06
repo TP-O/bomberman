@@ -1,4 +1,4 @@
-package core.UI;
+package ui;
 
 public interface EventListener
 {

@@ -1,21 +1,21 @@
-package core.UI.radio;
+package ui.radio;
 
 import app.controller.GameController;
 import core.asset.Asset;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 
-public class KiritoRadio extends Radio
+public class KidRadio extends Radio
 {
     private BufferedImage innerImage;
 
     private BufferedImage characterImage;
 
-    public KiritoRadio(GameController game, float positionX, float positionY, int xx, int yy)
+    public KidRadio(GameController game, float positionX, float positionY, int xx, int yy)
     {
         super(game, positionX, positionY, xx, yy);
     }
-
+    
     @Override
     protected void loadSize()
     {
@@ -28,8 +28,8 @@ public class KiritoRadio extends Radio
     {
         images.add(Asset.ui03.crop(6, 50, 38, 38));
         images.add(Asset.ui03.crop(190, 50, 38, 38));
-        innerImage = Asset.kiritoBackground.crop(0, 0, 900, 794);
-        characterImage = Asset.kiritoAvatar.crop(0, 0, 576, 482);
+        innerImage = Asset.kidAvatar.crop(0, 0, 194, 201);
+        characterImage = Asset.kidAvatar.crop(0, 0, 194, 201);
 
         currentImage = images.get(0);
     }
@@ -37,7 +37,7 @@ public class KiritoRadio extends Radio
     @Override
     public void onWaiting()
     {
-        currentImage = images.get(0);
+      currentImage = images.get(0);
     }
     
     @Override
@@ -54,7 +54,7 @@ public class KiritoRadio extends Radio
         currentImage = images.get(1);
         sharedElement.setCurrentImage(characterImage);
     }
-        
+    
     @Override
     public void render(Graphics graphics)
     {
