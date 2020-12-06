@@ -27,7 +27,10 @@ public abstract class Monster extends Character
     public Monster(GameController game, float x, float y, int width, int height, int health, int damage, float speed)
     {
         super(game, x, y, width, height, health, damage, speed);
+
         moveIndex = random.nextInt(Direction.values().length);
+
+        // Explosion manager
         explosion = new ExplosionController();
     }
 
@@ -59,6 +62,7 @@ public abstract class Monster extends Character
         }
     }
 
+    @Override
     public void detectAttack()
     {
         explosion.getExplosions().forEach(explosion -> {
@@ -76,15 +80,21 @@ public abstract class Monster extends Character
                     || upperRightCornerCollied
                     || lowerRightCornerCollied
             ) {
-                health -= explosion.getDamage();
+                long now = System.currentTimeMillis();
 
-                if (health <= 0) {
-                    CharacterController.trash.add(this);
+                if (now - attackedTime >= 1000) {
+                    health -= explosion.getDamage();
+                    attackedTime = now;
+
+                    if (health <= 0) {
+                        CharacterController.trash.add(this);
+                    }
                 }
             }
         });
     }
 
+    @Override
     public void tick()
     {
         super.tick();

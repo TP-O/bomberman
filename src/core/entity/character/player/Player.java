@@ -4,11 +4,13 @@ import core.entity.bomb.*;
 import core.entity.bomb.children.*;
 import core.entity.character.Character;
 import helper.Helper;
+import app.controller.CharacterController;
 import app.controller.GameController;
-import app.model.MonsterModel;
 
 public abstract class Player extends Character
 {
+    CharacterController character;
+
     BombingStrategy bombingStrategy;
 
     public Player(GameController game, float x, float y, int width, int height, int health, int damage, float speed)
@@ -17,6 +19,9 @@ public abstract class Player extends Character
 
         // Set default bomb of the player
         bombingStrategy = new BombA(game);
+
+        // Character manager
+        character = new CharacterController();
     }
 
     public void setBombingStrategy(BombingStrategy bombingStrategy)
@@ -24,9 +29,10 @@ public abstract class Player extends Character
         this.bombingStrategy = bombingStrategy;
     }
 
-    private void detectAttack()
+    @Override
+    public void detectAttack()
     {
-        MonsterModel.all().forEach(monster -> {
+        character.getMonsters().forEach(monster -> {
             boolean upperLeftCornerCollied = Helper.inSquare(x + padding, y + padding,
                     monster.getX(), monster.getY(), monster.getWidth(), monster.getHeight());
             boolean lowerLeftCornerCollied = Helper.inSquare(x + padding, y + height - padding,
@@ -43,14 +49,15 @@ public abstract class Player extends Character
             ) {
                 long now = System.currentTimeMillis();
 
-                if (now - attackedAt >= 1000) {
+                if (now - attackedTime >= 1000) {
                     health -= monster.getDamage();
-                    attackedAt = now;
+                    attackedTime = now;
                 }
             }
         });
     }
     
+    @Override
     public void tick()
     {
         super.tick();

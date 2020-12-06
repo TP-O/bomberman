@@ -10,7 +10,7 @@ import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
-public abstract class Character extends Entity
+public abstract class Character extends Entity implements Movable, Attackable
 {
     protected int health;
 
@@ -24,7 +24,7 @@ public abstract class Character extends Entity
 
     protected boolean collied = false;
 
-    protected static long attackedAt = 0;
+    protected static long attackedTime = 0;
 
     protected BufferedImage currentFrame;
 
@@ -90,20 +90,8 @@ public abstract class Character extends Entity
             .isSolid();
     }
 
-    protected void displayHealthStatus(Graphics graphics)
-    {   
-        // Render the box
-        graphics.setColor(Color.WHITE);
-        graphics.drawRect((int) (x - game.getCameraService().getXOffset() - 1),
-                (int) (y - game.getCameraService().getYOffset() - 21), width + 1, 6);
-        
-        // Render the health
-        graphics.setColor(Color.RED);
-        graphics.fillRect((int) (x - game.getCameraService().getXOffset()),
-                (int) (y - game.getCameraService().getYOffset() - 20), (int) (width*(health / 100.0)), 5);
-    }
-
-    protected void moveUp(float distance)
+    @Override
+    public void moveUp(float distance)
     {
         boolean upperLeftCornerCollied = isCollied(Helper.getXOfTile(x + padding),
                 Helper.getYOfTile(y + padding - margin));
@@ -121,6 +109,7 @@ public abstract class Character extends Entity
         currentFrame = animationUp.getCurrentFrame();
     }
 
+    @Override
     public void moveDown(float distance)
     {
         boolean lowerLeftCornerCollied = isCollied(Helper.getXOfTile(x + padding),
@@ -139,6 +128,7 @@ public abstract class Character extends Entity
         currentFrame = animationDown.getCurrentFrame();
     }
 
+    @Override
     public void moveLeft(float distance)
     {
         boolean upperLeftCornerCollied = isCollied(Helper.getXOfTile(x + padding- margin),
@@ -157,6 +147,7 @@ public abstract class Character extends Entity
         currentFrame = animationLeft.getCurrentFrame();
     }
 
+    @Override
     public void moveRight(float distance)
     {
         boolean upperRightCornerCollied = isCollied(Helper.getXOfTile(x + width - padding + margin),
@@ -173,6 +164,19 @@ public abstract class Character extends Entity
         }
 
         currentFrame = animationRight.getCurrentFrame();
+    }
+
+    protected void displayHealthStatus(Graphics graphics)
+    {   
+        // Render the box
+        graphics.setColor(Color.WHITE);
+        graphics.drawRect((int) (x - game.getCameraService().getXOffset() - 1),
+                (int) (y - game.getCameraService().getYOffset() - 21), width + 1, 6);
+        
+        // Render the health
+        graphics.setColor(Color.RED);
+        graphics.fillRect((int) (x - game.getCameraService().getXOffset()),
+                (int) (y - game.getCameraService().getYOffset() - 20), (int) (width*(health / 100.0)), 5);
     }
 
     public void tick()
