@@ -27,7 +27,7 @@ public class ViewController
         ArrayList<Element> elements = new ArrayList<Element>();
 
         // Add background
-        elements.add(new HomeBackground(game, 0, 0, 702, 320));
+        elements.add(new HomeBackground(game, 0.5f, 0.5f, 0, 0));
 
         // Add butons
         elements.add(new PlayButton(game, 0.5f, 0.5f, 0, 0));
@@ -118,18 +118,18 @@ public class ViewController
         ArrayList<Element> elements = new ArrayList<Element>();
 
         // Add background
-        elements.add(new SelectedCharacterBackground(game, 0, 0, 702, 320));
+        elements.add(new SelectedCharacterBackground(game, 0.5f, 0.5f, 0, 0));
 
         // Add buttons
-        elements.add(new StartButton(game, 0.5f, 0.5f, 0, 230));
-        elements.add(new ReturnButton(game, 0.5f, 0.5f, -635, -285));
+        elements.add(new StartButton(game, 0.5f, 0.8f, 0, 0));
+        elements.add(new ReturnButton(game, 0.08f, 0.05f, 0, 0));
 
         // Add radios
+        elements.add(new GokuRadio(game, 0.5f, 0.5f, 50, 80));
         elements.add(new KidRadio(game, 0.5f, 0.5f, -270, -240));
         elements.add(new MonkRadio(game, 0.5f, 0.5f, -270, -80));
         elements.add(new ShadowRadio(game, 0.5f, 0.5f, -270, 80));
         elements.add(new KiritoRadio(game, 0.5f, 0.5f, -110, 80));
-        elements.add(new GokuRadio(game, 0.5f, 0.5f, 50, 80));
         elements.add(new SatoshiRadio(game, 0.5f, 0.5f, 210, 80));
 
         // Share data
