@@ -2,13 +2,11 @@ package config;
 
 public class AppConfig
 {
-    public static String Name = "Boom";
+    public static final String NAME = "Boom";
 
-    public static String AssetDir = System.getProperty("os.name").equals("Linux")
-        ? System.getProperty("user.dir") + "/../res"
-        : System.getProperty("user.dir") + "/boom/res";
+    public static final String ASSET_DIR = "res/";
 
-    public static String ImageDir = AssetDir + "/image/";
+    public static final String IMAGE_DIR =  ASSET_DIR + "image/";
 
-    public static String MapDir = AssetDir + "/maps/";
+    public static final String MAP_DIR = ASSET_DIR + "data/map/";
 }

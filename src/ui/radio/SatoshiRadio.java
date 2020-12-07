@@ -1,10 +1,12 @@
 package ui.radio;
 
-import app.controller.GameController;
-import core.asset.Asset;
+import asset.Asset;
+import core.main.Handler;
 
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
+
+import app.controller.GameController;
 
 public class SatoshiRadio extends Radio
 {
@@ -12,9 +14,11 @@ public class SatoshiRadio extends Radio
 
     private BufferedImage characterImage;
 
-    public SatoshiRadio(GameController game, float positionX, float positionY, int xx, int yy)
+    public SatoshiRadio(Handler handler, float positionX, float positionY, int xx, int yy)
     {
-        super(game, positionX, positionY, xx, yy);
+        super(handler, positionX, positionY, xx, yy);
+
+        value = "Satoshi";
     }
 
     @Override
@@ -51,6 +55,8 @@ public class SatoshiRadio extends Radio
     public void onClick()
     {
         super.onClick();
+
+        GameController.characterType = value;
 
         currentImage = images.get(1);
         sharedElement.setCurrentImage(characterImage);

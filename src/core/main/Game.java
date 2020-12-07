@@ -1,42 +1,47 @@
 package core.main;
 
 import java.awt.image.BufferStrategy;
+
+import app.plugin.PluginProvider;
+
 import java.awt.Graphics;
 
-import app.controller.MapController;
-import helper.Helper;
-import core.service.ServiceProvider;
+import config.AppConfig;
+import config.GameConfig;
+import router.RouterRegistration;
 
 public class Game implements Runnable
 {
-    public int width;
+    public final String NAME = AppConfig.NAME;
 
-    public int height;
+    public final int WIDTH = GameConfig.WIDTH;
 
-    private boolean running = false;
+    public final int HEIGHT = GameConfig.HEIGHT;
 
-    public Window window;
+    boolean running = false;
 
-    private BufferStrategy bs;
+    RouterRegistration router;
 
-    public Graphics graphics;
+    PluginProvider provider;
 
-    public Thread thread;
+    Map map;
 
-    public ServiceProvider provider;
+    BufferStrategy bs;
 
-    public MapController map;
+    Graphics graphics;
 
-    public Game(int width, int height)
-    {
-        this.width = width;
-        this.height = height;
-    }
+    Window window;
+
+    Thread thread;
 
     public synchronized void start()
     {
-        if (running) return;
-        running = true;
+        if (running) {
+            return;
+        }
+        else {
+            running = true;
+        }
 
         // Start the game
         thread = new Thread(this);
@@ -45,8 +50,12 @@ public class Game implements Runnable
 
     public synchronized void stop()
     {
-        if (!running) return;
-        running = false;
+        if (!running) {
+            return;
+        }
+        else {
+            running = false;
+        }
         
         try {
             // Stop the game
@@ -74,7 +83,7 @@ public class Game implements Runnable
         graphics = bs.getDrawGraphics();
         
         // Clear screen
-        graphics.clearRect(0, 0, width, height);
+        graphics.clearRect(0, 0, WIDTH, HEIGHT);
 
         // Render image
         Router.render(graphics);
@@ -83,12 +92,11 @@ public class Game implements Runnable
         graphics.dispose();
     }
 
-
     // Run the game
     public void run()
     {
         // Update times per seconds
-        int fps = Helper.config("Game.FPS");
+        int fps = GameConfig.FPS;
         double timePerTick = 1000000000/fps;
         double delta = 0;
         long now;

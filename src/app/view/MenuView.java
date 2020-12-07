@@ -2,17 +2,17 @@ package app.view;
 
 import java.awt.Graphics;
 import java.util.ArrayList;
-import app.controller.GameController;
+
+import core.main.Handler;
 import ui.Element;
 
 public class MenuView extends View
 {
     private ArrayList<Element> elements;
 
-    public MenuView(GameController game, ArrayList<Element> elements)
+    public MenuView(Handler handler, ArrayList<Element> elements)
     {
-        super(game);
-
+        this.handler = handler;
         this.elements = elements;
     }
 

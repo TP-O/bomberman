@@ -1,19 +1,16 @@
 package helper;
 
-import helper.config.Config;
+import helper.event.EventCalling;
+
 import java.awt.image.BufferedImage;
 
-import core.tile.Tile;
+import tile.Tile;
+import app.event.event.Event;
 import helper.file.FileLoader;
 import helper.sheet.SpriteSheet;
 
 public class Helper
 {
-    public static <T> T config(String name)
-    {
-        return Config.get(name);
-    }
-
     public static BufferedImage loadImage(String path)
     {
         return FileLoader.loadImage(path);
@@ -45,5 +42,10 @@ public class Helper
             && x <= qx + width
             && y >= qy
             && y <= qy + height;
+    }
+
+    public static void event(Event event)
+    {
+        EventCalling.event(event);
     }
 }

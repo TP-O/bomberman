@@ -1,9 +1,12 @@
 package ui.radio;
 
-import app.controller.GameController;
-import core.asset.Asset;
+import asset.Asset;
+import core.main.Handler;
+
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
+
+import app.controller.GameController;
 
 public class MonkRadio extends Radio
 {
@@ -11,9 +14,11 @@ public class MonkRadio extends Radio
 
     private BufferedImage characterImage;
 
-    public MonkRadio(GameController game, float positionX, float positionY, int xx, int yy)
+    public MonkRadio(Handler handler, float positionX, float positionY, int xx, int yy)
     {
-        super(game, positionX, positionY, xx, yy);
+        super(handler, positionX, positionY, xx, yy);
+
+        value = "Monk";
     }
     
     @Override
@@ -50,6 +55,8 @@ public class MonkRadio extends Radio
     public void onClick()
     {
         super.onClick();
+
+        GameController.characterType = value;
 
         currentImage = images.get(1);
         sharedElement.setCurrentImage(characterImage);

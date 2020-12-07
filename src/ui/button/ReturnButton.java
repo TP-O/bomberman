@@ -1,15 +1,14 @@
 package ui.button;
 
-import app.controller.GameController;
-
-import core.asset.Asset;
+import asset.Asset;
+import core.main.Handler;
 import core.main.Router;
 
 public class ReturnButton extends Button
 {
-    public ReturnButton(GameController game, float positionX, float positionY, int xx, int yy)
+    public ReturnButton(Handler handler, float positionX, float positionY, int xx, int yy)
     {
-        super(game, positionX, positionY, xx, yy);
+        super(handler, positionX, positionY, xx, yy);
     }
 
     @Override

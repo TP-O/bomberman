@@ -2,7 +2,7 @@ package app.model;
 
 import java.util.ArrayList;
 
-import core.tile.*;
+import tile.*;
 
 public class TileModel
 {
@@ -13,18 +13,13 @@ public class TileModel
         return data.get(id);
     }
 
-    public static void add(int id, Tile tile)
-    {
-        data.add(id, tile);
-    }
-
     public static void loadData()
     {
-        add(0, new GrassTile());
-        add(1, new RockTile());
-        add(2, new TreeTile());
-        add(3, new MushroomTile());
-        add(4, new CherryTile());
-        add(5, new MapleTile());
+        data.add(0, new GrassTile());
+        data.add(1, new RockTile());
+        data.add(2, new TreeTile());
+        data.add(3, new MushroomTile());
+        data.add(4, new CherryTile());
+        data.add(5, new MapleTile());
     }
 }

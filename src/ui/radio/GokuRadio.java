@@ -2,9 +2,12 @@ package ui.radio;
 
 import java.awt.Graphics;
 
-import app.controller.GameController;
-import core.asset.Asset;
+import asset.Asset;
+import core.main.Handler;
+
 import java.awt.image.BufferedImage;
+
+import app.controller.GameController;
 
 public class GokuRadio extends Radio
 {   
@@ -12,9 +15,11 @@ public class GokuRadio extends Radio
 
     private BufferedImage characterImage;
 
-    public GokuRadio(GameController game, float positionX, float positionY, int xx, int yy)
+    public GokuRadio(Handler handler, float positionX, float positionY, int xx, int yy)
     {
-        super(game, positionX, positionY, xx, yy);
+        super(handler, positionX, positionY, xx, yy);
+
+        value = "Goku";
     }
 
     @Override
@@ -51,6 +56,8 @@ public class GokuRadio extends Radio
     public void onClick()
     {
         super.onClick();
+
+        GameController.characterType = value;
 
         currentImage = images.get(1);
         sharedElement.setCurrentImage(characterImage);

@@ -1,10 +1,12 @@
 package core.main;
 
 import java.awt.Graphics;
+import tile.Tile;
 import helper.Helper;
-import core.tile.Tile;
-import app.controller.GameController;
+import app.model.MapModel;
 import app.model.TileModel;
+import config.AppConfig;
+import config.GameConfig;
 
 public class Map
 {
@@ -12,11 +14,11 @@ public class Map
 
     private int[][] tiles;
 
-    private GameController gameController;
+    private Handler handler;
 
-    public Map(GameController gameController)
+    public Map(Handler handler)
     {
-        this.gameController = gameController;
+        this.handler = handler;
     }    
 
     public int getWidth()
@@ -36,24 +38,32 @@ public class Map
 
     public void render(Graphics graphics)
     {
-        int xStart = (int) Math.max(0, gameController.getCameraService().getXOffset() / Tile.WIDTH);
-        int xEnd = (int) Math.min(width, (gameController.getCameraService().getXOffset() + gameController.getWidth()) / Tile.WIDTH + 1);
-        int yStart = (int) Math.max(0, gameController.getCameraService().getYOffset() / Tile.HEIGHT);
-        int yEnd = (int) Math.min(height, (gameController.getCameraService().getYOffset() + gameController.getHeight()) / Tile.HEIGHT + 1);
+        int xStart = (int) Math.max(0, handler.getCamera().getXOffset() / Tile.WIDTH);
+        int xEnd = (int) Math.min(width,
+                (handler.getCamera().getXOffset() + GameConfig.WIDTH) / Tile.WIDTH + 1);
+
+        int yStart = (int) Math.max(0, handler.getCamera().getYOffset() / Tile.HEIGHT);
+        int yEnd = (int) Math.min(height,
+                (handler.getCamera().getYOffset() + GameConfig.HEIGHT) / Tile.HEIGHT + 1);
 
         for (int x = xStart; x < xEnd; x++) {
             for (int y = yStart; y < yEnd; y++) {
                 TileModel.get(tiles[x][y]).render(graphics,
                     // The tiles move rely on camera's coordinates
-                    (int) (x*Tile.WIDTH - gameController.getCameraService().getXOffset()),
-                    (int) (y*Tile.HEIGHT - gameController.getCameraService().getYOffset()));
+                    (int) (x*Tile.WIDTH - handler.getCamera().getXOffset()),
+                    (int) (y*Tile.HEIGHT - handler.getCamera().getYOffset()));
             }
-        }   
+        }
     }
 
-    public void loadMap(String path)
+    public void loadMap(int phase)
     {
-        String mapString = Helper.loadFileAsString(path);
+        MapModel mapModel = new MapModel();
+
+        String mapName = mapModel.where(phase).get();
+        
+        String mapString = Helper.loadFileAsString(AppConfig.MAP_DIR + mapName);
+
         String[] tokens = mapString.split("\\s+");
 
         width = Integer.parseInt(tokens[0]);

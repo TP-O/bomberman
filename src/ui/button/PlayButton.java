@@ -1,14 +1,14 @@
 package ui.button;
 
-import app.controller.GameController;
-import core.asset.Asset;
+import asset.Asset;
+import core.main.Handler;
 import core.main.Router;
 
 public class PlayButton extends Button
 {
-    public PlayButton(GameController game, float positionX, float positionY, int xx, int yy)
+    public PlayButton(Handler handler, float positionX, float positionY, int xx, int yy)
     {
-        super(game, positionX, positionY, xx, yy);
+        super(handler, positionX, positionY, xx, yy);
     }
 
     @Override

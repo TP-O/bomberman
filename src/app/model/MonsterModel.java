@@ -1,31 +1,49 @@
 package app.model;
 
 import java.util.ArrayList;
-import java.util.List;
 
-import core.entity.character.monster.Monster;
+import entity.character.factory.AbstractMonster;
+import entity.character.monster.Monster;
+ 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 
-public class MonsterModel
+import core.main.Handler;
+
+public class MonsterModel extends Model<ArrayList<Monster>>
 {
-    private static ArrayList<Monster> data = new ArrayList<Monster>();
-
-    public static ArrayList<Monster> all()
+    public MonsterModel(Handler handler)
     {
-        return data;
+        this.handler = handler;
+
+        data = new ArrayList<Monster>();
+        path = "res/data/monster.json";
     }
 
-    public static void insert(Monster monster)
+    @SuppressWarnings("unchecked")
+    public MonsterModel where(int phase)
     {
-        data.add(monster);
+        JSONArray result = read(phase);
+
+        result.forEach(r -> {
+            parseMonsterObject((JSONObject) r);
+        });
+
+        return this;
     }
 
-    public static void insert(List<Monster> monsters)
+    private void parseMonsterObject(JSONObject monster)
     {
-        data.addAll(monsters);
-    }
+        AbstractMonster monsterFactory = new AbstractMonster();
 
-    public static void delete(Monster monster)
-    {
-        data.remove(monster);
+        data.add((Monster) monsterFactory.createCharacter(handler,
+                (String) monster.get("type"),
+                Float.parseFloat(String.valueOf((double) monster.get("x"))),
+                Float.parseFloat(String.valueOf((double) monster.get("y"))),
+                Integer.parseInt(String.valueOf((long) monster.get("width"))),
+                Integer.parseInt(String.valueOf((long) monster.get("height"))),
+                Integer.parseInt(String.valueOf((long) monster.get("health"))),
+                Integer.parseInt(String.valueOf((long) monster.get("damage"))),
+                Float.parseFloat(String.valueOf((double) monster.get("speed")))));
     }
 }

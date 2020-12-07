@@ -1,16 +1,12 @@
 package app.view;
 
 import java.awt.Graphics;
-import app.controller.GameController;
+
+import core.main.Handler;
 
 public abstract class View
 {
-    protected GameController game;
-
-    public View(GameController game)
-    {
-        this.game = game;
-    }
+    protected Handler handler;
 
     public abstract void tick();
     

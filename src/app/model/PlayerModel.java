@@ -1,23 +1,42 @@
 package app.model;
 
-import core.entity.character.player.Player;
+import entity.character.factory.AbstractPlayer;
+import entity.character.player.Player;
+ 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 
-public class PlayerModel
+import core.main.Handler;
+
+public class PlayerModel extends Model<Player>
 {
-    private static Player data;
+    public PlayerModel(Handler handler)
+    {   
+        this.handler = handler;
 
-    public static Player get()
-    {
-        return data;
-    }
-
-    public static void set(Player player)
-    {
-        data = player;
-    }
-
-    public static void delete()
-    {
         data = null;
+        path = "res/data/player.json";
+    }
+
+    @SuppressWarnings("unchecked")
+    public PlayerModel where(int phase, String type)
+    {
+        JSONArray result = read(phase);
+
+        result.forEach(r -> {
+            parsePlayerObject((JSONObject) r, type);
+        });
+
+        return this;
+    }
+
+    private void parsePlayerObject(JSONObject player, String type)
+    {
+        AbstractPlayer playerFactory = new AbstractPlayer();
+
+        data = (Player) playerFactory.createCharacter(handler, type,
+                Float.parseFloat(String.valueOf((double) player.get("x"))),
+                Float.parseFloat(String.valueOf((double) player.get("y"))),
+                64, 64, 100, 0, 3.0f);
     }
 }

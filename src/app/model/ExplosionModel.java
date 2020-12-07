@@ -3,7 +3,7 @@ package app.model;
 import java.util.ArrayList;
 import java.util.List;
 
-import core.entity.explosion.Explosion;
+import entity.explosion.Explosion;
 
 public class ExplosionModel
 {

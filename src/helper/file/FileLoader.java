@@ -6,18 +6,15 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import javax.imageio.ImageIO;
-import helper.Helper;
+
+import config.AppConfig;
 
 public class FileLoader
 {
-    private static String imageDir = Helper.config("App.ImageDir");
-
-    private static String mapDir = Helper.config("App.MapDir");
-
     public static BufferedImage loadImage(String path)
     {
         try {
-            File f = new File(imageDir + path);
+            File f = new File(AppConfig.IMAGE_DIR + path);
             
             return ImageIO.read(f);
         }
@@ -35,7 +32,7 @@ public class FileLoader
         StringBuilder SBuilder = new StringBuilder();
 
         try {
-            FileReader f = new FileReader(mapDir + path);
+            FileReader f = new FileReader(path);
 
             BufferedReader BReader = new BufferedReader(f);
             

@@ -4,7 +4,8 @@ import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
-import app.controller.GameController;
+import config.GameConfig;
+import core.main.Handler;
 
 public abstract class Element implements EventListener, Sharable
 {
@@ -12,7 +13,7 @@ public abstract class Element implements EventListener, Sharable
 
     protected int width, height;
 
-    protected GameController game;
+    protected Handler handler;
 
     protected BufferedImage currentImage;
 
@@ -69,15 +70,15 @@ public abstract class Element implements EventListener, Sharable
         currentImage = image;
     }
 
-    public Element(GameController game, float positionX, float positionY, int xx, int yy)
+    public Element(Handler handler, float positionX, float positionY, int xx, int yy)
     {
-        this.game = game;
+        this.handler = handler;
         
         loadSize();
         
         // Display based on screen percentage
-        x = (int) (game.getWidth()*positionX - width/2 + xx);
-        y = (int) (game.getHeight()*positionY - height/2 + yy);
+        x = (int) (GameConfig.WIDTH * positionX - width / 2 + xx);
+        y = (int) (GameConfig.HEIGHT * positionY - height / 2 + yy);
 
         loadUIImage();
     }
@@ -96,10 +97,10 @@ public abstract class Element implements EventListener, Sharable
     @Override
     public boolean isHovering()
     {
-        return game.getMouseService().mouseX > x
-                && game.getMouseService().mouseX < x + width
-                && game.getMouseService().mouseY > y
-                && game.getMouseService().mouseY < y + height
+        return handler.getMouse().mouseX > x
+                && handler.getMouse().mouseX < x + width
+                && handler.getMouse().mouseY > y
+                && handler.getMouse().mouseY < y + height
                 && !disable;
     }
 
@@ -125,7 +126,7 @@ public abstract class Element implements EventListener, Sharable
     {
         if (isHovering()) {
             onHover();
-            if (game.getMouseService().left.isPressed()) {
+            if (handler.getMouse().left.isPressed()) {
                 onClick();
             }
         }

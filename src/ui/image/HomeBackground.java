@@ -1,13 +1,14 @@
 package ui.image;
 
-import app.controller.GameController;
-import core.asset.Asset;
+import config.GameConfig;
+import asset.Asset;
+import core.main.Handler;
 
 public class HomeBackground extends Image
 {
-    public HomeBackground(GameController game, float positionX, float positionY, int xx, int yy)
+    public HomeBackground(Handler handler, float positionX, float positionY, int xx, int yy)
     {
-		super(game, positionX, positionY, xx, yy);
+		super(handler, positionX, positionY, xx, yy);
 	}
 
 	@Override
@@ -31,8 +32,8 @@ public class HomeBackground extends Image
     @Override
     protected void loadSize()
     {
-        width = game.getWidth();
-        height = game.getHeight();
+        width = GameConfig.WIDTH;
+        height = GameConfig.HEIGHT;
     }
 
     @Override

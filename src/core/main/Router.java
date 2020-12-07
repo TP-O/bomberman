@@ -3,22 +3,23 @@ package core.main;
 import java.awt.Graphics;
 import java.util.HashMap;
 
+import app.controller.Controller;
 import app.view.*;
 
 public class Router
 {
     private static View currentView;
 
-    private static HashMap<String, View> views = new HashMap<String, View>();
+    private static HashMap<String, Controller> controllers = new HashMap<String, Controller>();
 
-    public static void register(String viewName, View view)
+    public static void register(String viewName, Controller controller)
     {
-        views.put(viewName, view);
+        controllers.put(viewName, controller);
     }
 
     public static void redirect(String viewName)
     {
-        currentView = views.get(viewName);
+        currentView = controllers.get(viewName).createView();
     }
 
     public static void tick()

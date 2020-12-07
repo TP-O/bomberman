@@ -3,16 +3,16 @@ package app.view;
 import java.awt.Graphics;
 import java.util.ArrayList;
 
-import app.controller.GameController;
+import core.main.Handler;
 import ui.Element;
 
 public class CharacterView extends View
 {
     private ArrayList<Element> elements;
 
-    public CharacterView(GameController game, ArrayList<Element> elements)
+    public CharacterView(Handler handler, ArrayList<Element> elements)
     {
-        super(game);
+        this.handler = handler;
         this.elements = elements;
     }
 
