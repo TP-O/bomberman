@@ -8,13 +8,23 @@ import entity.character.monster.Monster;
 
 public class AlolanPersian extends Monster
 {
-    public AlolanPersian(Handler handler, float x, float y, int width, int height,
-            int health, int damage, float speed)
+    public AlolanPersian(Handler handler, float x, float y)
     {
-        super(handler, x, y, width, height, health, damage, speed);
+        super(handler, x, y);
     }
 
-    protected void loadCharacterImage()
+    @Override
+    protected void loadInfo()
+    {
+        super.loadInfo();
+
+        health = 10;
+        speed = 5.0f;
+        damage = 5;
+    }
+
+    @Override
+    protected void loadImages()
     {
         up = new ArrayList<BufferedImage>();
         down = new ArrayList<BufferedImage>();

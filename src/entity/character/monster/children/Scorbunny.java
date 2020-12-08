@@ -8,12 +8,23 @@ import entity.character.monster.Monster;
 
 public class Scorbunny extends Monster
 {
-    public Scorbunny(Handler handler, float x, float y, int width, int height, int health, int damage, float speed)
+    public Scorbunny(Handler handler, float x, float y)
     {
-        super(handler, x, y, width, height, health, damage, speed);
+        super(handler, x, y);
     }
 
-    protected void loadCharacterImage()
+    @Override
+    protected void loadInfo()
+    {
+        super.loadInfo();
+
+        health = 1;
+        speed = 5.0f;
+        damage = 25;
+    }
+
+    @Override
+    protected void loadImages()
     {
         up = new ArrayList<BufferedImage>();
         down = new ArrayList<BufferedImage>();

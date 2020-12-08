@@ -2,10 +2,6 @@ package config;
 
 public class MonsterConfig
 {
-    public static final float X = 0;
-
-    public static final float Y = 0;
-
     public static final int WIDTH = 64;
 
     public static final int HEIGHT = 64;

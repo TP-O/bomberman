@@ -2,7 +2,8 @@ package app.model;
 
 import java.util.ArrayList;
 
-import entity.character.factory.AbstractMonster;
+import entity.character.factory.CharacterFactory;
+import entity.character.factory.MonsterFactory;
 import entity.character.monster.Monster;
  
 import org.json.simple.JSONArray;
@@ -12,12 +13,15 @@ import core.main.Handler;
 
 public class MonsterModel extends Model<ArrayList<Monster>>
 {
+    private CharacterFactory factory;
+
     public MonsterModel(Handler handler)
     {
         this.handler = handler;
 
-        data = new ArrayList<Monster>();
         path = "res/data/monster.json";
+        factory = new MonsterFactory();
+        data = new ArrayList<Monster>();
     }
 
     @SuppressWarnings("unchecked")
@@ -34,16 +38,9 @@ public class MonsterModel extends Model<ArrayList<Monster>>
 
     private void parseMonsterObject(JSONObject monster)
     {
-        AbstractMonster monsterFactory = new AbstractMonster();
-
-        data.add((Monster) monsterFactory.createCharacter(handler,
+        data.add((Monster) factory.createCharacter(handler,
                 (String) monster.get("type"),
                 Float.parseFloat(String.valueOf((double) monster.get("x"))),
-                Float.parseFloat(String.valueOf((double) monster.get("y"))),
-                Integer.parseInt(String.valueOf((long) monster.get("width"))),
-                Integer.parseInt(String.valueOf((long) monster.get("height"))),
-                Integer.parseInt(String.valueOf((long) monster.get("health"))),
-                Integer.parseInt(String.valueOf((long) monster.get("damage"))),
-                Float.parseFloat(String.valueOf((double) monster.get("speed")))));
+                Float.parseFloat(String.valueOf((double) monster.get("y")))));
     }
 }

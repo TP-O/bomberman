@@ -1,6 +1,7 @@
 package app.model;
 
-import entity.character.factory.AbstractPlayer;
+import entity.character.factory.CharacterFactory;
+import entity.character.factory.PlayerFactory;
 import entity.character.player.Player;
  
 import org.json.simple.JSONArray;
@@ -10,12 +11,15 @@ import core.main.Handler;
 
 public class PlayerModel extends Model<Player>
 {
+    private CharacterFactory factory;
+
     public PlayerModel(Handler handler)
     {   
         this.handler = handler;
-
-        data = null;
+        
         path = "res/data/player.json";
+        factory = new PlayerFactory();
+        data = null;
     }
 
     @SuppressWarnings("unchecked")
@@ -32,11 +36,8 @@ public class PlayerModel extends Model<Player>
 
     private void parsePlayerObject(JSONObject player, String type)
     {
-        AbstractPlayer playerFactory = new AbstractPlayer();
-
-        data = (Player) playerFactory.createCharacter(handler, type,
+        data = (Player) factory.createCharacter(handler, type,
                 Float.parseFloat(String.valueOf((double) player.get("x"))),
-                Float.parseFloat(String.valueOf((double) player.get("y"))),
-                64, 64, 100, 0, 3.0f);
+                Float.parseFloat(String.valueOf((double) player.get("y"))));
     }
 }

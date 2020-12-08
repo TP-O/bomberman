@@ -9,12 +9,22 @@ import entity.character.player.Player;
 
 public class Kirito extends Player
 {
-    public Kirito(Handler handler, float x, float y, int width, int height, int health, int damage, float speed)
+    public Kirito(Handler handler, float x, float y)
     {
-        super(handler, x, y, width, height, health, damage, speed);
+        super(handler, x, y);
     }
 
-    protected void loadCharacterImage()
+    @Override
+    protected void loadInfo()
+    {
+        super.loadInfo();
+
+        health = 120;
+        speed = 2.2f;
+    }
+
+    @Override
+    protected void loadImages()
     {
         up = new ArrayList<BufferedImage>();
         down = new ArrayList<BufferedImage>();

@@ -8,12 +8,23 @@ import entity.character.monster.Monster;
 
 public class Emboar extends Monster
 {
-    public Emboar(Handler handler, float x, float y, int width, int height, int health, int damage, float speed)
+    public Emboar(Handler handler, float x, float y)
     {
-        super(handler, x, y, width, height, health, damage, speed);
+        super(handler, x, y);
     }
 
-    protected void loadCharacterImage()
+    @Override
+    protected void loadInfo()
+    {
+        super.loadInfo();
+
+        health = 16;
+        speed = 3.5f;
+        damage = 7;
+    }
+
+    @Override
+    protected void loadImages()
     {
         up = new ArrayList<BufferedImage>();
         down = new ArrayList<BufferedImage>();

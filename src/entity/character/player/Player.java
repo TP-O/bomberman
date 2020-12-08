@@ -6,18 +6,30 @@ import entity.character.Character;
 
 import app.controller.GameController;
 import app.event.event.BombPlacingEvent;
+import config.PlayerConfig;
 import helper.Helper;
 import core.main.Handler;
 
 public abstract class Player extends Character
 {
-    Bomb bomb;
+    private Bomb bomb;
 
-    public Player(Handler handler, float x, float y, int width, int height, int health, int damage, float speed)
+    public Player(Handler handler, float x, float y)
     {
-        super(handler , x, y, width, height, health, damage, speed);
+        super(handler);
 
-        // Set default bomb of the player
+        this.x = x;
+        this.y = y;
+    }
+
+    @Override
+    protected void loadInfo()
+    {
+        width = PlayerConfig.WIDTH;
+        height =  PlayerConfig.HEIGHT;
+        speed = PlayerConfig.SPEED;
+        health = PlayerConfig.HEALTH;
+
         bomb = new BombB(handler);
     }
 

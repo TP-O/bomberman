@@ -9,12 +9,22 @@ import entity.character.player.Player;
 
 public class Kid extends Player
 {
-    public Kid(Handler handler, float x, float y, int width, int height, int health, int damage, float speed)
+    public Kid(Handler handler, float x, float y)
     {
-        super(handler, x, y, width, height, health, damage, speed);
+        super(handler, x, y);
     }
 
-    protected void loadCharacterImage()
+    @Override
+    protected void loadInfo()
+    {
+        super.loadInfo();
+
+        health = 80;
+        speed = 4.0f;
+    }
+
+    @Override
+    protected void loadImages()
     {
         up = new ArrayList<BufferedImage>();
         down = new ArrayList<BufferedImage>();

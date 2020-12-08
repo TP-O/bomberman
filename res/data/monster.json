@@ -3,74 +3,39 @@
         {
             "type": "AlolanPersian",
             "x": 500.0,
-            "y": 250.0,
-            "width": 64,
-            "height": 64,
-            "health": 5,
-            "damage": 5,
-            "speed": 3.0
+            "y": 250.0
         },
         {
             "type": "ShinyZygarde",
             "x": 800.0,
-            "y": 250.0,
-            "width": 64,
-            "height": 64,
-            "health": 5,
-            "damage": 5,
-            "speed": 3.0
+            "y": 250.0
         },
         {
             "type": "Scorbunny",
             "x": 800.0,
-            "y": 300.0,
-            "width": 64,
-            "height": 64,
-            "health": 5,
-            "damage": 5,
-            "speed": 3.0
+            "y": 300.0
         },
         {
             "type": "Bulbasaur",
             "x": 400.0,
-            "y": 300.0,
-            "width": 64,
-            "height": 64,
-            "health": 5,
-            "damage": 5,
-            "speed": 3.0
+            "y": 300.0
         },
         {
             "type": "Emboar",
             "x": 400.0,
-            "y": 500.0,
-            "width": 82,
-            "height": 82,
-            "health": 10,
-            "damage": 10,
-            "speed": 3.0
+            "y": 500.0
         },
         {
             "type": "ShinyEmboar",
             "x": 350.0,
-            "y": 500.0,
-            "width": 82,
-            "height": 82,
-            "health": 10,
-            "damage": 10,
-            "speed": 3.0
+            "y": 500.0
         }
     ],
     [
         {
             "type": "ShinyEmboar",
             "x": 350.0,
-            "y": 500.0,
-            "width": 128,
-            "height": 128,
-            "health": 10,
-            "damage": 10,
-            "speed": 3.0
+            "y": 500.0
         }
     ]
 ]

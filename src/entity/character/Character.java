@@ -15,8 +15,6 @@ public abstract class Character extends Entity implements Movable
 {
     protected int health;
 
-    protected int damage;
-
     protected float speed;
 
     protected int margin = 5;
@@ -25,7 +23,7 @@ public abstract class Character extends Entity implements Movable
 
     protected boolean collied = false;
 
-    protected static long attackedTime = 0;
+    protected long attackedTime = 0;
 
     protected BufferedImage currentFrame;
 
@@ -41,16 +39,6 @@ public abstract class Character extends Entity implements Movable
     public void setHealth(int health)
     {
         this.health = health;
-    }
-
-    public int getDamage()
-    {
-        return damage;
-    }
-
-    public void setDamage(int damage)
-    {
-        this.damage = damage;
     }
 
     public float getSpeed()
@@ -71,22 +59,13 @@ public abstract class Character extends Entity implements Movable
             .isSolid();
     }
 
-    public Character(Handler handler, float x, float y, int width, int height, int health, int damage, float speed)
+    public Character(Handler handler)
     {
-        super(handler, x, y, width, height);
+        super(handler);
 
-        this.speed = speed;
-        this.damage = damage;
-        this.health = health;
-
-        loadCharacterImage();
-
-        // Init animation
-        animationUp = new Animation(200, up);
-        animationDown = new Animation(200, down);
-        animationLeft = new Animation(200, left);
-        animationRight = new Animation(200, right);
-        animationStand = new Animation(200, stand);
+        loadInfo();
+        loadImages();
+        loadAnimation();
     }
 
     @Override
@@ -165,6 +144,16 @@ public abstract class Character extends Entity implements Movable
         currentFrame = animationRight.getCurrentFrame();
     }
 
+    @Override
+    protected void loadAnimation()
+    {
+        animationUp = new Animation(200, up);
+        animationDown = new Animation(200, down);
+        animationLeft = new Animation(200, left);
+        animationRight = new Animation(200, right);
+        animationStand = new Animation(200, stand);
+    }
+
     protected void displayHealthStatus(Graphics graphics)
     {   
         // Render the box
@@ -199,6 +188,4 @@ public abstract class Character extends Entity implements Movable
         
         displayHealthStatus(graphics);
     }
-
-    abstract protected void loadCharacterImage();
 }

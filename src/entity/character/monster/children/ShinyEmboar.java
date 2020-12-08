@@ -8,12 +8,23 @@ import entity.character.monster.Monster;
 
 public class ShinyEmboar extends Monster
 {
-    public ShinyEmboar(Handler handler, float x, float y, int width, int height, int health, int damage, float speed)
+    public ShinyEmboar(Handler handler, float x, float y)
     {
-        super(handler, x, y, width, height, health, damage, speed);
+        super(handler, x, y);
     }
 
-    protected void loadCharacterImage()
+    @Override
+    protected void loadInfo()
+    {
+        super.loadInfo();
+
+        health = 5;
+        speed = 9.0f;
+        damage = 6;
+    }
+
+    @Override
+    protected void loadImages()
     {
         up = new ArrayList<BufferedImage>();
         down = new ArrayList<BufferedImage>();

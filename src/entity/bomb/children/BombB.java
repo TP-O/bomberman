@@ -6,6 +6,7 @@ import app.event.event.PlusExplosionEvent;
 import asset.Asset;
 import core.main.Handler;
 import entity.bomb.Bomb;
+import entity.explosion.children.ExplosionA;
 import helper.Helper;
 
 import java.awt.image.BufferedImage;
@@ -24,11 +25,22 @@ public class BombB extends Bomb
     }
 
     public void setRange(int range) {
-        this.range = range;
+        this.range = range > 1 ? range : 1;
     }
 
     @Override
-    protected void loadBombImage()
+    protected void loadInfo()
+    {
+        width = 32;
+        height = 32;
+        timer = 1000;
+        deleted = false;
+
+        explosion = new ExplosionA(handler);
+    }
+
+    @Override
+    protected void loadImages()
     {
         images = new ArrayList<BufferedImage>();
 
@@ -38,15 +50,6 @@ public class BombB extends Bomb
         images.add(Asset.bomb.crop(647, 7, 207, 196));
         images.add(Asset.bomb.crop(852, 7, 207, 196));
         images.add(Asset.bomb.crop(1054, 7, 207, 196));
-    }
-
-    @Override
-    protected void loadDefaultValues()
-    {
-        width = 32;
-        height = 32;
-        timer = 1000;
-        deleted = false;
     }
 
     @Override

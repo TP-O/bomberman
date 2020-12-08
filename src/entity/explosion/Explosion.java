@@ -40,9 +40,14 @@ public abstract class Explosion extends Entity implements Cloneable
     {
         super(handler);
 
-        loadExplosionImage();
-        loadDefaultValues();
-        
+        loadInfo();
+        loadImages();
+        loadAnimation();
+    }
+
+    @Override
+    protected void loadAnimation()
+    {
         animation = new Animation(50, images);
     }
 
@@ -73,8 +78,4 @@ public abstract class Explosion extends Entity implements Cloneable
                 (int) (y - handler.getCamera().getYOffset()),
                 width, height, null);
     }
-
-    protected abstract void loadExplosionImage();
-
-    protected abstract void loadDefaultValues();
 }

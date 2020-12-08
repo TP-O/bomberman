@@ -16,7 +16,14 @@ public class ExplosionF extends Explosion
     }
 
     @Override
-    protected void loadExplosionImage()
+    protected void loadInfo()
+    {
+        damage = 5;
+        deleted = false;
+    }
+
+    @Override
+    protected void loadImages()
     {
         images = new ArrayList<BufferedImage>();
 
@@ -29,12 +36,5 @@ public class ExplosionF extends Explosion
         images.add(Asset.explosionF.crop(34, 704, 251, 258));
         images.add(Asset.explosionF.crop(361, 704, 251, 258));
         images.add(Asset.explosionF.crop(691, 704, 251, 258));
-    }
-
-    @Override
-    protected void loadDefaultValues()
-    {
-        damage = 5;
-        deleted = false;
     }
 }

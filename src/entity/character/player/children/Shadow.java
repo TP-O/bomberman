@@ -9,12 +9,22 @@ import entity.character.player.Player;
 
 public class Shadow extends Player
 {
-    public Shadow(Handler handler, float x, float y, int width, int height, int health, int damage, float speed)
+    public Shadow(Handler handler, float x, float y)
     {
-        super(handler, x, y, width, height, health, damage, speed);
+        super(handler, x, y);
     }
 
-    protected void loadCharacterImage()
+    @Override
+    protected void loadInfo()
+    {
+        super.loadInfo();
+
+        health = 140;
+        speed = 2.8f;
+    }
+
+    @Override
+    protected void loadImages()
     {
         up = new ArrayList<BufferedImage>();
         down = new ArrayList<BufferedImage>();
