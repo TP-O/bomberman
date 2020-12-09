@@ -12,6 +12,8 @@ import core.main.Handler;
 
 public abstract class Bomb extends Entity implements Cloneable
 {
+    protected int range;
+
     protected int timer;
 
     protected boolean deleted;
@@ -25,6 +27,11 @@ public abstract class Bomb extends Entity implements Cloneable
     protected BufferedImage currentImage;
 
     protected ArrayList<BufferedImage> images;
+
+    public void setRange(int range)
+    {
+        this.range = range > 0 ? range : 1;
+    }
 
     public void setCreatedTime(long time)
     {

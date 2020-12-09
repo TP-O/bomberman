@@ -13,19 +13,9 @@ import java.awt.image.BufferedImage;
 
 public class BombB extends Bomb
 {
-    private int range = 3;
-
     public BombB(Handler handler)
     {
         super(handler);
-    }
-
-    public int getRange() {
-        return this.range;
-    }
-
-    public void setRange(int range) {
-        this.range = range > 1 ? range : 1;
     }
 
     @Override
@@ -33,6 +23,7 @@ public class BombB extends Bomb
     {
         width = 32;
         height = 32;
+        range = 2;
         timer = 1000;
         deleted = false;
 
@@ -59,7 +50,7 @@ public class BombB extends Bomb
 
         // The bomb will be deleted if the time is up
         if (now - createdTime >= timer) {
-            Helper.event(new PlusExplosionEvent(explosion, this, 2 * width, 2 * height, range));
+            Helper.event(new PlusExplosionEvent(handler, explosion, this, 2 * width, 2 * height, range));
             deleted = true;
         }
         else {
