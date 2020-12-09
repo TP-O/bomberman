@@ -9,9 +9,9 @@ public class ExplosionEvent implements Event
 {
     private Listener listener;
 
-    public ExplosionEvent(Explosion explosion, Bomb bomb, int width, int height)
+    public ExplosionEvent(Explosion explosion, Bomb bomb, int width, int height, int range)
     {
-        listener = new ExplosionListener(explosion, bomb, width, height);
+        listener = new ExplosionListener(explosion, bomb, width, height, range);
     }
 
     @Override

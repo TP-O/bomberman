@@ -23,6 +23,7 @@ public class BombA extends Bomb
     {
         width = 32;
         height = 32;
+        range = 2;
         timer = 1000;
         deleted = false;
         
@@ -49,7 +50,7 @@ public class BombA extends Bomb
 
         // The bomb will be deleted if the time is up
         if (now - createdTime >= timer) {
-            Helper.event(new ExplosionEvent(explosion, this, 2 * width, 2 * height));
+            Helper.event(new ExplosionEvent(explosion, this, 2 * width, 2 * height, range));
             deleted = true;
         }
         else {

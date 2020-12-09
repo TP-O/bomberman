@@ -125,7 +125,6 @@ public abstract class Monster extends Character
                 long now = System.currentTimeMillis();
 
                 if (now - attackedTime >= 1000) {
-                    System.out.println("AAAA NONO");
                     attackedTime = now;
                     health -= explosion.getDamage();
 

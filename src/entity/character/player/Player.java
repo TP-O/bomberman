@@ -70,20 +70,16 @@ public abstract class Player extends Character
         if (handler.getKeyBoard().up.isPressed()) {
             moveUp(speed);
         }
-
-        if (handler.getKeyBoard().down.isPressed()) {
+        else if (handler.getKeyBoard().down.isPressed()) {
             moveDown(speed);
         }
-
-        if (handler.getKeyBoard().left.isPressed()) {
+        else if (handler.getKeyBoard().left.isPressed()) {
             moveLeft(speed);
         }
-        
-        if (handler.getKeyBoard().right.isPressed()) {
+        else if (handler.getKeyBoard().right.isPressed()) {
             moveRight(speed);
         }
-
-        if (handler.getKeyBoard().attack.isPressed()) {
+        else if (handler.getKeyBoard().attack.isPressed()) {
             Helper.event(new BombPlacingEvent(bomb, x + width/4, y + height/2));
         }
     }
