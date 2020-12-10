@@ -12,14 +12,14 @@ public class PlayButton extends Button
     }
 
     @Override
-    protected void loadSize()
+    protected void loadInfo()
     {
         width = 148;
         height = 48;
     }
 
     @Override
-    protected void loadUIImage()
+    protected void loadImages()
     {
         images.add(Asset.ui01.crop(47, 108, 82, 24));
         images.add(Asset.ui02.crop(80, 182, 133, 40));

@@ -17,19 +17,18 @@ public class MonkRadio extends Radio
     public MonkRadio(Handler handler, float positionX, float positionY, int xx, int yy)
     {
         super(handler, positionX, positionY, xx, yy);
-
-        value = "Monk";
     }
     
     @Override
-    protected void loadSize()
+    protected void loadInfo()
     {
         width = 100;
         height = 100;
+        value = "Monk";
     }
 
     @Override
-    protected void loadUIImage()
+    protected void loadImages()
     {
         images.add(Asset.ui03.crop(6, 50, 38, 38));
         images.add(Asset.ui03.crop(190, 50, 38, 38));

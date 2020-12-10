@@ -13,6 +13,8 @@ public abstract class Element implements EventListener, Sharable
 
     protected int width, height;
 
+    protected String value;
+
     protected Handler handler;
 
     protected BufferedImage currentImage;
@@ -73,14 +75,14 @@ public abstract class Element implements EventListener, Sharable
     public Element(Handler handler, float positionX, float positionY, int xx, int yy)
     {
         this.handler = handler;
-        
-        loadSize();
+
+        loadInfo();
         
         // Display based on screen percentage
         x = (int) (GameConfig.WIDTH * positionX - width / 2 + xx);
         y = (int) (GameConfig.HEIGHT * positionY - height / 2 + yy);
 
-        loadUIImage();
+        loadImages();
     }
 
     public boolean isDisable()
@@ -140,7 +142,7 @@ public abstract class Element implements EventListener, Sharable
         graphics.drawImage(currentImage, x, y, width, height, null);
     }
 
-    abstract protected void loadSize();
+    abstract protected void loadInfo();
 
-    abstract protected void loadUIImage();
+    abstract protected void loadImages();
 }

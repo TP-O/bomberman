@@ -12,14 +12,14 @@ public class StartButton extends Button
     }
 
     @Override
-    protected void loadSize()
+    protected void loadInfo()
     {
         width = 158;
         height = 48;
     }
 
     @Override
-    protected void loadUIImage()
+    protected void loadImages()
     {
         images.add(Asset.ui01.crop(48, 73, 80, 25));
         images.add(Asset.ui02.crop(80, 123, 132, 39));

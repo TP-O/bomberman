@@ -11,14 +11,14 @@ public class QuitButton extends Button
     }
 
     @Override
-    protected void loadSize()
+    protected void loadInfo()
     {
         width = 158;
         height = 48;
     }
 
     @Override
-    protected void loadUIImage()
+    protected void loadImages()
     {
         images.add(Asset.ui01.crop(145, 250, 82, 25));
         images.add(Asset.ui02.crop(243, 416, 132, 41));

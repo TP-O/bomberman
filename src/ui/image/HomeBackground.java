@@ -30,14 +30,14 @@ public class HomeBackground extends Image
     }
 
     @Override
-    protected void loadSize()
+    protected void loadInfo()
     {
         width = GameConfig.WIDTH;
         height = GameConfig.HEIGHT;
     }
 
     @Override
-    protected void loadUIImage()
+    protected void loadImages()
     {
         currentImage = Asset.bg01.crop(0, 0, 1000, 750);
     }

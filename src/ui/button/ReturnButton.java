@@ -12,14 +12,14 @@ public class ReturnButton extends Button
     }
 
     @Override
-    protected void loadSize()
+    protected void loadInfo()
     {
         width = 148;
         height = 38;
     }
 
     @Override
-    protected void loadUIImage()
+    protected void loadImages()
     {
         images.add(Asset.ui01.crop(47, 249, 81, 25));
         images.add(Asset.ui02.crop(81, 417, 132, 40));

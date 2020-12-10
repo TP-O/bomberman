@@ -31,6 +31,13 @@ public class GameView extends View
         this.explosions = explosions;
     }
 
+    @Override
+    protected void build()
+    {
+        //
+    }
+
+    @Override
     public void tick()
     {
         handler.getMap().tick();
@@ -70,6 +77,7 @@ public class GameView extends View
         }
     }
 
+    @Override
     public void render(Graphics graphics)
     {
         handler.getMap().render(graphics);

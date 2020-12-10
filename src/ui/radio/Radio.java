@@ -7,8 +7,6 @@ public abstract class Radio extends Element
 {
     protected int id;
 
-    protected String value;
-
     protected static int total = 0;
 
     protected static int clickedId = -1;

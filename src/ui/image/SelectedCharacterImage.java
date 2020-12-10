@@ -29,14 +29,14 @@ public class SelectedCharacterImage extends Image
     }
 
     @Override
-    protected void loadSize()
+    protected void loadInfo()
     {
         width = 475;
         height = 318;
     }
 
     @Override
-    protected void loadUIImage()
+    protected void loadImages()
     {
         currentImage = Asset.gokuBackground.crop(0, 0, 1920, 1080);
     }
