@@ -40,7 +40,7 @@ public class GameController extends Controller
 
         // Init view
         View view = new GameView(handler, player,
-                monsters, BombModel.all(), ExplosionModel.all());
+                monsters, BombModel.all(), ExplosionModel.all(), ItemModel.all());
 
         return view;
     }

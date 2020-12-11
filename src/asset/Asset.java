@@ -22,6 +22,9 @@ public class Asset
             redBoss, blueBoss;
     public static SpriteSheet kidAvatar, monkAvatar, shadowAvatar, kiritoAvatar,
             gokuAvatar, satoshiAvatar, kiritoBackground, gokuBackground, satoshiBackground;
+
+    // Items
+    public static SpriteSheet  speedboost, damageboost, heal, bombboost, maxhp;        
                                           
     public static void loadImage()
     {
@@ -77,5 +80,12 @@ public class Asset
         explosionK = Helper.createSpriteSheet(Helper.loadImage("bombs/explosions11.png"));
         explosionL = Helper.createSpriteSheet(Helper.loadImage("bombs/explosions12.png"));
         bomb = Helper.createSpriteSheet(Helper.loadImage("bombs/bomb.png"));
+
+        // Items sheets
+        speedboost = Helper.createSpriteSheet(Helper.loadImage("items/items.jpg"));
+        damageboost = Helper.createSpriteSheet(Helper.loadImage("items/items.jpg"));
+        heal = Helper.createSpriteSheet(Helper.loadImage("items/items.jpg"));
+        bombboost = Helper.createSpriteSheet(Helper.loadImage("items/items.jpg"));
+        maxhp = Helper.createSpriteSheet(Helper.loadImage("items/items.jpg"));
     }
 }

@@ -8,6 +8,7 @@ import entity.bomb.Bomb;
 import entity.character.monster.Monster;
 import entity.character.player.Player;
 import entity.explosion.Explosion;
+import entity.item.Item;
 import core.main.Handler;
 import core.main.Router;
 
@@ -21,14 +22,17 @@ public class GameView extends View
 
     private ArrayList<Explosion> explosions;
 
+    private ArrayList<Item> items;
+
     public GameView(Handler handler, Player player, ArrayList<Monster> monsters,
-            ArrayList<Bomb> bombs, ArrayList<Explosion> explosions)
+            ArrayList<Bomb> bombs, ArrayList<Explosion> explosions, ArrayList<Item> items)
     {
         this.handler = handler;
         this.player = player;
         this.monsters = monsters;
         this.bombs = bombs;
         this.explosions = explosions;
+        this.items = items;
     }
 
     public void tick()
@@ -55,6 +59,12 @@ public class GameView extends View
             }
         });
 
+        items.forEach(item -> {
+            if (!item.isDeleted()) {
+                item.tick();
+            }
+        });
+
         // Make the camera record the player
         handler.getCamera().focusOn(player);
 
@@ -62,6 +72,7 @@ public class GameView extends View
         monsters.removeIf(monster -> monster.isDeleted());
         bombs.removeIf(bomb -> bomb.isDeleted());
         explosions.removeIf(explosion -> explosion.isDeleted());
+        items.removeIf(item -> item.isDeleted());
 
         // New phase
         if (monsters.size() == 0) {
@@ -91,6 +102,12 @@ public class GameView extends View
         explosions.forEach(explosion -> {
             if (!explosion.isDeleted()) {
                 explosion.render(graphics);
+            }
+        });
+
+        items.forEach(item -> {
+            if (!item.isDeleted()) {
+                item.render(graphics);
             }
         });
     }

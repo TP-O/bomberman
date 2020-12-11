@@ -1,10 +1,13 @@
 package entity.character.monster;
 
 import java.util.Random;
-
+import java.util.ArrayList;
+import app.event.event.KilledMonsterEvent;
 import app.model.ExplosionModel;
 import core.main.Handler;
 import entity.character.Character;
+import entity.item.Item;
+import entity.item.children.*;
 import helper.Helper;
 
 public abstract class Monster extends Character
@@ -21,7 +24,13 @@ public abstract class Monster extends Character
 
     private boolean deleted;
 
+    Item item;
+
+    ArrayList<Item> items = new ArrayList<Item>();
+
     private static Random random = new Random();
+
+    boolean chance50oftrue = (random.nextInt(2) == 0) ? true : false;
 
     public boolean isDeleted()
     {
@@ -33,7 +42,17 @@ public abstract class Monster extends Character
         super(handler, x, y, width, height, health, damage, speed);
 
         moveIndex = random.nextInt(Direction.values().length);
-        deleted = false;
+        deleted = false;      
+
+        // Add 5 items to the list
+        items.add(0, new SpeedBoost(handler));
+        items.add(1, new DamageBoost(handler));
+        items.add(2, new Healing(handler));
+        items.add(3, new MaxHP(handler));
+        items.add(4, new BombBoost(handler));
+
+        // Set item randomly
+        item = items.get(random.nextInt(5));
     }
 
     private void moveRandomly(boolean reset)
@@ -87,7 +106,10 @@ public abstract class Monster extends Character
                     health -= explosion.getDamage();
                     attackedTime = now;
 
-                    if (health <= 0) {
+                    if (health <= 0 && chance50oftrue == true){
+                        deleted = true;
+                        Helper.event(new KilledMonsterEvent(item, x + width/4, y + height/2));
+                    }else{
                         deleted = true;
                     }
                 }

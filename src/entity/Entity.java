@@ -10,7 +10,6 @@ public class Entity
 
     protected Handler handler;
 
-    
     public Entity(Handler handler)
     {
         this.handler = handler;

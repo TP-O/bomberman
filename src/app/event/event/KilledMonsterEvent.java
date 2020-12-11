@@ -1,16 +1,16 @@
 package app.event.event;
 
-import entity.character.monster.Monster;
 import app.event.listener.KilledMonsterListener;
 import app.event.listener.Listener;
+import entity.item.Item;
 
 public class KilledMonsterEvent implements Event
 {
     private Listener listener;
 
-    public KilledMonsterEvent(Monster monster)
+    public KilledMonsterEvent(Item item, float x, float y)
     {
-        listener = new KilledMonsterListener(monster);
+        listener = new KilledMonsterListener(item, x, y);
     }
 
     @Override
