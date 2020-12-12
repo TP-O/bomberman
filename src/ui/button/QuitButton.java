@@ -5,9 +5,9 @@ import core.main.Handler;
 
 public class QuitButton extends Button
 {
-    public QuitButton(Handler handler, float positionX, float positionY, int xx, int yy)
+    public QuitButton(Handler handler, int column, int row, int left, int right, int top, int bottom)
     {
-        super(handler, positionX, positionY, xx, yy);
+        super(handler, column, row, left, right, top, bottom);
     }
 
     @Override
@@ -24,18 +24,6 @@ public class QuitButton extends Button
         images.add(Asset.ui02.crop(243, 416, 132, 41));
 
         currentImage = images.get(0);
-    }
-
-    @Override
-    public void onWaiting()
-    {
-        currentImage = images.get(0);
-    }
-
-    @Override
-    public void onHover()
-    {
-        currentImage = images.get(1);
     }
 
     @Override

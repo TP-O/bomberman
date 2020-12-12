@@ -5,8 +5,8 @@ import ui.Element;
 
 public abstract class Image extends Element
 {
-    public Image(Handler handler, float positionX, float positionY, int xx, int yy)
+    public Image(Handler handler, int column, int row, int left, int right, int top, int bottom)
     {
-        super(handler, positionX, positionY, xx, yy);
+        super(handler, column, row, left, right, top, bottom);
     }
 }

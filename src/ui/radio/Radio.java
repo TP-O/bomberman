@@ -11,27 +11,10 @@ public abstract class Radio extends Element
 
     protected static int clickedId = -1;
 
-    public Radio(Handler handler, float positionX, float positionY, int xx, int yy)
+    public Radio(Handler handler, int column, int row, int left, int right, int top, int bottom)
     {
-        super(handler, positionX, positionY, xx, yy);
-        
-        id = total++;       
-    }
+        super(handler, column, row, left, right, top, bottom);
 
-    @Override
-    public void onClick()
-    {
-        clickedId = id;
-    }
-
-    @Override
-    public void tick()
-    {
-        if (clickedId != -1 && clickedId == id) {
-            onClick();       
-        }
-        else {
-            super.tick();
-        }
+        id = total++;
     }
 }

@@ -2,9 +2,9 @@ package ui;
 
 public interface Sharable
 {
-    public Element getSharedElement();
+    public void receive(String name, Element element);
 
-    public void receiveElement(Element element);
+    public void shareWith(String name, Element element);
 
-    public void shareWith(Element element);
+    public Element getSharedElement(String name);
 }

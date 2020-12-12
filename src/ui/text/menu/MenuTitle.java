@@ -1,13 +1,13 @@
-package ui.text;
+package ui.text.menu;
 
 import core.main.Handler;
+import ui.text.Text;
 
-public class HomeTitle extends Text
+public class MenuTitle extends Text
 {
-
-    public HomeTitle(Handler handler, float positionX, float positionY, int xx, int yy)
+    public MenuTitle(Handler handler, int column, int row, int left, int right, int top, int bottom)
     {
-        super(handler, positionX, positionY, xx, yy);
+        super(handler, column, row, left, right, top, bottom);
     }
 
     @Override

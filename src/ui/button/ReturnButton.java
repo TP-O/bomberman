@@ -6,9 +6,9 @@ import core.main.Router;
 
 public class ReturnButton extends Button
 {
-    public ReturnButton(Handler handler, float positionX, float positionY, int xx, int yy)
+    public ReturnButton(Handler handler, int column, int row, int left, int right, int top, int bottom)
     {
-        super(handler, positionX, positionY, xx, yy);
+        super(handler, column, row, left, right, top, bottom);
     }
 
     @Override
@@ -25,18 +25,6 @@ public class ReturnButton extends Button
         images.add(Asset.ui02.crop(81, 417, 132, 40));
 
         currentImage = images.get(0);
-    }
-
-    @Override
-    public void onWaiting()
-    {
-        currentImage = images.get(0);
-    }
-
-    @Override
-    public void onHover()
-    {
-        currentImage = images.get(1);
     }
 
     @Override

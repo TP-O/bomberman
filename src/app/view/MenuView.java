@@ -8,8 +8,8 @@ import core.main.Handler;
 import ui.Element;
 import ui.button.PlayButton;
 import ui.button.QuitButton;
-import ui.image.HomeBackground;
-import ui.text.HomeTitle;
+import ui.image.menu.MenuBackground;
+import ui.text.menu.MenuTitle;
 
 public class MenuView extends View
 {
@@ -28,14 +28,14 @@ public class MenuView extends View
         elements = new ArrayList<Element>();
 
         // Add background
-        elements.add(new HomeBackground(handler, 0.5f, 0.5f, 0, 0));
+        elements.add(new MenuBackground(handler, 6, 6, 0, 0, 0, 0));
 
         // Add butons
-        elements.add(new PlayButton(handler, 0.5f, 0.5f, 0, 0));
-        elements.add(new QuitButton(handler, 0.5f, 0.6f, 0, 0));
+        elements.add(new PlayButton(handler, 6, 6, 0, 0, 0, 0));
+        elements.add(new QuitButton(handler, 6, 7, 0, 0, 0, 0));
 
         // Add text
-        elements.add(new HomeTitle(handler, 0.5f, 0.3f, 0, 0));
+        elements.add(new MenuTitle(handler, 6, 3, 0, 0, 0, 0));
     }
 
     @Override

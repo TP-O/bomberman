@@ -7,16 +7,27 @@ import java.awt.Graphics;
 
 public abstract class Text extends Element
 {
-    public Text(Handler handler, float positionX, float positionY, int xx, int yy)
+    public Text(Handler handler, int column, int row, int left, int right, int top, int bottom)
     {
-        super(handler, positionX, positionY, xx, yy);
+        super(handler, column, row, left, right, top, bottom);
+    }
+
+    @Override
+    public void setValue(String value)
+    {
+        super.setValue(value);
+
+        loadImages();
     }
 
     @Override
     protected void loadImages()
-    {
+    {   
+        // Delete old images
+        images.clear();
+
+        // Transform to uppercase
         value = value.toUpperCase();
-        x  -= (value.length() - 1) * width / 2;
 
         for(int i = 0; i < value.length(); i++) {
             images.add(Helper.loadImage("alphabet/" + value.charAt(i) + ".png"));
@@ -26,8 +37,11 @@ public abstract class Text extends Element
     @Override
     public void render(Graphics graphics)
     {
+        // Calculate position x to make the text in the center
+        int newX  = x - (value.length() - 1) * width / 2;
+
         for(int i = 0; i < images.size(); i++) {
-            graphics.drawImage(images.get(i), x + width * i, y, width, height, null);
+            graphics.drawImage(images.get(i), newX + width * i, y, width, height, null);
         }
     }
 }

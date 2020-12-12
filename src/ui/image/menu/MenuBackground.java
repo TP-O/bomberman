@@ -1,15 +1,16 @@
-package ui.image;
+package ui.image.menu;
 
 import config.GameConfig;
 import asset.Asset;
 import core.main.Handler;
+import ui.image.Image;
 
-public class HomeBackground extends Image
+public class MenuBackground extends Image
 {
-    public HomeBackground(Handler handler, float positionX, float positionY, int xx, int yy)
+    public MenuBackground(Handler handler, int column, int row, int left, int right, int top, int bottom)
     {
-		super(handler, positionX, positionY, xx, yy);
-	}
+        super(handler, column, row, left, right, top, bottom);
+    }
 
 	@Override
     public void onHover()

@@ -7,9 +7,9 @@ import core.main.Handler;
 import ui.Element;
 import ui.button.ReturnButton;
 import ui.button.StartButton;
-import ui.image.SelectedCharacterBackground;
-import ui.image.SelectedCharacterImage;
-import ui.radio.*;
+import ui.image.character.selection.*;
+import ui.radio.character.selection.*;
+import ui.text.character.selection.*;
 
 public class CharacterView extends View
 {
@@ -28,26 +28,30 @@ public class CharacterView extends View
         elements = new ArrayList<Element>();
 
         // Add background
-        elements.add(new SelectedCharacterBackground(handler, 0.5f, 0.5f, 0, 0));
+        elements.add(new CharacterBackground(handler, 6, 6, 0, 0, 0, 0));
+        elements.add(new CharacterImage(handler, 6, 5, 0, 0, 0, 0));
+
+        // Add texts
+        elements.add(new CharacterSelectionTitle(handler, 2, 6, 0, 0, 0, 0));
+        elements.add(new CharacterName(handler, 10, 6, 0, 0, 0, 0));
 
         // Add buttons
-        elements.add(new StartButton(handler, 0.5f, 0.8f, 0, 0));
-        elements.add(new ReturnButton(handler, 0.08f, 0.05f, 0, 0));
+        elements.add(new StartButton(handler, 6, 10, 0, 0, 0, 0));
+        elements.add(new ReturnButton(handler, 1, 1, 0, 0, 0, 0));
 
         // Add radios
-        elements.add(new GokuRadio(handler, 0.5f, 0.5f, 50, 80));
-        elements.add(new KidRadio(handler, 0.5f, 0.5f, -270, -240));
-        elements.add(new MonkRadio(handler, 0.5f, 0.5f, -270, -80));
-        elements.add(new ShadowRadio(handler, 0.5f, 0.5f, -270, 80));
-        elements.add(new KiritoRadio(handler, 0.5f, 0.5f, -110, 80));
-        elements.add(new SatoshiRadio(handler, 0.5f, 0.5f, 210, 80));
+        elements.add(new GokuRadio(handler, 4, 3, 0, 0, 0, 0));
+        elements.add(new KidRadio(handler, 4, 5, 0, 0, 0, 0));
+        elements.add(new MonkRadio(handler, 4, 7, 0, 0, 0, 0));
+        elements.add(new ShadowRadio(handler, 8, 3, 0, 0, 0, 0));
+        elements.add(new KiritoRadio(handler, 8, 5, 0, 0, 0, 0));
+        elements.add(new SatoshiRadio(handler, 8, 7, 0, 0, 0, 0));
 
         // Share data
-        Element image = new SelectedCharacterImage(handler, 0.51f, 0.3f, 10, -10);
-        elements.forEach(element -> image.shareWith(element));
-
-        // Add image
-        elements.add(image);
+        elements.forEach(element -> {
+            elements.get(1).shareWith("character-image", element);
+            elements.get(3).shareWith("character-name", element);
+        });
     }
 
     @Override

@@ -3,15 +3,22 @@ package ui;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import config.GameConfig;
 import core.main.Handler;
 
-public abstract class Element implements EventListener, Sharable
+public abstract class Element implements Listenable, Sharable
 {
-    protected int x, y;
+    protected int x;
 
-    protected int width, height;
+    protected int y;
+
+    protected int width;
+
+    protected int height;
 
     protected String value;
 
@@ -19,52 +26,19 @@ public abstract class Element implements EventListener, Sharable
 
     protected BufferedImage currentImage;
 
-    protected Element sharedElement;
-
-    protected ArrayList<BufferedImage> images = new ArrayList<BufferedImage>();
+    protected List<BufferedImage> images;
 
     protected boolean disable = false;
 
+    protected boolean hovering = false;
+
     protected boolean clicked = false;
 
-    public int getX()
-    {
-		return this.x;
-	}
+    protected Map<String, Element> sharedElements;
 
-    public void setX(int x)
+    public void setValue(String value)
     {
-		this.x = x;
-    }
-    
-    public int getY()
-    {
-        return y;
-    }
-
-    public int getWidth()
-    {
-		return this.width;
-	}
-
-    public void setWidth(int width)
-    {
-		this.width = width;
-    }
-    
-    public int getHeight()
-    {
-        return height;
-    }
-
-    public void setHeight(int height)
-    {
-        this.height = height;
-    }
-
-    public ArrayList<BufferedImage> getImages()
-    {
-        return images;
+        this.value = value;
     }
 
     public void setCurrentImage(BufferedImage image)
@@ -72,19 +46,32 @@ public abstract class Element implements EventListener, Sharable
         currentImage = image;
     }
 
-    public Element(Handler handler, float positionX, float positionY, int xx, int yy)
+    public Element(Handler handler, int column, int row, int left, int right, int top, int bottom)
     {
         this.handler = handler;
 
-        loadInfo();
-        
-        // Display based on screen percentage
-        x = (int) (GameConfig.WIDTH * positionX - width / 2 + xx);
-        y = (int) (GameConfig.HEIGHT * positionY - height / 2 + yy);
+        images = new ArrayList<BufferedImage>();
+        sharedElements = new HashMap<String, Element>();
 
+        loadInfo();
+        calculatePosition(column, row, left, right, top, bottom);
         loadImages();
     }
 
+    private void calculatePosition(int column, int row, int left, int right, int top, int bottom)
+    {
+        // Divide screen into 12 columns and rows
+        x = GameConfig.WIDTH / 12 * column
+                + GameConfig.WIDTH / 100 * left
+                - GameConfig.WIDTH / 100 * right
+                - width / 2;
+        y = GameConfig.HEIGHT / 12 * row
+                + GameConfig.HEIGHT / 100 * top
+                - GameConfig.HEIGHT / 100 * bottom
+                - height / 2;
+    }
+
+    @Override
     public boolean isDisable()
     {
         return disable;
@@ -103,36 +90,42 @@ public abstract class Element implements EventListener, Sharable
                 && handler.getMouse().mouseX < x + width
                 && handler.getMouse().mouseY > y
                 && handler.getMouse().mouseY < y + height
-                && !disable;
+                && !isDisable();
     }
 
     @Override
-    public Element getSharedElement()
+    public Element getSharedElement(String name)
     {
-        return sharedElement;
+        return sharedElements.get(name);
     }
 
     @Override
-    public void receiveElement(Element element)
+    public void receive(String name, Element element)
     {
-        sharedElement = element;
+        sharedElements.put(name, element);
     }
 
     @Override
-    public void shareWith(Element element)
+    public void shareWith(String name, Element element)
     {
-        element.receiveElement(this);
+        element.receive(name, this);
     }
 
     public void tick()
     {
         if (isHovering()) {
-            onHover();
-            if (handler.getMouse().left.isPressed()) {
+            if (handler.getMouse().left.isPressed() && !isClicked()) {
+                clicked = true;
                 onClick();
+            }
+            else if (!hovering) {
+                hovering = true;
+                onHover();
             }
         }
         else {
+            clicked = false;
+            hovering = false;
             onWaiting();
         }
     }

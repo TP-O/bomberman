@@ -1,13 +1,14 @@
-package ui.image;
+package ui.image.character.selection;
 
 import asset.Asset;
 import core.main.Handler;
+import ui.image.Image;
 
-public class SelectedCharacterImage extends Image
+public class CharacterImage extends Image
 {
-    public SelectedCharacterImage(Handler handler, float positionX, float positionY, int xx, int yy)
+    public CharacterImage(Handler handler, int column, int row, int left, int right, int top, int bottom)
     {
-        super(handler, positionX, positionY, xx, yy);
+        super(handler, column, row, left, right, top, bottom);
     }
 
     @Override
