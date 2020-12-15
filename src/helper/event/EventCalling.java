@@ -1,6 +1,6 @@
 package helper.event;
 
-import app.event.event.Event;
+import app.events.Event;
 
 public class EventCalling
 {

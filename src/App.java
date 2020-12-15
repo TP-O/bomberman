@@ -1,4 +1,4 @@
-import core.main.Handler;
+import core.Handler;
 
 public class App
 {

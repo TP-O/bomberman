@@ -4,8 +4,10 @@ import helper.event.EventCalling;
 
 import java.awt.image.BufferedImage;
 
-import tile.Tile;
-import app.event.event.Event;
+import org.json.simple.JSONArray;
+
+import components.tiles.Tile;
+import app.events.Event;
 import helper.file.FileLoader;
 import helper.sheet.SpriteSheet;
 
@@ -19,6 +21,11 @@ public class Helper
     public static String loadFileAsString(String path)
     {
         return FileLoader.loadFileAsString(path);
+    }
+
+    public static JSONArray readJsonArray(String path)
+    {
+        return FileLoader.readJSON(path);
     }
 
     public static SpriteSheet createSpriteSheet(BufferedImage sheet)
