@@ -19,6 +19,7 @@ public class Scorbunny extends Monster
         super.setEntityParameters();
 
         health = 1;
+        maxHealth = 1;
         speed = 1.2f;
         damage = 25;
     }

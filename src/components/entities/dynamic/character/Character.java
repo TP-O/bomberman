@@ -18,6 +18,8 @@ public abstract class Character extends DynamicEntity implements Attackable, Dis
 {
     protected int health;
 
+    protected int maxHealth;
+
     protected int damage;
 
     protected Attack attack;
@@ -54,6 +56,18 @@ public abstract class Character extends DynamicEntity implements Attackable, Dis
         this.health = health;
         
         deleted = health <= 0;
+    }
+
+    @Override
+    public int getMaxHealth()
+    {
+        return maxHealth;
+    }
+
+    @Override
+    public void setMaxHealth(int health)
+    {
+        this.maxHealth = health;
     }
 
     @Override

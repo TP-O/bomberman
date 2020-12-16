@@ -19,6 +19,7 @@ public class ShinyZygarde extends Monster
         super.setEntityParameters();
 
         health = 50;
+        maxHealth = 50;
         speed = 4.5f;
         damage = 1;
     }

@@ -19,6 +19,7 @@ public class ShinyEmboar extends Monster
         super.setEntityParameters();
 
         health = 5;
+        maxHealth = 5;
         speed = 0.8f;
         damage = 6;
     }

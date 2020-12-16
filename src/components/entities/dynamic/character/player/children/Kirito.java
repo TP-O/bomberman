@@ -20,6 +20,7 @@ public class Kirito extends Player
         super.setEntityParameters();
 
         health = 120;
+        maxHealth = 120;
         speed = 2.2f;
     }
 

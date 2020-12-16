@@ -36,6 +36,7 @@ public abstract class Monster extends Character
         width = MonsterConfig.WIDTH;
         height = MonsterConfig.HEIGHT;
         health = MonsterConfig.HEALTH;
+        maxHealth = MonsterConfig.HEALTH;
         speed = MonsterConfig.SPEED;
         damage = MonsterConfig.DAMAGE;
     }

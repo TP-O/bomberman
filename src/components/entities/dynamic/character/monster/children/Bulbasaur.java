@@ -19,6 +19,7 @@ public class Bulbasaur extends Monster
         super.setEntityParameters();
 
         health = 5;
+        maxHealth = 5;
         damage = 20;
     }
 

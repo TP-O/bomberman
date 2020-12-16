@@ -43,6 +43,7 @@ public abstract class Player extends Character
         height =  PlayerConfig.HEIGHT;
         speed = PlayerConfig.SPEED;
         health = PlayerConfig.HEALTH;
+        maxHealth = PlayerConfig.HEALTH;
 
         bomb = new BombB(handler);
     }

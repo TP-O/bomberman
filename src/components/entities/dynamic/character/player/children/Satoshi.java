@@ -20,6 +20,7 @@ public class Satoshi extends Player
         super.setEntityParameters();
 
         health = 30;
+        maxHealth = 30;
         speed = 5.5f;
     }
 

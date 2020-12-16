@@ -96,6 +96,16 @@ public abstract class Entity
         throw new Error("Unsupport this method");
     }
 
+    public int getMaxHealth()
+    {
+        throw new Error("Unsupport this method");
+    }
+
+    public void setMaxHealth(int health)
+    {
+        throw new Error("Unsupport this method");
+    }
+
     public int getDamage()
     {
         throw new Error("Unsupport this method");

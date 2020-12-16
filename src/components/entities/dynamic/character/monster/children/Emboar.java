@@ -19,6 +19,7 @@ public class Emboar extends Monster
         super.setEntityParameters();
 
         health = 16;
+        maxHealth = 16;
         speed = 1.0f;
         damage = 7;
     }

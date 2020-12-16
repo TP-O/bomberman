@@ -15,11 +15,14 @@ public class HealthDisplay implements Display
 
     private Text text;
 
+    private int health;
+
     public HealthDisplay(Handler handler, Entity entity)
     {
         this.handler = handler;
         this.entity = entity;
 
+        health = -1;
         text = new HealthStatus(handler, 0, 0, 0, 0, 0, 0);
     }
 
@@ -47,7 +50,7 @@ public class HealthDisplay implements Display
         graphics.fillRect(
                 (int) (entity.getX() - handler.getCamera().getXOffset()),
                 (int) (entity.getY() - handler.getCamera().getYOffset() - 20),
-                (int) (entity.getWidth()*(entity.getHealth() / 100.0)),
+                (int) (entity.getWidth()*(entity.getHealth() / (float) entity.getMaxHealth())),
                 5);
     }
 
@@ -55,7 +58,11 @@ public class HealthDisplay implements Display
     {
         text.setX((int) (entity.getX() - handler.getCamera().getXOffset()));
         text.setY((int) (entity.getY() - handler.getCamera().getYOffset() - 35));
-        text.setValue(String.valueOf(entity.getHealth()));
+
+        if (health != entity.getHealth() || health == -1) {
+            text.setValue(String.valueOf(entity.getHealth()));
+            health = entity.getHealth();
+        }
 
         text.render(graphics);
     }

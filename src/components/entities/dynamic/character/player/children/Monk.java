@@ -20,6 +20,7 @@ public class Monk extends Player
         super.setEntityParameters();
 
         health = 60;
+        maxHealth = 60;
         speed = 4.5f;
     }
 

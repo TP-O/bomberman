@@ -20,6 +20,7 @@ public class Shadow extends Player
         super.setEntityParameters();
 
         health = 140;
+        maxHealth = 140;
         speed = 2.8f;
     }
 

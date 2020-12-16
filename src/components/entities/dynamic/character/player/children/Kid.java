@@ -20,6 +20,7 @@ public class Kid extends Player
         super.setEntityParameters();
 
         health = 80;
+        maxHealth = 80;
         speed = 4.0f;
     }
 

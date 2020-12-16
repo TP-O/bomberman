@@ -19,6 +19,7 @@ public class AlolanPersian extends Monster
         super.setEntityParameters();
 
         health = 10;
+        maxHealth = 10;
         speed = 1.1f;
         damage = 5;
     }

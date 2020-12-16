@@ -20,6 +20,7 @@ public class Goku extends Player
         super.setEntityParameters();
 
         health = 100;
+        maxHealth = 100;
         speed = 3.0f;
     }
 
