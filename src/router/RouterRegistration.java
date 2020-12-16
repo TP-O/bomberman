@@ -1,10 +1,10 @@
 package router;
 
-import app.controller.CharacterSelectionController;
-import app.controller.GameController;
-import app.controller.MenuController;
-import core.main.Handler;
-import core.main.Router;
+import app.controllers.CharacterSelectionController;
+import app.controllers.GameController;
+import app.controllers.MenuController;
+import core.Handler;
+import core.Router;
 
 public class RouterRegistration
 {   
