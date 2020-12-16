@@ -72,6 +72,12 @@ public class TileCollision implements Collision
         return upperRightCornerCollied || lowerRightCornerCollied;
     }
 
+    @Override
+    public void setTarget(Object obj)
+    {
+        throw new Error("Unsupport this method");
+    }
+
     public boolean isCollied(int x, int y)
     {
         return map

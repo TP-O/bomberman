@@ -9,10 +9,10 @@ public class EntityCollision implements Collision
 
     private Entity colliedEntity;
 
-    public EntityCollision(Entity entity, Entity collEntity)
+    public EntityCollision(Entity entity, Entity colliedEntity)
     {
         this.entity = entity;
-        this.colliedEntity = collEntity;
+        this.colliedEntity = colliedEntity;
     }
 
     @Override
@@ -77,5 +77,11 @@ public class EntityCollision implements Collision
                 entity.getX(), entity.getY(), entity.getWidth(), entity.getHeight());
 
         return upperRightCornerCollied || lowerRightCornerCollied;
+    }
+
+    @Override
+    public void setTarget(Object obj)
+    {
+        colliedEntity = (Entity) obj;
     }
 }

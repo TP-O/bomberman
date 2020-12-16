@@ -21,4 +21,6 @@ public interface Collision
     public boolean collideLeft();
 
     public boolean collideRight();
+
+    public void setTarget(Object obj);
 }

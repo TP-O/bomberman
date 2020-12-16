@@ -13,12 +13,14 @@ public class CollisionAttack extends Attack
     public CollisionAttack(Entity attacker, List<? extends Entity> victims)
     {
         super(attacker, victims);
+
+        collision = new EntityCollision(attacker, null);
     }
 
     public void attack()
     {
         victims.forEach(victim -> {
-            collision = new EntityCollision(attacker, victim);
+            collision.setTarget(victim);
 
             if (collision.collideTop()
                     || collision.collideBottom()
