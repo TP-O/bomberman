@@ -2,7 +2,6 @@ package core;
 
 import javax.swing.JFrame;
 
-import app.models.TileModel;
 import modules.Provider;
 import modules.camera.Camera;
 import modules.keyboard.Keyboard;
@@ -66,9 +65,6 @@ public class Handler
         // Register services
         game.provider = new Provider(this);
         game.provider.register();
-
-        // Load data
-        TileModel.loadData();
 
         // Load map
         game.map = new Map(this);

@@ -134,7 +134,7 @@ public class PlusExplosionListener implements Listener
     {
         return handler
             .getMap()
-            .getTiles(x, y)
+            .getTile(x, y)
             .isSolid();
     }
 }

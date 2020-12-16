@@ -1,13 +1,12 @@
 package app.models;
 
-import components.entities.dynamic.character.factory.CharacterFactory;
-import components.entities.dynamic.character.factory.PlayerFactory;
 import components.entities.dynamic.character.player.Player;
  
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 import core.Handler;
+import factories.player.PlayerFactory;
 import helper.Helper;
 
 public class PlayerModel implements Model<Player>
@@ -16,7 +15,7 @@ public class PlayerModel implements Model<Player>
 
     private Player data;
 
-    private CharacterFactory factory = new PlayerFactory();
+    private PlayerFactory factory = new PlayerFactory();
 
     private String file = "res/data/player.json";
 
@@ -56,7 +55,7 @@ public class PlayerModel implements Model<Player>
 
     private void parsePlayerObject(JSONObject player, String type)
     {
-        data = (Player) factory.createCharacter(handler, type,
+        data = factory.createPlayer(handler, type,
                 Float.parseFloat(String.valueOf((double) player.get("x"))),
                 Float.parseFloat(String.valueOf((double) player.get("y"))));
     }

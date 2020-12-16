@@ -81,7 +81,7 @@ public class TileCollision implements Collision
     public boolean isCollied(int x, int y)
     {
         return map
-            .getTiles(x, y)
+            .getTile(x, y)
             .isSolid();
     }
 }

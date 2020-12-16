@@ -4,23 +4,31 @@ import java.awt.Graphics;
 
 import app.models.MapModel;
 import app.models.Model;
-import app.models.TileModel;
 import components.tiles.Tile;
 import helper.Helper;
 import config.AppConfig;
 import config.GameConfig;
+import factories.title.TileFactory;
 
 public class Map
 {
-    private int width, height;
+    private int width;
+    
+    private int height;
 
-    private int[][] tiles;
+    private Tile[] tiles;
+
+    private int[][] tileId;
 
     private Handler handler;
+
+    private TileFactory factory;
 
     public Map(Handler handler)
     {
         this.handler = handler;
+
+        factory = new TileFactory();
     }    
 
     public int getWidth()
@@ -50,7 +58,7 @@ public class Map
 
         for (int x = xStart; x < xEnd; x++) {
             for (int y = yStart; y < yEnd; y++) {
-                TileModel.get(tiles[x][y]).render(graphics,
+                tiles[tileId[x][y]].render(graphics,
                     // The tiles move rely on camera's coordinates
                     (int) (x*Tile.WIDTH - handler.getCamera().getXOffset()),
                     (int) (y*Tile.HEIGHT - handler.getCamera().getYOffset()));
@@ -69,22 +77,26 @@ public class Map
         String mapString = Helper.loadFileAsString(AppConfig.MAP_DIR + mapName);
 
         String[] tokens = mapString.split("\\s+");
-
         width = Integer.parseInt(tokens[0]);
         height = Integer.parseInt(tokens[1]);
-        tiles = new int[width][height];
+
+        tiles = new Tile[255];
+        tileId = new int[width][height];
 
         for (int x = 0; x < width; x++) {
             for (int y = 0; y < height; y++) {
-                tiles[x][y] = Integer.parseInt(tokens[x + y + (width - 1)*y + 2]);
+                int id = Integer.parseInt(tokens[x + y + (width - 1)*y + 2]);
+
+                tileId[x][y] = id;
+                tiles[id] = factory.createTile(id);
             }
         }   
     }
 
-    public Tile getTiles(int x, int y)
+    public Tile getTile(int x, int y)
     {
         return x < 0 || y < 0 || x >= width || y >= height
-            ? TileModel.get(0)
-            : TileModel.get(tiles[x][y]);
+            ? tiles[0]
+            : tiles[tileId[x][y]];
     }
 }

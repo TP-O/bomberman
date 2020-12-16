@@ -3,14 +3,13 @@ package app.models;
 import java.util.ArrayList;
 import java.util.List;
 
-import components.entities.dynamic.character.factory.CharacterFactory;
-import components.entities.dynamic.character.factory.MonsterFactory;
 import components.entities.dynamic.character.monster.Monster;
  
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 import core.Handler;
+import factories.monster.MonsterFactory;
 import helper.Helper;
 
 public class MonsterModel implements Model<List<Monster>>
@@ -19,7 +18,7 @@ public class MonsterModel implements Model<List<Monster>>
 
     private List<Monster> data = new ArrayList<Monster>();
 
-    private CharacterFactory factory = new MonsterFactory();
+    private MonsterFactory factory = new MonsterFactory();
 
     private String file = "res/data/monster.json";
 
@@ -55,7 +54,7 @@ public class MonsterModel implements Model<List<Monster>>
 
     private void parseMonsterObject(JSONObject monster)
     {
-        data.add((Monster) factory.createCharacter(handler,
+        data.add(factory.createMonster(handler,
                 (String) monster.get("type"),
                 Float.parseFloat(String.valueOf((double) monster.get("x"))),
                 Float.parseFloat(String.valueOf((double) monster.get("y")))));
