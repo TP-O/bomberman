@@ -33,6 +33,6 @@ public class MenuTitle extends Text
     {
         width = 64;
         height = 64;
-        value = "Boom";
+        value = "Boom Hello";
     }
 }

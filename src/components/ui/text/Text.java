@@ -31,7 +31,12 @@ public abstract class Text extends Element
         value = value.toUpperCase();
 
         for(int i = 0; i < value.length(); i++) {
-            images.add(Helper.loadImage("alphabet/" + value.charAt(i) + ".png"));
+            if (value.charAt(i) != ' ') {
+                images.add(Helper.loadImage("alphabet/" + value.charAt(i) + ".png"));
+            }
+            else {
+                images.add(null);
+            }
         }
     }
 
@@ -42,6 +47,10 @@ public abstract class Text extends Element
         int newX  = x - (value.length() - 1) * width / 2;
 
         for(int i = 0; i < images.size(); i++) {
+            if (images.get(i) == null) {
+                continue;
+            }
+
             graphics.drawImage(images.get(i), newX + width * i, y, width, height, null);
         }
     }
