@@ -1,6 +1,7 @@
 package entity;
 
 import core.main.Handler;
+import java.awt.Rectangle;
 
 public class Entity
 {
@@ -9,6 +10,8 @@ public class Entity
     protected int width, height;
 
     protected Handler handler;
+
+    protected Rectangle bounds;
 
     public Entity(Handler handler)
     {
@@ -63,4 +66,8 @@ public class Entity
     {
         this.height = height;
     }
+
+    public Rectangle getCollisionBounds(float xOffset, float yOffset){
+		return new Rectangle((int) (x + bounds.x + xOffset), (int) (y + bounds.y + yOffset), bounds.width, bounds.height);
+	}
 }

@@ -23,8 +23,9 @@ public class KilledMonsterListener implements Listener
     {     
         item.setX(x);
         item.setY(y);
+        
         item.setCreatedTime(System.currentTimeMillis()); 
 
-        ItemModel.insert((Item) item);        
+        ItemModel.insert((Item) item);         
     }
 }

@@ -1,7 +1,6 @@
 package entity.item.children;
 
 import entity.item.Item;
-
 import java.util.ArrayList;
 import asset.Asset;
 import core.main.Handler;
@@ -19,6 +18,9 @@ public class MaxHP extends Item
     {
         images = new ArrayList<BufferedImage>();
 
+        images.add(Asset.maxhp.crop(712, 176, 100, 82));
+        images.add(Asset.maxhp.crop(712, 157, 100, 100));
+        images.add(Asset.maxhp.crop(712, 157, 100, 82));
         images.add(Asset.maxhp.crop(712, 157, 100, 100));
     }
 
@@ -36,8 +38,8 @@ public class MaxHP extends Item
     {
         long now = System.currentTimeMillis();
 
-        // The item will be deleted if the time is up
-        if (now - createdTime >= timer) {
+        // The item will be deleted if the time is up or the item is picked up
+        if (now - createdTime >= timer || count == PICK_UP) {
             deleted = true;
         }
         else {

@@ -108,7 +108,8 @@ public abstract class Monster extends Character
 
                     if (health <= 0 && chance50oftrue == true){
                         deleted = true;
-                        Helper.event(new KilledMonsterEvent(item, x + width/4, y + height/2));
+                        Helper.event(new KilledMonsterEvent(item, x + width/2, y + height/2));
+                        
                     }else{
                         deleted = true;
                     }

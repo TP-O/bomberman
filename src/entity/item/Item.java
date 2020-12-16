@@ -1,12 +1,13 @@
 package entity.item;
 
 import entity.Entity;
+import entity.character.player.Player;
 import entity.Animation;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
-
 import core.main.Handler;
+import java.awt.Rectangle;
 
 public abstract class Item extends Entity
 {
@@ -26,6 +27,10 @@ public abstract class Item extends Entity
 
     protected Animation animation;
 
+    protected Rectangle bounds;
+
+    public Player player;
+
     public boolean isDeleted()
     {
         return deleted;
@@ -39,18 +44,26 @@ public abstract class Item extends Entity
     public Item(Handler handler)
     {
         super(handler);
-       
+        
+        
         count = 1;
+
+        bounds = new Rectangle((int) x, (int) y, width, height);
+        bounds.x = (int) x;
+        bounds.y = (int) y;
+
         loadItemImage();
         loadDefaultValues();
 
-        animation = new Animation(150, images);
-    }
+        animation = new Animation(500, images);
+    }    
 
     public void tick()
     {
         animation.tick();
         currentImage = animation.getCurrentFrame();
+        
+
     }
     
     public void render(Graphics graphics)

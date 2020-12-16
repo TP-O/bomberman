@@ -1,7 +1,6 @@
 package entity.item.children;
 
 import entity.item.Item;
-
 import java.util.ArrayList;
 import asset.Asset;
 import core.main.Handler;
@@ -19,7 +18,9 @@ public class BombBoost extends Item
     {
         images = new ArrayList<BufferedImage>();
 
+        images.add(Asset.bombboost.crop(320, 547, 100, 88));
         images.add(Asset.bombboost.crop(320, 533, 100, 100));
+        images.add(Asset.bombboost.crop(711, 27, 100, 88));
         images.add(Asset.bombboost.crop(711, 30, 100, 100));
     }
 
@@ -37,8 +38,8 @@ public class BombBoost extends Item
     {
         long now = System.currentTimeMillis();
 
-        // The item will be deleted if the time is up
-        if (now - createdTime >= timer) {
+        // The item will be deleted if the time is up or the item is picked up
+        if (now - createdTime >= timer || count == PICK_UP) {
             deleted = true;
         }
         else {

@@ -1,7 +1,6 @@
 package entity.item.children;
 
 import entity.item.Item;
-
 import java.util.ArrayList;
 import asset.Asset;
 import core.main.Handler;
@@ -19,6 +18,9 @@ public class Healing extends Item
     {
         images = new ArrayList<BufferedImage>();
 
+        images.add(Asset.heal.crop(321, 155, 100, 89));
+        images.add(Asset.heal.crop(321, 156, 100, 100));
+        images.add(Asset.heal.crop(321, 168, 100, 89));
         images.add(Asset.heal.crop(321, 156, 100, 100));
     }
 
@@ -36,8 +38,8 @@ public class Healing extends Item
     {
         long now = System.currentTimeMillis();
 
-        // The item will be deleted if the time is up
-        if (now - createdTime >= timer) {
+        // The item will be deleted if the time is up or the item is picked up
+        if (now - createdTime >= timer || count == PICK_UP) {
             deleted = true;
         }
         else {
