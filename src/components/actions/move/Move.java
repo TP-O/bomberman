@@ -10,7 +10,7 @@ import components.entities.Entity;
 
 public abstract class Move
 {
-    private Entity entity;
+    protected Entity entity;
 
     private TileCollision collision;
 

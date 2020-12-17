@@ -1,32 +1,27 @@
 package components.actions.move;
 
 import components.entities.Entity;
-import core.Handler;
 
 public class KeyboardBasedMove extends Move
 {
-    private Handler handler;
-
-    public KeyboardBasedMove(Handler handler, Entity entity, float speed)
+    public KeyboardBasedMove(Entity entity, float speed)
     {
-        super(handler.getMap(), entity, speed);
-
-        this.handler = handler;
+        super(entity.getHandler().getMap(), entity, speed);
     }
 
     @Override
     public void move()
     {
-        if (handler.getKeyboard().up.isPressed()) {
+        if (entity.getHandler().getKeyboard().up.isPressed()) {
             moveUp();
         }
-        else if (handler.getKeyboard().down.isPressed()) {
+        else if (entity.getHandler().getKeyboard().down.isPressed()) {
             moveDown();
         }
-        else if (handler.getKeyboard().left.isPressed()) {
+        else if (entity.getHandler().getKeyboard().left.isPressed()) {
             moveLeft();
         }
-        else if (handler.getKeyboard().right.isPressed()) {
+        else if (entity.getHandler().getKeyboard().right.isPressed()) {
             moveRight();
         }
         else {

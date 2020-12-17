@@ -27,6 +27,12 @@ public abstract class DynamicEntity extends Entity implements Movable
     }
 
     @Override
+    public void move()
+    {
+        move.move();
+    }
+
+    @Override
     public void tick()
     {
         move();
@@ -34,5 +40,5 @@ public abstract class DynamicEntity extends Entity implements Movable
         currentFrame = move.getCurrentImage();
     }
 
-    protected abstract void setMove();
+    protected abstract void setActions();
 }

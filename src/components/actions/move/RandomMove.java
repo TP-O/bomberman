@@ -3,7 +3,6 @@ package components.actions.move;
 import java.util.Random;
 
 import components.entities.Entity;
-import core.Handler;
 
 public class RandomMove extends Move
 {
@@ -19,9 +18,9 @@ public class RandomMove extends Move
 
     private Random random = new Random();
 
-    public RandomMove(Handler handler, Entity entity, float speed)
+    public RandomMove(Entity entity, float speed)
     {
-        super(handler.getMap(), entity, speed);
+        super(entity.getHandler().getMap(), entity, speed);
 
         moveIndex = random.nextInt(Direction.values().length);
     }

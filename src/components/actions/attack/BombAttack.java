@@ -1,7 +1,5 @@
 package components.actions.attack;
 
-import java.util.List;
-
 import app.events.BombPlacingEvent;
 import components.entities.Entity;
 import components.entities.dynamic.character.player.Player;
@@ -9,9 +7,9 @@ import helper.Helper;
 
 public class BombAttack extends Attack {
 
-    public BombAttack(Entity attacker, List<? extends Entity> victims)
+    public BombAttack(Entity attacker)
     {
-        super(attacker, victims);
+        super(attacker, null);
     }
 
     @Override

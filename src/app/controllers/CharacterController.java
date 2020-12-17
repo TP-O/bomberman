@@ -4,11 +4,11 @@ import app.views.CharacterView;
 import app.views.View;
 import core.Handler;
 
-public class CharacterSelectionController implements Controller
+public class CharacterController implements Controller
 {
     private Handler handler;
 
-    public CharacterSelectionController(Handler handler)
+    public CharacterController(Handler handler)
     {
         this.handler = handler;
     }

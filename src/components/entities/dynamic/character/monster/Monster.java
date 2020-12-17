@@ -5,19 +5,22 @@ import core.Handler;
 import components.actions.animate.Animation;
 import components.entities.dynamic.character.Character;
 import components.actions.attack.CollisionAttack;
+import components.actions.drop.Drop;
+import components.actions.drop.ItemDrop;
 import components.actions.move.RandomMove;
+
 import app.cache.PlayerCache;
 
 public abstract class Monster extends Character
 {
+    protected Drop drop;
+
     public Monster(Handler handler, float x, float y)
     {
         super(handler);
 
         this.x = x;
         this.y = y;
-
-        deleted = false;
     }
 
     @Override
@@ -42,14 +45,22 @@ public abstract class Monster extends Character
     }
 
     @Override
-    protected void setMove()
+    public void setHealth(int health) 
     {
-        move = new RandomMove(handler, this, speed);
+        super.setHealth(health);
+        
+        if (isDeleted()) {
+            drop();
+        }
     }
 
     @Override
-    protected void setAttack()
+    protected void setActions()
     {
+        super.setActions();
+
+        drop = new ItemDrop(this);
+        move = new RandomMove(this, speed);
         attack = new CollisionAttack(this, (new PlayerCache()).get());
     }
 
@@ -58,6 +69,11 @@ public abstract class Monster extends Character
     {
         super.tick();
 
-        attack();
+        attack();       
+    }
+
+    public void drop()
+    {
+        drop.drop();
     }
 }

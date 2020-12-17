@@ -5,25 +5,20 @@ import java.awt.Graphics;
 import components.entities.Entity;
 import components.ui.text.Text;
 import components.ui.text.character.status.HealthStatus;
-import core.Handler;
 
-public class HealthDisplay implements Display
+public class HealthDisplay extends Display
 {
-    private Handler handler;
-
     private Entity entity;
 
     private Text text;
 
-    private int health;
+    private int health = -1;
 
-    public HealthDisplay(Handler handler, Entity entity)
+    public HealthDisplay(Entity entity)
     {
-        this.handler = handler;
         this.entity = entity;
 
-        health = -1;
-        text = new HealthStatus(handler, 0, 0, 0, 0, 0, 0);
+        text = new HealthStatus(entity.getHandler(), 0, 0, 0, 0, 0, 0);
     }
 
     @Override
@@ -38,8 +33,8 @@ public class HealthDisplay implements Display
     {
         graphics.setColor(Color.WHITE);
         graphics.drawRect(
-                (int) (entity.getX() - handler.getCamera().getXOffset() - 1),
-                (int) (entity.getY() - handler.getCamera().getYOffset() - 21),
+                (int) (entity.getX() - entity.getHandler().getCamera().getXOffset() - 1),
+                (int) (entity.getY() - entity.getHandler().getCamera().getYOffset() - 21),
                 entity.getWidth() + 1,
                 6);
     }
@@ -48,16 +43,16 @@ public class HealthDisplay implements Display
     {
         graphics.setColor(Color.RED);
         graphics.fillRect(
-                (int) (entity.getX() - handler.getCamera().getXOffset()),
-                (int) (entity.getY() - handler.getCamera().getYOffset() - 20),
+                (int) (entity.getX() - entity.getHandler().getCamera().getXOffset()),
+                (int) (entity.getY() - entity.getHandler().getCamera().getYOffset() - 20),
                 (int) (entity.getWidth()*(entity.getHealth() / (float) entity.getMaxHealth())),
                 5);
     }
 
     private void displayText(Graphics graphics)
     {
-        text.setX((int) (entity.getX() - handler.getCamera().getXOffset()));
-        text.setY((int) (entity.getY() - handler.getCamera().getYOffset() - 35));
+        text.setX((int) (entity.getX() - entity.getHandler().getCamera().getXOffset()));
+        text.setY((int) (entity.getY() - entity.getHandler().getCamera().getYOffset() - 35));
 
         if (health != entity.getHealth() || health == -1) {
             text.setValue(String.valueOf(entity.getHealth()));

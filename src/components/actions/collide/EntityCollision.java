@@ -3,7 +3,7 @@ package components.actions.collide;
 import components.entities.Entity;
 import helper.Helper;
 
-public class EntityCollision implements Collision
+public class EntityCollision extends Collision
 {
     private Entity entity;
 

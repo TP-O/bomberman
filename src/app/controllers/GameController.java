@@ -33,8 +33,8 @@ public class GameController implements Controller
         MonsterModel monsterModel = new MonsterModel(handler);
 
         Player player = playerModel
-                .wherePhase(phase)
                 .whereType(characterType)
+                .wherePhase(phase)
                 .get();
         List<Monster> monsters = monsterModel
                 .wherePhase(phase)
@@ -43,6 +43,7 @@ public class GameController implements Controller
         // Load cache
         BombCache bombCache = new BombCache();
         ExplosionCache explosionCache = new ExplosionCache();
+        ItemCache itemCache = new ItemCache();
         MonsterCache monsterCache = new MonsterCache();
         PlayerCache playerCache = new PlayerCache();
 
@@ -54,7 +55,7 @@ public class GameController implements Controller
 
         // Init view
         View view = new GameView(handler, player,
-                monsters, bombCache.get(), explosionCache.get());
+                monsters, bombCache.get(), explosionCache.get(), itemCache.get());
 
         return view;
     }

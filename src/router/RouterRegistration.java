@@ -1,6 +1,6 @@
 package router;
 
-import app.controllers.CharacterSelectionController;
+import app.controllers.CharacterController;
 import app.controllers.GameController;
 import app.controllers.MenuController;
 import core.Handler;
@@ -19,13 +19,13 @@ public class RouterRegistration
     {
         Router.register("Menu", new MenuController(handler));
         Router.register("Game", new GameController(handler));
-        Router.register("Character", new CharacterSelectionController(handler));
+        Router.register("Character", new CharacterController(handler));
 
         redirectToDefault();
     }
 
     public void redirectToDefault()
     {
-        Router.redirect("Menu");
+        Router.redirect("Game");
     }
 }

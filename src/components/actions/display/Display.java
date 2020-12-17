@@ -2,7 +2,7 @@ package components.actions.display;
 
 import java.awt.Graphics;
 
-public interface Display 
+public abstract class Display 
 {
-    public void display(Graphics graphics);    
+    public abstract void display(Graphics graphics);    
 }

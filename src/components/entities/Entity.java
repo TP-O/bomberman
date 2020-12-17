@@ -34,6 +34,14 @@ public abstract class Entity
     public Entity(Handler handler)
     {
         this.handler = handler;
+
+        loadAllFrames();
+        setEntityParameters();
+    }
+
+    public Handler getHandler()
+    {
+        return handler;
     }
 
     public float getX()

@@ -72,6 +72,7 @@ public abstract class Explosion extends FixedEntity implements Attackable, Clone
         return null;
     }
 
+    @Override
     public void tick()
     {
         // The explosion will be deleted if all of images are rendered
@@ -86,6 +87,7 @@ public abstract class Explosion extends FixedEntity implements Attackable, Clone
         }
     }
 
+    @Override
     public void render(Graphics graphics)
     {
         graphics.drawImage(currentFrame,

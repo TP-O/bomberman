@@ -33,12 +33,8 @@ public abstract class Character extends DynamicEntity implements Attackable, Dis
     public Character(Handler handler)
     {
         super(handler);
-        
-        setEntityParameters();
 
-        setMove();
-        setAttack();
-        setDisplays();
+        setActions();
 
         loadAllFrames();
         initializeAnimation();
@@ -53,7 +49,7 @@ public abstract class Character extends DynamicEntity implements Attackable, Dis
     @Override
     public void setHealth(int health)
     {
-        this.health = health;
+        this.health = health >= maxHealth ? maxHealth : health;
         
         deleted = health <= 0;
     }
@@ -83,9 +79,10 @@ public abstract class Character extends DynamicEntity implements Attackable, Dis
     }
 
     @Override
-    public void move()
+    protected void setActions()
     {
-        move.move();
+        displays = new ArrayList<Display>();
+        displays.add(new HealthDisplay(this));
     }
 
     @Override
@@ -116,13 +113,4 @@ public abstract class Character extends DynamicEntity implements Attackable, Dis
         
         display(graphics);
     }
-
-    protected void setDisplays()
-    {
-        displays = new ArrayList<Display>();
-
-        displays.add(new HealthDisplay(handler, this));
-    }
-
-    protected abstract void setAttack();
 }

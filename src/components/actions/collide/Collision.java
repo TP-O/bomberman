@@ -1,6 +1,6 @@
 package components.actions.collide;
 
-public interface Collision
+public abstract class Collision
 {
     /**
      *            Top
@@ -14,13 +14,13 @@ public interface Collision
      *          Bottom
      */
 
-    public boolean collideTop();
+    public abstract boolean collideTop();
 
-    public boolean collideBottom();
+    public abstract boolean collideBottom();
 
-    public boolean collideLeft();
+    public abstract boolean collideLeft();
+  
+    public abstract boolean collideRight();
 
-    public boolean collideRight();
-
-    public void setTarget(Object obj);
+    public abstract void setTarget(Object obj);
 }

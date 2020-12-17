@@ -4,7 +4,7 @@ import components.entities.Entity;
 import core.Map;
 import helper.Helper;
 
-public class TileCollision implements Collision
+public class TileCollision extends Collision
 {
     private Map map;
 

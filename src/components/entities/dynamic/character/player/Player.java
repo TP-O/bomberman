@@ -1,17 +1,22 @@
 package components.entities.dynamic.character.player;
 
 import components.actions.animate.Animation;
+import components.entities.constract.Greed;
 import components.entities.dynamic.character.Character;
 import components.entities.fixed.bomb.Bomb;
 import components.entities.fixed.bomb.children.BombB;
 import components.actions.attack.BombAttack;
 import components.actions.move.KeyboardBasedMove;
+import components.actions.pickup.ItemPickUp;
+import components.actions.pickup.Pickup;
 import config.PlayerConfig;
 import core.Handler;
 
-public abstract class Player extends Character
+public abstract class Player extends Character implements Greed
 {
     private Bomb bomb;
+
+    private Pickup pickup;
 
     public Player(Handler handler, float x, float y)
     {
@@ -49,21 +54,27 @@ public abstract class Player extends Character
     }
 
     @Override
-    protected void setMove()
+    protected void setActions()
     {
-        move = new KeyboardBasedMove(handler, this, speed);
+        super.setActions();
+
+        pickup = new ItemPickUp(this);
+        attack = new BombAttack(this);
+        move = new KeyboardBasedMove(this, speed);
     }
 
     @Override
-    protected void setAttack()
+    public void pickUp()
     {
-        attack = new BombAttack(this, null);
+        pickup.pick();
     }
     
     @Override
     public void tick()
     {
         super.tick();
+
+        pickUp();
 
         if (handler.getKeyboard().attack.isPressed()) {
             attack.attack();

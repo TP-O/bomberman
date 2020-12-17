@@ -30,6 +30,11 @@ public abstract class Bomb extends FixedEntity implements Cloneable
         initializeAnimation();
     }
 
+    public Explosion getExplosion()
+    {
+        return explosion;
+    }
+
     public void setRange(int range)
     {
         this.range = range > 0 ? range : 1;
