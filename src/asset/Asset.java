@@ -24,7 +24,7 @@ public class Asset
             gokuAvatar, satoshiAvatar, kiritoBackground, gokuBackground, satoshiBackground;
 
     // Items
-    public static SpriteSheet  speedboost, damageboost, heal, bombboost, maxhp;        
+    public static SpriteSheet  speedBoost, damageBoost, heal, bombboost, maxHP;        
                                           
     public static void loadImage()
     {
@@ -82,10 +82,9 @@ public class Asset
         bomb = Helper.createSpriteSheet(Helper.loadImage("bombs/bomb.png"));
 
         // Items sheets
-        speedboost = Helper.createSpriteSheet(Helper.loadImage("items/items.jpg"));
-        damageboost = Helper.createSpriteSheet(Helper.loadImage("items/items.jpg"));
-        heal = Helper.createSpriteSheet(Helper.loadImage("items/items.jpg"));
-        bombboost = Helper.createSpriteSheet(Helper.loadImage("items/items.jpg"));
-        maxhp = Helper.createSpriteSheet(Helper.loadImage("items/items.jpg"));
+        maxHP = Helper.createSpriteSheet(Helper.loadImage("items/heart.png"));
+        heal = Helper.createSpriteSheet(Helper.loadImage("items/heal-potion.png"));
+        speedBoost = Helper.createSpriteSheet(Helper.loadImage("items/speed-potion.png"));
+        damageBoost = Helper.createSpriteSheet(Helper.loadImage("items/damage-potion.png"));
     }
 }

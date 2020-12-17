@@ -1,10 +1,10 @@
 package router;
 
-import app.controller.CharacterSelectionController;
-import app.controller.GameController;
-import app.controller.MenuController;
-import core.main.Handler;
-import core.main.Router;
+import app.controllers.CharacterController;
+import app.controllers.GameController;
+import app.controllers.MenuController;
+import core.Handler;
+import core.Router;
 
 public class RouterRegistration
 {   
@@ -19,13 +19,13 @@ public class RouterRegistration
     {
         Router.register("Menu", new MenuController(handler));
         Router.register("Game", new GameController(handler));
-        Router.register("Character", new CharacterSelectionController(handler));
+        Router.register("Character", new CharacterController(handler));
 
         redirectToDefault();
     }
 
     public void redirectToDefault()
     {
-        Router.redirect("Menu");
+        Router.redirect("Game");
     }
 }
