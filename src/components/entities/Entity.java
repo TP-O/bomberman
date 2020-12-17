@@ -2,9 +2,8 @@ package components.entities;
 
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
-import java.util.List;
 
-import components.actions.animate.Animation;
+import components.behaviors.animate.Animation;
 import core.Handler;
 
 public abstract class Entity
@@ -17,7 +16,23 @@ public abstract class Entity
 
     protected int height;
 
+    protected int margin;
+
+    protected int padding;
+
+    protected int life;
+
+    protected int health;
+
+    protected int damage;
+
+    protected float speed;
+
     protected boolean deleted;
+
+    protected long attackedAt;
+
+    protected long takedDamageAt;
 
     protected Handler handler;
 
@@ -25,23 +40,17 @@ public abstract class Entity
     
     protected BufferedImage currentFrame;
 
-    protected List<BufferedImage> frames;
-
-    protected int margin = 5;
-
-    protected int padding = 25;
-
-    public Entity(Handler handler)
+    public Entity()
     {
-        this.handler = handler;
+        margin = 5;
+        padding = 25;
+        attackedAt = 0;
+        takedDamageAt = 0;
+        handler = Handler.getInstance();
 
         loadAllFrames();
         setEntityParameters();
-    }
-
-    public Handler getHandler()
-    {
-        return handler;
+        initializeActions();
     }
 
     public float getX()
@@ -49,19 +58,9 @@ public abstract class Entity
         return x;
     }
 
-    public void setX(float x)
-    {
-        this.x = x;
-    }
-
     public float getY()
     {
         return y;
-    }
-
-    public void setY(float y)
-    {
-        this.y = y;
     }
 
     public int getPadding()
@@ -79,54 +78,92 @@ public abstract class Entity
         return width;
     }
 
-    public void setWidth(int width)
-    {
-        this.width = width;
-    }
-
     public int getHeight()
     {
         return height;
     }
 
-    public void setHeight(int height)
-    {
-        this.height = height;
-    }
-
     public int getHealth()
     {
-        throw new Error("Unsupport this method");
+        return health;
     }
 
-    public void setHealth(int health)
+    public int getLife()
     {
-        throw new Error("Unsupport this method");
-    }
-
-    public int getMaxHealth()
-    {
-        throw new Error("Unsupport this method");
-    }
-
-    public void setMaxHealth(int health)
-    {
-        throw new Error("Unsupport this method");
+        return life;
     }
 
     public int getDamage()
     {
-        throw new Error("Unsupport this method");
+        return damage;
     }
 
-    public void setDamage(int damage)
+    public float getSpeed()
     {
-        throw new Error("Unsupport this method");
+        return speed;
     }
 
     public boolean isDeleted()
     {
         return deleted;
+    }
+
+    public void setX(float x)
+    {
+        this.x = x >= 0 ? x : 0;
+    }
+
+    public void setY(float y)
+    {
+        this.y = y >= 0 ? y : 0;
+    }
+
+    public void setWidth(int width)
+    {
+        this.width = width >= 1 ? width : 1;
+    }
+
+    public void setHeight(int height)
+    {
+        this.height = height >= 1 ? height : 1;
+    }
+
+    public void setLife(int life)
+    {
+        this.life = life >= 1 ? life : 1;
+    }
+
+    public void setHealth(int health)
+    {
+        long now = System.currentTimeMillis();
+
+        if (now - takedDamageAt >= 3000 || takedDamageAt == 0) {
+            this.health = health;
+
+            if (this.health <= 0) {
+                delete();
+            }
+            else if (this.health > life) {
+                this.health = life;
+            }
+
+            takedDamageAt = now;
+        }
+    }
+
+    public void setDamage(int damage)
+    {
+        this.damage = damage >= 1 ? damage : 1;
+    }
+
+    public void setSpeed(float speed)
+    {
+        this.speed = speed > 0 ? speed : 0.1f;
+    }
+
+    public void delete()
+    {
+        deleted = true;
     }
 
     public void render(Graphics graphics)
@@ -135,13 +172,15 @@ public abstract class Entity
                 (int) (x - handler.getCamera().getXOffset()),
                 (int) (y - handler.getCamera().getYOffset()),
                 width, height, null);
+
+        graphics.drawRect((int) x, (int) y, width, height);
     }
 
     public abstract void tick();
 
     protected abstract void loadAllFrames();
 
-    protected abstract void initializeAnimation();
+    protected abstract void initializeActions();
 
     protected abstract void setEntityParameters();
 }

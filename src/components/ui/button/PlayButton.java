@@ -1,35 +1,34 @@
 package components.ui.button;
 
 import asset.Asset;
-import core.Handler;
 import core.Router;
 
 public class PlayButton extends Button
 {
-    public PlayButton(Handler handler, int column, int row, int left, int right, int top, int bottom)
+    public PlayButton(int column, int row, int left, int right, int top, int bottom)
     {
-        super(handler, column, row, left, right, top, bottom);
+        super(column, row, left, right, top, bottom);
     }
 
     @Override
-    protected void loadInfo()
+    protected void setElementParameters()
     {
         width = 148;
         height = 48;
     }
 
     @Override
-    protected void loadImages()
+    protected void loadAllFrames()
     {
-        images.add(Asset.ui01.crop(47, 108, 82, 24));
-        images.add(Asset.ui02.crop(80, 182, 133, 40));
+        frames.add(Asset.ui01.crop(47, 108, 82, 24));
+        frames.add(Asset.ui02.crop(80, 182, 133, 40));
 
-        currentImage = images.get(0);
+        currentFrame = frames.get(0);
     }
 
     @Override
     public void onClick()
     {
-        Router.redirect("Character");
+        Router.getInstance().redirect("Character", false);
     }
 }

@@ -43,12 +43,10 @@ public class Helper
         return (int) y / Tile.HEIGHT;
     }
 
-    public static boolean inSquare(float x, float y, float qx, float qy, int width, int height)
+    public static boolean checkOverlap(float x1, float y1, int w1, int h1, float x2, float y2, int w2, int h2)
     {
-        return x >= qx
-            && x <= qx + width
-            && y >= qy
-            && y <= qy + height;
+        return ((x2 - x1 > 0 && x2 - x1 <= w1) || (x2 - x1 < 0 && x2 - x1 >= -w2))
+                && ((y2 - y1 > 0 && y2 - y1 <= h1) || (y2 - y1 < 0 && y2 - y1 >= -h2));
     }
 
     public static void event(Event event)

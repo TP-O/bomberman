@@ -2,15 +2,14 @@ package app.events;
 
 import app.listeners.Listener;
 import app.listeners.MapLoadingListener;
-import core.Handler;
 
 public class MapLoadingEvent implements Event
 {
     private Listener listener;
 
-    public MapLoadingEvent(Handler handler, int phase)
+    public MapLoadingEvent(int phase)
     {
-        listener = new MapLoadingListener(handler, phase);
+        listener = new MapLoadingListener(phase);
     }
 
     @Override

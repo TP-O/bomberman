@@ -1,13 +1,12 @@
 package components.ui.text.character.status;
 
 import components.ui.text.Text;
-import core.Handler;
 
 public class HealthStatus extends Text
 {
-    public HealthStatus(Handler handler, int column, int row, int left, int right, int top, int bottom)
+    public HealthStatus(int column, int row, int left, int right, int top, int bottom)
     {
-        super(handler, column, row, left, right, top, bottom);
+        super(column, row, left, right, top, bottom);
     }
 
     @Override
@@ -29,7 +28,7 @@ public class HealthStatus extends Text
     }
 
     @Override
-    protected void loadInfo()
+    protected void setElementParameters()
     {
         width = 12;
         height = 12;

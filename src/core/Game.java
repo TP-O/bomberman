@@ -2,37 +2,49 @@ package core;
 
 import java.awt.image.BufferStrategy;
 
-import modules.Provider;
-
 import java.awt.Graphics;
 
 import config.AppConfig;
 import config.GameConfig;
-import router.RouterRegistration;
 
 public class Game implements Runnable
 {
-    public final String NAME = AppConfig.NAME;
+    public final String NAME;
 
-    public final int WIDTH = GameConfig.WIDTH;
+    public final int WIDTH;
 
-    public final int HEIGHT = GameConfig.HEIGHT;
+    public final int HEIGHT;
 
-    boolean running = false;
+    private boolean running;
 
-    RouterRegistration router;
+    private Window window;
 
-    Provider provider;
+    private Thread thread;
 
-    Map map;
+    private Router router;
 
-    BufferStrategy bs;
+    private Graphics graphics;
 
-    Graphics graphics;
+    private BufferStrategy bs;
 
-    Window window;
+    public Game()
+    {
+        NAME = AppConfig.NAME;
+        WIDTH = GameConfig.WIDTH;
+        HEIGHT = GameConfig.HEIGHT;
 
-    Thread thread;
+        router = Router.getInstance();
+    }
+
+    public Window getWindow()
+    {
+        return window;
+    }
+
+    public void setWindow(Window window)
+    {
+        this.window = window;
+    }
 
     public synchronized void start()
     {
@@ -68,7 +80,7 @@ public class Game implements Runnable
 
     public void tick()
     {
-        Router.tick();
+        router.tick();
     }
 
     public void render()
@@ -86,7 +98,7 @@ public class Game implements Runnable
         graphics.clearRect(0, 0, WIDTH, HEIGHT);
 
         // Render image
-        Router.render(graphics);
+        router.render(graphics);
 
         bs.show();
         graphics.dispose();

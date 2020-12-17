@@ -9,4 +9,6 @@ public class AppConfig
     public static final String IMAGE_DIR =  ASSET_DIR + "image/";
 
     public static final String MAP_DIR = ASSET_DIR + "data/map/";
+
+    public static final String CONTROLLER_PREFIX = "app.controllers";
 }

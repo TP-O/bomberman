@@ -4,9 +4,8 @@ public class App
 {
     public static void main(String[] args)
     {
-        Handler handler = new Handler();
+        Handler handler = Handler.getInstance();
 
         handler.launch();
     }
 }
- 

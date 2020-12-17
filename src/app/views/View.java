@@ -2,11 +2,16 @@ package app.views;
 
 import java.awt.Graphics;
 
-public interface View
+public abstract class View
 {
-    public void build();
+    public View()
+    {
+        buildUI();
+    }
 
-    public void tick();
+    protected abstract void buildUI();
+
+    public abstract void tick();
     
-    public void render(Graphics graphics);
+    public abstract void render(Graphics graphics);
 }

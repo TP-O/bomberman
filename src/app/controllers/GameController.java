@@ -7,55 +7,34 @@ import app.events.MapLoadingEvent;
 import app.models.*;
 import app.views.GameView;
 import app.views.View;
-import core.Handler;
-import components.entities.dynamic.character.monster.Monster;
-import components.entities.dynamic.character.player.Player;
+import components.entities.dynamics.character.monster.Monster;
+import components.entities.dynamics.character.player.Player;
 import helper.Helper;
 
-public class GameController implements Controller
+public class GameController
 {
-    private Handler handler;
-
-    public static int phase = 1;
-
-    public static String characterType = "Satoshi";
-
-    public GameController(Handler handler)
-    {
-        this.handler = handler;
-    }
-
-    @Override
-    public View createView()
+    public View playSolo()
     {
         // Load data
-        PlayerModel playerModel = new PlayerModel(handler);
-        MonsterModel monsterModel = new MonsterModel(handler);
+        PlayerModel playerModel = new PlayerModel();
+        MonsterModel monsterModel = new MonsterModel();
 
         Player player = playerModel
-                .whereType(characterType)
-                .wherePhase(phase)
+                .wherePhase((int) GameCache.get("phase"))
                 .get();
         List<Monster> monsters = monsterModel
-                .wherePhase(phase)
-                .get();
+                .wherePhase((int) GameCache.get("phase"))
+                .all();
 
-        // Load cache
-        BombCache bombCache = new BombCache();
-        ExplosionCache explosionCache = new ExplosionCache();
-        ItemCache itemCache = new ItemCache();
-        MonsterCache monsterCache = new MonsterCache();
-        PlayerCache playerCache = new PlayerCache();
-
-        monsterCache.store(monsters);
-        playerCache.insert(player);
+        // Save to cache
+        EntityCache.push("player", player);
+        EntityCache.get("monster").addAll(monsters);
 
         // Load map
-        Helper.event(new MapLoadingEvent(handler, phase));
+        Helper.event(new MapLoadingEvent((int) GameCache.get("phase")));
 
         // Init view
-        View view = new GameView(handler, player,
-                monsters, bombCache.get(), explosionCache.get(), itemCache.get());
+        View view = new GameView();
 
         return view;
     }

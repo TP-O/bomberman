@@ -2,11 +2,9 @@ package components.ui.radio.character.selection;
 
 import java.awt.Graphics;
 
-import core.Handler;
-
 import java.awt.image.BufferedImage;
 
-import app.controllers.GameController;
+import app.cache.GameCache;
 import components.ui.radio.Radio;
 
 public abstract class CharacterSelectionRadio extends Radio
@@ -15,9 +13,9 @@ public abstract class CharacterSelectionRadio extends Radio
 
     protected BufferedImage characterImage;
 
-    public CharacterSelectionRadio(Handler handler, int column, int row, int left, int right, int top, int bottom)
+    public CharacterSelectionRadio(int column, int row, int left, int right, int top, int bottom)
     {
-        super(handler, column, row, left, right, top, bottom);
+        super(column, row, left, right, top, bottom);
 
         clickedId = 0;
     }
@@ -25,25 +23,36 @@ public abstract class CharacterSelectionRadio extends Radio
     @Override
     public void onWaiting()
     {
-        currentImage = images.get(0);
+        currentFrame = frames.get(0);
     }
 
     @Override
     public void onHover()
     {
-        currentImage = images.get(1);
+        currentFrame = frames.get(1);
     }
 
     @Override
     public void onClick()
     {
         clickedId = id;
-        GameController.characterType = value;
+        GameCache.push("selected-player", value);
 
-        currentImage = images.get(1);
+        currentFrame = frames.get(1);
         
-        sharedElements.get("character-image").setCurrentImage(characterImage);
+        sharedElements.get("character-image").setCurrentFrame(characterImage);
         sharedElements.get("character-name").setValue(value);
+    }
+
+    @Override
+    public void tick()
+    {
+        if (clickedId != id) {
+            super.tick();
+        }
+        else {
+            onClick();
+        }
     }
 
     @Override

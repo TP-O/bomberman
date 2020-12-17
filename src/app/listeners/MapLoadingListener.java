@@ -4,19 +4,19 @@ import core.Handler;
 
 public class MapLoadingListener implements Listener
 {
-    private Handler handler;
-
     private int phase;
 
-    public MapLoadingListener(Handler handler, int phase)
+    public MapLoadingListener(int phase)
     {
-        this.handler = handler;
         this.phase = phase;
     }
 
     @Override
     public void handle()
     {
-        handler.getMap().loadMap(phase);
+        Handler
+            .getInstance()
+            .getMap()
+            .loadMap(phase);
     }    
 }

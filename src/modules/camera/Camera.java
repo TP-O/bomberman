@@ -1,9 +1,9 @@
 package modules.camera;
 
-import components.entities.dynamic.character.Character;
 import modules.Module;
 import config.GameConfig;
 import core.Handler;
+import components.entities.dynamics.character.Character;
 import components.tiles.Tile;
 
 public class Camera implements Module

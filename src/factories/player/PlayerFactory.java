@@ -1,42 +1,42 @@
 package factories.player;
 
-import core.Handler;
-import components.entities.dynamic.character.player.Player;
-import components.entities.dynamic.character.player.children.*;
+import app.cache.GameCache;
+import components.entities.dynamics.character.player.Player;
+import components.entities.dynamics.character.player.children.*;
 
 public class PlayerFactory
 {
-    public Player createPlayer(Handler handler, String type, float x, float y)
+    public Player createPlayer(float x, float y)
     {
         Player player = null;
 
-        switch (type) {
+        switch ((String) GameCache.get("selected-player")) {
             case "Goku":
-                player = new Goku(handler, x, y);
+                player = new Goku(x, y);
                 break;
 
             case "Kid":
-                player = new Kid(handler, x, y);
+                player = new Kid(x, y);
                 break;
 
             case "Kirito":
-                player = new Kirito(handler, x, y);
+                player = new Kirito(x, y);
                 break;
 
             case "Monk":
-                player = new Monk(handler, x, y);
+                player = new Monk(x, y);
                 break;
 
             case "Satoshi":
-                player = new Satoshi(handler, x, y);
+                player = new Satoshi(x, y);
                 break;
 
             case "Shadow":
-                player = new Shadow(handler, x, y);
+                player = new Shadow(x, y);
                 break;
         
             default:
-                player = null;
+                player = new Goku(x, y);
         }
 
         return player;

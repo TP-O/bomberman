@@ -3,7 +3,6 @@ package app.views;
 import java.awt.Graphics;
 import java.util.ArrayList;
 
-import core.Handler;
 import components.ui.Element;
 import components.ui.button.ReturnButton;
 import components.ui.button.StartButton;
@@ -11,43 +10,39 @@ import components.ui.image.character.selection.*;
 import components.ui.radio.character.selection.*;
 import components.ui.text.character.selection.*;
 
-public class CharacterView implements View
+public class CharacterView extends View
 {
-    private Handler handler;
-
     private ArrayList<Element> elements;
 
-    public CharacterView(Handler handler)
+    public CharacterView()
     {
-        this.handler = handler;
-
-        build();
+        buildUI();
     }
 
     @Override
-    public void build()
+    public void buildUI()
     {
         elements = new ArrayList<Element>();
 
         // Add background
-        elements.add(new CharacterBackground(handler, 6, 6, 0, 0, 0, 0));
-        elements.add(new CharacterImage(handler, 6, 5, 0, 0, 0, 0));
+        elements.add(new CharacterBackground(6, 6, 0, 0, 0, 0));
+        elements.add(new CharacterImage(6, 5, 0, 0, 0, 0));
 
         // Add texts
-        elements.add(new CharacterSelectionTitle(handler, 2, 6, 0, 0, 0, 0));
-        elements.add(new CharacterName(handler, 10, 6, 0, 0, 0, 0));
+        elements.add(new CharacterSelectionTitle(2, 6, 0, 0, 0, 0));
+        elements.add(new CharacterName(10, 6, 0, 0, 0, 0));
 
         // Add buttons
-        elements.add(new StartButton(handler, 6, 10, 0, 0, 0, 0));
-        elements.add(new ReturnButton(handler, 1, 1, 0, 0, 0, 0));
+        elements.add(new StartButton(6, 10, 0, 0, 0, 0));
+        elements.add(new ReturnButton(1, 1, 0, 0, 0, 0));
 
         // Add radios
-        elements.add(new GokuRadio(handler, 4, 3, 0, 0, 0, 0));
-        elements.add(new KidRadio(handler, 4, 5, 0, 0, 0, 0));
-        elements.add(new MonkRadio(handler, 4, 7, 0, 0, 0, 0));
-        elements.add(new ShadowRadio(handler, 8, 3, 0, 0, 0, 0));
-        elements.add(new KiritoRadio(handler, 8, 5, 0, 0, 0, 0));
-        elements.add(new SatoshiRadio(handler, 8, 7, 0, 0, 0, 0));
+        elements.add(new GokuRadio(4, 3, 0, 0, 0, 0));
+        elements.add(new KidRadio(4, 5, 0, 0, 0, 0));
+        elements.add(new MonkRadio(4, 7, 0, 0, 0, 0));
+        elements.add(new ShadowRadio(8, 3, 0, 0, 0, 0));
+        elements.add(new KiritoRadio(8, 5, 0, 0, 0, 0));
+        elements.add(new SatoshiRadio(8, 7, 0, 0, 0, 0));
 
         // Share data
         elements.forEach(element -> {

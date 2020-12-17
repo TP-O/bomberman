@@ -2,21 +2,12 @@ package app.controllers;
 
 import app.views.MenuView;
 import app.views.View;
-import core.Handler;
 
-public class MenuController implements Controller
+public class MenuController
 {
-    private Handler handler;
-
-    public MenuController(Handler handler)
+    public View showHomeMenu()
     {
-        this.handler = handler;
-    }
-
-    @Override
-    public View createView()
-    {
-        View view = new MenuView(handler);
+        View view = new MenuView();
 
         return view;
     }

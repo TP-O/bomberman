@@ -3,13 +3,12 @@ package components.ui.image.character.selection;
 import config.GameConfig;
 import asset.Asset;
 import components.ui.image.Image;
-import core.Handler;
 
 public class CharacterBackground extends Image
 {
-    public CharacterBackground(Handler handler, int column, int row, int left, int right, int top, int bottom)
+    public CharacterBackground(int column, int row, int left, int right, int top, int bottom)
     {
-        super(handler, column, row, left, right, top, bottom);
+        super(column, row, left, right, top, bottom);
     }
 
     @Override
@@ -31,15 +30,15 @@ public class CharacterBackground extends Image
     }
 
     @Override
-    protected void loadInfo()
+    protected void setElementParameters()
     {
         width = GameConfig.WIDTH;
         height = GameConfig.HEIGHT;
     }
 
     @Override
-    protected void loadImages()
+    protected void loadAllFrames()
     {
-        currentImage = Asset.bg02.crop(0, 0, 1000, 760);
+        currentFrame = Asset.bg02.crop(0, 0, 1000, 760);
     }
 }

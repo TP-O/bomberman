@@ -1,6 +1,5 @@
 package components.ui.text;
 
-import core.Handler;
 import helper.Helper;
 import java.awt.Graphics;
 
@@ -8,9 +7,9 @@ import components.ui.Element;
 
 public abstract class Text extends Element
 {
-    public Text(Handler handler, int column, int row, int left, int right, int top, int bottom)
+    public Text(int column, int row, int left, int right, int top, int bottom)
     {
-        super(handler, column, row, left, right, top, bottom);
+        super(column, row, left, right, top, bottom);
     }
 
     @Override
@@ -18,24 +17,24 @@ public abstract class Text extends Element
     {
         super.setValue(value);
 
-        loadImages();
+        loadAllFrames();
     }
 
     @Override
-    protected void loadImages()
+    protected void loadAllFrames()
     {   
-        // Delete old images
-        images.clear();
+        // Delete old frames
+        frames.clear();
 
         // Transform to uppercase
         value = value.toUpperCase();
 
         for(int i = 0; i < value.length(); i++) {
             if (value.charAt(i) != ' ') {
-                images.add(Helper.loadImage("alphabet/" + value.charAt(i) + ".png"));
+                frames.add(Helper.loadImage("alphabet/" + value.charAt(i) + ".png"));
             }
             else {
-                images.add(null);
+                frames.add(null);
             }
         }
     }
@@ -46,12 +45,12 @@ public abstract class Text extends Element
         // Calculate position x to make the text in the center
         int newX  = x - (value.length() - 1) * width / 2;
 
-        for(int i = 0; i < images.size(); i++) {
-            if (images.get(i) == null) {
+        for(int i = 0; i < frames.size(); i++) {
+            if (frames.get(i) == null) {
                 continue;
             }
 
-            graphics.drawImage(images.get(i), newX + width * i, y, width, height, null);
+            graphics.drawImage(frames.get(i), newX + width * i, y, width, height, null);
         }
     }
 }

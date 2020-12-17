@@ -2,55 +2,78 @@ package core;
 
 import javax.swing.JFrame;
 
+import app.cache.GameCache;
 import modules.Provider;
 import modules.camera.Camera;
 import modules.keyboard.Keyboard;
 import modules.mouse.Mouse;
+import routes.RouterRegistration;
 
 import java.awt.Canvas;
 
 import config.AppConfig;
 import config.GameConfig;
 import asset.Asset;
-import router.RouterRegistration;
 
 public class Handler
 {
+    private Map map;
+
     private Game game;
+
+    private Provider provider;
+
+    private static Handler instance;
+
+    private Handler()
+    {
+        game = new Game();
+    }
+
+    public static Handler getInstance()
+    {
+        if (instance == null) {
+            instance = new Handler();
+        }
+
+        return instance;
+    }
 
     public Map getMap()
     {
-        return game.map;
+        return map;
     }
 
     public JFrame getFrame()
     {
-        return game.window.getFrame();
+        return game.getWindow().getFrame();
     }
 
     public Canvas getCanvas()
     {
-        return game.window.getCanvas();
+        return game.getWindow().getCanvas();
     }
 
     public Keyboard getKeyboard()
     {
-        return (Keyboard) game.provider.modules.get("keyboard");
+        return (Keyboard) provider.modules.get("keyboard");
     }
 
     public Mouse getMouse()
     {
-        return (Mouse) game.provider.modules.get("mouse");
+        return (Mouse) provider.modules.get("mouse");
     }
 
     public Camera getCamera()
     {
-        return (Camera) game.provider.modules.get("camera");
+        return (Camera) provider.modules.get("camera");
     }
 
-    public Handler()
+    public void prepareData()
     {
-        game = new Game();
+        // First data
+        GameCache.push("phase", 0);
+        GameCache.push("selected-player", "Goku");
     }
 
     public void bootstrap()
@@ -59,19 +82,22 @@ public class Handler
         Asset.loadImage();
 
         // Display the window
-        game.window = new Window(AppConfig.NAME, GameConfig.WIDTH, GameConfig.HEIGHT);
-        game.window.display();
+        game.setWindow(new Window(AppConfig.NAME, GameConfig.WIDTH, GameConfig.HEIGHT));
+        game.getWindow().display();
 
         // Register services
-        game.provider = new Provider(this);
-        game.provider.register();
+        provider = new Provider(this);
+        provider.register();
 
         // Load map
-        game.map = new Map(this);
+        map = new Map(this);
+
+        // Set first data
+        prepareData();        
 
         // Register router
-        game.router = new RouterRegistration(this);
-        game.router.register();
+        RouterRegistration routerRegistration = new RouterRegistration();
+        routerRegistration.register();
     }
 
     public void launch()

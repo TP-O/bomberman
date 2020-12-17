@@ -23,63 +23,29 @@ public abstract class Element implements Listenable, Sharable
 
     protected String value;
 
+    protected boolean disable;
+
+    protected boolean hovering;
+
+    protected boolean clicked;
+
     protected Handler handler;
 
-    protected BufferedImage currentImage;
+    protected BufferedImage currentFrame;
 
-    protected List<BufferedImage> images;
-
-    protected boolean disable = false;
-
-    protected boolean hovering = false;
-
-    protected boolean clicked = false;
+    protected List<BufferedImage> frames;
 
     protected Map<String, Element> sharedElements;
 
-    public void setX(int x)
+    public Element(int column, int row, int left, int right, int top, int bottom)
     {
-        this.x = x;
-    }
-
-    public void setY(int y)
-    {
-        this.y = y;
-    }
-
-    public void setValue(String value)
-    {
-        this.value = value;
-    }
-
-    public void setCurrentImage(BufferedImage image)
-    {
-        currentImage = image;
-    }
-
-    public Element(Handler handler, int column, int row, int left, int right, int top, int bottom)
-    {
-        this.handler = handler;
-
-        images = new ArrayList<BufferedImage>();
+        handler = Handler.getInstance();
+        frames = new ArrayList<BufferedImage>();
         sharedElements = new HashMap<String, Element>();
 
-        loadInfo();
+        setElementParameters();
         calculatePosition(column, row, left, right, top, bottom);
-        loadImages();
-    }
-
-    private void calculatePosition(int column, int row, int left, int right, int top, int bottom)
-    {
-        // Divide screen into 12 columns and rows
-        x = GameConfig.WIDTH / 12 * column
-                + GameConfig.WIDTH / 100 * left
-                - GameConfig.WIDTH / 100 * right
-                - width / 2;
-        y = GameConfig.HEIGHT / 12 * row
-                + GameConfig.HEIGHT / 100 * top
-                - GameConfig.HEIGHT / 100 * bottom
-                - height / 2;
+        loadAllFrames();
     }
 
     @Override
@@ -122,6 +88,39 @@ public abstract class Element implements Listenable, Sharable
         element.receive(name, this);
     }
 
+    public void setX(int x)
+    {
+        this.x = x;
+    }
+
+    public void setY(int y)
+    {
+        this.y = y;
+    }
+
+    public void setValue(String value)
+    {
+        this.value = value;
+    }
+
+    public void setCurrentFrame(BufferedImage frame)
+    {
+        currentFrame = frame;
+    }
+
+    private void calculatePosition(int column, int row, int left, int right, int top, int bottom)
+    {
+        // Divide screen into 12 columns and rows
+        x = GameConfig.WIDTH / 12 * column
+                + GameConfig.WIDTH / 100 * left
+                - GameConfig.WIDTH / 100 * right
+                - width / 2;
+        y = GameConfig.HEIGHT / 12 * row
+                + GameConfig.HEIGHT / 100 * top
+                - GameConfig.HEIGHT / 100 * bottom
+                - height / 2;
+    }
+
     public void tick()
     {
         if (isHovering()) {
@@ -143,10 +142,10 @@ public abstract class Element implements Listenable, Sharable
 
     public void render(Graphics graphics)
     {
-        graphics.drawImage(currentImage, x, y, width, height, null);
+        graphics.drawImage(currentFrame, x, y, width, height, null);
     }
+    
+    abstract protected void loadAllFrames();
 
-    abstract protected void loadInfo();
-
-    abstract protected void loadImages();
+    abstract protected void setElementParameters();
 }
