@@ -20,8 +20,8 @@ public class ReturnButton extends Button
     @Override
     protected void loadAllFrames()
     {
-        frames.add(Asset.ui01.crop(47, 249, 81, 25));
-        frames.add(Asset.ui02.crop(81, 417, 132, 40));
+        frames.add(Asset.get("ui01").crop(47, 249, 81, 25));
+        frames.add(Asset.get("ui02").crop(81, 417, 132, 40));
 
         currentFrame = frames.get(0);
     }

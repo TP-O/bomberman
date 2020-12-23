@@ -16,14 +16,14 @@ public class ExplosionF extends Explosion
     {
         super.loadAllFrames();
 
-        frames.add(Asset.explosionF.crop(44, 35, 251, 258));
-        frames.add(Asset.explosionF.crop(359, 35, 251, 258));
-        frames.add(Asset.explosionF.crop(695, 35, 251, 258));
-        frames.add(Asset.explosionF.crop(36, 370, 251, 258));
-        frames.add(Asset.explosionF.crop(376, 370, 251, 258));
-        frames.add(Asset.explosionF.crop(705, 370, 251, 258));
-        frames.add(Asset.explosionF.crop(34, 704, 251, 258));
-        frames.add(Asset.explosionF.crop(361, 704, 251, 258));
-        frames.add(Asset.explosionF.crop(691, 704, 251, 258));
+        frames.add(Asset.get("explosion06").crop(44, 35, 251, 258));
+        frames.add(Asset.get("explosion06").crop(359, 35, 251, 258));
+        frames.add(Asset.get("explosion06").crop(695, 35, 251, 258));
+        frames.add(Asset.get("explosion06").crop(36, 370, 251, 258));
+        frames.add(Asset.get("explosion06").crop(376, 370, 251, 258));
+        frames.add(Asset.get("explosion06").crop(705, 370, 251, 258));
+        frames.add(Asset.get("explosion06").crop(34, 704, 251, 258));
+        frames.add(Asset.get("explosion06").crop(361, 704, 251, 258));
+        frames.add(Asset.get("explosion06").crop(691, 704, 251, 258));
     }
 }

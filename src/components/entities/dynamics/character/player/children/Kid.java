@@ -25,26 +25,26 @@ public class Kid extends Player
     {
         super.loadAllFrames();
 
-        upFrames.add(Asset.kid.crop(252, 296, 177, 266));
-        upFrames.add(Asset.kid.crop(10, 296, 187, 243));
-        upFrames.add(Asset.kid.crop(527, 296, 177, 266));
-        upFrames.add(Asset.kid.crop(10, 296, 187, 243));
+        upFrames.add(Asset.get("kid").crop(252, 296, 205, 269));
+        upFrames.add(Asset.get("kid").crop(241, 286, 205, 269));
+        upFrames.add(Asset.get("kid").crop(513, 296, 205, 269));
+        upFrames.add(Asset.get("kid").crop(6, 286, 205, 269));
         
-        downFrames.add(Asset.kid.crop(252, 21, 177, 265));
-        downFrames.add(Asset.kid.crop(11, 21, 187, 243));
-        downFrames.add(Asset.kid.crop(505, 21, 177, 265));
-        downFrames.add(Asset.kid.crop(11, 21, 187, 243));
+        downFrames.add(Asset.get("kid").crop(245, 20, 205, 269));
+        downFrames.add(Asset.get("kid").crop(2, 10, 205, 269));
+        downFrames.add(Asset.get("kid").crop(491, 20, 205, 269));
+        downFrames.add(Asset.get("kid").crop(2, 10, 205, 269));
       
-        leftFrames.add(Asset.kid.crop(263, 580, 155, 256));
-        leftFrames.add(Asset.kid.crop(11, 580, 143, 245));
-        leftFrames.add(Asset.kid.crop(515, 580, 155, 256));
-        leftFrames.add(Asset.kid.crop(11, 580, 143, 245));
+        leftFrames.add(Asset.get("kid").crop(245, 574, 205, 269));
+        leftFrames.add(Asset.get("kid").crop(0, 569, 205, 269));
+        leftFrames.add(Asset.get("kid").crop(501, 574, 205, 269));
+        leftFrames.add(Asset.get("kid").crop(0, 569, 205, 269));
         
-        rightFrames.add(Asset.kid.crop(284, 867, 155, 255));
-        rightFrames.add(Asset.kid.crop(42, 867, 145, 244));
-        rightFrames.add(Asset.kid.crop(525, 867, 155, 255));
-        rightFrames.add(Asset.kid.crop(42, 867, 145, 244));
+        rightFrames.add(Asset.get("kid").crop(260, 852, 205, 269));
+        rightFrames.add(Asset.get("kid").crop(10, 852, 205, 269));
+        rightFrames.add(Asset.get("kid").crop(498, 852, 205, 269));
+        rightFrames.add(Asset.get("kid").crop(10, 852, 205, 269));
 
-        standFrames.add(Asset.kid.crop(11, 21, 187, 243));
+        standFrames.add(Asset.get("kid").crop(2, 10, 205, 269));
     }
 }

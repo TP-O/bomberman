@@ -25,26 +25,26 @@ public class Goku extends Player
     {
         super.loadAllFrames();
         
-        upFrames.add(Asset.goku.crop(77, 193, 41, 62));
-        upFrames.add(Asset.goku.crop(13, 195, 41, 60));
-        upFrames.add(Asset.goku.crop(205, 193, 41, 62));
-        upFrames.add(Asset.goku.crop(13, 195, 41, 60));
+        upFrames.add(Asset.get("goku").crop(77, 192, 43, 64));
+        upFrames.add(Asset.get("goku").crop(13, 194, 43, 62));
+        upFrames.add(Asset.get("goku").crop(205, 192, 43, 64));
+        upFrames.add(Asset.get("goku").crop(13, 194, 43, 62));
         
-        downFrames.add(Asset.goku.crop(73, 1, 41, 62));
-        downFrames.add(Asset.goku.crop(9, 3, 41, 60));
-        downFrames.add(Asset.goku.crop(201, 1, 41, 62));
-        downFrames.add(Asset.goku.crop(9, 3, 41, 60));
+        downFrames.add(Asset.get("goku").crop(73, 1, 42, 64));
+        downFrames.add(Asset.get("goku").crop(9, 3, 43, 64));
+        downFrames.add(Asset.get("goku").crop(201, 1, 41, 64));
+        downFrames.add(Asset.get("goku").crop(9, 3, 43, 64));
 
-        leftFrames.add(Asset.goku.crop(73, 64, 41, 62));
-        leftFrames.add(Asset.goku.crop(9, 67, 41, 60));
-        leftFrames.add(Asset.goku.crop(201, 64, 41, 62));
-        leftFrames.add(Asset.goku.crop(9, 67, 41, 60));
+        leftFrames.add(Asset.get("goku").crop(73, 64, 43, 62));
+        leftFrames.add(Asset.get("goku").crop(9, 67, 43, 62));
+        leftFrames.add(Asset.get("goku").crop(201, 64, 43, 62));
+        leftFrames.add(Asset.get("goku").crop(9, 67, 43, 62));
         
-        rightFrames.add(Asset.goku.crop(77, 127, 41, 62));
-        rightFrames.add(Asset.goku.crop(13, 131, 41, 60));
-        rightFrames.add(Asset.goku.crop(205, 127, 41, 62));
-        rightFrames.add(Asset.goku.crop(13, 131, 41, 60));
+        rightFrames.add(Asset.get("goku").crop(77, 127, 43, 64));
+        rightFrames.add(Asset.get("goku").crop(13, 131, 43, 62));
+        rightFrames.add(Asset.get("goku").crop(205, 127, 43, 64));
+        rightFrames.add(Asset.get("goku").crop(13, 131, 43, 62));
 
-        standFrames.add(Asset.goku.crop(9, 3, 41, 60));
+        standFrames.add(Asset.get("goku").crop(9, 3, 43, 62));
     }
 }

@@ -11,6 +11,6 @@ public class RockTile extends Tile
 
     protected void loadTileImage()
     {
-        BImage = Asset.obstacle.crop(153, 31, 38, 38);
+        BImage = Asset.get("tile01").crop(153, 31, 38, 38);
     }
 }

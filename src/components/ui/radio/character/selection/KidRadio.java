@@ -20,11 +20,11 @@ public class KidRadio extends CharacterSelectionRadio
     @Override
     protected void loadAllFrames()
     {
-        frames.add(Asset.ui03.crop(6, 50, 38, 38));
-        frames.add(Asset.ui03.crop(190, 50, 38, 38));
+        frames.add(Asset.get("ui03").crop(6, 50, 38, 38));
+        frames.add(Asset.get("ui03").crop(190, 50, 38, 38));
         
-        innerImage = Asset.kidAvatar.crop(0, 0, 194, 201);
-        characterImage = Asset.kidAvatar.crop(0, 0, 194, 201);
+        innerImage = Asset.get("kid-avatar").crop(0, 0, 194, 201);
+        characterImage = Asset.get("kid-avatar").crop(0, 0, 194, 201);
 
         currentFrame = frames.get(0);
     }

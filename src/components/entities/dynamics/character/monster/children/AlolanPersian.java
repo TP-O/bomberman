@@ -26,18 +26,18 @@ public class AlolanPersian extends Monster
     {
         super.loadAllFrames();
 
-        upFrames.add(Asset.alolanPersian.crop(10, 202, 128, 112));
-        upFrames.add(Asset.alolanPersian.crop(172, 202, 128, 112));
+        upFrames.add(Asset.get("alolanpersian").crop(10, 202, 128, 112));
+        upFrames.add(Asset.get("alolanpersian").crop(172, 202, 128, 112));
         
-        downFrames.add(Asset.alolanPersian.crop(6, 20, 128, 137));
-        downFrames.add(Asset.alolanPersian.crop(167, 20, 128, 137));
+        downFrames.add(Asset.get("alolanpersian").crop(6, 20, 128, 137));
+        downFrames.add(Asset.get("alolanpersian").crop(167, 20, 128, 137));
 
-        leftFrames.add(Asset.alolanPersian.crop(20, 371, 137, 112));
-        leftFrames.add(Asset.alolanPersian.crop(177, 371, 137, 112));
+        leftFrames.add(Asset.get("alolanpersian").crop(20, 371, 137, 112));
+        leftFrames.add(Asset.get("alolanpersian").crop(177, 371, 137, 112));
         
-        rightFrames.add(Asset.alolanPersian.crop(4, 528, 137, 112));
-        rightFrames.add(Asset.alolanPersian.crop(168, 528, 137, 112));
+        rightFrames.add(Asset.get("alolanpersian").crop(4, 528, 137, 112));
+        rightFrames.add(Asset.get("alolanpersian").crop(168, 528, 137, 112));
 
-        standFrames.add(Asset.alolanPersian.crop(6, 20, 128, 137));
+        standFrames.add(Asset.get("alolanpersian").crop(6, 20, 128, 137));
     }
 }

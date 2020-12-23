@@ -19,8 +19,8 @@ public class QuitButton extends Button
     @Override
     protected void loadAllFrames()
     {
-        frames.add(Asset.ui01.crop(145, 250, 82, 25));
-        frames.add(Asset.ui02.crop(243, 416, 132, 41));
+        frames.add(Asset.get("ui01").crop(145, 250, 82, 25));
+        frames.add(Asset.get("ui02").crop(243, 416, 132, 41));
 
         currentFrame = frames.get(0);
     }

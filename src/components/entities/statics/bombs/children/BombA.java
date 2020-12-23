@@ -31,12 +31,12 @@ public class BombA extends Bomb
     {
         super.loadAllFrames();
 
-        frames.add(Asset.bomb.crop(8, 11, 207, 196));
-        frames.add(Asset.bomb.crop(218, 7, 207, 196));
-        frames.add(Asset.bomb.crop(447, 7, 207, 196));
-        frames.add(Asset.bomb.crop(647, 7, 207, 196));
-        frames.add(Asset.bomb.crop(852, 7, 207, 196));
-        frames.add(Asset.bomb.crop(1054, 7, 207, 196));
+        frames.add(Asset.get("bomb01").crop(8, 11, 207, 196));
+        frames.add(Asset.get("bomb01").crop(218, 7, 207, 196));
+        frames.add(Asset.get("bomb01").crop(447, 7, 207, 196));
+        frames.add(Asset.get("bomb01").crop(647, 7, 207, 196));
+        frames.add(Asset.get("bomb01").crop(852, 7, 207, 196));
+        frames.add(Asset.get("bomb01").crop(1054, 7, 207, 196));
     }
 
     @Override

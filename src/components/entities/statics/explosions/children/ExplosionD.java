@@ -16,20 +16,20 @@ public class ExplosionD extends Explosion
     {
         super.loadAllFrames();
 
-        frames.add(Asset.explosionD.crop(14, 0, 193, 193));
-        frames.add(Asset.explosionD.crop(209, 0, 193, 193));
-        frames.add(Asset.explosionD.crop(411, 0, 193, 193));
-        frames.add(Asset.explosionD.crop(610, 0, 193, 193));
-        frames.add(Asset.explosionD.crop(806, 0, 193, 193));
-        frames.add(Asset.explosionD.crop(11, 186, 193, 193));
-        frames.add(Asset.explosionD.crop(201, 186, 193, 193));
-        frames.add(Asset.explosionD.crop(395, 186, 193, 193));
-        frames.add(Asset.explosionD.crop(596, 186, 193, 193));
-        frames.add(Asset.explosionD.crop(792, 186, 193, 193));
-        frames.add(Asset.explosionD.crop(17, 383, 193, 193));
-        frames.add(Asset.explosionD.crop(208, 383, 193, 193));
-        frames.add(Asset.explosionD.crop(397, 383, 193, 193));
-        frames.add(Asset.explosionD.crop(592, 383, 193, 193));
-        frames.add(Asset.explosionD.crop(793, 383, 193, 193));
+        frames.add(Asset.get("explosion04").crop(14, 0, 193, 193));
+        frames.add(Asset.get("explosion04").crop(209, 0, 193, 193));
+        frames.add(Asset.get("explosion04").crop(411, 0, 193, 193));
+        frames.add(Asset.get("explosion04").crop(610, 0, 193, 193));
+        frames.add(Asset.get("explosion04").crop(806, 0, 193, 193));
+        frames.add(Asset.get("explosion04").crop(11, 186, 193, 193));
+        frames.add(Asset.get("explosion04").crop(201, 186, 193, 193));
+        frames.add(Asset.get("explosion04").crop(395, 186, 193, 193));
+        frames.add(Asset.get("explosion04").crop(596, 186, 193, 193));
+        frames.add(Asset.get("explosion04").crop(792, 186, 193, 193));
+        frames.add(Asset.get("explosion04").crop(17, 383, 193, 193));
+        frames.add(Asset.get("explosion04").crop(208, 383, 193, 193));
+        frames.add(Asset.get("explosion04").crop(397, 383, 193, 193));
+        frames.add(Asset.get("explosion04").crop(592, 383, 193, 193));
+        frames.add(Asset.get("explosion04").crop(793, 383, 193, 193));
     }
 }

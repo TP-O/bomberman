@@ -6,6 +6,6 @@ public class GrassTile extends Tile
 {
     protected void loadTileImage()
     {
-        BImage = Asset.obstacle.crop(0, 0, 25, 25);
+        BImage = Asset.get("tile01").crop(0, 0, 25, 25);
     }
 }

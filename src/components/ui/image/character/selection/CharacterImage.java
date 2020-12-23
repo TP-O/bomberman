@@ -38,6 +38,6 @@ public class CharacterImage extends Image
     @Override
     protected void loadAllFrames()
     {
-        currentFrame = Asset.gokuBackground.crop(0, 0, 1920, 1080);
+        currentFrame = Asset.get("goku-background").crop(0, 0, 1920, 1080);
     }
 }

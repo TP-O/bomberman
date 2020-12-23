@@ -26,18 +26,18 @@ public class Scorbunny extends Monster
     {
         super.loadAllFrames();
 
-        upFrames.add(Asset.scorbunny.crop(12, 90, 56, 58));
-        upFrames.add(Asset.scorbunny.crop(91, 90, 56, 58));
+        upFrames.add(Asset.get("scorbunny").crop(12, 90, 56, 58));
+        upFrames.add(Asset.get("scorbunny").crop(91, 90, 56, 58));
         
-        downFrames.add(Asset.scorbunny.crop(12, 11, 56, 58));
-        downFrames.add(Asset.scorbunny.crop(92, 11, 56, 58));
+        downFrames.add(Asset.get("scorbunny").crop(12, 11, 56, 58));
+        downFrames.add(Asset.get("scorbunny").crop(92, 11, 56, 58));
 
-        leftFrames.add(Asset.scorbunny.crop(12, 172, 56, 58));
-        leftFrames.add(Asset.scorbunny.crop(90, 171, 56, 58));
+        leftFrames.add(Asset.get("scorbunny").crop(12, 172, 56, 58));
+        leftFrames.add(Asset.get("scorbunny").crop(90, 171, 56, 58));
         
-        rightFrames.add(Asset.scorbunny.crop(8, 250, 56, 58));
-        rightFrames.add(Asset.scorbunny.crop(87, 250, 56, 58));
+        rightFrames.add(Asset.get("scorbunny").crop(8, 250, 56, 58));
+        rightFrames.add(Asset.get("scorbunny").crop(87, 250, 56, 58));
 
-        standFrames.add(Asset.scorbunny.crop(12, 11, 56, 58));
+        standFrames.add(Asset.get("scorbunny").crop(12, 11, 56, 58));
     }
 }

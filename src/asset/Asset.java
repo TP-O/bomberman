@@ -1,90 +1,117 @@
 package asset;
 
-import helper.sheet.SpriteSheet;
+import java.util.HashMap;
+import java.util.Map;
+
 import helper.Helper;
+import helper.sheet.SpriteSheet;
 
 public class Asset
 {
-    public static SpriteSheet obstacle;
-  
-    // UI
-    public static SpriteSheet ui01, ui02, ui03;
-    public static SpriteSheet bg01, bg02;        
+    private static AssetMap assets;
 
-    // Bombs
-    public static SpriteSheet explosionA, explosionB, explosionC, explosionD,
-            explosionE, explosionF, explosionG, explosionH, explosionJ, explosionK,
-            explosionL, bomb;
+    private static Map<String, SpriteSheet> sheets;
 
-    // Characters
-    public static SpriteSheet kid, monk, shadow, kirito, goku, satoshi;
-    public static SpriteSheet alolanPersian, shinyZygarde, scorbunny, bulbasaur,
-            redBoss, blueBoss;
-    public static SpriteSheet kidAvatar, monkAvatar, shadowAvatar, kiritoAvatar,
-            gokuAvatar, satoshiAvatar, kiritoBackground, gokuBackground, satoshiBackground;
-
-    // Items
-    public static SpriteSheet  speedBoost, damageBoost, heal, bombboost, maxHP;        
-                                          
-    public static void loadImage()
+    public static void init()
     {
-        // Obstacle sheets
-        obstacle = Helper.createSpriteSheet(Helper.loadImage("obstacles/obstacle01.png"));
+        bind(
 
-        // UI sheets
-        ui01 = Helper.createSpriteSheet(Helper.loadImage("ui/ui01.png"));
-        ui02 = Helper.createSpriteSheet(Helper.loadImage("ui/ui02.png"));
-        ui03 = Helper.createSpriteSheet(Helper.loadImage("ui/ui03.png")); 
+            /**
+             * Explsion images
+             */
+            "explosion01@explosions/explosion01.png",
+            "explosion02@explosions/explosion02.png",
+            "explosion03@explosions/explosion03.png",
+            "explosion04@explosions/explosion04.png",
+            "explosion05@explosions/explosion05.png",
+            "explosion06@explosions/explosion06.png",
+            "explosion07@explosions/explosion07.png",
+            "explosion08@explosions/explosion08.png",
+            "explosion09@explosions/explosion09.png",
+            "explosion10@explosions/explosion10.png",
+            "explosion11@explosions/explosion11.png",
+            "explosion12@explosions/explosion12.png",
 
-        // Background sheets
-        bg01 = Helper.createSpriteSheet(Helper.loadImage("backgrounds/backgrounds01.jpg"));
-        bg02 = Helper.createSpriteSheet(Helper.loadImage("backgrounds/backgrounds02.jpg"));
+            /**
+             * Background images
+             */
+            "bg01@backgrounds/character-selection-background.jpg",
+            "bg02@backgrounds/menu-background.jpg",
 
-        //Characters Avatar sheets 
-        kidAvatar = Helper.createSpriteSheet(Helper.loadImage("ui/kid-avatar.png")); 
-        monkAvatar = Helper.createSpriteSheet(Helper.loadImage("ui/monk-avatar.png")); 
-        shadowAvatar = Helper.createSpriteSheet(Helper.loadImage("ui/shadow-avatar.png")); 
-        kiritoAvatar = Helper.createSpriteSheet(Helper.loadImage("ui/kirito-avatar.png")); 
-        gokuAvatar = Helper.createSpriteSheet(Helper.loadImage("ui/goku-avatar.png")); 
-        satoshiAvatar = Helper.createSpriteSheet(Helper.loadImage("ui/satoshi-avatar.jpg"));    
-        kiritoBackground = Helper.createSpriteSheet(Helper.loadImage("ui/kirito-background.png")); 
-        gokuBackground = Helper.createSpriteSheet(Helper.loadImage("ui/goku-background.jpg"));
-        satoshiBackground = Helper.createSpriteSheet(Helper.loadImage("ui/satoshi-background.jpg"));   
+            /**
+             * Bomb images
+             */
+            "bomb01@bombs/bomb01.png",
 
-        // Player sheets
-        kid = Helper.createSpriteSheet(Helper.loadImage("characters/characters01.png"));
-        monk = Helper.createSpriteSheet(Helper.loadImage("characters/characters02.png"));
-        shadow = Helper.createSpriteSheet(Helper.loadImage("characters/characters03.png"));
-        kirito = Helper.createSpriteSheet(Helper.loadImage("characters/characters04.png"));
-        goku = Helper.createSpriteSheet(Helper.loadImage("characters/characters05.png"));
-        satoshi = Helper.createSpriteSheet(Helper.loadImage("characters/characters06.png"));
+            /**
+             * Item images
+             */
+            "life@items/heart.png",
+            "heal-potion@items/heal-potion.png",
+            "damage-potion@items/damage-potion.png",
+            "speed-potion@items/speed-potion.png",
 
-        // Monster sheets
-        alolanPersian = Helper.createSpriteSheet(Helper.loadImage("characters/monsters01.png"));
-        shinyZygarde = Helper.createSpriteSheet(Helper.loadImage("characters/monsters02.png"));
-        scorbunny  = Helper.createSpriteSheet(Helper.loadImage("characters/monsters03.png"));
-        bulbasaur = Helper.createSpriteSheet(Helper.loadImage("characters/monsters04.png"));
-        redBoss = Helper.createSpriteSheet(Helper.loadImage("characters/monsters05.png"));
-        blueBoss = Helper.createSpriteSheet(Helper.loadImage("characters/monsters05.png"));
+            /**
+             * Monster images
+             */
+            "alolanpersian@characters/monsters/monster01.png",
+            "monster2@characters/monsters/monster02.png",
+            "scorbunny@characters/monsters/monster03.png",
+            "bulbasaur@characters/monsters/monster04.png",
+            "emboar@characters/monsters/monster05.png",
+            "shinyzygarde@characters/monsters/monster05.png",
 
-        // Bomb sheets
-        explosionA = Helper.createSpriteSheet(Helper.loadImage("bombs/explosions01.png"));
-        explosionB = Helper.createSpriteSheet(Helper.loadImage("bombs/explosions02.png"));
-        explosionC = Helper.createSpriteSheet(Helper.loadImage("bombs/explosions03.png"));
-        explosionD = Helper.createSpriteSheet(Helper.loadImage("bombs/explosions04.png"));
-        explosionE = Helper.createSpriteSheet(Helper.loadImage("bombs/explosions05.png"));
-        explosionF = Helper.createSpriteSheet(Helper.loadImage("bombs/explosions06.png"));
-        explosionG = Helper.createSpriteSheet(Helper.loadImage("bombs/explosions07.png"));
-        explosionH = Helper.createSpriteSheet(Helper.loadImage("bombs/explosions08.png"));
-        explosionJ = Helper.createSpriteSheet(Helper.loadImage("bombs/explosions10.png"));
-        explosionK = Helper.createSpriteSheet(Helper.loadImage("bombs/explosions11.png"));
-        explosionL = Helper.createSpriteSheet(Helper.loadImage("bombs/explosions12.png"));
-        bomb = Helper.createSpriteSheet(Helper.loadImage("bombs/bomb.png"));
+            /**
+             * Player images
+             */
+            "goku@characters/players/goku.png",
+            "kid@characters/players/kid.png",
+            "kirito@characters/players/kirito.png",
+            "monk@characters/players/monk.png",
+            "satoshi@characters/players/satoshi.png",
+            "shadow@characters/players/shadow.png",
 
-        // Items sheets
-        maxHP = Helper.createSpriteSheet(Helper.loadImage("items/heart.png"));
-        heal = Helper.createSpriteSheet(Helper.loadImage("items/heal-potion.png"));
-        speedBoost = Helper.createSpriteSheet(Helper.loadImage("items/speed-potion.png"));
-        damageBoost = Helper.createSpriteSheet(Helper.loadImage("items/damage-potion.png"));
+            /**
+             * UI images
+             */
+            "ui01@user-interfaces/button01.png",
+            "ui02@user-interfaces/button02.png",
+            "ui03@user-interfaces/frame01.png",
+            "kid-avatar@user-interfaces/kid-avatar.png",
+            "monk-avatar@user-interfaces/monk-avatar.png",
+            "shadow-avatar@user-interfaces/shadow-avatar.png",
+            "kirito-avatar@user-interfaces/kirito-avatar.png",
+            "goku-avatar@user-interfaces/goku-avatar.png",
+            "satoshi-avatar@user-interfaces/satoshi-avatar.jpg",
+            "kirito-background@user-interfaces/kirito-background.png",
+            "goku-background@user-interfaces/goku-background.jpg",
+            "satoshi-background@user-interfaces/satoshi-background.jpg",
+
+            /**
+             * Tile images
+             */
+            "tile01@tiles/tiles01.png",
+            "tile02@tiles/tiles02.png"
+        );
+    }
+
+    public static SpriteSheet get(String key)
+    {
+        return sheets.get(key) == null
+                ? load(key)
+                : sheets.get(key);
+    }
+
+    private static SpriteSheet load(String key)
+    {
+        sheets.put(key, Helper.createSpriteSheet(Helper.loadImage(assets.get(key))));
+
+        return sheets.get(key);
+    }
+
+    private static void bind(String... value)
+    {
+        assets = new AssetMap(value);
+        sheets = new HashMap<String, SpriteSheet>();
     }
 }

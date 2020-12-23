@@ -11,6 +11,6 @@ public class MapleTile extends Tile
 
     protected void loadTileImage()
     {
-        BImage = Asset.obstacle.crop(167, 81, 47, 58);
+        BImage = Asset.get("tile01").crop(167, 81, 47, 58);
     }
 }

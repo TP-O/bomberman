@@ -21,20 +21,20 @@ public class HealPotion extends Item
     {
         super.loadAllFrames();
 
-        frames.add(Asset.heal.crop(22, 48, 232, 488));
-        frames.add(Asset.heal.crop(538, 48, 232, 488));
-        frames.add(Asset.heal.crop(1052, 48, 232, 488));
-        frames.add(Asset.heal.crop(1584, 48, 232, 488));
-        frames.add(Asset.heal.crop(2118, 48, 232, 488));
-        frames.add(Asset.heal.crop(2646, 48, 232, 488));
-        frames.add(Asset.heal.crop(3202, 48, 232, 488));
-        frames.add(Asset.heal.crop(3736, 48, 232, 488));
-        frames.add(Asset.heal.crop(4304, 48, 232, 488));
-        frames.add(Asset.heal.crop(4886, 48, 232, 488));
-        frames.add(Asset.heal.crop(5500, 48, 232, 488));
-        frames.add(Asset.heal.crop(6054, 48, 232, 488));
+        frames.add(Asset.get("heal-potion").crop(22, 48, 232, 488));
+        frames.add(Asset.get("heal-potion").crop(538, 48, 232, 488));
+        frames.add(Asset.get("heal-potion").crop(1052, 48, 232, 488));
+        frames.add(Asset.get("heal-potion").crop(1584, 48, 232, 488));
+        frames.add(Asset.get("heal-potion").crop(2118, 48, 232, 488));
+        frames.add(Asset.get("heal-potion").crop(2646, 48, 232, 488));
+        frames.add(Asset.get("heal-potion").crop(3202, 48, 232, 488));
+        frames.add(Asset.get("heal-potion").crop(3736, 48, 232, 488));
+        frames.add(Asset.get("heal-potion").crop(4304, 48, 232, 488));
+        frames.add(Asset.get("heal-potion").crop(4886, 48, 232, 488));
+        frames.add(Asset.get("heal-potion").crop(5500, 48, 232, 488));
+        frames.add(Asset.get("heal-potion").crop(6054, 48, 232, 488));
     }
-
+    
     @Override
     public void boost(Player player)
     {

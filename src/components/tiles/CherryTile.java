@@ -11,6 +11,6 @@ public class CherryTile extends Tile
 
     protected void loadTileImage()
     {
-        BImage = Asset.obstacle.crop(306, 119, 49, 58);
+        BImage = Asset.get("tile01").crop(306, 119, 49, 58);
     }
 }

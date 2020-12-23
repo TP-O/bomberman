@@ -25,26 +25,26 @@ public class Kirito extends Player
     {
         super.loadAllFrames();
 
-        upFrames.add(Asset.kirito.crop(7, 147, 33, 44));
-        upFrames.add(Asset.kirito.crop(54, 146, 34, 45));
-        upFrames.add(Asset.kirito.crop(102, 147, 34, 44));
-        upFrames.add(Asset.kirito.crop(54, 146, 34, 45));
+        upFrames.add(Asset.get("kirito").crop(7, 145, 35, 47));
+        upFrames.add(Asset.get("kirito").crop(54, 145, 35, 47));
+        upFrames.add(Asset.get("kirito").crop(102, 145, 35, 47));
+        upFrames.add(Asset.get("kirito").crop(54, 145, 35, 47));
 
-        downFrames.add(Asset.kirito.crop(7, 3, 30, 44));
-        downFrames.add(Asset.kirito.crop(56, 2, 29, 45));
-        downFrames.add(Asset.kirito.crop(103, 3, 30, 44));
-        downFrames.add(Asset.kirito.crop(56, 2, 29, 45));
+        downFrames.add(Asset.get("kirito").crop(5, 2, 35, 47));
+        downFrames.add(Asset.get("kirito").crop(54, 2, 35, 47));
+        downFrames.add(Asset.get("kirito").crop(102, 2, 35, 47));
+        downFrames.add(Asset.get("kirito").crop(54, 2, 35, 47));
 
-        leftFrames.add(Asset.kirito.crop(5, 52, 34, 43));
-        leftFrames.add(Asset.kirito.crop(53, 51, 34, 44));
-        leftFrames.add(Asset.kirito.crop(101, 52, 34, 43));
-        leftFrames.add(Asset.kirito.crop(53, 51, 34, 44));
+        leftFrames.add(Asset.get("kirito").crop(5, 51, 35, 47));
+        leftFrames.add(Asset.get("kirito").crop(53, 51, 35, 47));
+        leftFrames.add(Asset.get("kirito").crop(101, 51, 35, 47));
+        leftFrames.add(Asset.get("kirito").crop(53, 51, 35, 47));
         
-        rightFrames.add(Asset.kirito.crop(7, 100, 33, 43));
-        rightFrames.add(Asset.kirito.crop(55, 99, 32, 44));
-        rightFrames.add(Asset.kirito.crop(103, 100, 33, 43));
-        rightFrames.add(Asset.kirito.crop(55, 99, 32, 44));
+        rightFrames.add(Asset.get("kirito").crop(7, 99, 35, 47));
+        rightFrames.add(Asset.get("kirito").crop(54, 99, 35, 47));
+        rightFrames.add(Asset.get("kirito").crop(103, 99, 35, 47));
+        rightFrames.add(Asset.get("kirito").crop(54, 99, 35, 47));
 
-        standFrames.add(Asset.kirito.crop(56, 2, 29, 45));
+        standFrames.add(Asset.get("kirito").crop(56, 2, 35, 47));
     }
 }

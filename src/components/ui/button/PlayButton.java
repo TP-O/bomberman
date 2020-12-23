@@ -20,8 +20,8 @@ public class PlayButton extends Button
     @Override
     protected void loadAllFrames()
     {
-        frames.add(Asset.ui01.crop(47, 108, 82, 24));
-        frames.add(Asset.ui02.crop(80, 182, 133, 40));
+        frames.add(Asset.get("ui01").crop(47, 108, 82, 24));
+        frames.add(Asset.get("ui02").crop(80, 182, 133, 40));
 
         currentFrame = frames.get(0);
     }

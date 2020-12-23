@@ -25,26 +25,26 @@ public class Satoshi extends Player
     {
         super.loadAllFrames();
 
-        upFrames.add(Asset.satoshi.crop(76, 201, 35, 50));
-        upFrames.add(Asset.satoshi.crop(12, 203, 35, 46));
-        upFrames.add(Asset.satoshi.crop(204, 201, 35, 50));
-        upFrames.add(Asset.satoshi.crop(12, 203, 35, 46));
+        upFrames.add(Asset.get("satoshi").crop(75, 199, 40, 55));
+        upFrames.add(Asset.get("satoshi").crop(11, 199, 40, 55));
+        upFrames.add(Asset.get("satoshi").crop(203, 199, 40, 55));
+        upFrames.add(Asset.get("satoshi").crop(11, 199, 40, 55));
 
-        downFrames.add(Asset.satoshi.crop(77, 9, 35, 50));
-        downFrames.add(Asset.satoshi.crop(13, 11, 35, 46));
-        downFrames.add(Asset.satoshi.crop(205, 9, 35, 50));
-        downFrames.add(Asset.satoshi.crop(13, 11, 35, 46));
+        downFrames.add(Asset.get("satoshi").crop(75, 8, 40, 55));
+        downFrames.add(Asset.get("satoshi").crop(11, 8, 40, 55));
+        downFrames.add(Asset.get("satoshi").crop(203, 8, 40, 55));
+        downFrames.add(Asset.get("satoshi").crop(11, 8, 40, 55));
 
-        leftFrames.add(Asset.satoshi.crop(77, 72, 39, 49));
-        leftFrames.add(Asset.satoshi.crop(13, 74, 39, 47));
-        leftFrames.add(Asset.satoshi.crop(205, 72, 39, 47));
-        leftFrames.add(Asset.satoshi.crop(13, 74, 39, 47));
+        leftFrames.add(Asset.get("satoshi").crop(77, 71, 40, 55));
+        leftFrames.add(Asset.get("satoshi").crop(13, 71, 40, 55));
+        leftFrames.add(Asset.get("satoshi").crop(205, 71, 40, 55));
+        leftFrames.add(Asset.get("satoshi").crop(13, 71, 40, 55));
         
-        rightFrames.add(Asset.satoshi.crop(75, 137, 39, 48));
-        rightFrames.add(Asset.satoshi.crop(11, 139, 39, 46));
-        rightFrames.add(Asset.satoshi.crop(203, 137, 39, 46));
-        rightFrames.add(Asset.satoshi.crop(11, 139, 39, 46));
+        rightFrames.add(Asset.get("satoshi").crop(75, 135, 40, 55));
+        rightFrames.add(Asset.get("satoshi").crop(11, 135, 40, 55));
+        rightFrames.add(Asset.get("satoshi").crop(203, 135, 40, 55));
+        rightFrames.add(Asset.get("satoshi").crop(11, 135, 40, 55));
 
-        standFrames.add(Asset.satoshi.crop(13, 11, 34, 46));
+        standFrames.add(Asset.get("satoshi").crop(13, 11, 40, 55));
     }
 }

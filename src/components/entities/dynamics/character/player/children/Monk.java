@@ -25,26 +25,26 @@ public class Monk extends Player
     {
         super.loadAllFrames();
 
-        upFrames.add(Asset.monk.crop(436, 701, 357, 454));
-        upFrames.add(Asset.monk.crop(24, 679, 357, 454));
-        upFrames.add(Asset.monk.crop(1214, 698, 357, 454));
-        upFrames.add(Asset.monk.crop(24, 679, 357, 454));
+        upFrames.add(Asset.get("monk").crop(436, 701, 357, 454));
+        upFrames.add(Asset.get("monk").crop(24, 679, 357, 454));
+        upFrames.add(Asset.get("monk").crop(1214, 698, 357, 454));
+        upFrames.add(Asset.get("monk").crop(24, 679, 357, 454));
 
-        downFrames.add(Asset.monk.crop(433, 98, 357, 454));
-        downFrames.add(Asset.monk.crop(23, 98, 357, 454));
-        downFrames.add(Asset.monk.crop(1212, 98, 357, 454));
-        downFrames.add(Asset.monk.crop(23, 98, 357, 454));
+        downFrames.add(Asset.get("monk").crop(433, 98, 357, 454));
+        downFrames.add(Asset.get("monk").crop(23, 98, 357, 454));
+        downFrames.add(Asset.get("monk").crop(1212, 98, 357, 454));
+        downFrames.add(Asset.get("monk").crop(23, 98, 357, 454));
 
-        leftFrames.add(Asset.monk.crop(423, 1272, 357, 454));
-        leftFrames.add(Asset.monk.crop(29, 1273, 357, 454));
-        leftFrames.add(Asset.monk.crop(423, 1272, 357, 454));
-        leftFrames.add(Asset.monk.crop(29, 1273, 357, 454));
+        leftFrames.add(Asset.get("monk").crop(423, 1272, 357, 454));
+        leftFrames.add(Asset.get("monk").crop(29, 1273, 357, 454));
+        leftFrames.add(Asset.get("monk").crop(423, 1272, 357, 454));
+        leftFrames.add(Asset.get("monk").crop(29, 1273, 357, 454));
         
-        rightFrames.add(Asset.monk.crop(24, 1876, 357, 454));
-        rightFrames.add(Asset.monk.crop(419, 1873, 357, 454));
-        rightFrames.add(Asset.monk.crop(24, 1876, 357, 454));
-        rightFrames.add(Asset.monk.crop(419, 1873, 357, 454));
+        rightFrames.add(Asset.get("monk").crop(24, 1876, 357, 454));
+        rightFrames.add(Asset.get("monk").crop(419, 1873, 357, 454));
+        rightFrames.add(Asset.get("monk").crop(24, 1876, 357, 454));
+        rightFrames.add(Asset.get("monk").crop(419, 1873, 357, 454));
 
-        standFrames.add(Asset.monk.crop(23, 98, 357, 454));
+        standFrames.add(Asset.get("monk").crop(23, 98, 357, 454));
     }
 }

@@ -11,6 +11,6 @@ public class TreeTile extends Tile
 
     protected void loadTileImage()
     {
-        BImage = Asset.obstacle.crop(9, 23, 56, 64);
+        BImage = Asset.get("tile01").crop(9, 23, 56, 64);
     }
 }

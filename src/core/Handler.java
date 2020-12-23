@@ -79,7 +79,7 @@ public class Handler
     public void bootstrap()
     {
         // Initialize image, sound,...
-        Asset.loadImage();
+        Asset.init();
 
         // Display the window
         game.setWindow(new Window(AppConfig.NAME, GameConfig.WIDTH, GameConfig.HEIGHT));

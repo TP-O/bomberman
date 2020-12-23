@@ -39,6 +39,6 @@ public class CharacterBackground extends Image
     @Override
     protected void loadAllFrames()
     {
-        currentFrame = Asset.bg02.crop(0, 0, 1000, 760);
+        currentFrame = Asset.get("bg01").crop(0, 0, 1000, 760);
     }
 }

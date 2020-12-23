@@ -39,6 +39,6 @@ public class MenuBackground extends Image
     @Override
     protected void loadAllFrames()
     {
-        currentFrame = Asset.bg01.crop(0, 0, 1000, 750);
+        currentFrame = Asset.get("bg02").crop(0, 0, 1000, 750);
     }
 }

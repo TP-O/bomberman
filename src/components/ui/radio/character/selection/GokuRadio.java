@@ -20,11 +20,11 @@ public class GokuRadio extends CharacterSelectionRadio
     @Override
     protected void loadAllFrames()
     {
-        frames.add(Asset.ui03.crop(6, 50, 38, 38));
-        frames.add(Asset.ui03.crop(190, 50, 38, 38));
+        frames.add(Asset.get("ui03").crop(6, 50, 38, 38));
+        frames.add(Asset.get("ui03").crop(190, 50, 38, 38));
         
-        innerImage = Asset.gokuAvatar.crop(0, 0, 121, 145);
-        characterImage = Asset.gokuBackground.crop(0, 0, 1920, 1080);
+        innerImage = Asset.get("goku-avatar").crop(0, 0, 121, 145);
+        characterImage = Asset.get("goku-background").crop(0, 0, 1920, 1080);
 
         currentFrame = frames.get(0);
     }

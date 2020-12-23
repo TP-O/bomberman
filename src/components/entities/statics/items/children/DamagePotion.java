@@ -21,14 +21,14 @@ public class DamagePotion extends Item
     {
         super.loadAllFrames();
 
-        frames.add(Asset.damageBoost.crop(4, 7, 116, 164));
-        frames.add(Asset.damageBoost.crop(120, 7, 116, 164));
-        frames.add(Asset.damageBoost.crop(234, 7, 116, 164));
-        frames.add(Asset.damageBoost.crop(347, 7, 116, 164));
-        frames.add(Asset.damageBoost.crop(464, 7, 116, 164));
-        frames.add(Asset.damageBoost.crop(582, 7, 116, 164));
-        frames.add(Asset.damageBoost.crop(698, 7, 116, 164));
-        frames.add(Asset.damageBoost.crop(816, 7, 116, 164));
+        frames.add(Asset.get("damage-potion").crop(4, 7, 116, 164));
+        frames.add(Asset.get("damage-potion").crop(120, 7, 116, 164));
+        frames.add(Asset.get("damage-potion").crop(234, 7, 116, 164));
+        frames.add(Asset.get("damage-potion").crop(347, 7, 116, 164));
+        frames.add(Asset.get("damage-potion").crop(464, 7, 116, 164));
+        frames.add(Asset.get("damage-potion").crop(582, 7, 116, 164));
+        frames.add(Asset.get("damage-potion").crop(698, 7, 116, 164));
+        frames.add(Asset.get("damage-potion").crop(816, 7, 116, 164));
     }
 
     @Override

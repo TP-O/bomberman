@@ -21,16 +21,16 @@ public class SpeedPotion extends Item
     {
         super.loadAllFrames();
 
-        frames.add(Asset.speedBoost.crop(6, 18, 126, 143));
-        frames.add(Asset.speedBoost.crop(136, 18, 126, 143));
-        frames.add(Asset.speedBoost.crop(267, 18, 126, 143));
-        frames.add(Asset.speedBoost.crop(399, 18, 126, 143));
-        frames.add(Asset.speedBoost.crop(531, 18, 126, 143));
-        frames.add(Asset.speedBoost.crop(671, 18, 126, 143));
-        frames.add(Asset.speedBoost.crop(809, 18, 126, 143));
-        frames.add(Asset.speedBoost.crop(945, 18, 126, 143));
+        frames.add(Asset.get("speed-potion").crop(6, 18, 126, 143));
+        frames.add(Asset.get("speed-potion").crop(136, 18, 126, 143));
+        frames.add(Asset.get("speed-potion").crop(267, 18, 126, 143));
+        frames.add(Asset.get("speed-potion").crop(399, 18, 126, 143));
+        frames.add(Asset.get("speed-potion").crop(531, 18, 126, 143));
+        frames.add(Asset.get("speed-potion").crop(671, 18, 126, 143));
+        frames.add(Asset.get("speed-potion").crop(809, 18, 126, 143));
+        frames.add(Asset.get("speed-potion").crop(945, 18, 126, 143));
     }
-
+    
     @Override
     public void boost(Player player)
     {
