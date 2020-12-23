@@ -1,41 +1,41 @@
 [
-    [
-        {
-            "type": "AlolanPersian",
-            "x": 500.0,
-            "y": 250.0
-        },
-        {
-            "type": "ShinyZygarde",
-            "x": 800.0,
-            "y": 250.0
-        },
-        {
-            "type": "Scorbunny",
-            "x": 800.0,
-            "y": 300.0
-        },
-        {
-            "type": "Bulbasaur",
-            "x": 400.0,
-            "y": 300.0
-        },
-        {
-            "type": "Emboar",
-            "x": 400.0,
-            "y": 500.0
-        },
-        {
-            "type": "ShinyEmboar",
-            "x": 350.0,
-            "y": 500.0
-        }
-    ],
-    [
-        {
-            "type": "ShinyEmboar",
-            "x": 350.0,
-            "y": 500.0
-        }
-    ]
+  [
+    {
+      "type": "AlolanPersian",
+      "x": 500.0,
+      "y": 250.0
+    },
+    {
+      "type": "ShinyZygarde",
+      "x": 800.0,
+      "y": 250.0
+    },
+    {
+      "type": "Scorbunny",
+      "x": 800.0,
+      "y": 300.0
+    },
+    {
+      "type": "Bulbasaur",
+      "x": 400.0,
+      "y": 300.0
+    },
+    {
+      "type": "Emboar",
+      "x": 400.0,
+      "y": 500.0
+    },
+    {
+      "type": "ShinyEmboar",
+      "x": 350.0,
+      "y": 500.0
+    }
+  ],
+  [
+    {
+      "type": "ShinyEmboar",
+      "x": 350.0,
+      "y": 500.0
+    }
+  ]
 ]
