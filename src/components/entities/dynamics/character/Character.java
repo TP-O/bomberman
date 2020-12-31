@@ -1,35 +1,29 @@
 package components.entities.dynamics.character;
 
-import components.behaviors.attack.AttackBehavior;
-import components.behaviors.display.DisplayBehavior;
-import components.behaviors.display.HealthDisplay;
+import components.actions.display.Display;
+import components.actions.display.DisplayAction;
+import components.actions.display.nonstop.HealthDisplay;
 import components.entities.dynamics.DynamicEntity;
 
 import java.awt.Graphics;
-import java.util.ArrayList;
-import java.util.List;
 
 public abstract class Character extends DynamicEntity
 {
-    protected AttackBehavior attack;
-
-    protected List<DisplayBehavior> displays;
+    protected Display display;
 
     @Override
     protected void initializeActions()
     {
-        displays = new ArrayList<DisplayBehavior>();
-
-        // Push status displays
-        displays.add(new HealthDisplay(this));
+        display = new DisplayAction(this);
+        display = new HealthDisplay(display);
     }
 
     @Override
     public void render(Graphics graphics)
     {
         super.render(graphics);
-        
+
         // Display character's status: health...
-        displays.forEach(display -> display.display(graphics));
+        display.display(graphics);
     }
 }

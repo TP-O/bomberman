@@ -1,9 +1,12 @@
 package components.entities.dynamics.character.player;
 
-import components.behaviors.attack.BombPlacingAttack;
-import components.behaviors.move.KeyboardBasedMove;
-import components.behaviors.pickup.ItemPickUp;
-import components.behaviors.pickup.PickUpBehavior;
+import components.actions.attack.Attack;
+import components.actions.attack.AttackAction;
+import components.actions.attack.controlled.ControlledBombPlacing;
+import components.actions.move.KeyboardBasedMove;
+import components.actions.pickup.PickUp;
+import components.actions.pickup.PickUpAction;
+import components.actions.pickup.nonstop.ItemPickUp;
 import components.entities.dynamics.character.Character;
 import components.entities.statics.bombs.Bomb;
 import components.entities.statics.bombs.children.BombB;
@@ -13,7 +16,9 @@ public abstract class Player extends Character
 {
     private Bomb bomb;
 
-    private PickUpBehavior pickup;
+    private Attack attack;
+
+    private PickUp pickUp;
 
     public Player(float x, float y)
     {
@@ -40,34 +45,23 @@ public abstract class Player extends Character
     {
         super.initializeActions();
 
-        // Set pick-up type
-        pickup = new ItemPickUp(this);
+        attack = new AttackAction(this);
+        attack = new ControlledBombPlacing(attack, bomb);
 
-        // Set attack type
-        attack = new BombPlacingAttack(this, bomb);
+        pickUp = new PickUpAction(this);
+        pickUp = new ItemPickUp(pickUp);
 
-        // Set move type
         move = new KeyboardBasedMove(this);
     }
-    
+
     @Override
     public void tick()
     {
         super.tick();
 
-        // Pick-up items :D
-        pickup.pickUp();
+        attack.attack();
 
-        if (handler.getKeyboard().attack.isPressed()) {
-            // Attack
-            long now = System.currentTimeMillis();
-
-            if (now - attackedAt >= 500 || attackedAt == 0) {
-                attack.attack();
-
-                attackedAt = now;
-            }
-        }
+        pickUp.pickUp();
     }
 
     public Bomb getBomb()

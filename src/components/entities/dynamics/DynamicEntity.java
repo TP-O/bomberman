@@ -2,14 +2,14 @@ package components.entities.dynamics;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.awt.image.BufferedImage;
 
-import components.behaviors.move.MoveBehavior;
+import java.awt.image.BufferedImage;
+import components.actions.move.Move;
 import components.entities.Entity;
 
 public abstract class DynamicEntity extends Entity
 {
-    protected MoveBehavior move;
+    protected Move move;
 
     protected List<BufferedImage> upFrames;
 
@@ -37,9 +37,6 @@ public abstract class DynamicEntity extends Entity
     {
         // Move
         move.move();
-        
-        // Update frame
-        currentFrame = move.getCurrentFrame();
     }
 
     public List<BufferedImage> getUpFrames()

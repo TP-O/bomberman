@@ -3,7 +3,6 @@ package components.entities;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 
-import components.behaviors.animate.Animation;
 import core.Handler;
 
 public abstract class Entity
@@ -36,8 +35,6 @@ public abstract class Entity
 
     protected Handler handler;
 
-    protected Animation animation;
-    
     protected BufferedImage currentFrame;
 
     public Entity()
@@ -159,6 +156,11 @@ public abstract class Entity
     public void setSpeed(float speed)
     {
         this.speed = speed > 0 ? speed : 0.1f;
+    }
+
+    public void setCurrentFrame(BufferedImage frame)
+    {
+        currentFrame = frame;
     }
 
     public void delete()

@@ -1,6 +1,6 @@
 package components.entities.statics.items;
 
-import components.behaviors.animate.Animation;
+import components.animation.StaticAnimation;
 import components.entities.dynamics.character.player.Player;
 import components.entities.statics.StaticEntity;
 
@@ -23,7 +23,7 @@ public abstract class Item extends StaticEntity
     protected void initializeActions()
     {
         // Set animation
-        animation = new Animation(150, frames);
+        animation = new StaticAnimation(this, 150);
     }
 
     @Override
@@ -36,9 +36,7 @@ public abstract class Item extends StaticEntity
             deleted = true;
         }
         else {
-            // Update frame
-            animation.tick();
-            currentFrame = animation.getCurrentFrame();
+            super.tick();
         }
     }
 

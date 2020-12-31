@@ -1,7 +1,7 @@
 package components.entities.statics.bombs;
 
-import components.behaviors.animate.Animation;
-import components.behaviors.attack.AttackBehavior;
+import components.actions.attack.Attack;
+import components.animation.StaticAnimation;
 import components.entities.statics.StaticEntity;
 import components.entities.statics.explosions.Explosion;
 
@@ -11,31 +11,43 @@ public abstract class Bomb extends StaticEntity implements Cloneable
 
     protected int timer;
 
+    protected Attack attack;
+
     protected long createdTime;
 
     protected Explosion explosion;
 
-    protected AttackBehavior attack;
-
     @Override
-    protected void initializeActions()
+    public Object clone()
     {
-        // Set animation
-        animation = new Animation(200, frames);
-    }
+        try {
+            Bomb b = (Bomb) super.clone();
 
-    @Override
-    public Object clone() throws CloneNotSupportedException 
-    { 
-        return super.clone(); 
+            return setClone(b);
+        }
+        catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+        }
+
+        return null;
     }
 
     @Override
     public void tick()
     {
-        // Update frame
-        animation.tick();
-        currentFrame = animation.getCurrentFrame();
+        long now = System.currentTimeMillis();
+
+        // The bomb will be deleted if the time is up
+        if (now - createdTime >= timer) {
+            // Attackkkk
+            attack.attack();
+
+            // Delete bomb
+            delete();
+        }
+        else {
+            super.tick();
+        }
     }
 
     public Explosion getExplosion()
@@ -52,4 +64,16 @@ public abstract class Bomb extends StaticEntity implements Cloneable
     {
         createdTime = System.currentTimeMillis();
     }
+
+    public void setAttack(Attack attack)
+    {
+        this.attack = attack;
+    }
+
+    public void setAnimation(StaticAnimation animation)
+    {
+        this.animation = animation;
+    }
+
+    protected abstract Bomb setClone(Bomb bomb);
 }

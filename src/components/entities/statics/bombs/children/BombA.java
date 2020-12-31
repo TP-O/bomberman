@@ -1,7 +1,9 @@
 package components.entities.statics.bombs.children;
 
 import asset.Asset;
-import components.behaviors.attack.ExplosionAttack;
+import components.actions.attack.AttackAction;
+import components.actions.attack.nonstop.ExplosionCreating;
+import components.animation.StaticAnimation;
 import components.entities.statics.bombs.Bomb;
 import components.entities.statics.explosions.children.ExplosionA;
 
@@ -13,17 +15,15 @@ public class BombA extends Bomb
         range = 5;
         width = 32;
         height = 32;
-        timer = 1000;
-        
+        timer = 2000;
+
         explosion = new ExplosionA();
     }
 
     @Override
     protected void initializeActions()
     {
-        super.initializeActions();
-
-        attack = new ExplosionAttack(this, explosion, range);
+        //
     }
 
     @Override
@@ -40,20 +40,11 @@ public class BombA extends Bomb
     }
 
     @Override
-    public void tick()
+    protected Bomb setClone(Bomb bomb)
     {
-        long now = System.currentTimeMillis();
+        bomb.setAnimation(new StaticAnimation(bomb, 200));
+        bomb.setAttack(new ExplosionCreating(new AttackAction(bomb), explosion, range));
 
-        // The bomb will be deleted if the time is up
-        if (now - createdTime >= timer) {
-            // Attackkkk
-            attack.attack();
-
-            // Delete bomb
-            delete();
-        }
-        else {
-            super.tick();
-        }
+        return bomb;
     }
 }

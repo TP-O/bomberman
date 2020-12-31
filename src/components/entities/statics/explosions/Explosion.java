@@ -1,13 +1,15 @@
 package components.entities.statics.explosions;
 
-import components.behaviors.animate.Animation;
-import components.behaviors.attack.AttackBehavior;
-import components.behaviors.attack.MonsterCollisionAttack;
+import components.actions.attack.Attack;
+import components.actions.attack.AttackAction;
+import components.actions.attack.nonstop.MonsterAttack;
+import components.actions.attack.nonstop.PlayerAttack;
+import components.animation.StaticAnimation;
 import components.entities.statics.StaticEntity;
 
 public abstract class Explosion extends StaticEntity implements Cloneable
 {
-    protected AttackBehavior attack;
+    private Attack attack;
 
     public Explosion()
     {
@@ -20,25 +22,16 @@ public abstract class Explosion extends StaticEntity implements Cloneable
     @Override
     protected void initializeActions()
     {
-        // Set animation
-        animation = new Animation(50, frames);
-
-        // Set attack type
-        attack = new MonsterCollisionAttack(this);
+        //
     }
 
     @Override
     public Object clone()
     {
-        // Reset animation 
-        animation.setIndex(0);
-        
         try {
             Explosion e = (Explosion) super.clone();
-            
-            e.setAttack(new MonsterCollisionAttack(e));
 
-            return e;
+            return setClone(e);
         }
         catch (CloneNotSupportedException e) {
             e.printStackTrace();
@@ -52,20 +45,31 @@ public abstract class Explosion extends StaticEntity implements Cloneable
     {
         // The explosion will be deleted if all of images are rendered
         if (animation.getIndex() == frames.size() - 1) {
-            deleted = true;
+            delete();
         }
         else {
-            // Update frame
-            animation.tick();
-            currentFrame = animation.getCurrentFrame();
+            super.tick();
 
             // Attack
             attack.attack();
         }
     }
 
-    public void setAttack(AttackBehavior attackBehavior)
+    public void setAttack(Attack attack)
     {
-        attack = attackBehavior;
+        this.attack = attack;
+    }
+
+    public void setAnimation(StaticAnimation animation)
+    {
+        this.animation = animation;
+    }
+
+    protected Explosion setClone(Explosion explosion)
+    {
+        explosion.setAnimation(new StaticAnimation(explosion, 50));
+        explosion.setAttack(new PlayerAttack(new MonsterAttack(new AttackAction(explosion))));
+
+        return explosion;
     }
 }
