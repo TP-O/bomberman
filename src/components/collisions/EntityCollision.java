@@ -1,4 +1,4 @@
-package components.collision;
+package components.collisions;
 
 import components.entities.Entity;
 import helper.Helper;

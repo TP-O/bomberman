@@ -6,8 +6,8 @@ import java.util.List;
 import app.cache.EntityCache;
 import components.actions.attack.Attack;
 import components.actions.attack.AttackDecorator;
-import components.collision.Collision;
-import components.collision.TileCollision;
+import components.collisions.Collision;
+import components.collisions.TileCollision;
 import components.entities.statics.explosions.Explosion;
 
 public class PlusExplosionCreating extends AttackDecorator

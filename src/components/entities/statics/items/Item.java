@@ -1,6 +1,6 @@
 package components.entities.statics.items;
 
-import components.animation.StaticAnimation;
+import components.animations.StaticAnimation;
 import components.entities.dynamics.character.player.Player;
 import components.entities.statics.StaticEntity;
 

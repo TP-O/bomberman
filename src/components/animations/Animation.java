@@ -1,4 +1,4 @@
-package components.animation;
+package components.animations;
 
 import java.awt.image.BufferedImage;
 import java.util.List;

@@ -1,7 +1,7 @@
 package components.entities.statics.bombs;
 
 import components.actions.attack.Attack;
-import components.animation.StaticAnimation;
+import components.animations.StaticAnimation;
 import components.entities.statics.StaticEntity;
 import components.entities.statics.explosions.Explosion;
 

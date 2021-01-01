@@ -1,4 +1,4 @@
-package components.animation;
+package components.animations;
 
 import components.entities.dynamics.DynamicEntity;
 

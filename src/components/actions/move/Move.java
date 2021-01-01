@@ -1,8 +1,8 @@
 package components.actions.move;
 
-import components.animation.MoveAnimation;
-import components.collision.Collision;
-import components.collision.TileCollision;
+import components.animations.MoveAnimation;
+import components.collisions.Collision;
+import components.collisions.TileCollision;
 import components.entities.dynamics.DynamicEntity;
 
 public abstract class Move

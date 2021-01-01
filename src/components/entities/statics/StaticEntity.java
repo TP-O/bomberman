@@ -1,6 +1,6 @@
 package components.entities.statics;
 
-import components.animation.StaticAnimation;
+import components.animations.StaticAnimation;
 import components.entities.Entity;
 import java.util.ArrayList;
 import java.util.List;

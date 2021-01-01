@@ -1,4 +1,4 @@
-package components.collision;
+package components.collisions;
 
 public interface Collision
 {

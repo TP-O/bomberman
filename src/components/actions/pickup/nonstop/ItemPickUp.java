@@ -3,8 +3,8 @@ package components.actions.pickup.nonstop;
 import app.cache.EntityCache;
 import components.actions.pickup.PickUp;
 import components.actions.pickup.PickUpDecorator;
-import components.collision.Collision;
-import components.collision.EntityCollision;
+import components.collisions.Collision;
+import components.collisions.EntityCollision;
 import components.entities.dynamics.character.player.Player;
 import components.entities.statics.items.Item;
 

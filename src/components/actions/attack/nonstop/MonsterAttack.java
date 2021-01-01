@@ -3,8 +3,8 @@ package components.actions.attack.nonstop;
 import app.cache.EntityCache;
 import components.actions.attack.Attack;
 import components.actions.attack.AttackDecorator;
-import components.collision.Collision;
-import components.collision.EntityCollision;
+import components.collisions.Collision;
+import components.collisions.EntityCollision;
 
 public class MonsterAttack extends AttackDecorator
 {

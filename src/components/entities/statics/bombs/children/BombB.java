@@ -3,7 +3,7 @@ package components.entities.statics.bombs.children;
 import asset.Asset;
 import components.actions.attack.AttackAction;
 import components.actions.attack.nonstop.PlusExplosionCreating;
-import components.animation.StaticAnimation;
+import components.animations.StaticAnimation;
 import components.entities.statics.bombs.Bomb;
 import components.entities.statics.explosions.children.ExplosionA;
 

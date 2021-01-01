@@ -4,7 +4,7 @@ import components.actions.attack.Attack;
 import components.actions.attack.AttackAction;
 import components.actions.attack.nonstop.MonsterAttack;
 import components.actions.attack.nonstop.PlayerAttack;
-import components.animation.StaticAnimation;
+import components.animations.StaticAnimation;
 import components.entities.statics.StaticEntity;
 
 public abstract class Explosion extends StaticEntity implements Cloneable
