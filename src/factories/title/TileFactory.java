@@ -10,29 +10,37 @@ public class TileFactory
 
         switch (id) {
             case 0:
-                tile = new GrassTile();
+                tile = new Wall();
                 break;
 
             case 1:
-                tile = new RockTile();
+                tile = new WaterWall();
                 break;
-        
+
             case 2:
-                tile = new TreeTile();
+                tile = new Flourescent();
                 break;
-        
+
             case 3:
-                tile = new MushroomTile();
+                tile = new Water();
                 break;
-        
+
             case 4:
-                tile = new CherryTile();
+                tile = new Drain();
                 break;
-        
+
             case 5:
-                tile = new MapleTile();
+                tile = new Floor01();
                 break;
-        
+
+            case 6:
+                tile = new Floor02();
+                break;
+
+            case 7:
+                tile = new Floor03();
+                break;
+
             default:
                 tile = null;
         }

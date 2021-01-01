@@ -90,8 +90,7 @@ public class Asset
             /**
              * Tile images
              */
-            "tile01@tiles/tiles01.png",
-            "tile02@tiles/tiles02.png"
+            "tile01@tiles/tiles01.jpg"
         );
     }
 

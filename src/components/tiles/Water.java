@@ -2,15 +2,15 @@ package components.tiles;
 
 import asset.Asset;
 
-public class MapleTile extends Tile
+public class Water extends Tile
 {
-    public MapleTile()
+    public Water()
     {
         super(true);
     }
 
     protected void loadTileImage()
     {
-        BImage = Asset.get("tile01").crop(167, 81, 47, 58);
+        BImage = Asset.get("tile01").crop(655, 512, 137, 138);
     }
 }

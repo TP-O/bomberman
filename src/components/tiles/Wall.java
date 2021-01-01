@@ -2,15 +2,15 @@ package components.tiles;
 
 import asset.Asset;
 
-public class CherryTile extends Tile
+public class Wall extends Tile
 {
-    public CherryTile()
+    public Wall()
     {
         super(true);
     }
 
     protected void loadTileImage()
     {
-        BImage = Asset.get("tile01").crop(306, 119, 49, 58);
+        BImage = Asset.get("tile01").crop(22, 47, 138, 138);
     }
 }

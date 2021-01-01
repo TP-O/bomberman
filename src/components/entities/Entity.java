@@ -175,7 +175,9 @@ public abstract class Entity
                 (int) (y - handler.getCamera().getYOffset()),
                 width, height, null);
 
-        graphics.drawRect((int) x, (int) y, width, height);
+        graphics.drawRect((int) (x - handler.getCamera().getXOffset()),
+                (int) (y - handler.getCamera().getYOffset()),
+                width, height);
     }
 
     public abstract void tick();
