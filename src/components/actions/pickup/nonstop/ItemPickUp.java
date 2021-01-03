@@ -1,10 +1,10 @@
 package components.actions.pickup.nonstop;
 
-import app.cache.EntityCache;
+import components.actions.collide.Collision;
+import components.actions.collide.CollisionAction;
+import components.actions.collide.entity.ItemCollision;
 import components.actions.pickup.PickUp;
 import components.actions.pickup.PickUpDecorator;
-import components.collisions.Collision;
-import components.collisions.EntityCollision;
 import components.entities.dynamics.character.player.Player;
 import components.entities.statics.items.Item;
 
@@ -16,18 +16,19 @@ public class ItemPickUp extends PickUpDecorator
     {
         super(pickUp);
 
-        collision = new EntityCollision(getEntity(), null);
+        collision = new CollisionAction(pickUp.getEntity());
+        collision = new ItemCollision(collision);
     }
 
     @Override
     public void decorate()
     {
-        EntityCache.get("item").forEach(item -> {
-            collision.setTarget(item);
-
-            if (collision.collied()) {
+        if (collision.isCollided()) {
+            collision.getCollidedEntities().forEach(item -> {
                 ((Item) item).boost((Player) getEntity());
-            }
-        });
+            });
+
+            collision.clearCollidedEntities();
+        }
     }
 }

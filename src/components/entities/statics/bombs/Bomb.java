@@ -4,6 +4,8 @@ import components.actions.attack.Attack;
 import components.animations.StaticAnimation;
 import components.entities.statics.StaticEntity;
 import components.entities.statics.explosions.Explosion;
+import components.entities.statics.explosions.children.ExplosionA;
+import config.TileConfig;
 
 public abstract class Bomb extends StaticEntity implements Cloneable
 {
@@ -16,6 +18,17 @@ public abstract class Bomb extends StaticEntity implements Cloneable
     protected long createdTime;
 
     protected Explosion explosion;
+
+    @Override
+    protected void setEntityParameters()
+    {
+        range = 2;
+        timer = 2000;
+        width = TileConfig.WIDTH / 2;
+        height = TileConfig.HEIGHT / 2;
+
+        explosion = new ExplosionA();
+    }
 
     @Override
     public Object clone()

@@ -90,7 +90,22 @@ public class Asset
             /**
              * Tile images
              */
-            "tile01@tiles/tiles01.jpg"
+            "tile01@tiles/tiles01.jpg",
+
+            /**
+             * Obstacle images
+             */
+            "rock@obstacles/rock.png",
+
+            /**
+             * Trap images
+             */
+            "lava@traps/lava.png",
+
+            /**
+             * Block images
+             */
+            "block01@blocks/block01.png"
         );
     }
 

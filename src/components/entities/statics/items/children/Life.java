@@ -11,6 +11,8 @@ public class Life extends Item
     @Override
     protected void setEntityParameters()
     {
+        super.setEntityParameters();
+
         width = 32;
         height = 32;
         timer = 5000;
@@ -39,10 +41,10 @@ public class Life extends Item
         frames.add(Asset.get("life").crop(1187, 7, 72, 72));
         frames.add(Asset.get("life").crop(1271, 7, 72, 72));
     }
-    
+
     @Override
     public void boost(Player player)
-    {   
+    {
         // Increase life
         player.setLife(player.getLife() + VALUE);
 

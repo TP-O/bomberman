@@ -1,10 +1,10 @@
 package components.actions.attack.nonstop;
 
-import app.cache.EntityCache;
 import components.actions.attack.Attack;
 import components.actions.attack.AttackDecorator;
-import components.collisions.Collision;
-import components.collisions.EntityCollision;
+import components.actions.collide.Collision;
+import components.actions.collide.CollisionAction;
+import components.actions.collide.entity.MonsterCollision;
 
 public class MonsterAttack extends AttackDecorator
 {
@@ -14,18 +14,19 @@ public class MonsterAttack extends AttackDecorator
     {
         super(attack);
 
-        collision = new EntityCollision(attack.getAttacker(), null);
+        collision = new CollisionAction(attack.getAttacker());
+        collision = new MonsterCollision(collision);
     }
 
     @Override
     public void decorate()
     {
-        EntityCache.get("monster").forEach(target -> {
-            collision.setTarget(target);
-
-            if (collision.collied()) {
+        if (collision.isCollided()) {
+            collision.getCollidedEntities().forEach(target -> {
                 target.setHealth(target.getHealth() - getAttacker().getDamage());
-            }
-        });
+            });
+
+            collision.clearCollidedEntities();
+        }
     }
 }

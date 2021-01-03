@@ -13,6 +13,13 @@ public abstract class StaticEntity extends Entity
     protected List<BufferedImage> frames;
 
     @Override
+    protected void initializeActions()
+    {
+        // Set animation
+        animation = new StaticAnimation(this, 150);
+    }
+
+    @Override
     protected void loadAllFrames()
     {
         // Create an empty frame list

@@ -23,8 +23,8 @@ public abstract class Monster extends Character
         this.x = x;
         this.y = y;
 
-        margin = 0;
-        padding = 0;
+        margin = 10;
+        padding = 10;
     }
 
     @Override

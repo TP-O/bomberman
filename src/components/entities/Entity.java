@@ -40,7 +40,7 @@ public abstract class Entity
     public Entity()
     {
         margin = 5;
-        padding = 25;
+        padding = 15;
         attackedAt = 0;
         takedDamageAt = 0;
         handler = Handler.getInstance();

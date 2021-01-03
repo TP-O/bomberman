@@ -6,8 +6,10 @@ import java.util.List;
 import app.cache.EntityCache;
 import components.actions.attack.Attack;
 import components.actions.attack.AttackDecorator;
-import components.collisions.Collision;
-import components.collisions.TileCollision;
+import components.actions.collide.Collision;
+import components.actions.collide.CollisionAction;
+import components.actions.collide.entity.ObstacleCollision;
+import components.actions.collide.tile.SolidTileCollision;
 import components.entities.statics.explosions.Explosion;
 
 public class PlusExplosionCreating extends AttackDecorator
@@ -30,17 +32,21 @@ public class PlusExplosionCreating extends AttackDecorator
         this.explosion = explosion;
 
         scale = 2;
-        collision = new TileCollision(null);
         explosions = new ArrayList<Explosion>();
+
+        collision = new CollisionAction();
+        collision = new SolidTileCollision(collision);
+        collision = new ObstacleCollision(collision);
+        collision.useStrictMode();
     }
 
     @Override
     public void decorate()
     {
         float x = calculateXOfExplosion(getAttacker().getX(),
-                getAttacker().getWidth() * scale, getAttacker().getWidth() * scale);
+                getAttacker().getWidth(), getAttacker().getWidth() * scale);
         float y = calculateYOfExplosion(getAttacker().getY(),
-                getAttacker().getHeight() * scale, getAttacker().getHeight() * scale);
+                getAttacker().getHeight(), getAttacker().getHeight() * scale);
 
         explosions.clear();
 
@@ -75,7 +81,7 @@ public class PlusExplosionCreating extends AttackDecorator
         for (int i = 1; i <= range; i++) {
             handle(x, y - getAttacker().getWidth() * scale * i);
 
-            if (collision.collideBottom()) {
+            if (collision.isCollidedBottom()) {
                 break;
             }
 
@@ -88,7 +94,7 @@ public class PlusExplosionCreating extends AttackDecorator
         for (int i = 1; i <= range; i++) {
             handle(x, y + getAttacker().getWidth() * scale * i);
 
-            if (collision.collideTop()) {
+            if (collision.isCollidedTop()) {
                 break;
             }
 
@@ -101,7 +107,7 @@ public class PlusExplosionCreating extends AttackDecorator
         for (int i = 1; i <= range; i++) {
             handle(x - getAttacker().getWidth() * scale * i, y);
 
-            if (collision.collideRight()) {
+            if (collision.isCollidedRight()) {
                 break;
             }
 
@@ -114,7 +120,7 @@ public class PlusExplosionCreating extends AttackDecorator
         for (int i = 1; i <= range; i++) {
             handle(x + getAttacker().getWidth() * scale * i, y);
 
-            if (collision.collideLeft()) {
+            if (collision.isCollidedLeft()) {
                 break;
             }
 
@@ -130,6 +136,6 @@ public class PlusExplosionCreating extends AttackDecorator
         explosion.setWidth(getAttacker().getWidth() * scale);
         explosion.setHeight(getAttacker().getWidth() * scale);
 
-        collision.setTarget(explosion);
+        collision.setEntity(explosion);
     }
 }

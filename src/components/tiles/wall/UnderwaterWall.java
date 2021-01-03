@@ -1,10 +1,11 @@
-package components.tiles;
+package components.tiles.wall;
 
 import asset.Asset;
+import components.tiles.Tile;
 
-public class WaterWall extends Tile
+public class UnderwaterWall extends Tile
 {
-    public WaterWall()
+    public UnderwaterWall()
     {
         super(true);
     }

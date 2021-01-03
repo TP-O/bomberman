@@ -1,8 +1,12 @@
 package components.actions.move;
 
+import components.actions.collide.Collision;
+import components.actions.collide.CollisionAction;
+import components.actions.collide.entity.BlockCollision;
+import components.actions.collide.entity.BombCollision;
+import components.actions.collide.entity.ObstacleCollision;
+import components.actions.collide.tile.SolidTileCollision;
 import components.animations.MoveAnimation;
-import components.collisions.Collision;
-import components.collisions.TileCollision;
 import components.entities.dynamics.DynamicEntity;
 
 public abstract class Move
@@ -19,13 +23,18 @@ public abstract class Move
     {
         this.entity = entity;
 
-        collision = new TileCollision(entity);
         animation = new MoveAnimation(entity, 250);
+
+        collision = new CollisionAction(entity);
+        collision = new BombCollision(collision);
+        collision = new BlockCollision(collision);
+        collision = new ObstacleCollision(collision);
+        collision = new SolidTileCollision(collision);
     }
 
     public void moveUp()
     {
-        if (!collision.collideTop()) {
+        if (!collision.isCollidedTop()) {
             collied = false;
 
             float y = entity.getY();
@@ -40,7 +49,7 @@ public abstract class Move
 
     public void moveDown()
     {
-        if (!collision.collideBottom()) {
+        if (!collision.isCollidedBottom()) {
             collied = false;
 
             float y = entity.getY();
@@ -55,7 +64,7 @@ public abstract class Move
 
     public void moveLeft()
     {
-        if (!collision.collideLeft()) {
+        if (!collision.isCollidedLeft()) {
             collied = false;
 
             float x = entity.getX();
@@ -70,7 +79,7 @@ public abstract class Move
 
     public void moveRight()
     {
-        if (!collision.collideRight()) {
+        if (!collision.isCollidedRight()) {
             collied = false;
 
             float x = entity.getX();

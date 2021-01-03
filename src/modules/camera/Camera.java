@@ -24,7 +24,7 @@ public class Camera implements Module
 
     public void focusOn(Character character)
     {
-        // Make the camera always follows the entity
+        // Make the camera always follows the getEntity()
         xOffset = character.getX() - GameConfig.WIDTH / 2 + character.getWidth() / 2;
         yOffset = character.getY() - GameConfig.HEIGHT / 2 + character.getHeight() / 2;
 

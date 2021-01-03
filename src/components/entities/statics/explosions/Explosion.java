@@ -2,6 +2,7 @@ package components.entities.statics.explosions;
 
 import components.actions.attack.Attack;
 import components.actions.attack.AttackAction;
+import components.actions.attack.nonstop.BlockAttack;
 import components.actions.attack.nonstop.MonsterAttack;
 import components.actions.attack.nonstop.PlayerAttack;
 import components.animations.StaticAnimation;
@@ -11,10 +12,9 @@ public abstract class Explosion extends StaticEntity implements Cloneable
 {
     private Attack attack;
 
-    public Explosion()
+    @Override
+    protected void setEntityParameters()
     {
-        super();
-
         margin = 0;
         padding = 0;
     }
@@ -68,7 +68,7 @@ public abstract class Explosion extends StaticEntity implements Cloneable
     protected Explosion setClone(Explosion explosion)
     {
         explosion.setAnimation(new StaticAnimation(explosion, 50));
-        explosion.setAttack(new PlayerAttack(new MonsterAttack(new AttackAction(explosion))));
+        explosion.setAttack(new BlockAttack(new PlayerAttack(new MonsterAttack(new AttackAction(explosion)))));
 
         return explosion;
     }

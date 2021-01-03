@@ -11,9 +11,11 @@ public class DamagePotion extends Item
     @Override
     protected void setEntityParameters()
     {
+        super.setEntityParameters();
+
         width = 32;
         height = 45;
-        timer = 10000;     
+        timer = 10000;
     }
 
     @Override

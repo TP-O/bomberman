@@ -1,6 +1,7 @@
-package components.tiles;
+package components.tiles.wall;
 
 import asset.Asset;
+import components.tiles.Tile;
 
 public class Wall extends Tile
 {

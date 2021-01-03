@@ -1,6 +1,5 @@
 package components.entities.statics.items;
 
-import components.animations.StaticAnimation;
 import components.entities.dynamics.character.player.Player;
 import components.entities.statics.StaticEntity;
 
@@ -10,20 +9,12 @@ public abstract class Item extends StaticEntity
 
     protected long createdTime;
 
-    public Item()
+    @Override
+    protected void setEntityParameters()
     {
-        super();
-
         margin = 0;
         padding = 0;
         createdTime = System.currentTimeMillis();
-    }
-
-    @Override
-    protected void initializeActions()
-    {
-        // Set animation
-        animation = new StaticAnimation(this, 150);
     }
 
     @Override

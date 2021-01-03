@@ -11,6 +11,8 @@ public class HealPotion extends Item
     @Override
     protected void setEntityParameters()
     {
+        super.setEntityParameters();
+
         width = 32;
         height = 68;
         timer = 10000;
@@ -34,7 +36,7 @@ public class HealPotion extends Item
         frames.add(Asset.get("heal-potion").crop(5500, 48, 232, 488));
         frames.add(Asset.get("heal-potion").crop(6054, 48, 232, 488));
     }
-    
+
     @Override
     public void boost(Player player)
     {

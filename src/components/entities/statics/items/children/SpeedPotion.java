@@ -7,14 +7,16 @@ import components.entities.statics.items.Item;
 public class SpeedPotion extends Item
 {
     private final float VALUE = 0.5f;
-    
+
     @Override
     protected void setEntityParameters()
     {
+        super.setEntityParameters();
+
         width = 32;
         height = 37;
         timer = 5000;
-    }  
+    }
 
     @Override
     protected void loadAllFrames()
@@ -30,7 +32,7 @@ public class SpeedPotion extends Item
         frames.add(Asset.get("speed-potion").crop(809, 18, 126, 143));
         frames.add(Asset.get("speed-potion").crop(945, 18, 126, 143));
     }
-    
+
     @Override
     public void boost(Player player)
     {

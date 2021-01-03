@@ -1,6 +1,7 @@
-package components.tiles;
+package components.tiles.water;
 
 import asset.Asset;
+import components.tiles.Tile;
 
 public class Water extends Tile
 {

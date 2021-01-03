@@ -21,11 +21,14 @@ public class GameView extends View
         handler = Handler.getInstance();
 
         entities = new String[] {
-            "player",
-            "monster",
+            "trap",
+            "obstacle",
+            "block",
             "bomb",
+            "item",
             "explosion",
-            "item"
+            // "monster",
+            "player"
         };
     }
 

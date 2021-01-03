@@ -5,21 +5,9 @@ import components.actions.attack.AttackAction;
 import components.actions.attack.nonstop.PlusExplosionCreating;
 import components.animations.StaticAnimation;
 import components.entities.statics.bombs.Bomb;
-import components.entities.statics.explosions.children.ExplosionA;
 
 public class BombB extends Bomb
 {
-    @Override
-    protected void setEntityParameters()
-    {
-        range = 5;
-        width = 32;
-        height = 32;
-        timer = 2000;
-
-        explosion = new ExplosionA();
-    }
-
     @Override
     protected void initializeActions()
     {
