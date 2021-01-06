@@ -4,9 +4,16 @@
           "map": "map01.txt"
       }
   ],
+
   [
       {
-          "map": "map01.txt"
+          "map": "map02.txt"
       }
-  ]
+  ],
+  
+  [
+    {
+        "map": "map03.txt"
+    }
+]
 ]

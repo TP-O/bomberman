@@ -95,7 +95,7 @@ public class TileFactory
                 tile = new VerticalBridge();
                 break;
 
-            case 29:
+            case 20:
                 tile = new HorizontalBridge();
                 break;
 

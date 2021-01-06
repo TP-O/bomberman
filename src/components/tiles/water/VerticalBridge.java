@@ -7,7 +7,7 @@ public class VerticalBridge extends Tile
 {
     public VerticalBridge()
     {
-        super(true);
+        super(false);
     }
 
     protected void loadTileImage()
