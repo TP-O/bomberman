@@ -14,6 +14,7 @@ public class RouterRegistration
     public void register()
     {
         router.register("Menu", "MenuController@showHomeMenu");
+        router.register("PauseMenu", "MenuController@showPauseMenu");
         router.register("Game", "GameController@playSolo");
         router.register("Character", "CharacterController@selectCharacter");
 

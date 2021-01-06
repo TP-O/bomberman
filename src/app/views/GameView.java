@@ -1,10 +1,13 @@
 package app.views;
 
 import java.awt.Graphics;
+import java.util.ArrayList;
 
 import app.cache.EntityCache;
 import app.cache.GameCache;
 import components.entities.dynamics.character.player.Player;
+import components.ui.Element;
+import components.ui.button.PauseButton;
 import core.Handler;
 import core.Router;
 
@@ -27,7 +30,7 @@ public class GameView extends View
             "bomb",
             "item",
             "explosion",
-            // "monster",
+            "monster",
             "player"
         };
     }
@@ -35,13 +38,27 @@ public class GameView extends View
     @Override
     public void buildUI()
     {
-        //
+        elements = new ArrayList<Element>();
+
+        elements.add(new PauseButton(11, 1, 5, 0, 0, 5));
+    }
+
+    @Override
+    public void reset()
+    {
+        for (String entity: entities) {
+            EntityCache.get(entity).clear();
+
+            System.out.println("Clear" + entity);
+        }
     }
 
     @Override
     public void tick()
     {
         handler.getMap().tick();
+
+        elements.forEach(element -> element.tick());
 
         // Update entities
         for (String entity: entities) {
@@ -78,6 +95,8 @@ public class GameView extends View
     public void render(Graphics graphics)
     {
         handler.getMap().render(graphics);
+
+        elements.forEach(element -> element.render(graphics));
 
         // Render entities
         for (String entity: entities) {

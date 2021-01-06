@@ -1,6 +1,7 @@
 package app.controllers;
 
 import app.views.MenuView;
+import app.views.PauseView;
 import app.views.View;
 
 public class MenuController
@@ -8,6 +9,13 @@ public class MenuController
     public View showHomeMenu()
     {
         View view = new MenuView();
+
+        return view;
+    }
+
+    public View showPauseMenu()
+    {
+        View view = new PauseView();
 
         return view;
     }

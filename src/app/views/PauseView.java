@@ -4,27 +4,21 @@ import java.awt.Graphics;
 import java.util.ArrayList;
 
 import components.ui.Element;
-import components.ui.button.PlayButton;
+import components.ui.button.ContinueButton;
+import components.ui.button.NewGameButton;
 import components.ui.button.QuitButton;
-import components.ui.image.menu.MenuBackground;
-import components.ui.text.menu.MenuTitle;
 
-public class MenuView extends View
+public class PauseView extends View
 {
     @Override
     public void buildUI()
     {
         elements = new ArrayList<Element>();
 
-        // Add background
-        elements.add(new MenuBackground(6, 6, 0, 0, 0, 0));
-
         // Add butons
-        elements.add(new PlayButton(6, 6, 0, 0, 0, 0));
+        elements.add(new NewGameButton(6, 5, 0, 0, 0, 0));
+        elements.add(new ContinueButton(6, 6, 0, 0, 0, 0));
         elements.add(new QuitButton(6, 7, 0, 0, 0, 0));
-
-        // Add text
-        elements.add(new MenuTitle(6, 3, 0, 0, 0, 0));
     }
 
     @Override

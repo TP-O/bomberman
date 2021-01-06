@@ -12,13 +12,6 @@ import components.ui.text.character.selection.*;
 
 public class CharacterView extends View
 {
-    private ArrayList<Element> elements;
-
-    public CharacterView()
-    {
-        buildUI();
-    }
-
     @Override
     public void buildUI()
     {
@@ -52,15 +45,21 @@ public class CharacterView extends View
     }
 
     @Override
+    public void reset()
+    {
+        //
+    }
+
+    @Override
     public void tick()
     {
         elements.forEach(button -> button.tick());
 
-    }    
+    }
 
     @Override
     public void render(Graphics graphics)
     {
-        elements.forEach(button -> button.render(graphics));      
+        elements.forEach(button -> button.render(graphics));
     }
 }

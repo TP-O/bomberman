@@ -18,6 +18,10 @@ public class GameController
 {
     public View playSolo()
     {
+        // Init view
+        View view = new GameView();
+        view.reset();
+
         // Load data
         PlayerModel playerModel = new PlayerModel();
         MonsterModel monsterModel = new MonsterModel();
@@ -50,9 +54,6 @@ public class GameController
 
         // Load map
         Helper.event(new MapLoadingEvent((int) GameCache.get("phase")));
-
-        // Init view
-        View view = new GameView();
 
         return view;
     }

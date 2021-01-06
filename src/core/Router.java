@@ -39,7 +39,7 @@ public class Router
 
     public void redirect(String viewName, boolean refresh)
     {
-        if (views.get(viewName) == null || refresh) {
+        if (views.get(viewName) == null || refresh == true) {
             views.put(viewName, handle(inputs.get(viewName)));
         }
 
@@ -94,7 +94,7 @@ public class Router
         if (currentView == null) {
             throw new Error("Can't find view");
         }
-        
+
         currentView.tick();
     }
 
@@ -105,5 +105,5 @@ public class Router
         }
 
         currentView.render(graphics);
-    }   
+    }
 }
