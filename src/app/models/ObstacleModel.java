@@ -3,11 +3,12 @@ package app.models;
 import org.json.simple.JSONObject;
 
 import components.entities.statics.obstacles.Obstacle;
+import factories.obstacle.BasicObstacleFactory;
 import factories.obstacle.ObstacleFactory;
 
 public class ObstacleModel extends Model<Obstacle>
 {
-    private ObstacleFactory factory = new ObstacleFactory();
+    private ObstacleFactory factory = new BasicObstacleFactory();
 
     @Override
     protected void set()

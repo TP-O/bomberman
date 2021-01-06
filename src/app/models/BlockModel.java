@@ -3,11 +3,12 @@ package app.models;
 import org.json.simple.JSONObject;
 
 import components.entities.statics.blocks.Block;
+import factories.block.BasicBlockFactory;
 import factories.block.BlockFactory;
 
 public class BlockModel extends Model<Block>
 {
-    private BlockFactory factory = new BlockFactory();
+    private BlockFactory factory = new BasicBlockFactory();
 
     @Override
     protected void set()

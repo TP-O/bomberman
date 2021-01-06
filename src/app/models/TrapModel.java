@@ -3,11 +3,12 @@ package app.models;
 import org.json.simple.JSONObject;
 
 import components.entities.statics.traps.Trap;
+import factories.trap.BasicTrapFactory;
 import factories.trap.TrapFactory;
 
 public class TrapModel extends Model<Trap>
 {
-    private TrapFactory factory = new TrapFactory();
+    private TrapFactory factory = new BasicTrapFactory();
 
     @Override
     protected void set()

@@ -3,11 +3,12 @@ package app.models;
 import org.json.simple.JSONObject;
 
 import components.entities.dynamics.character.player.Player;
+import factories.player.BasicPlayerFactory;
 import factories.player.PlayerFactory;
 
 public class PlayerModel extends Model<Player>
 {
-    private PlayerFactory factory = new PlayerFactory();
+    private PlayerFactory factory = new BasicPlayerFactory();
 
     @Override
     protected void set()
