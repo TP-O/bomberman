@@ -35,6 +35,10 @@ public class BasicMonsterFactory implements MonsterFactory
                 monster = new ShinyZygarde(x, y);
                 break;
 
+            case "Boss":
+                monster = new Boss(x, y);
+                break;
+
             default:
                 monster = null;
         }
