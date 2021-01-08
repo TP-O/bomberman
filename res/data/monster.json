@@ -1,19 +1,14 @@
 [
   [
     {
-      "type": "Boss",
-      "x": 500.0,
-      "y": 500.0
-    },
-    {
       "type": "AlolanPersian",
-      "x": 500.0,
-      "y": 250.0
+      "x": 960.0,
+      "y": 256.0
     },
     {
       "type": "ShinyZygarde",
-      "x": 800.0,
-      "y": 250.0
+      "x": 1088.0,
+      "y": 256.0
     },
     {
       "type": "Scorbunny",
@@ -21,26 +16,91 @@
       "y": 300.0
     },
     {
+      "type": "Scorbunny",
+      "x": 896.0,
+      "y": 192.0
+    },
+    {
+      "type": "Scorbunny",
+      "x": 1024.0,
+      "y": 192.0
+    },
+    {
+      "type": "Scorbunny",
+      "x": 1408.0,
+      "y": 192.0
+    },
+    {
       "type": "Bulbasaur",
-      "x": 400.0,
-      "y": 300.0
+      "x": 704.0,
+      "y": 192.0
     },
     {
-      "type": "Emboar",
-      "x": 400.0,
+      "type": "Bulbasaur",
+      "x": 1088.0,
+      "y": 256.0
+    },
+    {
+      "type": "Bulbasaur",
+      "x": 1280.0,
+      "y": 256.0
+    },
+    {
+      "type": "Bulbasaur",
+      "x": 1344.0,
+      "y": 256.0
+    },
+    {
+      "type": "Bulbasaur",
+      "x": 848.0,
       "y": 500.0
     },
     {
-      "type": "ShinyEmboar",
-      "x": 350.0,
-      "y": 500.0
+      "type": "Scorbunny",
+      "x": 1088.0,
+      "y": 564.0
     }
   ],
+
   [
     {
-      "type": "ShinyEmboar",
-      "x": 350.0,
-      "y": 500.0
+      "type": "Bulbasaur",
+      "x": 1920.0,
+      "y": 896.0
+    },
+    {
+      "type": "Scorbunny",
+      "x": 1728.0,
+      "y": 896.0
+    },
+    {
+      "type": "AlolanPersian",
+      "x": 1728.0,
+      "y": 960.0
+    },
+    {
+      "type": "Bulbasaur",
+      "x": 1728.0,
+      "y": 960.0
+    },
+    {
+      "type": "Scorbunny",
+      "x": 1856.0,
+      "y": 960.0
+    },
+    {
+      "type": "AlolanPersian",
+      "x": 1984.0,
+      "y": 960.0
     }
+  ],
+
+  [
+    {
+      "type": "Boss",
+      "x": 1280.0,
+      "y": 1152.0
+    }
+
   ]
 ]

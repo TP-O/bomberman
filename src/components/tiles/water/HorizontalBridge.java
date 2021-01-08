@@ -7,7 +7,7 @@ public class HorizontalBridge extends Tile
 {
     public HorizontalBridge()
     {
-        super(true);
+        super(false);
     }
 
     protected void loadTileImage()

@@ -72,7 +72,7 @@ public class Handler
     public void prepareData()
     {
         // First data
-        GameCache.push("phase", 0);
+        GameCache.push("phase", 2);
         GameCache.push("selected-player", "Satoshi");
     }
 
