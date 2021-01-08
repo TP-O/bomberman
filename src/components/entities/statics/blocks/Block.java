@@ -2,7 +2,7 @@ package components.entities.statics.blocks;
 
 import components.actions.drop.Drop;
 import components.actions.drop.DropAcction;
-import components.actions.drop.nonstop.ItemDrop;
+import components.actions.drop.random.RandomItemDrop;
 import components.entities.statics.StaticEntity;
 import config.TileConfig;
 
@@ -33,7 +33,7 @@ public abstract class Block extends StaticEntity
         super.initializeActions();
 
         drop = new DropAcction(this);
-        drop = new ItemDrop(drop);
+        drop = new RandomItemDrop(drop, 3);
     }
 
     @Override

@@ -6,8 +6,6 @@ import components.entities.Entity;
 
 public class CollisionDecorator extends Collision
 {
-    protected boolean strict;
-
     protected Collision collision;
 
     public CollisionDecorator(Collision collision)

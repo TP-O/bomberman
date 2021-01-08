@@ -6,15 +6,15 @@ import components.actions.attack.AttackAction;
 import components.actions.attack.nonstop.PlayerAttack;
 import components.actions.drop.Drop;
 import components.actions.drop.DropAcction;
-import components.actions.drop.nonstop.ItemDrop;
+import components.actions.drop.random.RandomItemDrop;
 import components.actions.move.RandomMove;
 import components.entities.dynamics.character.Character;
 
 public abstract class Monster extends Character
 {
-    private Drop drop;
+    protected Drop drop;
 
-    private Attack attack;
+    protected Attack attack;
 
     public Monster(float x, float y)
     {
@@ -45,7 +45,7 @@ public abstract class Monster extends Character
 
         // Set drop type
         drop = new DropAcction(this);
-        drop = new ItemDrop(drop);
+        drop = new RandomItemDrop(drop);
 
         // Set attack type
         attack = new AttackAction(this);

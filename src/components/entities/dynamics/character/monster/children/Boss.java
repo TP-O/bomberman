@@ -1,11 +1,16 @@
 package components.entities.dynamics.character.monster.children;
 
 import asset.Asset;
+import components.actions.attack.random.RandomBombPlacing;
 import components.entities.dynamics.character.monster.Monster;
+import components.entities.statics.bombs.Bomb;
+import components.entities.statics.bombs.children.BombB;
 
-public class Emboar extends Monster
+public class Boss extends Monster
 {
-    public Emboar(float x, float y)
+    private Bomb bomb;
+
+    public Boss(float x, float y)
     {
         super(x, y);
     }
@@ -15,10 +20,26 @@ public class Emboar extends Monster
     {
         super.setEntityParameters();
 
-        life = 16;
-        health = 16;
-        speed = 1.0f;
-        damage = 7;
+        life = 500;
+        health = 500;
+        speed = 8.0f;
+        damage = 10;
+        width = 130;
+        height = 130;
+
+        bomb = new BombB();
+        bomb.getExplosion().setTargets(new String[] {
+            "Player",
+            "Block",
+        });
+    }
+
+    @Override
+    protected void initializeActions()
+    {
+        super.initializeActions();
+
+        attack = new RandomBombPlacing(attack, bomb);
     }
 
     @Override

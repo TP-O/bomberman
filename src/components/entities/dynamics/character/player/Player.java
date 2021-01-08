@@ -14,11 +14,11 @@ import config.PlayerConfig;
 
 public abstract class Player extends Character
 {
-    private Bomb bomb;
+    protected Bomb bomb;
 
-    private Attack attack;
+    protected Attack attack;
 
-    private PickUp pickUp;
+    protected PickUp pickUp;
 
     public Player(float x, float y)
     {
@@ -38,6 +38,11 @@ public abstract class Player extends Character
         life = PlayerConfig.HEALTH;
 
         bomb = new BombB();
+        bomb.getExplosion().setTargets(new String[] {
+            "Player",
+            "Monster",
+            "Block",
+        });
     }
 
     @Override

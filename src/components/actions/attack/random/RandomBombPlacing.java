@@ -18,7 +18,7 @@ public class RandomBombPlacing extends BombPlacing
     @Override
     public void decorate()
     {
-        int chance = random.nextInt(5);
+        int chance = random.nextInt(100);
 
         if (chance == 0) {
             super.decorate();

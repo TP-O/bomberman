@@ -3,11 +3,12 @@ package app.models;
 import org.json.simple.JSONObject;
 
 import components.entities.dynamics.character.monster.Monster;
+import factories.monster.BasicMonsterFactory;
 import factories.monster.MonsterFactory;
 
 public class MonsterModel extends Model<Monster>
 {
-    private MonsterFactory factory = new MonsterFactory();
+    private MonsterFactory factory = new BasicMonsterFactory();
 
     @Override
     protected void set()

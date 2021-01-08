@@ -10,7 +10,9 @@ import components.entities.statics.StaticEntity;
 
 public abstract class Explosion extends StaticEntity implements Cloneable
 {
-    private Attack attack;
+    protected Attack attack;
+
+    protected String[] targets = {};
 
     @Override
     protected void setEntityParameters()
@@ -65,10 +67,29 @@ public abstract class Explosion extends StaticEntity implements Cloneable
         this.animation = animation;
     }
 
+    public void setTargets(String[] targets)
+    {
+        this.targets = targets;
+    }
+
     protected Explosion setClone(Explosion explosion)
     {
+        Attack attack = new AttackAction(explosion);
+
+        for (int i = 0; i < targets.length; i++) {
+            if (targets[i] == "Block") {
+                attack = new BlockAttack(attack);
+            }
+            else if (targets[i] == "Monster") {
+                attack = new MonsterAttack(attack);
+            }
+            else if (targets[i] == "Player") {
+                attack = new PlayerAttack(attack);
+            }
+        }
+
+        explosion.setAttack(attack);
         explosion.setAnimation(new StaticAnimation(explosion, 50));
-        explosion.setAttack(new BlockAttack(new PlayerAttack(new MonsterAttack(new AttackAction(explosion)))));
 
         return explosion;
     }

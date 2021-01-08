@@ -8,12 +8,13 @@ import components.tiles.Tile;
 import helper.Helper;
 import config.AppConfig;
 import config.GameConfig;
+import factories.title.BasicTileFactory;
 import factories.title.TileFactory;
 
 public class Map
 {
     private int width;
-    
+
     private int height;
 
     private Tile[] tiles;
@@ -28,8 +29,8 @@ public class Map
     {
         this.handler = handler;
 
-        factory = new TileFactory();
-    }    
+        factory = new BasicTileFactory();
+    }
 
     public int getWidth()
     {
@@ -73,7 +74,7 @@ public class Map
         String mapName = mapModel
                 .wherePhase(phase)
                 .get();
-        
+
         String mapString = Helper.loadFileAsString(AppConfig.MAP_DIR + mapName);
 
         String[] tokens = mapString.split("\\s+");
@@ -90,7 +91,7 @@ public class Map
                 tileId[x][y] = id;
                 tiles[id] = factory.createTile(id);
             }
-        }   
+        }
     }
 
     public Tile getTile(int x, int y)

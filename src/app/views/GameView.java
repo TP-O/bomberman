@@ -48,8 +48,6 @@ public class GameView extends View
     {
         for (String entity: entities) {
             EntityCache.get(entity).clear();
-
-            System.out.println("Clear" + entity);
         }
     }
 
