@@ -15,6 +15,7 @@ public class RouterRegistration
     {
         router.register("Menu", "MenuController@showHomeMenu");
         router.register("PauseMenu", "MenuController@showPauseMenu");
+        router.register("GameOverMenu", "MenuController@showGameOverMenu");
         router.register("Game", "GameController@playSolo");
         router.register("Character", "CharacterController@selectCharacter");
 
@@ -23,6 +24,6 @@ public class RouterRegistration
 
     public void redirectToDefault()
     {
-        router.redirect("Game", true);
+        router.redirect("Menu", true);
     }
 }

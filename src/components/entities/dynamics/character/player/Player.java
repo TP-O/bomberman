@@ -11,6 +11,7 @@ import components.entities.dynamics.character.Character;
 import components.entities.statics.bombs.Bomb;
 import components.entities.statics.bombs.children.BombB;
 import config.PlayerConfig;
+import core.Router;
 
 public abstract class Player extends Character
 {
@@ -26,6 +27,16 @@ public abstract class Player extends Character
 
         this.x = x;
         this.y = y;
+    }
+
+    @Override
+    public void setHealth(int health)
+    {
+        super.setHealth(health);
+
+        if (health <= 0) {
+            Router.getInstance().redirect("GameOverMenu", false);
+        }
     }
 
     @Override
