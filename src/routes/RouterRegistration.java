@@ -24,6 +24,6 @@ public class RouterRegistration
 
     public void redirectToDefault()
     {
-        router.redirect("Game", true);
+        router.redirect("Menu", true);
     }
 }
