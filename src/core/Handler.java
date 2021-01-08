@@ -72,7 +72,7 @@ public class Handler
     public void prepareData()
     {
         // First data
-        GameCache.push("phase", 2);
+        GameCache.push("phase", 0);
         GameCache.push("selected-player", "Satoshi");
     }
 
@@ -93,7 +93,7 @@ public class Handler
         map = new Map(this);
 
         // Set first data
-        prepareData();        
+        prepareData();
 
         // Register router
         RouterRegistration routerRegistration = new RouterRegistration();

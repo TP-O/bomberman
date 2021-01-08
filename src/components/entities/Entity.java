@@ -134,7 +134,7 @@ public abstract class Entity
     {
         long now = System.currentTimeMillis();
 
-        if (now - takedDamageAt >= 3000 || takedDamageAt == 0) {
+        if (now - takedDamageAt >= 1000 || takedDamageAt == 0) {
             this.health = health;
 
             if (this.health <= 0) {
