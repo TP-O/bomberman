@@ -1,11 +1,10 @@
 package components.actions.collide;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import components.entities.Entity;
 
-public abstract class Collision
+public interface Collision
 {
     /**
      *            Top
@@ -19,65 +18,21 @@ public abstract class Collision
      *          Bottom
      */
 
-    protected boolean strict;
+    public boolean isStrict();
 
-    protected Entity entity;
+    public Entity getEntity();
 
-    protected Entity collidedEntity;
+    public Entity getCollidedEntity();
 
-    protected List<Entity> collidedEntities;
+    public List<Entity> getCollidedEntities();
 
-    public Collision()
-    {
-        collidedEntities = new ArrayList<Entity>();
-    }
+    public void useStrictMode();
 
-    public Collision(Entity entity)
-    {
-        this.entity = entity;
+    public void setEntity(Entity entity);
 
-        collidedEntities = new ArrayList<Entity>();
-    }
+    public void setCollidedEntity(Entity collidedEntity);
 
-    public boolean isStrict()
-    {
-        return strict;
-    }
-
-    public Entity getEntity()
-    {
-        return entity;
-    }
-
-    public Entity getCollidedEntity()
-    {
-        return collidedEntity;
-    }
-
-    public List<Entity> getCollidedEntities()
-    {
-        return collidedEntities;
-    }
-
-    public void useStrictMode()
-    {
-        strict = true;
-    }
-
-    public void setEntity(Entity entity)
-    {
-        this.entity = entity;
-    }
-
-    public void setCollidedEntity(Entity collidedEntity)
-    {
-        this.collidedEntity = collidedEntity;
-    }
-
-    public void clearCollidedEntities()
-    {
-        collidedEntities.clear();
-    }
+    public void clearCollidedEntities();
 
     public abstract boolean isCollided();
 

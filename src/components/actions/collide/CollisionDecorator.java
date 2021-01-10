@@ -4,7 +4,7 @@ import java.util.List;
 
 import components.entities.Entity;
 
-public class CollisionDecorator extends Collision
+public class CollisionDecorator implements Collision
 {
     protected Collision collision;
 
