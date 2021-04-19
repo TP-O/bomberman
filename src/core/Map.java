@@ -49,13 +49,11 @@ public class Map
 
     public void render(Graphics graphics)
     {
-        int xStart = (int) Math.max(0, handler.getCamera().getXOffset() / Tile.WIDTH);
-        int xEnd = (int) Math.min(width,
-                (handler.getCamera().getXOffset() + GameConfig.WIDTH) / Tile.WIDTH + 1);
+        int xStart = (int) handler.getCamera().getXOffset() / Tile.WIDTH;
+        int xEnd = (int) (handler.getCamera().getXOffset() + GameConfig.WIDTH) / Tile.WIDTH + 1;
 
-        int yStart = (int) Math.max(0, handler.getCamera().getYOffset() / Tile.HEIGHT);
-        int yEnd = (int) Math.min(height,
-                (handler.getCamera().getYOffset() + GameConfig.HEIGHT) / Tile.HEIGHT + 1);
+        int yStart = (int) handler.getCamera().getYOffset() / Tile.HEIGHT;
+        int yEnd = (int) (handler.getCamera().getYOffset() + GameConfig.HEIGHT) / Tile.HEIGHT + 1;
 
         for (int x = xStart; x < xEnd; x++) {
             for (int y = yStart; y < yEnd; y++) {
