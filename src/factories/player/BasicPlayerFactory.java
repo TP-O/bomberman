@@ -1,8 +1,8 @@
 package factories.player;
 
 import app.cache.GameCache;
-import components.entities.dynamics.character.player.Player;
-import components.entities.dynamics.character.player.children.*;
+import components.entities.dynamics.characters.player.Player;
+import components.entities.dynamics.characters.player.children.*;
 
 public class BasicPlayerFactory implements PlayerFactory
 {

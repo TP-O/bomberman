@@ -1,7 +1,7 @@
-package components.entities.dynamics.character.player.children;
+package components.entities.dynamics.characters.player.children;
 
 import asset.Asset;
-import components.entities.dynamics.character.player.Player;
+import components.entities.dynamics.characters.player.Player;
 
 public class Kirito extends Player
 {
@@ -39,7 +39,7 @@ public class Kirito extends Player
         leftFrames.add(Asset.get("kirito").crop(53, 51, 35, 47));
         leftFrames.add(Asset.get("kirito").crop(101, 51, 35, 47));
         leftFrames.add(Asset.get("kirito").crop(53, 51, 35, 47));
-        
+
         rightFrames.add(Asset.get("kirito").crop(7, 99, 35, 47));
         rightFrames.add(Asset.get("kirito").crop(54, 99, 35, 47));
         rightFrames.add(Asset.get("kirito").crop(103, 99, 35, 47));

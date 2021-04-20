@@ -1,7 +1,7 @@
-package components.entities.dynamics.character.player.children;
+package components.entities.dynamics.characters.player.children;
 
 import asset.Asset;
-import components.entities.dynamics.character.player.Player;
+import components.entities.dynamics.characters.player.Player;
 
 public class Satoshi extends Player
 {
@@ -39,7 +39,7 @@ public class Satoshi extends Player
         leftFrames.add(Asset.get("satoshi").crop(13, 71, 40, 55));
         leftFrames.add(Asset.get("satoshi").crop(205, 71, 40, 55));
         leftFrames.add(Asset.get("satoshi").crop(13, 71, 40, 55));
-        
+
         rightFrames.add(Asset.get("satoshi").crop(75, 135, 40, 55));
         rightFrames.add(Asset.get("satoshi").crop(11, 135, 40, 55));
         rightFrames.add(Asset.get("satoshi").crop(203, 135, 40, 55));

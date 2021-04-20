@@ -1,6 +1,6 @@
 package components.entities.statics.items;
 
-import components.entities.dynamics.character.player.Player;
+import components.entities.dynamics.characters.player.Player;
 import components.entities.statics.StaticEntity;
 
 public abstract class Item extends StaticEntity

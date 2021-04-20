@@ -2,7 +2,7 @@ package app.models;
 
 import org.json.simple.JSONObject;
 
-import components.entities.dynamics.character.player.Player;
+import components.entities.dynamics.characters.player.Player;
 import factories.player.BasicPlayerFactory;
 import factories.player.PlayerFactory;
 

@@ -3,7 +3,7 @@ package modules.camera;
 import modules.Module;
 import config.GameConfig;
 import core.Handler;
-import components.entities.dynamics.character.Character;
+import components.entities.dynamics.characters.Character;
 import components.tiles.Tile;
 
 public class Camera implements Module

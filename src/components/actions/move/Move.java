@@ -6,7 +6,7 @@ import components.actions.collide.entity.BlockCollision;
 import components.actions.collide.entity.BombCollision;
 import components.actions.collide.entity.ObstacleCollision;
 import components.actions.collide.tile.SolidTileCollision;
-import components.animations.MoveAnimation;
+import components.animations.MovingAnimation;
 import components.entities.dynamics.DynamicEntity;
 
 public abstract class Move
@@ -15,7 +15,7 @@ public abstract class Move
 
     private Collision collision;
 
-    private MoveAnimation animation;
+    private MovingAnimation animation;
 
     private DynamicEntity entity;
 
@@ -23,7 +23,7 @@ public abstract class Move
     {
         this.entity = entity;
 
-        animation = new MoveAnimation(entity, 250);
+        animation = new MovingAnimation(entity, 250);
 
         collision = new CollisionAction(entity);
         collision = new BombCollision(collision);

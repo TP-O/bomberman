@@ -1,7 +1,7 @@
-package components.entities.dynamics.character.monster.children;
+package components.entities.dynamics.characters.monster.children;
 
 import asset.Asset;
-import components.entities.dynamics.character.monster.Monster;
+import components.entities.dynamics.characters.monster.Monster;
 
 public class ShinyEmboar extends Monster
 {
@@ -37,7 +37,7 @@ public class ShinyEmboar extends Monster
         leftFrames.add(Asset.get("emboar").crop(2942, 994, 852, 971));
         leftFrames.add(Asset.get("emboar").crop(3929, 966, 852, 943));
         leftFrames.add(Asset.get("emboar").crop(4829, 973, 852, 943));
-        
+
         rightFrames.add(Asset.get("emboar").crop(2876, 1953, 816, 900));
         rightFrames.add(Asset.get("emboar").crop(3806, 1925, 816, 921));
         rightFrames.add(Asset.get("emboar").crop(4807, 1953, 816, 921));

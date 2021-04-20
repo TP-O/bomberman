@@ -1,7 +1,7 @@
-package components.entities.dynamics.character.monster.children;
+package components.entities.dynamics.characters.monster.children;
 
 import asset.Asset;
-import components.entities.dynamics.character.monster.Monster;
+import components.entities.dynamics.characters.monster.Monster;
 
 public class AlolanPersian extends Monster
 {
@@ -28,13 +28,13 @@ public class AlolanPersian extends Monster
 
         upFrames.add(Asset.get("alolanpersian").crop(10, 202, 128, 112));
         upFrames.add(Asset.get("alolanpersian").crop(172, 202, 128, 112));
-        
+
         downFrames.add(Asset.get("alolanpersian").crop(6, 20, 128, 137));
         downFrames.add(Asset.get("alolanpersian").crop(167, 20, 128, 137));
 
         leftFrames.add(Asset.get("alolanpersian").crop(20, 371, 137, 112));
         leftFrames.add(Asset.get("alolanpersian").crop(177, 371, 137, 112));
-        
+
         rightFrames.add(Asset.get("alolanpersian").crop(4, 528, 137, 112));
         rightFrames.add(Asset.get("alolanpersian").crop(168, 528, 137, 112));
 

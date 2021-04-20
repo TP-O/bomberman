@@ -1,7 +1,7 @@
-package components.entities.dynamics.character.player.children;
+package components.entities.dynamics.characters.player.children;
 
 import asset.Asset;
-import components.entities.dynamics.character.player.Player;
+import components.entities.dynamics.characters.player.Player;
 
 public class Shadow extends Player
 {
@@ -39,7 +39,7 @@ public class Shadow extends Player
         leftFrames.add(Asset.get("shadow").crop(15, 65, 42, 64));
         leftFrames.add(Asset.get("shadow").crop(207, 65, 42, 64));
         leftFrames.add(Asset.get("shadow").crop(15, 65, 42, 64));
-        
+
         rightFrames.add(Asset.get("shadow").crop(75, 129, 42, 64));
         rightFrames.add(Asset.get("shadow").crop(11, 127, 42, 64));
         rightFrames.add(Asset.get("shadow").crop(203, 129, 42, 64));

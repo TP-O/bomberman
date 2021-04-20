@@ -1,7 +1,7 @@
 package factories.monster;
 
-import components.entities.dynamics.character.monster.Monster;
-import components.entities.dynamics.character.monster.children.*;
+import components.entities.dynamics.characters.monster.Monster;
+import components.entities.dynamics.characters.monster.children.*;
 
 public class BasicMonsterFactory implements MonsterFactory
 {

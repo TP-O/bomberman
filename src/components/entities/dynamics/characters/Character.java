@@ -1,4 +1,4 @@
-package components.entities.dynamics.character;
+package components.entities.dynamics.characters;
 
 import components.actions.display.Display;
 import components.actions.display.DisplayAction;

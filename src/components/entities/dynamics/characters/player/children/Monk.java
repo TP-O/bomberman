@@ -1,7 +1,7 @@
-package components.entities.dynamics.character.player.children;
+package components.entities.dynamics.characters.player.children;
 
 import asset.Asset;
-import components.entities.dynamics.character.player.Player;
+import components.entities.dynamics.characters.player.Player;
 
 public class Monk extends Player
 {
@@ -39,7 +39,7 @@ public class Monk extends Player
         leftFrames.add(Asset.get("monk").crop(29, 1273, 357, 454));
         leftFrames.add(Asset.get("monk").crop(423, 1272, 357, 454));
         leftFrames.add(Asset.get("monk").crop(29, 1273, 357, 454));
-        
+
         rightFrames.add(Asset.get("monk").crop(24, 1876, 357, 454));
         rightFrames.add(Asset.get("monk").crop(419, 1873, 357, 454));
         rightFrames.add(Asset.get("monk").crop(24, 1876, 357, 454));

@@ -1,6 +1,6 @@
 package factories.monster;
 
-import components.entities.dynamics.character.monster.Monster;
+import components.entities.dynamics.characters.monster.Monster;
 
 public interface MonsterFactory
 {

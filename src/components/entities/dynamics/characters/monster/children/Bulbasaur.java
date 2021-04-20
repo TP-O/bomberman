@@ -1,7 +1,7 @@
-package components.entities.dynamics.character.monster.children;
+package components.entities.dynamics.characters.monster.children;
 
 import asset.Asset;
-import components.entities.dynamics.character.monster.Monster;
+import components.entities.dynamics.characters.monster.Monster;
 
 public class Bulbasaur extends Monster
 {
@@ -29,7 +29,7 @@ public class Bulbasaur extends Monster
         upFrames.add(Asset.get("bulbasaur").crop(280, 400, 76, 76));
         upFrames.add(Asset.get("bulbasaur").crop(155, 400, 76, 76));
         upFrames.add(Asset.get("bulbasaur").crop(280, 400, 76, 76));
-        
+
         downFrames.add(Asset.get("bulbasaur").crop(34, 33, 76, 76));
         downFrames.add(Asset.get("bulbasaur").crop(154, 33, 76, 76));
         downFrames.add(Asset.get("bulbasaur").crop(276, 33, 76, 76));
@@ -39,7 +39,7 @@ public class Bulbasaur extends Monster
         leftFrames.add(Asset.get("bulbasaur").crop(156, 151, 76, 76));
         leftFrames.add(Asset.get("bulbasaur").crop(280, 151, 76, 76));
         leftFrames.add(Asset.get("bulbasaur").crop(400, 151, 76, 76));
-        
+
         rightFrames.add(Asset.get("bulbasaur").crop(39, 271, 76, 76));
         rightFrames.add(Asset.get("bulbasaur").crop(159, 271, 76, 76));
         rightFrames.add(Asset.get("bulbasaur").crop(281, 271, 76, 76));

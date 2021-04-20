@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 import app.cache.EntityCache;
 import app.cache.GameCache;
-import components.entities.dynamics.character.player.Player;
+import components.entities.dynamics.characters.player.Player;
 import components.ui.Element;
 import components.ui.button.PauseButton;
 import core.Handler;

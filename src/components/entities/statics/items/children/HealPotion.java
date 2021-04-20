@@ -1,7 +1,7 @@
 package components.entities.statics.items.children;
 
 import asset.Asset;
-import components.entities.dynamics.character.player.Player;
+import components.entities.dynamics.characters.player.Player;
 import components.entities.statics.items.Item;
 
 public class HealPotion extends Item

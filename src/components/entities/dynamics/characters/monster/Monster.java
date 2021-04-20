@@ -1,4 +1,4 @@
-package components.entities.dynamics.character.monster;
+package components.entities.dynamics.characters.monster;
 
 import config.MonsterConfig;
 import components.actions.attack.Attack;
@@ -8,7 +8,7 @@ import components.actions.drop.Drop;
 import components.actions.drop.DropAcction;
 import components.actions.drop.random.RandomItemDrop;
 import components.actions.move.RandomMove;
-import components.entities.dynamics.character.Character;
+import components.entities.dynamics.characters.Character;
 
 public abstract class Monster extends Character
 {

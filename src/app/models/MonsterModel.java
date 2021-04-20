@@ -2,7 +2,7 @@ package app.models;
 
 import org.json.simple.JSONObject;
 
-import components.entities.dynamics.character.monster.Monster;
+import components.entities.dynamics.characters.monster.Monster;
 import factories.monster.BasicMonsterFactory;
 import factories.monster.MonsterFactory;
 

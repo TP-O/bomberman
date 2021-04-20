@@ -1,6 +1,6 @@
 package factories.player;
 
-import components.entities.dynamics.character.player.Player;
+import components.entities.dynamics.characters.player.Player;
 
 public interface PlayerFactory
 {

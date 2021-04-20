@@ -2,7 +2,7 @@ package components.animations;
 
 import components.entities.dynamics.DynamicEntity;
 
-public class MoveAnimation extends Animation
+public class MovingAnimation extends Animation
 {
     private boolean up;
 
@@ -14,7 +14,7 @@ public class MoveAnimation extends Animation
 
     private DynamicEntity entity;
 
-    public MoveAnimation(DynamicEntity entity, int speed)
+    public MovingAnimation(DynamicEntity entity, int speed)
     {
         super(speed);
 

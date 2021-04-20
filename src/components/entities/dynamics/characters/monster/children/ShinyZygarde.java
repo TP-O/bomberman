@@ -1,7 +1,7 @@
-package components.entities.dynamics.character.monster.children;
+package components.entities.dynamics.characters.monster.children;
 
 import asset.Asset;
-import components.entities.dynamics.character.monster.Monster;
+import components.entities.dynamics.characters.monster.Monster;
 
 public class ShinyZygarde extends Monster
 {
@@ -30,7 +30,7 @@ public class ShinyZygarde extends Monster
         upFrames.add(Asset.get("monster2").crop(62, 182, 42, 42));
         upFrames.add(Asset.get("monster2").crop(119, 182, 42, 42));
         upFrames.add(Asset.get("monster2").crop(175, 182, 42, 42));
-        
+
         downFrames.add(Asset.get("monster2").crop(6, 13, 42, 42));
         downFrames.add(Asset.get("monster2").crop(62, 13, 42, 42));
         downFrames.add(Asset.get("monster2").crop(118, 13, 42, 42));
@@ -40,7 +40,7 @@ public class ShinyZygarde extends Monster
         leftFrames.add(Asset.get("monster2").crop(66, 74, 44, 38));
         leftFrames.add(Asset.get("monster2").crop(122, 74, 44, 38));
         leftFrames.add(Asset.get("monster2").crop(176, 74, 44, 38));
-        
+
         rightFrames.add(Asset.get("monster2").crop(7, 127, 44, 38));
         rightFrames.add(Asset.get("monster2").crop(62, 128, 44, 38));
         rightFrames.add(Asset.get("monster2").crop(119, 127, 44, 38));

@@ -1,4 +1,4 @@
-package components.entities.dynamics.character.player;
+package components.entities.dynamics.characters.player;
 
 import components.actions.attack.Attack;
 import components.actions.attack.AttackAction;
@@ -7,7 +7,7 @@ import components.actions.move.KeyboardBasedMove;
 import components.actions.pickup.PickUp;
 import components.actions.pickup.PickUpAction;
 import components.actions.pickup.nonstop.ItemPickUp;
-import components.entities.dynamics.character.Character;
+import components.entities.dynamics.characters.Character;
 import components.entities.statics.bombs.Bomb;
 import components.entities.statics.bombs.children.BombB;
 import config.PlayerConfig;
