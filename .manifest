@@ -1,0 +1,3 @@
+Manifest-Version: 1.0
+Class-Path: ./lib/json-simple-1.1.1.jar ./src
+Main-Class: App
