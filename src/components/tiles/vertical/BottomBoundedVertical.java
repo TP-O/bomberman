@@ -5,9 +5,9 @@ import components.tiles.Tile;
 
 public class BottomBoundedVertical extends Tile
 {
-    public BottomBoundedVertical()
+    public BottomBoundedVertical(int x, int y)
     {
-        super(true);
+        super(x, y, true);
     }
 
     protected void loadTileImage()

@@ -5,9 +5,9 @@ import components.tiles.Tile;
 
 public class UnderwaterWall extends Tile
 {
-    public UnderwaterWall()
+    public UnderwaterWall(int x, int y)
     {
-        super(true);
+        super(x, y, true);
     }
 
     @Override

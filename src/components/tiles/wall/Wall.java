@@ -5,9 +5,9 @@ import components.tiles.Tile;
 
 public class Wall extends Tile
 {
-    public Wall()
+    public Wall(int x, int y)
     {
-        super(true);
+        super(x, y, true);
     }
 
     protected void loadTileImage()

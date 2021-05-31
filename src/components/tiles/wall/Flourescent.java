@@ -5,9 +5,9 @@ import components.tiles.Tile;
 
 public class Flourescent extends Tile
 {
-    public Flourescent()
+    public Flourescent(int x, int y)
     {
-        super(true);
+        super(x, y, true);
     }
 
     protected void loadTileImage()

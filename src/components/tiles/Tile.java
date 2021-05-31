@@ -5,24 +5,42 @@ import java.awt.Graphics;
 
 public abstract class Tile
 {
+    protected int x;
+
+    protected int y;
+
     protected boolean solid;
 
     protected BufferedImage BImage;
 
     public static final int WIDTH = 64, HEIGHT = 64;
 
-    public Tile()
+    public Tile(int x, int y)
     {
-        solid = false;
+        this.x = x;
+        this.y = y;
+        this.solid = false;
 
         loadTileImage();
     }
-    
-    public Tile(boolean solid)
+
+    public Tile(int x, int y, boolean solid)
     {
+        this.x = x;
+        this.y = y;
         this.solid = solid;
 
         loadTileImage();
+    }
+
+    public int getX()
+    {
+        return x;
+    }
+
+    public int getY()
+    {
+        return y;
     }
 
     public boolean isSolid()

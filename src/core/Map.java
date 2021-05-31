@@ -17,9 +17,7 @@ public class Map
 
     private int height;
 
-    private Tile[] tiles;
-
-    private int[][] tileId;
+    private Tile[][] tiles;
 
     private Handler handler;
 
@@ -42,6 +40,18 @@ public class Map
         return height;
     }
 
+    public Tile[][] getTiles()
+    {
+        return tiles;
+    }
+
+    public Tile getTile(int x, int y)
+    {
+        return x < 0 || y < 0 || x >= width || y >= height
+            ? tiles[0][0]
+            : tiles[x][y];
+    }
+
     public void tick()
     {
         //
@@ -49,18 +59,20 @@ public class Map
 
     public void render(Graphics graphics)
     {
-        int xStart = (int) handler.getCamera().getXOffset() / Tile.WIDTH;
-        int xEnd = (int) (handler.getCamera().getXOffset() + GameConfig.WIDTH) / Tile.WIDTH + 1;
+        int xStart = (int) Math.max(0, handler.getCamera().getXOffset() / Tile.WIDTH);
+        int xEnd = (int) Math.min(width,
+                (handler.getCamera().getXOffset() + GameConfig.WIDTH) / Tile.WIDTH + 1);
 
-        int yStart = (int) handler.getCamera().getYOffset() / Tile.HEIGHT;
-        int yEnd = (int) (handler.getCamera().getYOffset() + GameConfig.HEIGHT) / Tile.HEIGHT + 1;
+        int yStart = (int) Math.max(0, handler.getCamera().getYOffset() / Tile.HEIGHT);
+        int yEnd = (int) Math.min(height,
+                (handler.getCamera().getYOffset() + GameConfig.HEIGHT) / Tile.HEIGHT + 1);
 
         for (int x = xStart; x < xEnd; x++) {
             for (int y = yStart; y < yEnd; y++) {
-                tiles[tileId[x][y]].render(graphics,
+                tiles[x][y].render(graphics,
                     // The tiles move rely on camera's coordinates
-                    (int) (x*Tile.WIDTH - handler.getCamera().getXOffset()),
-                    (int) (y*Tile.HEIGHT - handler.getCamera().getYOffset()));
+                    (int) (x * Tile.WIDTH - handler.getCamera().getXOffset()),
+                    (int) (y * Tile.HEIGHT - handler.getCamera().getYOffset()));
             }
         }
     }
@@ -79,23 +91,14 @@ public class Map
         width = Integer.parseInt(tokens[0]);
         height = Integer.parseInt(tokens[1]);
 
-        tiles = new Tile[255];
-        tileId = new int[width][height];
+        tiles = new Tile[width][height];
 
         for (int x = 0; x < width; x++) {
             for (int y = 0; y < height; y++) {
                 int id = Integer.parseInt(tokens[x + y + (width - 1)*y + 2]);
 
-                tileId[x][y] = id;
-                tiles[id] = factory.createTile(id);
+                tiles[x][y] = factory.createTile(id, x, y);
             }
         }
-    }
-
-    public Tile getTile(int x, int y)
-    {
-        return x < 0 || y < 0 || x >= width || y >= height
-            ? tiles[0]
-            : tiles[tileId[x][y]];
     }
 }

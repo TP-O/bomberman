@@ -5,9 +5,9 @@ import components.tiles.Tile;
 
 public class Drain extends Tile
 {
-    public Drain()
+    public Drain(int x, int y)
     {
-        super(true);
+        super(x, y, true);
     }
 
     protected void loadTileImage()

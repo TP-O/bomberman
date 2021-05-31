@@ -5,9 +5,9 @@ import components.tiles.Tile;
 
 public class Horizontal02 extends Tile
 {
-    public Horizontal02()
+    public Horizontal02(int x, int y)
     {
-        super(true);
+        super(x, y, true);
     }
 
     protected void loadTileImage()

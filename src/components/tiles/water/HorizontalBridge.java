@@ -5,9 +5,9 @@ import components.tiles.Tile;
 
 public class HorizontalBridge extends Tile
 {
-    public HorizontalBridge()
+    public HorizontalBridge(int x, int y)
     {
-        super(false);
+        super(x, y);
     }
 
     protected void loadTileImage()

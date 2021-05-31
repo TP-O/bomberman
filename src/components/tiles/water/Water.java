@@ -5,9 +5,9 @@ import components.tiles.Tile;
 
 public class Water extends Tile
 {
-    public Water()
+    public Water(int x, int y)
     {
-        super(true);
+        super(x, y, true);
     }
 
     protected void loadTileImage()

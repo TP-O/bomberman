@@ -5,9 +5,9 @@ import components.tiles.Tile;
 
 public class UpperLeft extends Tile
 {
-    public UpperLeft()
+    public UpperLeft(int x, int y)
     {
-        super(true);
+        super(x, y, true);
     }
 
     protected void loadTileImage()

@@ -5,9 +5,9 @@ import components.tiles.Tile;
 
 public class RightBoundedHorizontal extends Tile
 {
-    public RightBoundedHorizontal()
+    public RightBoundedHorizontal(int x, int y)
     {
-        super(true);
+        super(x, y, true);
     }
 
     protected void loadTileImage()

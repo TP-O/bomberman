@@ -5,6 +5,11 @@ import components.tiles.Tile;
 
 public class Floor03 extends Tile
 {
+    public Floor03(int x, int y)
+    {
+        super(x, y);
+    }
+
     @Override
     protected void loadTileImage()
     {
