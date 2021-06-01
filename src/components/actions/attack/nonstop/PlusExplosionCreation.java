@@ -12,8 +12,8 @@ import components.actions.collide.entity.ObstacleCollision;
 import components.actions.collide.tile.SolidTileCollision;
 import components.entities.statics.explosions.Explosion;
 
-public class PlusExplosionCreating extends AttackDecorator
-{
+public class PlusExplosionCreation extends AttackDecorator {
+
     private int range;
 
     private int scale;
@@ -24,8 +24,7 @@ public class PlusExplosionCreating extends AttackDecorator
 
     private List<Explosion> explosions;
 
-    public PlusExplosionCreating(Attack attack,  Explosion explosion, int range)
-    {
+    public PlusExplosionCreation(Attack attack,  Explosion explosion, int range) {
         super(attack);
 
         this.range = range;
@@ -41,8 +40,9 @@ public class PlusExplosionCreating extends AttackDecorator
     }
 
     @Override
-    public void decorate()
-    {
+    public void attack() {
+        super.attack();
+
         float x = calculateXOfExplosion(getAttacker().getX(),
                 getAttacker().getWidth(), getAttacker().getWidth() * scale);
         float y = calculateYOfExplosion(getAttacker().getY(),
@@ -59,25 +59,21 @@ public class PlusExplosionCreating extends AttackDecorator
         EntityCache.get("explosion").addAll(explosions);
     }
 
-    private float calculateXOfExplosion(float x, int width, int explosionWidth)
-    {
+    private float calculateXOfExplosion(float x, int width, int explosionWidth) {
         return x - (explosionWidth / 2) + (width / 2);
     }
 
-    private float calculateYOfExplosion(float y, int height, int explosionHeight)
-    {
+    private float calculateYOfExplosion(float y, int height, int explosionHeight) {
         return y - (explosionHeight / 2) + (height / 2);
     }
 
-    private void createCenterExplosion(float x, float y)
-    {
+    private void createCenterExplosion(float x, float y) {
         handle(x, y);
 
         explosions.add((Explosion) explosion.clone());
     }
 
-    private void createTopExplosion(float x, float y)
-    {
+    private void createTopExplosion(float x, float y) {
         for (int i = 1; i <= range; i++) {
             handle(x, y - getAttacker().getWidth() * scale * i);
 
@@ -89,8 +85,7 @@ public class PlusExplosionCreating extends AttackDecorator
         }
     }
 
-    private void createBottomExplosion(float x, float y)
-    {
+    private void createBottomExplosion(float x, float y) {
         for (int i = 1; i <= range; i++) {
             handle(x, y + getAttacker().getWidth() * scale * i);
 
@@ -115,8 +110,7 @@ public class PlusExplosionCreating extends AttackDecorator
         }
     }
 
-    private void createRightExplosion(float x, float y)
-    {
+    private void createRightExplosion(float x, float y) {
         for (int i = 1; i <= range; i++) {
             handle(x + getAttacker().getWidth() * scale * i, y);
 
@@ -129,8 +123,7 @@ public class PlusExplosionCreating extends AttackDecorator
     }
 
     // Set value for explosion
-    private void handle(float x, float y)
-    {
+    private void handle(float x, float y) {
         explosion.setX(x);
         explosion.setY(y);
         explosion.setWidth(getAttacker().getWidth() * scale);

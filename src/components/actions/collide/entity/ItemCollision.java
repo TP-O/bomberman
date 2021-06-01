@@ -2,12 +2,11 @@ package components.actions.collide.entity;
 
 import components.actions.collide.Collision;
 
-public class ItemCollision extends EntityCollisionDecorator
-{
-    public ItemCollision(Collision collision)
-    {
+public class ItemCollision extends EntityCollisionDecorator {
+
+    public ItemCollision(Collision collision) {
         super(collision);
 
-        entityType = "item";
+        this.entityType = "item";
     }
 }

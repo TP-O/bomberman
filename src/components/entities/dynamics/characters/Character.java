@@ -14,6 +14,8 @@ public abstract class Character extends DynamicEntity
     @Override
     protected void initializeActions()
     {
+        super.initializeActions();
+
         display = new DisplayAction(this);
         display = new HealthDisplay(display);
     }

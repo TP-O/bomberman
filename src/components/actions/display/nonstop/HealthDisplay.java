@@ -9,16 +9,15 @@ import components.ui.text.Text;
 import components.ui.text.character.status.HealthStatus;
 import core.Handler;
 
-public class HealthDisplay extends DisplayDecorator
-{
+public class HealthDisplay extends DisplayDecorator {
+
     private Text text;
 
     private int health;
 
     private Handler handler;
 
-    public HealthDisplay(Display display)
-    {
+    public HealthDisplay(Display display) {
         super(display);
 
         health = -1;
@@ -27,15 +26,15 @@ public class HealthDisplay extends DisplayDecorator
     }
 
     @Override
-    protected void decorate(Graphics graphics)
-    {
+    public void display(Graphics graphics) {
+        super.display(graphics);
+
         displayBox(graphics);
         displayHealth(graphics);
         displayText(graphics);
     }
 
-    private void displayBox(Graphics graphics)
-    {
+    private void displayBox(Graphics graphics) {
         graphics.setColor(Color.WHITE);
         graphics.drawRect(
                 (int) (getEntity().getX() - handler.getCamera().getXOffset() - 1),
@@ -44,8 +43,7 @@ public class HealthDisplay extends DisplayDecorator
                 6);
     }
 
-    private void displayHealth(Graphics graphics)
-    {
+    private void displayHealth(Graphics graphics) {
         graphics.setColor(Color.RED);
         graphics.fillRect(
                 (int) (getEntity().getX() - handler.getCamera().getXOffset()),
@@ -54,8 +52,7 @@ public class HealthDisplay extends DisplayDecorator
                 5);
     }
 
-    private void displayText(Graphics graphics)
-    {
+    private void displayText(Graphics graphics) {
         text.setX((int) (getEntity().getX() - handler.getCamera().getXOffset()));
         text.setY((int) (getEntity().getY() - handler.getCamera().getYOffset() - 35));
 

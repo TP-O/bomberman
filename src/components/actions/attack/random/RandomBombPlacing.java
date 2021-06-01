@@ -16,12 +16,12 @@ public class RandomBombPlacing extends BombPlacing
     }
 
     @Override
-    public void decorate()
+    public void attack()
     {
         int chance = random.nextInt(100);
 
         if (chance == 0) {
-            super.decorate();
+            super.attack();
         }
     }
 }

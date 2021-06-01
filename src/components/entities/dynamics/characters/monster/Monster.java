@@ -7,7 +7,8 @@ import components.actions.attack.nonstop.PlayerAttack;
 import components.actions.drop.Drop;
 import components.actions.drop.DropAcction;
 import components.actions.drop.random.RandomItemDrop;
-import components.actions.move.RandomMove;
+import components.actions.move.collision.*;
+import components.actions.move.type.RandomMove;
 import components.entities.dynamics.characters.Character;
 
 public abstract class Monster extends Character
@@ -52,7 +53,11 @@ public abstract class Monster extends Character
         attack = new PlayerAttack(attack);
 
         // Set move type
-        move = new RandomMove(this);
+        move = new RandomMove(move);
+        move = new AvoidingSolidTile(move);
+        move = new AvoidingBlock(move);
+        move = new AvoidingObstacle(move);
+        move = new AvoidingBomb(move);
     }
 
     @Override

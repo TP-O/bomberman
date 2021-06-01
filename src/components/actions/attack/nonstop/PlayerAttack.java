@@ -6,12 +6,11 @@ import components.actions.collide.Collision;
 import components.actions.collide.CollisionAction;
 import components.actions.collide.entity.PlayerCollision;
 
-public class PlayerAttack extends AttackDecorator
-{
+public class PlayerAttack extends AttackDecorator {
+
     private Collision collision;
 
-    public PlayerAttack(Attack attack)
-    {
+    public PlayerAttack(Attack attack) {
         super(attack);
 
         collision = new CollisionAction(attack.getAttacker());
@@ -19,8 +18,9 @@ public class PlayerAttack extends AttackDecorator
     }
 
     @Override
-    public void decorate()
-    {
+    public void attack() {
+        super.attack();
+
         if (collision.isCollided()) {
             collision.getCollidedEntities().forEach(target -> {
                 target.setHealth(target.getHealth() - getAttacker().getDamage());

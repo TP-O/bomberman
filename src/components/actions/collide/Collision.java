@@ -4,8 +4,7 @@ import java.util.List;
 
 import components.entities.Entity;
 
-public interface Collision
-{
+public interface Collision {
     /**
      *            Top
      *        *--------*

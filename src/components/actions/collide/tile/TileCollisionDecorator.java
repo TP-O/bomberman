@@ -3,16 +3,14 @@ package components.actions.collide.tile;
 import components.actions.collide.Collision;
 import components.actions.collide.CollisionDecorator;
 
-public abstract class TileCollisionDecorator extends CollisionDecorator
-{
-    public TileCollisionDecorator(Collision collision)
-    {
+public abstract class TileCollisionDecorator extends CollisionDecorator {
+
+    public TileCollisionDecorator(Collision collision) {
         super(collision);
     }
 
     @Override
-    public boolean isCollided()
-    {
+    public boolean isCollided() {
         if (!collision.isCollided()) {
             return isCollidedTop() || isCollidedBottom() || isCollidedLeft() || isCollidedRight();
         }
@@ -21,8 +19,7 @@ public abstract class TileCollisionDecorator extends CollisionDecorator
     }
 
     @Override
-    public boolean isCollidedTop()
-    {
+    public boolean isCollidedTop() {
         if (!collision.isCollidedTop()) {
             boolean upperLeftCornerCollied = inTile(
                     getEntity().getX() + getEntity().getPadding(),
@@ -41,8 +38,7 @@ public abstract class TileCollisionDecorator extends CollisionDecorator
     }
 
     @Override
-    public boolean isCollidedBottom()
-    {
+    public boolean isCollidedBottom() {
         if (!collision.isCollidedBottom()) {
             boolean lowerLeftCornerCollied = inTile(
                     getEntity().getX() + getEntity().getPadding(),
@@ -61,8 +57,7 @@ public abstract class TileCollisionDecorator extends CollisionDecorator
     }
 
     @Override
-    public boolean isCollidedLeft()
-    {
+    public boolean isCollidedLeft() {
         if (!collision.isCollidedLeft()) {
             boolean upperLeftCornerCollied = inTile(
                     getEntity().getX() + getEntity().getPadding()- getEntity().getMargin(),
@@ -81,8 +76,7 @@ public abstract class TileCollisionDecorator extends CollisionDecorator
     }
 
     @Override
-    public boolean isCollidedRight()
-    {
+    public boolean isCollidedRight() {
         if (!collision.isCollidedRight()) {
             boolean upperRightCornerCollied = inTile(
                     getEntity().getX() + getEntity().getWidth() - getEntity().getPadding() + getEntity().getMargin(),

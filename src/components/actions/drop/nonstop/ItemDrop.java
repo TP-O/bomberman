@@ -8,10 +8,9 @@ import components.actions.drop.DropDecorator;
 import components.entities.statics.items.Item;
 import components.entities.statics.items.children.*;
 
-public class ItemDrop extends DropDecorator
-{
-    private enum Type
-    {
+public class ItemDrop extends DropDecorator {
+
+    private enum Type {
         LIFE,
         DAMAGE_POTION,
         SPEED_POTION,
@@ -22,14 +21,14 @@ public class ItemDrop extends DropDecorator
 
     protected static Random random = new Random();
 
-    public ItemDrop(Drop drop)
-    {
+    public ItemDrop(Drop drop) {
         super(drop);
     }
 
     @Override
-    public void decorate()
-    {
+    public void drop() {
+        super.drop();
+
         if (!dropped) {
             dropped = true;
             Item item = null;

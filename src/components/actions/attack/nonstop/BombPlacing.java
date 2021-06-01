@@ -5,22 +5,22 @@ import components.actions.attack.Attack;
 import components.actions.attack.AttackDecorator;
 import components.entities.statics.bombs.Bomb;
 
-public class BombPlacing extends AttackDecorator
-{
+public class BombPlacing extends AttackDecorator {
+
     private Bomb bomb;
 
     private long createdAt = 0;
 
-    public BombPlacing(Attack attack, Bomb bomb)
-    {
+    public BombPlacing(Attack attack, Bomb bomb) {
         super(attack);
 
         this.bomb = bomb;
     }
 
     @Override
-    public void decorate()
-    {
+    public void attack() {
+        super.attack();
+
         long now = System.currentTimeMillis();
 
         float x = getAttacker().getX() + getAttacker().getWidth() / 4;

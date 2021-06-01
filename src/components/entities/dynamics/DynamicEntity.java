@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import java.awt.image.BufferedImage;
+
 import components.actions.move.Move;
+import components.actions.move.MoveAction;
 import components.entities.Entity;
 
 public abstract class DynamicEntity extends Entity
@@ -30,6 +32,11 @@ public abstract class DynamicEntity extends Entity
         leftFrames = new ArrayList<BufferedImage>();
         rightFrames = new ArrayList<BufferedImage>();
         standFrames = new ArrayList<BufferedImage>();
+    }
+
+    @Override
+    protected void initializeActions() {
+        move = new MoveAction(this);
     }
 
     @Override

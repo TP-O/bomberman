@@ -3,8 +3,8 @@ package components.animations;
 import java.awt.image.BufferedImage;
 import java.util.List;
 
-public abstract class Animation
-{
+public abstract class Animation {
+
     private int speed;
 
     private int index;
@@ -15,43 +15,37 @@ public abstract class Animation
 
     protected List<BufferedImage> frames;
 
-    public Animation(int speed)
-    {
-        index = 0;
-        timer = 0;
-        lastTime = System.currentTimeMillis();
-
+    public Animation(int speed) {
+        this.index = 0;
+        this.timer = 0;
+        this.lastTime = System.currentTimeMillis();
         this.speed = speed;
     }
 
-    public int getIndex()
-    {
-        return index;
+    public int getIndex() {
+        return this.index;
     }
 
-    public void resetIndex()
-    {
-        index = 0;
+    public void resetIndex() {
+        this.index = 0;
     }
 
-    public void setFrames(List<BufferedImage> frames)
-    {
+    public void setFrames(List<BufferedImage> frames) {
         this.frames = frames;
 
-        resetIndex();
+        this.resetIndex();
     }
 
-    public void tick()
-    {
-        timer += System.currentTimeMillis() - lastTime;
-        lastTime = System.currentTimeMillis();
+    public void tick() {
+        this.timer += System.currentTimeMillis() - this.lastTime;
+        this.lastTime = System.currentTimeMillis();
 
-        if (timer > speed)
+        if (this.timer > this.speed)
         {
-            index++;
-            timer = 0;
+            this.index++;
+            this.timer = 0;
 
-            if (index >= frames.size()) {
+            if (this.index >= this.frames.size()) {
                 resetIndex();
             }
         }

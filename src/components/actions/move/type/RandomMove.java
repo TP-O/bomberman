@@ -1,13 +1,13 @@
-package components.actions.move;
+package components.actions.move.type;
 
 import java.util.Random;
 
-import components.entities.dynamics.DynamicEntity;
+import components.actions.move.Move;
+import components.actions.move.MoveDecorator;
 
-public class RandomMove extends Move
-{
-    private enum Direction
-    {
+public class RandomMove extends MoveDecorator {
+
+    private enum Direction {
         UP,
         DOWN,
         LEFT,
@@ -18,19 +18,17 @@ public class RandomMove extends Move
 
     private static Random random = new Random();
 
-    public RandomMove(DynamicEntity entity)
-    {
-        super(entity);
+    public RandomMove(Move move) {
+        super(move);
 
         moveIndex = random.nextInt(Direction.values().length);
     }
 
     @Override
-    public void move()
-    {
+    public void move() {
         super.move();
 
-        if (collied) {
+        if (this.isCollied()) {
             moveIndex = random.nextInt(Direction.values().length);
         }
 

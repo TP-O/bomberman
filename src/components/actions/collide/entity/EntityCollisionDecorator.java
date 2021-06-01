@@ -5,18 +5,16 @@ import components.actions.collide.Collision;
 import components.actions.collide.CollisionDecorator;
 import components.entities.Entity;
 
-public abstract class EntityCollisionDecorator extends CollisionDecorator
-{
+public abstract class EntityCollisionDecorator extends CollisionDecorator {
+
     protected String entityType = "empty";
 
-    public EntityCollisionDecorator(Collision collision)
-    {
+    public EntityCollisionDecorator(Collision collision) {
         super(collision);
     }
 
     @Override
-    public boolean isCollided()
-    {
+    public boolean isCollided() {
         for (Entity e: EntityCache.get(entityType)) {
             collision.setCollidedEntity(e);
 
@@ -33,8 +31,7 @@ public abstract class EntityCollisionDecorator extends CollisionDecorator
     }
 
     @Override
-    public boolean isCollidedTop()
-    {
+    public boolean isCollidedTop() {
         for (Entity e: EntityCache.get(entityType)) {
             collision.setCollidedEntity(e);
 
@@ -47,8 +44,7 @@ public abstract class EntityCollisionDecorator extends CollisionDecorator
     }
 
     @Override
-    public boolean isCollidedBottom()
-    {
+    public boolean isCollidedBottom() {
         for (Entity e: EntityCache.get(entityType)) {
             collision.setCollidedEntity(e);
 
@@ -61,8 +57,7 @@ public abstract class EntityCollisionDecorator extends CollisionDecorator
     }
 
     @Override
-    public boolean isCollidedLeft()
-    {
+    public boolean isCollidedLeft() {
         for (Entity e: EntityCache.get(entityType)) {
             collision.setCollidedEntity(e);
 
@@ -75,8 +70,7 @@ public abstract class EntityCollisionDecorator extends CollisionDecorator
     }
 
     @Override
-    public boolean isCollidedRight()
-    {
+    public boolean isCollidedRight() {
         for (Entity e: EntityCache.get(entityType)) {
             collision.setCollidedEntity(e);
 
@@ -88,13 +82,11 @@ public abstract class EntityCollisionDecorator extends CollisionDecorator
         return collision.isCollidedRight();
     }
 
-    protected boolean checkCollided()
-    {
+    protected boolean checkCollided() {
         return checkCollidedTop() || checkCollidedBottom() || checkCollidedLeft() || checkCollidedRight();
     }
 
-    protected boolean checkCollidedTop()
-    {
+    protected boolean checkCollidedTop() {
         boolean upperLeftCornerCollied, upperRightCornerCollied;
 
         upperLeftCornerCollied = getXLeftWithoutMargin() >= getCollidedEntity().getX()
@@ -112,8 +104,7 @@ public abstract class EntityCollisionDecorator extends CollisionDecorator
                 : upperLeftCornerCollied || upperRightCornerCollied;
     }
 
-    protected boolean checkCollidedBottom()
-    {
+    protected boolean checkCollidedBottom() {
         boolean lowerLeftCornerCollied, lowerRightCornerCollied;
 
         lowerLeftCornerCollied = getXLeftWithoutMargin() >= getCollidedEntity().getX()
@@ -131,8 +122,7 @@ public abstract class EntityCollisionDecorator extends CollisionDecorator
                 : lowerLeftCornerCollied || lowerRightCornerCollied;
     }
 
-    protected boolean checkCollidedLeft()
-    {
+    protected boolean checkCollidedLeft() {
         boolean upperLeftCornerCollided, lowerLeftCornerCollided;
 
         upperLeftCornerCollided = getXLeft() >= getCollidedEntity().getX()
@@ -150,8 +140,7 @@ public abstract class EntityCollisionDecorator extends CollisionDecorator
                 : upperLeftCornerCollided || lowerLeftCornerCollided;
     }
 
-    protected boolean checkCollidedRight()
-    {
+    protected boolean checkCollidedRight() {
         boolean upperRightCornerCollided, lowerRightCornerCollided;
 
         upperRightCornerCollided = getXRight() >= getCollidedEntity().getX()
@@ -169,43 +158,35 @@ public abstract class EntityCollisionDecorator extends CollisionDecorator
                 : upperRightCornerCollided || lowerRightCornerCollided;
     }
 
-    private float getYTop()
-    {
+    private float getYTop() {
         return getEntity().getY() + getEntity().getPadding() - getEntity().getMargin();
     }
 
-    private float getYTopWithoutMargin()
-    {
+    private float getYTopWithoutMargin() {
         return getYTop() + getEntity().getMargin();
     }
 
-    private float getYBottom()
-    {
+    private float getYBottom() {
         return getEntity().getY() + getEntity().getHeight() - getEntity().getPadding() + getEntity().getMargin();
     }
 
-    private float getYBottomWithoutMargin()
-    {
+    private float getYBottomWithoutMargin() {
         return getYBottom() - getEntity().getMargin();
     }
 
-    private float getXLeft()
-    {
+    private float getXLeft() {
         return getEntity().getX() + getEntity().getPadding() - getEntity().getMargin();
     }
 
-    private float getXLeftWithoutMargin()
-    {
+    private float getXLeftWithoutMargin() {
         return getXLeft() + getEntity().getMargin();
     }
 
-    private float getXRight()
-    {
+    private float getXRight() {
         return getEntity().getX() + getEntity().getWidth() - getEntity().getPadding() + getEntity().getMargin();
     }
 
-    private float getXRightWithoutMargin()
-    {
+    private float getXRightWithoutMargin() {
         return getXRight() - getEntity().getMargin();
     }
 }

@@ -2,8 +2,8 @@ package components.animations;
 
 import components.entities.dynamics.DynamicEntity;
 
-public class MovingAnimation extends Animation
-{
+public class MovingAnimation extends Animation {
+
     private boolean up;
 
     private boolean down;
@@ -14,69 +14,63 @@ public class MovingAnimation extends Animation
 
     private DynamicEntity entity;
 
-    public MovingAnimation(DynamicEntity entity, int speed)
-    {
+    public MovingAnimation(DynamicEntity entity, int speed) {
         super(speed);
 
         this.entity = entity;
 
-        setFrames(entity.getStandFrames());
+        this.setFrames(entity.getStandFrames());
     }
 
     @Override
-    public void tick()
-    {
+    public void tick() {
         super.tick();
 
-        entity.setCurrentFrame(frames.get(getIndex()));
+        this.entity.setCurrentFrame(this.frames.get(getIndex()));
     }
 
-    public void up()
-    {
-        if (!up) {
-            up = true;
-            down = left = right = false;
+    public void up() {
+        if (!this.up) {
 
-            setFrames(entity.getUpFrames());
+            this.up = true;
+            this.down = this.left = this.right = false;
+
+            this.setFrames(this.entity.getUpFrames());
         }
     }
 
-    public void down()
-    {
-        if (!down) {
-            down = true;
-            up = left = right = false;
+    public void down() {
+        if (!this.down) {
+            this.down = true;
+            this.up = this.left = this.right = false;
 
-            setFrames(entity.getDownFrames());
+            this.setFrames(this.entity.getDownFrames());
         }
     }
 
-    public void left()
-    {
-        if (!left) {
-            left = true;
-            up = down = right = false;
+    public void left() {
+        if (!this.left) {
+            this.left = true;
+            this.up = this.down = this.right = false;
 
-            setFrames(entity.getLeftFrames());
+            this.setFrames(this.entity.getLeftFrames());
         }
     }
 
-    public void right()
-    {
-        if (!right) {
-            right = true;
-            up = down = left = false;
+    public void right() {
+        if (!this.right) {
+            this.right = true;
+            this.up = this.down = this.left = false;
 
-            setFrames(entity.getRightFrames());
+            this.setFrames(this.entity.getRightFrames());
         }
     }
 
-    public void stand()
-    {
-        if (up || down || left || right) {
-            up = down = left = right = false;
+    public void stand() {
+        if (this.up || this.down || this.left || this.right) {
+            this.up = this.down = this.left = this.right = false;
 
-            setFrames(entity.getStandFrames());
+            this.setFrames(this.entity.getStandFrames());
         }
     }
 }

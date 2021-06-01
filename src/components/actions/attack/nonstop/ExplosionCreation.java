@@ -5,14 +5,12 @@ import components.actions.attack.Attack;
 import components.actions.attack.AttackDecorator;
 import components.entities.statics.explosions.Explosion;
 
-public class ExplosionCreating extends AttackDecorator
-{
+public class ExplosionCreation extends AttackDecorator {
     private int range;
 
     private Explosion explosion;
 
-    public ExplosionCreating(Attack attack, Explosion explosion, int range)
-    {
+    public ExplosionCreation(Attack attack, Explosion explosion, int range) {
         super(attack);
 
         this.explosion = explosion;
@@ -20,8 +18,9 @@ public class ExplosionCreating extends AttackDecorator
     }
 
     @Override
-    public void decorate()
-    {
+    public void attack() {
+        super.attack();
+
         explosion.setX(calculateXOfExplosion(getAttacker().getX(),
                 getAttacker().getWidth(), getAttacker().getWidth() * range));
         explosion.setY(calculateYOfExplosion(getAttacker().getY(),
@@ -32,13 +31,11 @@ public class ExplosionCreating extends AttackDecorator
         EntityCache.push("explosion", (Explosion) explosion.clone());
     }
 
-    private float calculateXOfExplosion(float x, int width, int explosionWidth)
-    {
+    private float calculateXOfExplosion(float x, int width, int explosionWidth) {
         return x - (explosionWidth / 2) + (width / 2);
     }
 
-    private float calculateYOfExplosion(float y, int height, int explosionHeight)
-    {
+    private float calculateYOfExplosion(float y, int height, int explosionHeight) {
         return y - explosionHeight + height;
     }
 }

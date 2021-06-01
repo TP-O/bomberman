@@ -8,12 +8,11 @@ import components.actions.pickup.PickUpDecorator;
 import components.entities.dynamics.characters.player.Player;
 import components.entities.statics.items.Item;
 
-public class ItemPickUp extends PickUpDecorator
-{
+public class ItemPickUp extends PickUpDecorator {
+
     private Collision collision;
 
-    public ItemPickUp(PickUp pickUp)
-    {
+    public ItemPickUp(PickUp pickUp) {
         super(pickUp);
 
         collision = new CollisionAction(pickUp.getEntity());
@@ -21,8 +20,9 @@ public class ItemPickUp extends PickUpDecorator
     }
 
     @Override
-    public void decorate()
-    {
+    public void pickUp() {
+        super.pickUp();
+
         if (collision.isCollided()) {
             collision.getCollidedEntities().forEach(item -> {
                 ((Item) item).boost((Player) getEntity());

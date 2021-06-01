@@ -2,7 +2,6 @@ package components.entities;
 
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
-
 import core.Handler;
 
 public abstract class Entity
