@@ -21,3 +21,8 @@ We developed dropping-item features with the purpose of boosting the character s
 ![Phase01](/res/images/preview/phase01.png)
 ![Phase02](/res/images/preview/phase02.png)
 ![Phase03](/res/images/preview/phase03.png)
+
+## References
+
++ [Tutorial](https://www.youtube.com/watch?v=dEKs-3GhVKQ&list=PLah6faXAgguMnTBs3JnEJY0shAc18XYQZ)
++ [Design Pattern](https://sourcemaking.com/)
