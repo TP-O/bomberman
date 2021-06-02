@@ -52,5 +52,8 @@ public abstract class MoveDecorator extends Move
     @Override
     public void move() {
         this.move.move();
+        this.decorate();
     }
+
+    protected abstract void decorate();
 }

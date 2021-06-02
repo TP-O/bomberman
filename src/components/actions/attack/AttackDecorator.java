@@ -12,16 +12,19 @@ public abstract class AttackDecorator implements Attack {
 
     @Override
     public Entity getAttacker() {
-        return attack.getAttacker();
+        return this.attack.getAttacker();
     }
 
     @Override
     public void setAttacker(Entity attacker) {
-        attack.setAttacker(attacker);
+        this.attack.setAttacker(attacker);
     }
 
     @Override
     public void attack() {
-        attack.attack();
+        this.attack.attack();
+        this.decorate();
     }
+
+    protected abstract void decorate();
 }

@@ -25,9 +25,7 @@ public class RandomMove extends MoveDecorator {
     }
 
     @Override
-    public void move() {
-        super.move();
-
+    protected void decorate() {
         if (this.isCollied()) {
             moveIndex = random.nextInt(Direction.values().length);
         }

@@ -15,20 +15,18 @@ public class ItemPickUp extends PickUpDecorator {
     public ItemPickUp(PickUp pickUp) {
         super(pickUp);
 
-        collision = new CollisionAction(pickUp.getEntity());
-        collision = new ItemCollision(collision);
+        this.collision = new CollisionAction(pickUp.getEntity());
+        this.collision = new ItemCollision(collision);
     }
 
     @Override
-    public void pickUp() {
-        super.pickUp();
-
-        if (collision.isCollided()) {
-            collision.getCollidedEntities().forEach(item -> {
-                ((Item) item).boost((Player) getEntity());
+    protected void decorate() {
+        if (this.collision.isCollided()) {
+            this.collision.getCollidedEntities().forEach(item -> {
+                ((Item) item).boost((Player) this.getEntity());
             });
 
-            collision.clearCollidedEntities();
+            this.collision.clearCollidedEntities();
         }
     }
 }

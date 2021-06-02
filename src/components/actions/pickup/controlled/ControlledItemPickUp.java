@@ -11,13 +11,13 @@ public class ControlledItemPickUp extends ItemPickUp {
     public ControlledItemPickUp(PickUp pickUp) {
         super(pickUp);
 
-        handler = Handler.getInstance();
+        this.handler = Handler.getInstance();
     }
 
     @Override
-    public void pickUp() {
-        if (handler.getKeyboard().attack.isPressed()) {
-            super.pickUp();
+    protected void decorate() {
+        if (this.handler.getKeyboard().attack.isPressed()) {
+            super.decorate();
         }
     }
 }

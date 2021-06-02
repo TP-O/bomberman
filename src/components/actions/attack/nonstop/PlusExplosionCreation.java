@@ -40,9 +40,7 @@ public class PlusExplosionCreation extends AttackDecorator {
     }
 
     @Override
-    public void attack() {
-        super.attack();
-
+    protected void decorate() {
         float x = calculateXOfExplosion(getAttacker().getX(),
                 getAttacker().getWidth(), getAttacker().getWidth() * scale);
         float y = calculateYOfExplosion(getAttacker().getY(),

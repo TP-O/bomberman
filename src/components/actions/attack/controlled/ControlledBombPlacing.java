@@ -17,10 +17,9 @@ public class ControlledBombPlacing extends BombPlacing
     }
 
     @Override
-    public void attack()
-    {
+    protected void decorate() {
         if (handler.getKeyboard().attack.isPressed()) {
-            super.attack();
+            super.decorate();
         }
     }
 }

@@ -11,4 +11,9 @@ public class AvoidingSolidTile extends MoveDecorator {
 
         this.setCollision(new SolidTileCollision(this.getCollision()));
     }
+
+    @Override
+    protected void decorate() {
+        //
+    }
 }

@@ -23,41 +23,8 @@ public abstract class Monster extends Character
 
         this.x = x;
         this.y = y;
-
-        margin = 10;
-        padding = 10;
-    }
-
-    @Override
-    protected void setEntityParameters()
-    {
-        width = MonsterConfig.WIDTH;
-        height = MonsterConfig.HEIGHT;
-        health = MonsterConfig.HEALTH;
-        life = MonsterConfig.HEALTH;
-        speed = MonsterConfig.SPEED;
-        damage = MonsterConfig.DAMAGE;
-    }
-
-    @Override
-    protected void initializeActions()
-    {
-        super.initializeActions();
-
-        // Set drop type
-        drop = new DropAcction(this);
-        drop = new RandomItemDrop(drop);
-
-        // Set attack type
-        attack = new AttackAction(this);
-        attack = new PlayerAttack(attack);
-
-        // Set move type
-        move = new RandomMove(move);
-        move = new AvoidingSolidTile(move);
-        move = new AvoidingBlock(move);
-        move = new AvoidingObstacle(move);
-        move = new AvoidingBomb(move);
+        this.margin = 10;
+        this.padding = 10;
     }
 
     @Override
@@ -67,8 +34,40 @@ public abstract class Monster extends Character
 
         if (isDeleted()) {
             // Leave a souvenir :'(
-            drop.drop();
+            this.drop.drop();
         }
+    }
+
+    @Override
+    protected void setEntityParameters()
+    {
+        this.width = MonsterConfig.WIDTH;
+        this.height = MonsterConfig.HEIGHT;
+        this.health = MonsterConfig.HEALTH;
+        this.life = MonsterConfig.HEALTH;
+        this.speed = MonsterConfig.SPEED;
+        this.damage = MonsterConfig.DAMAGE;
+    }
+
+    @Override
+    protected void initializeActions()
+    {
+        super.initializeActions();
+
+        // Set drop type
+        this.drop = new DropAcction(this);
+        this.drop = new RandomItemDrop(drop);
+
+        // Set attack type
+        this.attack = new AttackAction(this);
+        this.attack = new PlayerAttack(attack);
+
+        // Set move type
+        this.move = new RandomMove(move);
+        this.move = new AvoidingSolidTile(move);
+        this.move = new AvoidingBlock(move);
+        this.move = new AvoidingObstacle(move);
+        this.move = new AvoidingBomb(move);
     }
 
     @Override
@@ -77,6 +76,6 @@ public abstract class Monster extends Character
         super.tick();
 
         // Attack
-        attack.attack();
+        this.attack.attack();
     }
 }

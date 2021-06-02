@@ -12,11 +12,14 @@ public abstract class PickUpDecorator implements PickUp {
 
     @Override
     public Entity getEntity() {
-        return pickUp.getEntity();
+        return this.pickUp.getEntity();
     }
 
     @Override
     public void pickUp() {
-        pickUp.pickUp();
+        this.pickUp.pickUp();
+        this.decorate();
     }
+
+    protected abstract void decorate();
 }

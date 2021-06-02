@@ -11,4 +11,9 @@ public class AvoidingBomb extends MoveDecorator {
 
         this.setCollision(new BombCollision(this.getCollision()));
     }
+
+    @Override
+    protected void decorate() {
+        //
+    }
 }

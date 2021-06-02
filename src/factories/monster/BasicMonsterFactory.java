@@ -39,6 +39,10 @@ public class BasicMonsterFactory implements MonsterFactory
                 monster = new Boss(x, y);
                 break;
 
+            case "Suicide":
+                monster = new Suicide(x, y);
+                break;
+
             default:
                 monster = null;
         }

@@ -26,9 +26,7 @@ public class HealthDisplay extends DisplayDecorator {
     }
 
     @Override
-    public void display(Graphics graphics) {
-        super.display(graphics);
-
+    public void decorate(Graphics graphics) {
         displayBox(graphics);
         displayHealth(graphics);
         displayText(graphics);

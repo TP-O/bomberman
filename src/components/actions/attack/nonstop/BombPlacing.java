@@ -18,9 +18,7 @@ public class BombPlacing extends AttackDecorator {
     }
 
     @Override
-    public void attack() {
-        super.attack();
-
+    protected void decorate() {
         long now = System.currentTimeMillis();
 
         float x = getAttacker().getX() + getAttacker().getWidth() / 4;
