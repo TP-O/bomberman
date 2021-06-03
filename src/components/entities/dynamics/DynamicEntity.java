@@ -46,6 +46,10 @@ public abstract class DynamicEntity extends Entity
         move.move();
     }
 
+    public Move getMove() {
+        return move;
+    }
+
     public List<BufferedImage> getUpFrames()
     {
         return upFrames;

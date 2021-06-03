@@ -78,4 +78,5 @@ public abstract class Monster extends Character
         // Attack
         this.attack.attack();
     }
+
 }

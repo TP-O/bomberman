@@ -2,6 +2,7 @@ package components.entities.dynamics.characters.player;
 
 import components.actions.attack.Attack;
 import components.actions.attack.AttackAction;
+import components.actions.attack.random.RandomReleaseSuicideMonster;
 import components.actions.attack.controlled.ControlledBombPlacing;
 import components.actions.move.collision.*;
 import components.actions.move.type.KeyboardBasedMove;
@@ -60,6 +61,7 @@ public abstract class Player extends Character {
 
         attack = new AttackAction(this);
         attack = new ControlledBombPlacing(attack, bomb);
+        attack = new RandomReleaseSuicideMonster(attack);
 
         pickUp = new PickUpAction(this);
         pickUp = new ItemPickUp(pickUp);
@@ -69,6 +71,7 @@ public abstract class Player extends Character {
         move = new AvoidingObstacle(move);
         move = new AvoidingBlock(move);
         move = new AvoidingBomb(move);
+        
     }
 
     @Override
