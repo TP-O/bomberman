@@ -4,11 +4,10 @@ import app.cache.GameCache;
 import components.entities.dynamics.characters.player.Player;
 import components.entities.dynamics.characters.player.children.*;
 
-public class BasicPlayerFactory implements PlayerFactory
-{
+public class BasicPlayerFactory implements PlayerFactory {
+
     @Override
-    public Player createPlayer(float x, float y)
-    {
+    public Player createPlayer(float x, float y) {
         Player player = null;
 
         switch ((String) GameCache.get("selected-player")) {

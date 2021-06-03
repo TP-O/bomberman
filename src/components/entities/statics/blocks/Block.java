@@ -6,12 +6,11 @@ import components.actions.drop.random.RandomItemDrop;
 import components.entities.statics.StaticEntity;
 import config.TileConfig;
 
-public abstract class Block extends StaticEntity
-{
+public abstract class Block extends StaticEntity {
+
     protected Drop drop;
 
-    public Block(float x, float y)
-    {
+    public Block(float x, float y) {
         super();
 
         this.x = x;
@@ -19,8 +18,7 @@ public abstract class Block extends StaticEntity
     }
 
     @Override
-    protected void setEntityParameters()
-    {
+    protected void setEntityParameters() {
         margin = 0;
         padding = 0;
         width = TileConfig.WIDTH;
@@ -28,8 +26,7 @@ public abstract class Block extends StaticEntity
     }
 
     @Override
-    protected void initializeActions()
-    {
+    protected void initializeActions() {
         super.initializeActions();
 
         drop = new DropAcction(this);
@@ -37,8 +34,7 @@ public abstract class Block extends StaticEntity
     }
 
     @Override
-    public void delete()
-    {
+    public void delete() {
         super.delete();
 
         // Leave a souvenir :'(

@@ -7,8 +7,8 @@ import components.entities.statics.explosions.Explosion;
 import components.entities.statics.explosions.children.ExplosionA;
 import config.TileConfig;
 
-public abstract class Bomb extends StaticEntity implements Cloneable
-{
+public abstract class Bomb extends StaticEntity implements Cloneable {
+
     protected int range;
 
     protected int timer;
@@ -20,8 +20,7 @@ public abstract class Bomb extends StaticEntity implements Cloneable
     protected Explosion explosion;
 
     @Override
-    protected void setEntityParameters()
-    {
+    protected void setEntityParameters() {
         range = 2;
         timer = 2000;
         width = TileConfig.WIDTH / 2;
@@ -31,14 +30,12 @@ public abstract class Bomb extends StaticEntity implements Cloneable
     }
 
     @Override
-    public Object clone()
-    {
+    public Object clone() {
         try {
             Bomb b = (Bomb) super.clone();
 
             return setClone(b);
-        }
-        catch (CloneNotSupportedException e) {
+        } catch (CloneNotSupportedException e) {
             e.printStackTrace();
         }
 
@@ -46,8 +43,7 @@ public abstract class Bomb extends StaticEntity implements Cloneable
     }
 
     @Override
-    public void tick()
-    {
+    public void tick() {
         long now = System.currentTimeMillis();
 
         // The bomb will be deleted if the time is up
@@ -57,34 +53,28 @@ public abstract class Bomb extends StaticEntity implements Cloneable
 
             // Delete bomb
             delete();
-        }
-        else {
+        } else {
             super.tick();
         }
     }
 
-    public Explosion getExplosion()
-    {
+    public Explosion getExplosion() {
         return explosion;
     }
 
-    public void setRange(int range)
-    {
+    public void setRange(int range) {
         this.range = range > 0 ? range : 1;
     }
 
-    public void setCreatedTime()
-    {
+    public void setCreatedTime() {
         createdTime = System.currentTimeMillis();
     }
 
-    public void setAttack(Attack attack)
-    {
+    public void setAttack(Attack attack) {
         this.attack = attack;
     }
 
-    public void setAnimation(StaticAnimation animation)
-    {
+    public void setAnimation(StaticAnimation animation) {
         this.animation = animation;
     }
 

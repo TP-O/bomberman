@@ -7,16 +7,15 @@ import java.awt.event.MouseMotionListener;
 import modules.Module;
 import core.Handler;
 
-public class Mouse implements MouseListener, MouseMotionListener, Module
-{
+public class Mouse implements MouseListener, MouseMotionListener, Module {
+
     public int mouseX, mouseY;
 
     public Key left, right;
 
     private int mouseLeft, mouseRight;
 
-    public Mouse()
-    {
+    public Mouse() {
         left = new Key();
         right = new Key();
 
@@ -25,61 +24,51 @@ public class Mouse implements MouseListener, MouseMotionListener, Module
     }
 
     @Override
-    public void mouseDragged(MouseEvent event)
-    {
+    public void mouseDragged(MouseEvent event) {
         //
     }
 
     @Override
-    public void mouseMoved(MouseEvent event)
-    {
+    public void mouseMoved(MouseEvent event) {
         mouseX = event.getX();
         mouseY = event.getY();
     }
 
     @Override
-    public void mouseClicked(MouseEvent event)
-    {
+    public void mouseClicked(MouseEvent event) {
 
     }
 
     @Override
-    public void mousePressed(MouseEvent event)
-    {
+    public void mousePressed(MouseEvent event) {
         toggle(event.getButton(), true);
     }
 
     @Override
-    public void mouseReleased(MouseEvent event)
-    {
+    public void mouseReleased(MouseEvent event) {
         toggle(event.getButton(), false);
     }
 
     @Override
-    public void mouseEntered(MouseEvent event)
-    {
+    public void mouseEntered(MouseEvent event) {
         //
     }
 
     @Override
-    public void mouseExited(MouseEvent event)
-    {
+    public void mouseExited(MouseEvent event) {
         //
     }
 
-    public void toggle(int mouseButton, boolean isPressed)
-    {
+    public void toggle(int mouseButton, boolean isPressed) {
         if (mouseButton == mouseLeft) {
             left.toggle(isPressed);
-        }
-        else if (mouseButton == mouseRight) {
+        } else if (mouseButton == mouseRight) {
             right.toggle(isPressed);
         }
     }
 
     @Override
-    public void register(Handler handler)
-    {
+    public void register(Handler handler) {
         handler.getFrame().addMouseListener(this);
         handler.getFrame().addMouseMotionListener(this);
         handler.getCanvas().addMouseListener(this);

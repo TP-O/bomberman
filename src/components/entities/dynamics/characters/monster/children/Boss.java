@@ -6,18 +6,16 @@ import components.entities.dynamics.characters.monster.Monster;
 import components.entities.statics.bombs.Bomb;
 import components.entities.statics.bombs.children.BombB;
 
-public class Boss extends Monster
-{
+public class Boss extends Monster {
+
     private Bomb bomb;
 
-    public Boss(float x, float y)
-    {
+    public Boss(float x, float y) {
         super(x, y);
     }
 
     @Override
-    protected void setEntityParameters()
-    {
+    protected void setEntityParameters() {
         super.setEntityParameters();
 
         life = 500;
@@ -28,23 +26,18 @@ public class Boss extends Monster
         height = 130;
 
         bomb = new BombB();
-        bomb.getExplosion().setTargets(new String[] {
-            "Player",
-            "Block",
-        });
+        bomb.getExplosion().setTargets(new String[] { "Player", "Block", });
     }
 
     @Override
-    protected void initializeActions()
-    {
+    protected void initializeActions() {
         super.initializeActions();
 
         attack = new RandomBombPlacing(attack, bomb);
     }
 
     @Override
-    protected void loadAllFrames()
-    {
+    protected void loadAllFrames() {
         super.loadAllFrames();
 
         upFrames.add(Asset.get("shinyzygarde").crop(0, 2898, 852, 943));

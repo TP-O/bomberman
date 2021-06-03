@@ -12,13 +12,13 @@ public abstract class DropDecorator implements Drop {
 
     @Override
     public Entity getEntity() {
-        return this.drop.getEntity();
+        return drop.getEntity();
     }
 
     @Override
     public void drop() {
-        this.drop.drop();
-        this.decorate();
+        drop.drop();
+        decorate();
     }
 
     protected abstract void decorate();

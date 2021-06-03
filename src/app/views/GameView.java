@@ -11,14 +11,13 @@ import components.ui.button.PauseButton;
 import core.Handler;
 import core.Router;
 
-public class GameView extends View
-{
+public class GameView extends View {
+
     private Handler handler;
 
     private String[] entities;
 
-    public GameView()
-    {
+    public GameView() {
         super();
 
         handler = Handler.getInstance();
@@ -36,24 +35,21 @@ public class GameView extends View
     }
 
     @Override
-    public void buildUI()
-    {
+    public void buildUI() {
         elements = new ArrayList<Element>();
 
         elements.add(new PauseButton(11, 1, 5, 0, 0, 5));
     }
 
     @Override
-    public void reset()
-    {
+    public void reset() {
         for (String entity: entities) {
             EntityCache.get(entity).clear();
         }
     }
 
     @Override
-    public void tick()
-    {
+    public void tick() {
         handler.getMap().tick();
 
         elements.forEach(element -> element.tick());
@@ -90,8 +86,7 @@ public class GameView extends View
     }
 
     @Override
-    public void render(Graphics graphics)
-    {
+    public void render(Graphics graphics) {
         handler.getMap().render(graphics);
 
         elements.forEach(element -> element.render(graphics));

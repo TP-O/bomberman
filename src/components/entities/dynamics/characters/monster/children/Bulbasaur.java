@@ -3,16 +3,14 @@ package components.entities.dynamics.characters.monster.children;
 import asset.Asset;
 import components.entities.dynamics.characters.monster.Monster;
 
-public class Bulbasaur extends Monster
-{
-    public Bulbasaur(float x, float y)
-    {
+public class Bulbasaur extends Monster {
+
+    public Bulbasaur(float x, float y) {
         super(x, y);
     }
 
     @Override
-    protected void setEntityParameters()
-    {
+    protected void setEntityParameters() {
         super.setEntityParameters();
 
         life = 5;
@@ -21,8 +19,7 @@ public class Bulbasaur extends Monster
     }
 
     @Override
-    protected void loadAllFrames()
-    {
+    protected void loadAllFrames() {
         super.loadAllFrames();
 
         upFrames.add(Asset.get("bulbasaur").crop(34, 400, 76, 76));

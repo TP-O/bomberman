@@ -3,11 +3,10 @@ package factories.monster;
 import components.entities.dynamics.characters.monster.Monster;
 import components.entities.dynamics.characters.monster.children.*;
 
-public class BasicMonsterFactory implements MonsterFactory
-{
+public class BasicMonsterFactory implements MonsterFactory {
+
     @Override
-    public Monster createMonster(String type, float x, float y)
-    {
+    public Monster createMonster(String type, float x, float y) {
         Monster monster = null;
 
         switch (type) {

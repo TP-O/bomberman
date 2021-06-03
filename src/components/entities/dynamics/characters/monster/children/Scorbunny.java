@@ -3,16 +3,14 @@ package components.entities.dynamics.characters.monster.children;
 import asset.Asset;
 import components.entities.dynamics.characters.monster.Monster;
 
-public class Scorbunny extends Monster
-{
-    public Scorbunny(float x, float y)
-    {
+public class Scorbunny extends Monster {
+
+    public Scorbunny(float x, float y) {
         super(x, y);
     }
 
     @Override
-    protected void setEntityParameters()
-    {
+    protected void setEntityParameters() {
         super.setEntityParameters();
 
         life = 1;
@@ -22,8 +20,7 @@ public class Scorbunny extends Monster
     }
 
     @Override
-    protected void loadAllFrames()
-    {
+    protected void loadAllFrames() {
         super.loadAllFrames();
 
         upFrames.add(Asset.get("scorbunny").crop(12, 90, 56, 58));

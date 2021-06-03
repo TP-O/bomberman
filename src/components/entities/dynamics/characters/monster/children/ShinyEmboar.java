@@ -3,16 +3,14 @@ package components.entities.dynamics.characters.monster.children;
 import asset.Asset;
 import components.entities.dynamics.characters.monster.Monster;
 
-public class ShinyEmboar extends Monster
-{
-    public ShinyEmboar(float x, float y)
-    {
+public class ShinyEmboar extends Monster {
+
+    public ShinyEmboar(float x, float y) {
         super(x, y);
     }
 
     @Override
-    protected void setEntityParameters()
-    {
+    protected void setEntityParameters() {
         super.setEntityParameters();
 
         life = 5;
@@ -22,8 +20,7 @@ public class ShinyEmboar extends Monster
     }
 
     @Override
-    protected void loadAllFrames()
-    {
+    protected void loadAllFrames() {
         super.loadAllFrames();
 
         upFrames.add(Asset.get("emboar").crop(2875, 2920, 844, 921));

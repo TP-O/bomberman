@@ -3,6 +3,7 @@ package routes;
 import core.Router;
 
 public class RouterRegistration {
+
     private Router router;
 
     public RouterRegistration() {

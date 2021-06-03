@@ -1,6 +1,5 @@
 package app.listeners;
 
-public interface Listener
-{
-    public void handle();    
+public interface Listener {
+    public void handle();
 }

@@ -15,8 +15,8 @@ import config.AppConfig;
 import config.GameConfig;
 import asset.Asset;
 
-public class Handler
-{
+public class Handler {
+
     private Map map;
 
     private Game game;
@@ -25,13 +25,11 @@ public class Handler
 
     private static Handler instance;
 
-    private Handler()
-    {
+    private Handler() {
         game = new Game();
     }
 
-    public static Handler getInstance()
-    {
+    public static Handler getInstance() {
         if (instance == null) {
             instance = new Handler();
         }
@@ -39,45 +37,37 @@ public class Handler
         return instance;
     }
 
-    public Map getMap()
-    {
+    public Map getMap() {
         return map;
     }
 
-    public JFrame getFrame()
-    {
+    public JFrame getFrame() {
         return game.getWindow().getFrame();
     }
 
-    public Canvas getCanvas()
-    {
+    public Canvas getCanvas() {
         return game.getWindow().getCanvas();
     }
 
-    public Keyboard getKeyboard()
-    {
+    public Keyboard getKeyboard() {
         return (Keyboard) provider.modules.get("keyboard");
     }
 
-    public Mouse getMouse()
-    {
+    public Mouse getMouse() {
         return (Mouse) provider.modules.get("mouse");
     }
 
-    public Camera getCamera()
-    {
+    public Camera getCamera() {
         return (Camera) provider.modules.get("camera");
     }
 
-    public void prepareData()
-    {
+    public void prepareData() {
         // First data
         GameCache.push("phase", 0);
         GameCache.push("selected-player", "Satoshi");
     }
 
-    public void bootstrap()
-    {
+    public void bootstrap() {
         // Initialize image, sound,...
         Asset.init();
 
@@ -100,8 +90,7 @@ public class Handler
         routerRegistration.register();
     }
 
-    public void launch()
-    {
+    public void launch() {
         bootstrap();
         game.start();
     }

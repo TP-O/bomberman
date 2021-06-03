@@ -18,21 +18,20 @@ public abstract class Move {
     public Move(DynamicEntity entity) {
         this.entity = entity;
 
-        animation = new MovingAnimation(entity, 250);
-
-        collision = new CollisionAction(entity);
+        this.animation = new MovingAnimation(entity, 250);
+        this.collision = new CollisionAction(entity);
     }
 
     public boolean isCollied() {
-        return this.collied;
+        return collied;
     }
 
     public DynamicEntity getEntity() {
-        return this.entity;
+        return entity;
     }
 
     public Collision getCollision() {
-        return this.collision;
+        return collision;
     }
 
     public void setCollision(Collision collision) {
@@ -41,13 +40,13 @@ public abstract class Move {
 
     public void moveUp() {
         if (!collision.isCollidedTop()) {
-            this.collied = false;
+            collied = false;
 
             float y = entity.getY();
             entity.setY(y - entity.getSpeed());
         }
         else {
-            this.collied = true;
+            collied = true;
         }
 
         animation.up();
@@ -55,13 +54,13 @@ public abstract class Move {
 
     public void moveDown() {
         if (!collision.isCollidedBottom()) {
-            this.collied = false;
+            collied = false;
 
             float y = entity.getY();
             entity.setY(y + entity.getSpeed());
         }
         else {
-            this.collied = true;
+            collied = true;
         }
 
         animation.down();
@@ -69,13 +68,13 @@ public abstract class Move {
 
     public void moveLeft() {
         if (!collision.isCollidedLeft()) {
-            this.collied = false;
+            collied = false;
 
             float x = entity.getX();
             entity.setX(x - entity.getSpeed());
         }
         else {
-            this.collied = true;
+            collied = true;
         }
 
         animation.left();
@@ -83,13 +82,13 @@ public abstract class Move {
 
     public void moveRight() {
         if (!collision.isCollidedRight()) {
-            this.collied = false;
+            collied = false;
 
             float x = entity.getX();
             entity.setX(x + entity.getSpeed());
         }
         else {
-            this.collied = true;
+            collied = true;
         }
 
         animation.right();

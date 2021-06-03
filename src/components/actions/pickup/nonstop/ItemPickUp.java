@@ -21,12 +21,12 @@ public class ItemPickUp extends PickUpDecorator {
 
     @Override
     protected void decorate() {
-        if (this.collision.isCollided()) {
-            this.collision.getCollidedEntities().forEach(item -> {
-                ((Item) item).boost((Player) this.getEntity());
+        if (collision.isCollided()) {
+            collision.getCollidedEntities().forEach(item -> {
+                ((Item) item).boost((Player) getEntity());
             });
 
-            this.collision.clearCollidedEntities();
+            collision.clearCollidedEntities();
         }
     }
 }

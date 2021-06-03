@@ -11,71 +11,66 @@ import components.actions.move.collision.*;
 import components.actions.move.type.RandomMove;
 import components.entities.dynamics.characters.Character;
 
-public abstract class Monster extends Character
-{
+public abstract class Monster extends Character {
+
     protected Drop drop;
 
     protected Attack attack;
 
-    public Monster(float x, float y)
-    {
+    public Monster(float x, float y) {
         super();
 
         this.x = x;
         this.y = y;
-        this.margin = 10;
-        this.padding = 10;
     }
 
     @Override
-    public void setHealth(int health)
-    {
+    public void setHealth(int health) {
         super.setHealth(health);
 
         if (isDeleted()) {
             // Leave a souvenir :'(
-            this.drop.drop();
+            drop.drop();
         }
     }
 
     @Override
-    protected void setEntityParameters()
-    {
-        this.width = MonsterConfig.WIDTH;
-        this.height = MonsterConfig.HEIGHT;
-        this.health = MonsterConfig.HEALTH;
-        this.life = MonsterConfig.HEALTH;
-        this.speed = MonsterConfig.SPEED;
-        this.damage = MonsterConfig.DAMAGE;
+    protected void setEntityParameters() {
+        margin = 10;
+        padding = 10;
+        width = MonsterConfig.WIDTH;
+        height = MonsterConfig.HEIGHT;
+        health = MonsterConfig.HEALTH;
+        life = MonsterConfig.HEALTH;
+        speed = MonsterConfig.SPEED;
+        damage = MonsterConfig.DAMAGE;
     }
 
     @Override
-    protected void initializeActions()
-    {
+    protected void initializeActions() {
         super.initializeActions();
 
         // Set drop type
-        this.drop = new DropAcction(this);
-        this.drop = new RandomItemDrop(drop);
+        drop = new DropAcction(this);
+        drop = new RandomItemDrop(drop);
 
         // Set attack type
-        this.attack = new AttackAction(this);
-        this.attack = new PlayerAttack(attack);
+        attack = new AttackAction(this);
+        attack = new PlayerAttack(attack);
 
         // Set move type
-        this.move = new RandomMove(move);
-        this.move = new AvoidingSolidTile(move);
-        this.move = new AvoidingBlock(move);
-        this.move = new AvoidingObstacle(move);
-        this.move = new AvoidingBomb(move);
+        move = new RandomMove(move);
+        move = new AvoidingSolidTile(move);
+        move = new AvoidingBlock(move);
+        move = new AvoidingObstacle(move);
+        move = new AvoidingBomb(move);
     }
 
     @Override
-    public void tick()
-    {
+    public void tick() {
         super.tick();
 
         // Attack
-        this.attack.attack();
+        attack.attack();
     }
 }

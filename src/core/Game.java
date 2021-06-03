@@ -7,8 +7,8 @@ import java.awt.Graphics;
 import config.AppConfig;
 import config.GameConfig;
 
-public class Game implements Runnable
-{
+public class Game implements Runnable {
+
     public final String NAME;
 
     public final int WIDTH;
@@ -27,8 +27,7 @@ public class Game implements Runnable
 
     private BufferStrategy bs;
 
-    public Game()
-    {
+    public Game() {
         NAME = AppConfig.NAME;
         WIDTH = GameConfig.WIDTH;
         HEIGHT = GameConfig.HEIGHT;
@@ -36,22 +35,18 @@ public class Game implements Runnable
         router = Router.getInstance();
     }
 
-    public Window getWindow()
-    {
+    public Window getWindow() {
         return window;
     }
 
-    public void setWindow(Window window)
-    {
+    public void setWindow(Window window) {
         this.window = window;
     }
 
-    public synchronized void start()
-    {
+    public synchronized void start() {
         if (running) {
             return;
-        }
-        else {
+        } else {
             running = true;
         }
 
@@ -60,31 +55,26 @@ public class Game implements Runnable
         thread.start();
     }
 
-    public synchronized void stop()
-    {
+    public synchronized void stop() {
         if (!running) {
             return;
-        }
-        else {
+        } else {
             running = false;
         }
-        
+
         try {
             // Stop the game
             thread.join();
-        }
-        catch (InterruptedException e) {
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }
 
-    public void tick()
-    {
+    public void tick() {
         router.tick();
     }
 
-    public void render()
-    {
+    public void render() {
         bs = window.getCanvas().getBufferStrategy();
 
         if (bs == null) {
@@ -93,7 +83,7 @@ public class Game implements Runnable
         }
 
         graphics = bs.getDrawGraphics();
-        
+
         // Clear screen
         graphics.clearRect(0, 0, WIDTH, HEIGHT);
 
@@ -105,11 +95,10 @@ public class Game implements Runnable
     }
 
     // Run the game
-    public void run()
-    {
+    public void run() {
         // Update times per seconds
         int fps = GameConfig.FPS;
-        double timePerTick = 1000000000/fps;
+        double timePerTick = 1000000000 / fps;
         double delta = 0;
         long now;
         long lastTime = System.nanoTime();
@@ -117,7 +106,7 @@ public class Game implements Runnable
         // Update and render every second - 60 times
         while (running) {
             now = System.nanoTime();
-            delta += (now - lastTime)/timePerTick;
+            delta += (now - lastTime) / timePerTick;
             lastTime = now;
 
             if (delta >= 1) {
@@ -127,8 +116,7 @@ public class Game implements Runnable
 
             try {
                 Thread.sleep(10);
-            }
-            catch (InterruptedException e) {
+            } catch (InterruptedException e) {
                 e.printStackTrace();
             }
 

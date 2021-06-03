@@ -17,6 +17,6 @@ public class StaticAnimation extends Animation {
     public void tick() {
         super.tick();
 
-        this.entity.setCurrentFrame(frames.get(getIndex()));
+        entity.setCurrentFrame(frames.get(getIndex()));
     }
 }

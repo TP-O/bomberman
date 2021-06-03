@@ -24,7 +24,7 @@ public class PlusExplosionCreation extends AttackDecorator {
 
     private List<Explosion> explosions;
 
-    public PlusExplosionCreation(Attack attack,  Explosion explosion, int range) {
+    public PlusExplosionCreation(Attack attack, Explosion explosion, int range) {
         super(attack);
 
         this.range = range;
@@ -41,10 +41,10 @@ public class PlusExplosionCreation extends AttackDecorator {
 
     @Override
     protected void decorate() {
-        float x = calculateXOfExplosion(getAttacker().getX(),
-                getAttacker().getWidth(), getAttacker().getWidth() * scale);
-        float y = calculateYOfExplosion(getAttacker().getY(),
-                getAttacker().getHeight(), getAttacker().getHeight() * scale);
+        float x = calculateXOfExplosion(getAttacker().getX(), getAttacker().getWidth(),
+                getAttacker().getWidth() * scale);
+        float y = calculateYOfExplosion(getAttacker().getY(), getAttacker().getHeight(),
+                getAttacker().getHeight() * scale);
 
         explosions.clear();
 
@@ -95,8 +95,7 @@ public class PlusExplosionCreation extends AttackDecorator {
         }
     }
 
-    private void createLeftExplosion(float x, float y)
-    {
+    private void createLeftExplosion(float x, float y) {
         for (int i = 1; i <= range; i++) {
             handle(x - getAttacker().getWidth() * scale * i, y);
 

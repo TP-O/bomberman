@@ -3,16 +3,14 @@ package components.entities.dynamics.characters.monster.children;
 import asset.Asset;
 import components.entities.dynamics.characters.monster.Monster;
 
-public class ShinyZygarde extends Monster
-{
-    public ShinyZygarde(float x, float y)
-    {
+public class ShinyZygarde extends Monster {
+
+    public ShinyZygarde(float x, float y) {
         super(x, y);
     }
 
     @Override
-    protected void setEntityParameters()
-    {
+    protected void setEntityParameters() {
         super.setEntityParameters();
 
         life = 50;
@@ -22,8 +20,7 @@ public class ShinyZygarde extends Monster
     }
 
     @Override
-    protected void loadAllFrames()
-    {
+    protected void loadAllFrames() {
         super.loadAllFrames();
 
         upFrames.add(Asset.get("monster2").crop(6, 182, 42, 42));

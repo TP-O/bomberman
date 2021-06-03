@@ -23,29 +23,29 @@ public abstract class Animation {
     }
 
     public int getIndex() {
-        return this.index;
+        return index;
     }
 
     public void resetIndex() {
-        this.index = 0;
+        index = 0;
     }
 
     public void setFrames(List<BufferedImage> frames) {
         this.frames = frames;
 
-        this.resetIndex();
+        resetIndex();
     }
 
     public void tick() {
-        this.timer += System.currentTimeMillis() - this.lastTime;
-        this.lastTime = System.currentTimeMillis();
+        timer += System.currentTimeMillis() - lastTime;
+        lastTime = System.currentTimeMillis();
 
-        if (this.timer > this.speed)
+        if (timer > speed)
         {
-            this.index++;
-            this.timer = 0;
+            index++;
+            timer = 0;
 
-            if (this.index >= this.frames.size()) {
+            if (index >= frames.size()) {
                 resetIndex();
             }
         }

@@ -3,7 +3,6 @@ package components.actions.attack;
 import components.entities.Entity;
 
 public abstract class AttackDecorator implements Attack {
-
     private Attack attack;
 
     public AttackDecorator(Attack attack) {
@@ -12,18 +11,18 @@ public abstract class AttackDecorator implements Attack {
 
     @Override
     public Entity getAttacker() {
-        return this.attack.getAttacker();
+        return attack.getAttacker();
     }
 
     @Override
     public void setAttacker(Entity attacker) {
-        this.attack.setAttacker(attacker);
+        attack.setAttacker(attacker);
     }
 
     @Override
     public void attack() {
-        this.attack.attack();
-        this.decorate();
+        attack.attack();
+        decorate();
     }
 
     protected abstract void decorate();

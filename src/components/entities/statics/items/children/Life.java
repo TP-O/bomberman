@@ -4,13 +4,12 @@ import asset.Asset;
 import components.entities.dynamics.characters.player.Player;
 import components.entities.statics.items.Item;
 
-public class Life extends Item
-{
+public class Life extends Item {
+
     private final int VALUE = 20;
 
     @Override
-    protected void setEntityParameters()
-    {
+    protected void setEntityParameters() {
         super.setEntityParameters();
 
         width = 32;
@@ -19,8 +18,7 @@ public class Life extends Item
     }
 
     @Override
-    protected void loadAllFrames()
-    {
+    protected void loadAllFrames() {
         super.loadAllFrames();
 
         frames.add(Asset.get("life").crop(1, 7, 72, 72));
@@ -43,8 +41,7 @@ public class Life extends Item
     }
 
     @Override
-    public void boost(Player player)
-    {
+    public void boost(Player player) {
         // Increase life
         player.setLife(player.getLife() + VALUE);
 

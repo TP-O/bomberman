@@ -14,10 +14,9 @@ import components.entities.statics.obstacles.Obstacle;
 import components.entities.statics.traps.Trap;
 import helper.Helper;
 
-public class GameController
-{
-    public View playSolo()
-    {
+public class GameController {
+
+    public View playSolo() {
         // Init view
         View view = new GameView();
         view.reset();

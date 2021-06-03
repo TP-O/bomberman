@@ -3,16 +3,14 @@ package components.entities.dynamics.characters.monster.children;
 import asset.Asset;
 import components.entities.dynamics.characters.monster.Monster;
 
-public class AlolanPersian extends Monster
-{
-    public AlolanPersian(float x, float y)
-    {
+public class AlolanPersian extends Monster {
+
+    public AlolanPersian(float x, float y) {
         super(x, y);
     }
 
     @Override
-    protected void setEntityParameters()
-    {
+    protected void setEntityParameters() {
         super.setEntityParameters();
 
         life = 10;
@@ -22,8 +20,7 @@ public class AlolanPersian extends Monster
     }
 
     @Override
-    protected void loadAllFrames()
-    {
+    protected void loadAllFrames() {
         super.loadAllFrames();
 
         upFrames.add(Asset.get("alolanpersian").crop(10, 202, 128, 112));

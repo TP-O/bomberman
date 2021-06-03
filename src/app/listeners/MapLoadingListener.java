@@ -2,21 +2,16 @@ package app.listeners;
 
 import core.Handler;
 
-public class MapLoadingListener implements Listener
-{
+public class MapLoadingListener implements Listener {
+
     private int phase;
 
-    public MapLoadingListener(int phase)
-    {
+    public MapLoadingListener(int phase) {
         this.phase = phase;
     }
 
     @Override
-    public void handle()
-    {
-        Handler
-            .getInstance()
-            .getMap()
-            .loadMap(phase);
-    }    
+    public void handle() {
+        Handler.getInstance().getMap().loadMap(phase);
+    }
 }

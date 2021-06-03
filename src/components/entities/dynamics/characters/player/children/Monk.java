@@ -3,16 +3,14 @@ package components.entities.dynamics.characters.player.children;
 import asset.Asset;
 import components.entities.dynamics.characters.player.Player;
 
-public class Monk extends Player
-{
-    public Monk(float x, float y)
-    {
+public class Monk extends Player {
+
+    public Monk(float x, float y) {
         super(x, y);
     }
 
     @Override
-    protected void setEntityParameters()
-    {
+    protected void setEntityParameters() {
         super.setEntityParameters();
 
         life = 60;
@@ -21,8 +19,7 @@ public class Monk extends Player
     }
 
     @Override
-    protected void loadAllFrames()
-    {
+    protected void loadAllFrames() {
         super.loadAllFrames();
 
         upFrames.add(Asset.get("monk").crop(436, 701, 357, 454));

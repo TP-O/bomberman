@@ -16,7 +16,7 @@ public class ControlledItemPickUp extends ItemPickUp {
 
     @Override
     protected void decorate() {
-        if (this.handler.getKeyboard().attack.isPressed()) {
+        if (handler.getKeyboard().attack.isPressed()) {
             super.decorate();
         }
     }

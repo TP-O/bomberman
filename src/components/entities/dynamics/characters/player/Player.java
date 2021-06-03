@@ -41,17 +41,13 @@ public abstract class Player extends Character {
     @Override
     protected void setEntityParameters() {
         width = PlayerConfig.WIDTH;
-        height =  PlayerConfig.HEIGHT;
+        height = PlayerConfig.HEIGHT;
         speed = PlayerConfig.SPEED;
         health = PlayerConfig.HEALTH;
         life = PlayerConfig.HEALTH;
 
         bomb = new BombB();
-        bomb.getExplosion().setTargets(new String[] {
-            "Player",
-            "Monster",
-            "Block",
-        });
+        bomb.getExplosion().setTargets(new String[] { "Player", "Monster", "Block", });
     }
 
     @Override

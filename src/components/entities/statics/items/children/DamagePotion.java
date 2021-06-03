@@ -4,13 +4,12 @@ import asset.Asset;
 import components.entities.dynamics.characters.player.Player;
 import components.entities.statics.items.Item;
 
-public class DamagePotion extends Item
-{
+public class DamagePotion extends Item {
+
     private final int VALUE = 5;
 
     @Override
-    protected void setEntityParameters()
-    {
+    protected void setEntityParameters() {
         super.setEntityParameters();
 
         width = 32;
@@ -19,8 +18,7 @@ public class DamagePotion extends Item
     }
 
     @Override
-    protected void loadAllFrames()
-    {
+    protected void loadAllFrames() {
         super.loadAllFrames();
 
         frames.add(Asset.get("damage-potion").crop(4, 7, 116, 164));
@@ -34,11 +32,9 @@ public class DamagePotion extends Item
     }
 
     @Override
-    public void boost(Player player)
-    {
+    public void boost(Player player) {
         // Increase explosion's damage
-        player.getBomb().getExplosion().setDamage(
-                    player.getBomb().getExplosion().getDamage() + VALUE);
+        player.getBomb().getExplosion().setDamage(player.getBomb().getExplosion().getDamage() + VALUE);
 
         // Delete item
         delete();

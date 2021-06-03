@@ -3,16 +3,14 @@ package components.entities.dynamics.characters.player.children;
 import asset.Asset;
 import components.entities.dynamics.characters.player.Player;
 
-public class Kirito extends Player
-{
-    public Kirito(float x, float y)
-    {
+public class Kirito extends Player {
+
+    public Kirito(float x, float y) {
         super(x, y);
     }
 
     @Override
-    protected void setEntityParameters()
-    {
+    protected void setEntityParameters() {
         super.setEntityParameters();
 
         life = 120;
@@ -21,8 +19,7 @@ public class Kirito extends Player
     }
 
     @Override
-    protected void loadAllFrames()
-    {
+    protected void loadAllFrames() {
         super.loadAllFrames();
 
         upFrames.add(Asset.get("kirito").crop(7, 145, 35, 47));

@@ -27,10 +27,7 @@ public class Suicide extends Monster {
         this.range = 2;
         this.speed = 4.0f;
         this.explosion = new ExplosionD();
-        this.explosion.setTargets(new String[] {
-            "Player",
-            "Block",
-        });
+        this.explosion.setTargets(new String[] { "Player", "Block", });
     }
 
     @Override

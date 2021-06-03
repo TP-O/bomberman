@@ -2,8 +2,8 @@ package config;
 
 import java.awt.event.KeyEvent;
 
-public class KeyConfig
-{
+public class KeyConfig {
+
     public static final int UP = KeyEvent.VK_W;
 
     public static final int DOWN = KeyEvent.VK_S;

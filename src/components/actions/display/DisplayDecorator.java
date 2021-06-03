@@ -14,13 +14,13 @@ public abstract class DisplayDecorator implements Display {
 
     @Override
     public Entity getEntity() {
-        return this.display.getEntity();
+        return display.getEntity();
     }
 
     @Override
     public void display(Graphics graphics) {
-        this.display.display(graphics);
-        this.decorate(graphics);
+        display.display(graphics);
+        decorate(graphics);
     }
 
     protected abstract void decorate(Graphics graphics);
