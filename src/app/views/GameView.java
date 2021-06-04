@@ -28,6 +28,7 @@ public class GameView extends View {
             "bomb",
             "item",
             "explosion",
+            "monster",
             "player",
         };
     }
@@ -51,12 +52,6 @@ public class GameView extends View {
         handler.getMap().tick();
 
         elements.forEach(element -> element.tick());
-
-        EntityCache.get("monster").forEach(e -> {
-            if (!e.isDeleted()) {
-                e.tick();
-            }
-        });
 
         // Update entities
         for (String entity : entities) {
@@ -103,11 +98,5 @@ public class GameView extends View {
                 }
             });
         }
-
-        EntityCache.get("monster").forEach(p -> {
-            if (!p.isDeleted()) {
-                p.render(graphics);
-            }
-        });
     }
 }
