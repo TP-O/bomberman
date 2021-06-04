@@ -13,51 +13,36 @@ public class ReleaseSuicideMonster extends AttackDecorator {
 
     private Collision collision;
     MonsterFactory factory = new BasicMonsterFactory();
+    private float[][] position = new float[4][2];
 
     public ReleaseSuicideMonster(Attack attack) {
         super(attack);
         collision = new CollisionAction(attack.getAttacker());
         collision = new MonsterCollision(collision);
-        
     }
 
     @Override
     protected void decorate() {
-        
-        if(!(createRightMonster().getMove().getCollision().isCollided())) { 
-            EntityCache.push("monster", createRightMonster()); //right
+        createMonster(position);
+
+    }
+
+    //Create Monster
+    private void createMonster(float[][] position) {
+        position[0][0] = this.getAttacker().getX();
+        position[1][0] = this.getAttacker().getX();
+        position[2][0] = this.getAttacker().getX() - this.getAttacker().getWidth() - 6;
+        position[3][0] = this.getAttacker().getX() + this.getAttacker().getWidth() + 6;
+        position[0][1] = this.getAttacker().getY() + this.getAttacker().getHeight() + 6;
+        position[1][1] = this.getAttacker().getY() - this.getAttacker().getHeight() - 6;
+        position[2][1] = this.getAttacker().getY();
+        position[3][1] = this.getAttacker().getY();
+        for (int i = 0; i < 4; i++) {
+            Monster suicide = factory.createMonster("Suicide", position[i][0], position[i][1]);
+            if(!(suicide.getMove().getCollision().isCollided())) { 
+                EntityCache.push("monster", suicide); 
+            }
         }
-
-        if(!(createTopMonster().getMove().getCollision().isCollided())) {   
-            EntityCache.push("monster", createTopMonster()); //up 
-        }
-
-        if(!(createBottomMonster().getMove().getCollision().isCollided())) {   
-            EntityCache.push("monster", createBottomMonster()); //down
-        }
-
-        if(!createLeftMonster().getMove().getCollision().isCollided()) {
-            EntityCache.push("monster", createLeftMonster()); //left  
-        }
     }
 
-    //Create Top Monster
-    private Monster createTopMonster() {
-        return factory.createMonster("Suicide", this.getAttacker().getX() + 0.0f, this.getAttacker().getY() + 80.0f);
-    }
-
-    //Create Bottom Monster
-    private Monster createBottomMonster() {
-        return factory.createMonster("Suicide", this.getAttacker().getX() + 0.0f, this.getAttacker().getY() - 80.0f);
-    }
-
-    //Create Left Monster
-    private Monster createLeftMonster() {
-        return factory.createMonster("Suicide", this.getAttacker().getX() - 80.0f, this.getAttacker().getY() + 0.0f);
-    }
-
-    //Create Right Monster
-    private Monster createRightMonster() {
-        return factory.createMonster("Suicide", this.getAttacker().getX() + 80.0f, this.getAttacker().getY() + 0.0f);
-    }
 }
