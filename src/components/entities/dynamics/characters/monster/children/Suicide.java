@@ -44,44 +44,59 @@ public class Suicide extends Monster {
     protected void loadAllFrames() {
         super.loadAllFrames();
 
+        this.upFrames.add(Asset.get("gastly").crop(338, 292, 81, 78));
+        this.upFrames.add(Asset.get("gastly").crop(227, 292, 81, 78));
+        this.upFrames.add(Asset.get("gastly").crop(117, 292, 81, 78));
+        this.upFrames.add(Asset.get("gastly").crop(9, 292, 81, 78));
+        this.upFrames.add(Asset.get("gastly").crop(335, 399, 81, 78));
+        this.upFrames.add(Asset.get("gastly").crop(228, 399, 81, 78));
+        this.upFrames.add(Asset.get("gastly").crop(120, 399, 81, 78));
+        this.upFrames.add(Asset.get("gastly").crop(10, 399, 81, 78));
+        this.upFrames.add(Asset.get("gastly").crop(336, 486, 81, 78));
+        this.upFrames.add(Asset.get("gastly").crop(226, 486, 81, 78));
+        this.upFrames.add(Asset.get("gastly").crop(116, 486, 81, 78));
+        this.upFrames.add(Asset.get("gastly").crop(11, 486, 81, 78));
+
+        this.downFrames.add(Asset.get("gastly").crop(20, 5, 81, 78));
+        this.downFrames.add(Asset.get("gastly").crop(129, 5, 81, 78));
+        this.downFrames.add(Asset.get("gastly").crop(239, 5, 81, 78));
+        this.downFrames.add(Asset.get("gastly").crop(345, 5, 81, 78));
+        this.downFrames.add(Asset.get("gastly").crop(18, 112, 81, 78));
+        this.downFrames.add(Asset.get("gastly").crop(127, 112, 81, 78));
+        this.downFrames.add(Asset.get("gastly").crop(236, 112, 81, 78));
+        this.downFrames.add(Asset.get("gastly").crop(347, 112, 81, 78));
+        this.downFrames.add(Asset.get("gastly").crop(18, 199, 81, 78));
+        this.downFrames.add(Asset.get("gastly").crop(125, 199, 81, 78));
+        this.downFrames.add(Asset.get("gastly").crop(236, 199, 81, 78));
+        this.downFrames.add(Asset.get("gastly").crop(343, 199, 81, 78));
         
-        this.upFrames.add(Asset.get("suicide").crop(911, 18, 61, 61));
-        this.upFrames.add(Asset.get("suicide").crop(784, 18, 61, 61));
-        this.upFrames.add(Asset.get("suicide").crop(657, 18, 61, 61));
-        this.upFrames.add(Asset.get("suicide").crop(527, 18, 61, 61));
-        this.upFrames.add(Asset.get("suicide").crop(400, 18, 61, 61));
-        this.upFrames.add(Asset.get("suicide").crop(278, 18, 61, 61));
-        this.upFrames.add(Asset.get("suicide").crop(154, 18, 61, 61));
-        this.upFrames.add(Asset.get("suicide").crop(28, 18, 61, 61));
+        this.leftFrames.add(Asset.get("gastly").crop(338, 292, 81, 78));
+        this.leftFrames.add(Asset.get("gastly").crop(227, 292, 81, 78));
+        this.leftFrames.add(Asset.get("gastly").crop(117, 292, 81, 78));
+        this.leftFrames.add(Asset.get("gastly").crop(9, 292, 81, 78));
+        this.leftFrames.add(Asset.get("gastly").crop(335, 399, 81, 78));
+        this.leftFrames.add(Asset.get("gastly").crop(228, 399, 81, 78));
+        this.leftFrames.add(Asset.get("gastly").crop(120, 399, 81, 78));
+        this.leftFrames.add(Asset.get("gastly").crop(10, 399, 81, 78));
+        this.leftFrames.add(Asset.get("gastly").crop(336, 486, 81, 78));
+        this.leftFrames.add(Asset.get("gastly").crop(226, 486, 81, 78));
+        this.leftFrames.add(Asset.get("gastly").crop(116, 486, 81, 78));
+        this.leftFrames.add(Asset.get("gastly").crop(11, 486, 81, 78));
 
-        this.downFrames.add(Asset.get("suicide").crop(31, 143, 61, 61));
-        this.downFrames.add(Asset.get("suicide").crop(158, 143, 61, 61));
-        this.downFrames.add(Asset.get("suicide").crop(286, 143, 61, 61));
-        this.downFrames.add(Asset.get("suicide").crop(414, 143, 61, 61));
-        this.downFrames.add(Asset.get("suicide").crop(543, 143, 61, 61));
-        this.downFrames.add(Asset.get("suicide").crop(663, 143, 61, 61));
-        this.downFrames.add(Asset.get("suicide").crop(787, 143, 61, 61));
-        this.downFrames.add(Asset.get("suicide").crop(914, 143, 61, 61));
+        this.rightFrames.add(Asset.get("gastly").crop(20, 5, 81, 78));
+        this.rightFrames.add(Asset.get("gastly").crop(129, 5, 81, 78));
+        this.rightFrames.add(Asset.get("gastly").crop(239, 5, 81, 78));
+        this.rightFrames.add(Asset.get("gastly").crop(345, 5, 81, 78));
+        this.rightFrames.add(Asset.get("gastly").crop(18, 112, 81, 78));
+        this.rightFrames.add(Asset.get("gastly").crop(127, 112, 81, 78));
+        this.rightFrames.add(Asset.get("gastly").crop(236, 112, 81, 78));
+        this.rightFrames.add(Asset.get("gastly").crop(347, 112, 81, 78));
+        this.rightFrames.add(Asset.get("gastly").crop(18, 199, 81, 78));
+        this.rightFrames.add(Asset.get("gastly").crop(125, 199, 81, 78));
+        this.rightFrames.add(Asset.get("gastly").crop(236, 199, 81, 78));
+        this.rightFrames.add(Asset.get("gastly").crop(343, 199, 81, 78));
 
-        this.leftFrames.add(Asset.get("suicide").crop(911, 18, 61, 61));
-        this.leftFrames.add(Asset.get("suicide").crop(784, 18, 61, 61));
-        this.leftFrames.add(Asset.get("suicide").crop(657, 18, 61, 61));
-        this.leftFrames.add(Asset.get("suicide").crop(527, 18, 61, 61));
-        this.leftFrames.add(Asset.get("suicide").crop(400, 18, 61, 61));
-        this.leftFrames.add(Asset.get("suicide").crop(278, 18, 61, 61));
-        this.leftFrames.add(Asset.get("suicide").crop(154, 18, 61, 61));
-        this.leftFrames.add(Asset.get("suicide").crop(28, 18, 61, 61));
-
-        this.rightFrames.add(Asset.get("suicide").crop(31, 143, 61, 61));
-        this.rightFrames.add(Asset.get("suicide").crop(158, 143, 61, 61));
-        this.rightFrames.add(Asset.get("suicide").crop(286, 143, 61, 61));
-        this.rightFrames.add(Asset.get("suicide").crop(414, 143, 61, 61));
-        this.rightFrames.add(Asset.get("suicide").crop(543, 143, 61, 61));
-        this.rightFrames.add(Asset.get("suicide").crop(663, 143, 61, 61));
-        this.rightFrames.add(Asset.get("suicide").crop(787, 143, 61, 61));
-        this.rightFrames.add(Asset.get("suicide").crop(914, 143, 61, 61));
-
-        this.standFrames.add(Asset.get("suicide").crop(914, 143, 61, 61));
+        this.standFrames.add(Asset.get("gastly").crop(20, 5, 81, 78));
 
     }
 
