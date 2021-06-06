@@ -21,7 +21,6 @@ public class GameView extends View {
         super();
 
         handler = Handler.getInstance();
-
         entities = new String[] {
             "trap",
             "obstacle",
@@ -30,7 +29,7 @@ public class GameView extends View {
             "item",
             "explosion",
             "monster",
-            "player"
+            "player",
         };
     }
 
@@ -55,7 +54,7 @@ public class GameView extends View {
         elements.forEach(element -> element.tick());
 
         // Update entities
-        for (String entity: entities) {
+        for (String entity : entities) {
             EntityCache.get(entity).forEach(e -> {
                 if (!e.isDeleted()) {
                     e.tick();
@@ -67,14 +66,14 @@ public class GameView extends View {
         handler.getCamera().focusOn((Player) EntityCache.get("player").get(0));
 
         // Remove deleted entities
-        for (String entity: entities) {
+        for (String entity : entities) {
             EntityCache.get(entity).removeIf(e -> e.isDeleted());
         }
 
         // New phase
         if (EntityCache.size("monster") == 0) {
             // Clear cahce
-            for (String entity: entities) {
+            for (String entity : entities) {
                 EntityCache.remove(entity);
             }
 
@@ -92,7 +91,7 @@ public class GameView extends View {
         elements.forEach(element -> element.render(graphics));
 
         // Render entities
-        for (String entity: entities) {
+        for (String entity : entities) {
             EntityCache.get(entity).forEach(p -> {
                 if (!p.isDeleted()) {
                     p.render(graphics);

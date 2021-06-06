@@ -1,5 +1,6 @@
 package factories.monster;
 
+import components.entities.dynamics.DynamicEntity;
 import components.entities.dynamics.characters.monster.Monster;
 import components.entities.dynamics.characters.monster.children.*;
 
@@ -47,5 +48,11 @@ public class BasicMonsterFactory implements MonsterFactory {
         }
 
         return monster;
+    }
+
+    @Override
+    public DynamicEntity createTopMonster() {
+        // TODO Auto-generated method stub
+        return null;
     }
 }
