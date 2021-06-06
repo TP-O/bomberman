@@ -9,13 +9,13 @@ import components.entities.dynamics.characters.monster.Monster;
 import factories.monster.*;
 import app.cache.*;
 
-public class ReleaseSuicideMonster extends AttackDecorator {
+public class SuicideMonster extends AttackDecorator {
 
     private Collision collision;
     MonsterFactory factory = new BasicMonsterFactory();
     private float[][] position = new float[4][2];
 
-    public ReleaseSuicideMonster(Attack attack) {
+    public SuicideMonster(Attack attack) {
         super(attack);
         collision = new CollisionAction(attack.getAttacker());
         collision = new MonsterCollision(collision);
