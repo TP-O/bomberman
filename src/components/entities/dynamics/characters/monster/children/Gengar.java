@@ -1,45 +1,49 @@
 package components.entities.dynamics.characters.monster.children;
 
 import asset.Asset;
-import components.actions.attack.random.RandomBombPlacing;
+import components.actions.attack.AttackAction;
+import components.actions.attack.collision.CollisionExplosion;
+import components.actions.drop.DropAcction;
 import components.entities.dynamics.characters.monster.Monster;
-import components.entities.statics.bombs.Bomb;
-import components.entities.statics.bombs.children.BombB;
+import components.entities.statics.explosions.Explosion;
+import components.entities.statics.explosions.children.ExplosionD;
 
-public class Boss extends Monster {
+public class Gengar extends Monster{
+    
+    private int range;
 
-    private Bomb bomb;
+    private Explosion explosion;
 
-    public Boss(float x, float y) {
+    public Gengar(float x, float y) {
         super(x, y);
-    }
-
-    @Override
-    protected void setEntityParameters() {
-        super.setEntityParameters();
-
-        life = 500;
-        health = 500;
-        speed = 8.0f;
-        damage = 10;
-        width = 130;
-        height = 130;
-
-        bomb = new BombB();
-        bomb.getExplosion().setTargets(new String[] { "Player", "Block", });
     }
 
     @Override
     protected void initializeActions() {
         super.initializeActions();
 
-        attack = new RandomBombPlacing(attack, bomb);
+        this.drop = new DropAcction(this);
+
+        this.attack = new AttackAction(this);
+        this.attack = new CollisionExplosion(this.attack, this.explosion, this.range);
+    }
+
+    @Override
+    protected void setEntityParameters() {
+        super.setEntityParameters();
+
+        this.life = 9999;
+        this.health = 9999;
+        this.range = 2;
+        this.speed = 4.0f;
+        this.explosion = new ExplosionD();
+        this.explosion.setTargets(new String[] { "Player", "Block", });
     }
 
     @Override
     protected void loadAllFrames() {
         super.loadAllFrames();
-
+        
         this.upFrames.add(Asset.get("gengar").crop(25, 17, 170, 141));
         this.upFrames.add(Asset.get("gengar").crop(240, 17, 170, 141));
         this.upFrames.add(Asset.get("gengar").crop(455, 17, 170, 141));
@@ -89,5 +93,14 @@ public class Boss extends Monster {
         this.rightFrames.add(Asset.get("gengar").crop(240, 956, 170, 141));
 
         this.standFrames.add(Asset.get("gengar").crop(25, 17, 170, 141));
+
     }
+
+    @Override
+    public void tick() {
+        super.tick();
+
+        this.attack.attack();
+    }
+
 }
