@@ -29,6 +29,7 @@ public class GameView extends View {
             "item",
             "explosion",
             "monster",
+            "otherMonster",
             "player",
         };
     }
@@ -36,7 +37,6 @@ public class GameView extends View {
     @Override
     public void buildUI() {
         elements = new ArrayList<Element>();
-
         elements.add(new PauseButton(11, 1, 5, 0, 0, 5));
     }
 
@@ -76,9 +76,7 @@ public class GameView extends View {
             for (String entity : entities) {
                 EntityCache.remove(entity);
             }
-
             GameCache.push("phase", (int) GameCache.get("phase") + 1);
-
             // Next phase
             Router.getInstance().redirect("Game", true);
         }
@@ -87,7 +85,6 @@ public class GameView extends View {
     @Override
     public void render(Graphics graphics) {
         handler.getMap().render(graphics);
-
         elements.forEach(element -> element.render(graphics));
 
         // Render entities

@@ -6,13 +6,13 @@ import components.entities.dynamics.characters.monster.Monster;
 import factories.monster.*;
 import app.cache.EntityCache;
 
-public class SuicideMonster extends AttackDecorator {
+public class SuicideMonsterReleasing extends AttackDecorator {
 
     private float[][] position = new float[4][2];
 
     private MonsterFactory factory = new BasicMonsterFactory();
 
-    public SuicideMonster(Attack attack) {
+    public SuicideMonsterReleasing(Attack attack) {
         super(attack);
     }
 
@@ -35,7 +35,7 @@ public class SuicideMonster extends AttackDecorator {
         for (int i = 0; i < 4; i++) {
             Monster suicide = factory.createMonster("Suicide", position[i][0], position[i][1]);
             if(!(suicide.getMove().getCollision().isCollided())) {
-                EntityCache.push("monster", suicide);
+                EntityCache.push("otherMonster", suicide);
             }
         }
     }

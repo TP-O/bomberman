@@ -3,13 +3,13 @@ package components.actions.attack.random;
 import java.util.Random;
 
 import components.actions.attack.Attack;
-import components.actions.attack.nonstop.SuicideMonster;
+import components.actions.attack.nonstop.SuicideMonsterReleasing;
 
-public class ReleaseSuicideMonster extends SuicideMonster {
+public class RandomSuicideMonsterReleasing extends SuicideMonsterReleasing {
 
     private static Random random = new Random();
-    
-    public ReleaseSuicideMonster(Attack attack) {
+
+    public RandomSuicideMonsterReleasing(Attack attack) {
         super(attack);
 
     }
@@ -23,5 +23,5 @@ public class ReleaseSuicideMonster extends SuicideMonster {
             super.decorate();
         }
     }
-    
+
 }

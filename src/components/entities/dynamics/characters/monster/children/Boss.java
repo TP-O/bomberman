@@ -2,6 +2,7 @@ package components.entities.dynamics.characters.monster.children;
 
 import asset.Asset;
 import components.actions.attack.random.RandomBombPlacing;
+import components.actions.attack.random.RandomSuicideMonsterReleasing;
 import components.entities.dynamics.characters.monster.Monster;
 import components.entities.statics.bombs.Bomb;
 import components.entities.statics.bombs.children.BombB;
@@ -34,6 +35,7 @@ public class Boss extends Monster {
         super.initializeActions();
 
         attack = new RandomBombPlacing(attack, bomb);
+        attack = new RandomSuicideMonsterReleasing(attack);
     }
 
     @Override
