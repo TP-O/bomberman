@@ -15,7 +15,7 @@ public class Satoshi extends Player {
 
         life = 30;
         health = 30;
-        speed = 5.5f;
+        speed = 4.5f;
     }
 
     @Override

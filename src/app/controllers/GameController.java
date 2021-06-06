@@ -31,6 +31,8 @@ public class GameController {
         Player player = playerModel
                 .wherePhase((int) GameCache.get("phase"))
                 .get();
+        EntityCache.push("player", player);
+
         List<Monster> monsters = monsterModel
                 .wherePhase((int) GameCache.get("phase"))
                 .all();

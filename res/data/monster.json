@@ -1,11 +1,6 @@
 [
   [
     {
-      "type": "Suicide",
-      "x": 400.0,
-      "y": 200.0
-    },
-    {
       "type": "AlolanPersian",
       "x": 960.0,
       "y": 256.0
@@ -58,7 +53,7 @@
     {
       "type": "Bulbasaur",
       "x": 848.0,
-      "y": 500.0
+      "y": 520.0
     },
     {
       "type": "Scorbunny",
