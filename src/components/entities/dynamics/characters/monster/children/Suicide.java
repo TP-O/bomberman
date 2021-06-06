@@ -44,19 +44,45 @@ public class Suicide extends Monster {
     protected void loadAllFrames() {
         super.loadAllFrames();
 
-        this.upFrames.add(Asset.get("scorbunny").crop(12, 90, 56, 58));
-        this.upFrames.add(Asset.get("scorbunny").crop(91, 90, 56, 58));
+        
+        this.upFrames.add(Asset.get("suicide").crop(911, 18, 61, 61));
+        this.upFrames.add(Asset.get("suicide").crop(784, 18, 61, 61));
+        this.upFrames.add(Asset.get("suicide").crop(657, 18, 61, 61));
+        this.upFrames.add(Asset.get("suicide").crop(527, 18, 61, 61));
+        this.upFrames.add(Asset.get("suicide").crop(400, 18, 61, 61));
+        this.upFrames.add(Asset.get("suicide").crop(278, 18, 61, 61));
+        this.upFrames.add(Asset.get("suicide").crop(154, 18, 61, 61));
+        this.upFrames.add(Asset.get("suicide").crop(28, 18, 61, 61));
 
-        this.downFrames.add(Asset.get("scorbunny").crop(12, 11, 56, 58));
-        this.downFrames.add(Asset.get("scorbunny").crop(92, 11, 56, 58));
+        this.downFrames.add(Asset.get("suicide").crop(31, 143, 61, 61));
+        this.downFrames.add(Asset.get("suicide").crop(158, 143, 61, 61));
+        this.downFrames.add(Asset.get("suicide").crop(286, 143, 61, 61));
+        this.downFrames.add(Asset.get("suicide").crop(414, 143, 61, 61));
+        this.downFrames.add(Asset.get("suicide").crop(543, 143, 61, 61));
+        this.downFrames.add(Asset.get("suicide").crop(663, 143, 61, 61));
+        this.downFrames.add(Asset.get("suicide").crop(787, 143, 61, 61));
+        this.downFrames.add(Asset.get("suicide").crop(914, 143, 61, 61));
 
-        this.leftFrames.add(Asset.get("scorbunny").crop(12, 172, 56, 58));
-        this.leftFrames.add(Asset.get("scorbunny").crop(90, 171, 56, 58));
+        this.leftFrames.add(Asset.get("suicide").crop(911, 18, 61, 61));
+        this.leftFrames.add(Asset.get("suicide").crop(784, 18, 61, 61));
+        this.leftFrames.add(Asset.get("suicide").crop(657, 18, 61, 61));
+        this.leftFrames.add(Asset.get("suicide").crop(527, 18, 61, 61));
+        this.leftFrames.add(Asset.get("suicide").crop(400, 18, 61, 61));
+        this.leftFrames.add(Asset.get("suicide").crop(278, 18, 61, 61));
+        this.leftFrames.add(Asset.get("suicide").crop(154, 18, 61, 61));
+        this.leftFrames.add(Asset.get("suicide").crop(28, 18, 61, 61));
 
-        this.rightFrames.add(Asset.get("scorbunny").crop(8, 250, 56, 58));
-        this.rightFrames.add(Asset.get("scorbunny").crop(87, 250, 56, 58));
+        this.rightFrames.add(Asset.get("suicide").crop(31, 143, 61, 61));
+        this.rightFrames.add(Asset.get("suicide").crop(158, 143, 61, 61));
+        this.rightFrames.add(Asset.get("suicide").crop(286, 143, 61, 61));
+        this.rightFrames.add(Asset.get("suicide").crop(414, 143, 61, 61));
+        this.rightFrames.add(Asset.get("suicide").crop(543, 143, 61, 61));
+        this.rightFrames.add(Asset.get("suicide").crop(663, 143, 61, 61));
+        this.rightFrames.add(Asset.get("suicide").crop(787, 143, 61, 61));
+        this.rightFrames.add(Asset.get("suicide").crop(914, 143, 61, 61));
 
-        this.standFrames.add(Asset.get("scorbunny").crop(12, 11, 56, 58));
+        this.standFrames.add(Asset.get("suicide").crop(914, 143, 61, 61));
+
     }
 
     @Override
@@ -65,4 +91,5 @@ public class Suicide extends Monster {
 
         this.attack.attack();
     }
+
 }

@@ -59,6 +59,10 @@ public class Asset {
             "bulbasaur@characters/monsters/monster04.png",
             "emboar@characters/monsters/monster05.png",
             "shinyzygarde@characters/monsters/monster05.png",
+            "suicide@characters/monsters/suicide.png",
+            "gastly@characters/monsters/gastly.png",
+            "gengar@characters/monsters/gengar.png",
+            "yveltal@characters/monsters/yveltal.png",
 
             /**
              * Player images
