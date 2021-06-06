@@ -33,7 +33,7 @@ public abstract class Player extends Character {
     public void setHealth(int health) {
         super.setHealth(health);
 
-        if (health <= 0) {
+        if (this.health <= 0) {
             Router.getInstance().redirect("GameOverMenu", false);
         }
     }

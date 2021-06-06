@@ -1,9 +1,14 @@
 package components.entities.dynamics.characters.monster.children;
 
+import app.cache.EntityCache;
 import asset.Asset;
 import components.actions.attack.AttackAction;
 import components.actions.attack.collision.CollisionExplosion;
 import components.actions.drop.DropAcction;
+import components.actions.move.MoveAction;
+import components.actions.move.collision.*;
+import components.actions.move.type.Follow;
+import components.entities.dynamics.characters.Character;
 import components.entities.dynamics.characters.monster.Monster;
 import components.entities.statics.explosions.Explosion;
 import components.entities.statics.explosions.children.ExplosionD;
@@ -22,47 +27,55 @@ public class Suicide extends Monster {
     protected void setEntityParameters() {
         super.setEntityParameters();
 
-        this.life = 9999;
-        this.health = 9999;
-        this.range = 2;
-        this.speed = 4.0f;
-        this.explosion = new ExplosionD();
-        this.explosion.setTargets(new String[] { "Player", "Block", });
+        life = 9999;
+        health = 9999;
+        range = 2;
+        speed = 4.0f;
+        explosion = new ExplosionD();
+        explosion.setTargets(new String[] { "Player", "Block", });
     }
 
     @Override
     protected void initializeActions() {
         super.initializeActions();
 
-        this.drop = new DropAcction(this);
+        drop = new DropAcction(this);
 
-        this.attack = new AttackAction(this);
-        this.attack = new CollisionExplosion(this.attack, this.explosion, this.range);
+        move = new MoveAction(this);
+        move = new AvoidingSolidTile(move);
+        move = new AvoidingBlock(move);
+        move = new AvoidingObstacle(move);
+        move = new AvoidingBomb(move);
+        move = new Follow(move, (Character) EntityCache.get("player").get(0));
+
+        attack = new AttackAction(this);
+        attack = new CollisionExplosion(attack, explosion, range);
+
     }
 
     @Override
     protected void loadAllFrames() {
         super.loadAllFrames();
 
-        this.upFrames.add(Asset.get("scorbunny").crop(12, 90, 56, 58));
-        this.upFrames.add(Asset.get("scorbunny").crop(91, 90, 56, 58));
+        upFrames.add(Asset.get("scorbunny").crop(12, 90, 56, 58));
+        upFrames.add(Asset.get("scorbunny").crop(91, 90, 56, 58));
 
-        this.downFrames.add(Asset.get("scorbunny").crop(12, 11, 56, 58));
-        this.downFrames.add(Asset.get("scorbunny").crop(92, 11, 56, 58));
+        downFrames.add(Asset.get("scorbunny").crop(12, 11, 56, 58));
+        downFrames.add(Asset.get("scorbunny").crop(92, 11, 56, 58));
 
-        this.leftFrames.add(Asset.get("scorbunny").crop(12, 172, 56, 58));
-        this.leftFrames.add(Asset.get("scorbunny").crop(90, 171, 56, 58));
+        leftFrames.add(Asset.get("scorbunny").crop(12, 172, 56, 58));
+        leftFrames.add(Asset.get("scorbunny").crop(90, 171, 56, 58));
 
-        this.rightFrames.add(Asset.get("scorbunny").crop(8, 250, 56, 58));
-        this.rightFrames.add(Asset.get("scorbunny").crop(87, 250, 56, 58));
+        rightFrames.add(Asset.get("scorbunny").crop(8, 250, 56, 58));
+        rightFrames.add(Asset.get("scorbunny").crop(87, 250, 56, 58));
 
-        this.standFrames.add(Asset.get("scorbunny").crop(12, 11, 56, 58));
+        standFrames.add(Asset.get("scorbunny").crop(12, 11, 56, 58));
     }
 
     @Override
     public void tick() {
         super.tick();
 
-        this.attack.attack();
+        attack.attack();
     }
 }
