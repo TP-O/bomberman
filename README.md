@@ -26,3 +26,4 @@ We developed dropping-item features with the purpose of boosting the character s
 
 + [Tutorial](https://www.youtube.com/watch?v=dEKs-3GhVKQ&list=PLah6faXAgguMnTBs3JnEJY0shAc18XYQZ)
 + [Design Pattern](https://sourcemaking.com/)
++ [Dijkstra's Algorithm](https://www.youtube.com/watch?v=msttfIHHkak)
