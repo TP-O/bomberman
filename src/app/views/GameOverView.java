@@ -7,11 +7,10 @@ import components.ui.Element;
 import components.ui.button.NewGameButton;
 import components.ui.button.QuitButton;
 
-public class GameOverView extends View
-{
+public class GameOverView extends View {
+
     @Override
-    public void buildUI()
-    {
+    public void buildUI() {
         elements = new ArrayList<Element>();
 
         // Add butons
@@ -20,20 +19,17 @@ public class GameOverView extends View
     }
 
     @Override
-    public void reset()
-    {
+    public void reset() {
         //
     }
 
     @Override
-    public void tick()
-    {
+    public void tick() {
         elements.forEach(element -> element.tick());
     }
 
     @Override
-    public void render(Graphics graphics)
-    {
+    public void render(Graphics graphics) {
         elements.forEach(element -> element.render(graphics));
     }
 }

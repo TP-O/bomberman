@@ -6,14 +6,13 @@ import java.util.Map;
 import helper.Helper;
 import helper.sheet.SpriteSheet;
 
-public class Asset
-{
+public class Asset {
+
     private static AssetMap assets;
 
     private static Map<String, SpriteSheet> sheets;
 
-    public static void init()
-    {
+    public static void init() {
         bind(
 
             /**
@@ -60,6 +59,10 @@ public class Asset
             "bulbasaur@characters/monsters/monster04.png",
             "emboar@characters/monsters/monster05.png",
             "shinyzygarde@characters/monsters/monster05.png",
+            "suicide@characters/monsters/suicide.png",
+            "gastly@characters/monsters/gastly.png",
+            "gengar@characters/monsters/gengar.png",
+            "yveltal@characters/monsters/yveltal.png",
 
             /**
              * Player images
@@ -109,22 +112,19 @@ public class Asset
         );
     }
 
-    public static SpriteSheet get(String key)
-    {
+    public static SpriteSheet get(String key) {
         return sheets.get(key) == null
                 ? load(key)
                 : sheets.get(key);
     }
 
-    private static SpriteSheet load(String key)
-    {
+    private static SpriteSheet load(String key) {
         sheets.put(key, Helper.createSpriteSheet(Helper.loadImage(assets.get(key))));
 
         return sheets.get(key);
     }
 
-    private static void bind(String... value)
-    {
+    private static void bind(String... value) {
         assets = new AssetMap(value);
         sheets = new HashMap<String, SpriteSheet>();
     }

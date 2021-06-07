@@ -18,7 +18,6 @@ public class MovingAnimation extends Animation {
         super(speed);
 
         this.entity = entity;
-
         this.setFrames(entity.getStandFrames());
     }
 
@@ -26,51 +25,51 @@ public class MovingAnimation extends Animation {
     public void tick() {
         super.tick();
 
-        this.entity.setCurrentFrame(this.frames.get(getIndex()));
+        entity.setCurrentFrame(frames.get(getIndex()));
     }
 
     public void up() {
-        if (!this.up) {
+        if (!up) {
 
-            this.up = true;
-            this.down = this.left = this.right = false;
+            up = true;
+            down = left = right = false;
 
-            this.setFrames(this.entity.getUpFrames());
+            setFrames(entity.getUpFrames());
         }
     }
 
     public void down() {
-        if (!this.down) {
-            this.down = true;
-            this.up = this.left = this.right = false;
+        if (!down) {
+            down = true;
+            up = left = right = false;
 
-            this.setFrames(this.entity.getDownFrames());
+            setFrames(entity.getDownFrames());
         }
     }
 
     public void left() {
-        if (!this.left) {
-            this.left = true;
-            this.up = this.down = this.right = false;
+        if (!left) {
+            left = true;
+            up = down = right = false;
 
-            this.setFrames(this.entity.getLeftFrames());
+            setFrames(entity.getLeftFrames());
         }
     }
 
     public void right() {
-        if (!this.right) {
-            this.right = true;
-            this.up = this.down = this.left = false;
+        if (!right) {
+            right = true;
+            up = down = left = false;
 
-            this.setFrames(this.entity.getRightFrames());
+            setFrames(entity.getRightFrames());
         }
     }
 
     public void stand() {
-        if (this.up || this.down || this.left || this.right) {
-            this.up = this.down = this.left = this.right = false;
+        if (up || down || left || right) {
+            up = down = left = right = false;
 
-            this.setFrames(this.entity.getStandFrames());
+            setFrames(entity.getStandFrames());
         }
     }
 }

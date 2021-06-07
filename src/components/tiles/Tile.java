@@ -3,8 +3,8 @@ package components.tiles;
 import java.awt.image.BufferedImage;
 import java.awt.Graphics;
 
-public abstract class Tile
-{
+public abstract class Tile {
+
     protected int x;
 
     protected int y;
@@ -15,8 +15,7 @@ public abstract class Tile
 
     public static final int WIDTH = 64, HEIGHT = 64;
 
-    public Tile(int x, int y)
-    {
+    public Tile(int x, int y) {
         this.x = x;
         this.y = y;
         this.solid = false;
@@ -24,8 +23,7 @@ public abstract class Tile
         loadTileImage();
     }
 
-    public Tile(int x, int y, boolean solid)
-    {
+    public Tile(int x, int y, boolean solid) {
         this.x = x;
         this.y = y;
         this.solid = solid;
@@ -33,23 +31,19 @@ public abstract class Tile
         loadTileImage();
     }
 
-    public int getX()
-    {
+    public int getX() {
         return x;
     }
 
-    public int getY()
-    {
+    public int getY() {
         return y;
     }
 
-    public boolean isSolid()
-    {
+    public boolean isSolid() {
         return solid;
     }
 
-    public void render(Graphics graphics, int x, int y)
-    {
+    public void render(Graphics graphics, int x, int y) {
         graphics.drawImage(BImage, x, y, WIDTH, HEIGHT, null);
     }
 

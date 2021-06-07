@@ -5,12 +5,11 @@ import java.util.List;
 
 import components.ui.Element;
 
-public abstract class View
-{
+public abstract class View {
+
     protected List<Element> elements;
 
-    public View()
-    {
+    public View() {
         buildUI();
     }
 

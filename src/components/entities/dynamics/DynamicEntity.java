@@ -9,8 +9,8 @@ import components.actions.move.Move;
 import components.actions.move.MoveAction;
 import components.entities.Entity;
 
-public abstract class DynamicEntity extends Entity
-{
+public abstract class DynamicEntity extends Entity {
+
     protected Move move;
 
     protected List<BufferedImage> upFrames;
@@ -24,8 +24,7 @@ public abstract class DynamicEntity extends Entity
     protected List<BufferedImage> standFrames;
 
     @Override
-    protected void loadAllFrames()
-    {
+    protected void loadAllFrames() {
         // Create empty frame lists
         upFrames = new ArrayList<BufferedImage>();
         downFrames = new ArrayList<BufferedImage>();
@@ -40,10 +39,13 @@ public abstract class DynamicEntity extends Entity
     }
 
     @Override
-    public void tick()
-    {
+    public void tick() {
         // Move
         move.move();
+    }
+
+    public Move getMove() {
+        return move;
     }
 
     public List<BufferedImage> getUpFrames()
@@ -51,23 +53,19 @@ public abstract class DynamicEntity extends Entity
         return upFrames;
     }
 
-    public List<BufferedImage> getDownFrames()
-    {
+    public List<BufferedImage> getDownFrames() {
         return downFrames;
     }
 
-    public List<BufferedImage> getLeftFrames()
-    {
+    public List<BufferedImage> getLeftFrames() {
         return leftFrames;
     }
 
-    public List<BufferedImage> getRightFrames()
-    {
+    public List<BufferedImage> getRightFrames() {
         return rightFrames;
     }
 
-    public List<BufferedImage> getStandFrames()
-    {
+    public List<BufferedImage> getStandFrames() {
         return standFrames;
     }
 }

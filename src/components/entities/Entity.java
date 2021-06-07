@@ -4,8 +4,8 @@ import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import core.Handler;
 
-public abstract class Entity
-{
+public abstract class Entity {
+
     protected float x;
 
     protected float y;
@@ -36,8 +36,7 @@ public abstract class Entity
 
     protected BufferedImage currentFrame;
 
-    public Entity()
-    {
+    public Entity() {
         margin = 5;
         padding = 15;
         attackedAt = 0;
@@ -49,88 +48,71 @@ public abstract class Entity
         initializeActions();
     }
 
-    public float getX()
-    {
+    public float getX() {
         return x;
     }
 
-    public float getY()
-    {
+    public float getY() {
         return y;
     }
 
-    public int getPadding()
-    {
+    public int getPadding() {
         return padding;
     }
 
-    public int getMargin()
-    {
+    public int getMargin() {
         return margin;
     }
 
-    public int getWidth()
-    {
+    public int getWidth() {
         return width;
     }
 
-    public int getHeight()
-    {
+    public int getHeight() {
         return height;
     }
 
-    public int getHealth()
-    {
+    public int getHealth() {
         return health;
     }
 
-    public int getLife()
-    {
+    public int getLife() {
         return life;
     }
 
-    public int getDamage()
-    {
+    public int getDamage() {
         return damage;
     }
 
-    public float getSpeed()
-    {
+    public float getSpeed() {
         return speed;
     }
 
-    public boolean isDeleted()
-    {
+    public boolean isDeleted() {
         return deleted;
     }
 
-    public void setX(float x)
-    {
+    public void setX(float x) {
         this.x = x >= 0 ? x : 0;
     }
 
-    public void setY(float y)
-    {
+    public void setY(float y) {
         this.y = y >= 0 ? y : 0;
     }
 
-    public void setWidth(int width)
-    {
+    public void setWidth(int width) {
         this.width = width >= 1 ? width : 1;
     }
 
-    public void setHeight(int height)
-    {
+    public void setHeight(int height) {
         this.height = height >= 1 ? height : 1;
     }
 
-    public void setLife(int life)
-    {
+    public void setLife(int life) {
         this.life = life >= 1 ? life : 1;
     }
 
-    public void setHealth(int health)
-    {
+    public void setHealth(int health) {
         long now = System.currentTimeMillis();
 
         if (now - takedDamageAt >= 1000 || takedDamageAt == 0) {
@@ -138,8 +120,7 @@ public abstract class Entity
 
             if (this.health <= 0) {
                 delete();
-            }
-            else if (this.health > life) {
+            } else if (this.health > life) {
                 this.health = life;
             }
 
@@ -147,35 +128,27 @@ public abstract class Entity
         }
     }
 
-    public void setDamage(int damage)
-    {
+    public void setDamage(int damage) {
         this.damage = damage >= 1 ? damage : 1;
     }
 
-    public void setSpeed(float speed)
-    {
+    public void setSpeed(float speed) {
         this.speed = speed > 0 ? speed : 0.1f;
     }
 
-    public void setCurrentFrame(BufferedImage frame)
-    {
+    public void setCurrentFrame(BufferedImage frame) {
         currentFrame = frame;
     }
 
-    public void delete()
-    {
+    public void delete() {
         deleted = true;
     }
 
-    public void render(Graphics graphics)
-    {
-        graphics.drawImage(currentFrame,
-                (int) (x - handler.getCamera().getXOffset()),
-                (int) (y - handler.getCamera().getYOffset()),
-                width, height, null);
+    public void render(Graphics graphics) {
+        graphics.drawImage(currentFrame, (int) (x - handler.getCamera().getXOffset()),
+                (int) (y - handler.getCamera().getYOffset()), width, height, null);
 
-        graphics.drawRect((int) (x - handler.getCamera().getXOffset()),
-                (int) (y - handler.getCamera().getYOffset()),
+        graphics.drawRect((int) (x - handler.getCamera().getXOffset()), (int) (y - handler.getCamera().getYOffset()),
                 width, height);
     }
 

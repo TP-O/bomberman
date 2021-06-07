@@ -9,11 +9,10 @@ import components.ui.button.QuitButton;
 import components.ui.image.menu.MenuBackground;
 import components.ui.text.menu.MenuTitle;
 
-public class MenuView extends View
-{
+public class MenuView extends View {
+
     @Override
-    public void buildUI()
-    {
+    public void buildUI() {
         elements = new ArrayList<Element>();
 
         // Add background
@@ -28,20 +27,17 @@ public class MenuView extends View
     }
 
     @Override
-    public void reset()
-    {
+    public void reset() {
         //
     }
 
     @Override
-    public void tick()
-    {
+    public void tick() {
         elements.forEach(element -> element.tick());
     }
 
     @Override
-    public void render(Graphics graphics)
-    {
+    public void render(Graphics graphics) {
         elements.forEach(element -> element.render(graphics));
     }
 }

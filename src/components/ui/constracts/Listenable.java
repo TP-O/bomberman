@@ -1,7 +1,6 @@
 package components.ui.constracts;
 
-public interface Listenable
-{
+public interface Listenable {
     public boolean isDisable();
 
     public boolean isClicked();

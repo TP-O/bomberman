@@ -18,5 +18,8 @@ public abstract class DropDecorator implements Drop {
     @Override
     public void drop() {
         drop.drop();
+        decorate();
     }
+
+    protected abstract void decorate();
 }

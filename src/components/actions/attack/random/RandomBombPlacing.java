@@ -6,22 +6,20 @@ import components.actions.attack.Attack;
 import components.actions.attack.nonstop.BombPlacing;
 import components.entities.statics.bombs.Bomb;
 
-public class RandomBombPlacing extends BombPlacing
-{
+public class RandomBombPlacing extends BombPlacing {
+
     private static Random random = new Random();
 
-    public RandomBombPlacing(Attack attack, Bomb bomb)
-    {
+    public RandomBombPlacing(Attack attack, Bomb bomb) {
         super(attack, bomb);
     }
 
     @Override
-    public void attack()
-    {
+    protected void decorate() {
         int chance = random.nextInt(100);
 
         if (chance == 0) {
-            super.attack();
+            super.decorate();
         }
     }
 }

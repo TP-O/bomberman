@@ -10,11 +10,10 @@ import components.ui.image.character.selection.*;
 import components.ui.radio.character.selection.*;
 import components.ui.text.character.selection.*;
 
-public class CharacterView extends View
-{
+public class CharacterView extends View {
+
     @Override
-    public void buildUI()
-    {
+    public void buildUI() {
         elements = new ArrayList<Element>();
 
         // Add background
@@ -45,21 +44,18 @@ public class CharacterView extends View
     }
 
     @Override
-    public void reset()
-    {
+    public void reset() {
         //
     }
 
     @Override
-    public void tick()
-    {
+    public void tick() {
         elements.forEach(button -> button.tick());
 
     }
 
     @Override
-    public void render(Graphics graphics)
-    {
+    public void render(Graphics graphics) {
         elements.forEach(button -> button.render(graphics));
     }
 }

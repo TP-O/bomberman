@@ -6,17 +6,15 @@ import components.actions.attack.nonstop.PlusExplosionCreation;
 import components.animations.StaticAnimation;
 import components.entities.statics.bombs.Bomb;
 
-public class BombB extends Bomb
-{
+public class BombB extends Bomb {
+
     @Override
-    protected void initializeActions()
-    {
+    protected void initializeActions() {
         //
     }
 
     @Override
-    protected void loadAllFrames()
-    {
+    protected void loadAllFrames() {
         super.loadAllFrames();
 
         frames.add(Asset.get("bomb01").crop(8, 11, 207, 196));
@@ -28,8 +26,7 @@ public class BombB extends Bomb
     }
 
     @Override
-    protected Bomb setClone(Bomb bomb)
-    {
+    protected Bomb setClone(Bomb bomb) {
         bomb.setAnimation(new StaticAnimation(bomb, 200));
         bomb.setAttack(new PlusExplosionCreation(new AttackAction(bomb), explosion, range));
 

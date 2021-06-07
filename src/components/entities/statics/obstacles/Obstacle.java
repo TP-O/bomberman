@@ -3,10 +3,9 @@ package components.entities.statics.obstacles;
 import components.entities.statics.StaticEntity;
 import config.TileConfig;
 
-public abstract class Obstacle extends StaticEntity
-{
-    public Obstacle(float x, float y)
-    {
+public abstract class Obstacle extends StaticEntity {
+
+    public Obstacle(float x, float y) {
         super();
 
         this.x = x;
@@ -14,8 +13,7 @@ public abstract class Obstacle extends StaticEntity
     }
 
     @Override
-    protected void setEntityParameters()
-    {
+    protected void setEntityParameters() {
         margin = 0;
         padding = 0;
         width = TileConfig.WIDTH;

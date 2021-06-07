@@ -4,13 +4,12 @@ import asset.Asset;
 import components.entities.dynamics.characters.player.Player;
 import components.entities.statics.items.Item;
 
-public class HealPotion extends Item
-{
+public class HealPotion extends Item {
+
     private final int VALUE = 10;
 
     @Override
-    protected void setEntityParameters()
-    {
+    protected void setEntityParameters() {
         super.setEntityParameters();
 
         width = 32;
@@ -19,8 +18,7 @@ public class HealPotion extends Item
     }
 
     @Override
-    protected void loadAllFrames()
-    {
+    protected void loadAllFrames() {
         super.loadAllFrames();
 
         frames.add(Asset.get("heal-potion").crop(22, 48, 232, 488));
@@ -38,8 +36,7 @@ public class HealPotion extends Item
     }
 
     @Override
-    public void boost(Player player)
-    {
+    public void boost(Player player) {
         // Healing
         player.setHealth(player.getHealth() + VALUE);
 

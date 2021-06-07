@@ -15,23 +15,21 @@ public class KeyboardBasedMove extends MoveDecorator {
     }
 
     @Override
-    public void move() {
-        super.move();
-
-        if (this.handler.getKeyboard().up.isPressed()) {
-            this.moveUp();
+    protected void decorate() {
+        if (handler.getKeyboard().up.isPressed()) {
+            moveUp();
         }
-        else if (this.handler.getKeyboard().down.isPressed()) {
-            this.moveDown();
+        else if (handler.getKeyboard().down.isPressed()) {
+            moveDown();
         }
-        else if (this.handler.getKeyboard().left.isPressed()) {
-            this.moveLeft();
+        else if (handler.getKeyboard().left.isPressed()) {
+            moveLeft();
         }
-        else if (this.handler.getKeyboard().right.isPressed()) {
-            this.moveRight();
+        else if (handler.getKeyboard().right.isPressed()) {
+            moveRight();
         }
         else {
-            this.stand();
+            stand();
         }
     }
 }

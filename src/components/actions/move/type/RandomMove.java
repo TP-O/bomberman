@@ -21,14 +21,12 @@ public class RandomMove extends MoveDecorator {
     public RandomMove(Move move) {
         super(move);
 
-        moveIndex = random.nextInt(Direction.values().length);
+        this.moveIndex = random.nextInt(Direction.values().length);
     }
 
     @Override
-    public void move() {
-        super.move();
-
-        if (this.isCollied()) {
+    protected void decorate() {
+        if (isCollied()) {
             moveIndex = random.nextInt(Direction.values().length);
         }
 

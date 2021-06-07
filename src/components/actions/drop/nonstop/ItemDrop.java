@@ -26,9 +26,7 @@ public class ItemDrop extends DropDecorator {
     }
 
     @Override
-    public void drop() {
-        super.drop();
-
+    protected void decorate() {
         if (!dropped) {
             dropped = true;
             Item item = null;

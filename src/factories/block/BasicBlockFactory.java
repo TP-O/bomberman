@@ -5,11 +5,10 @@ import components.entities.statics.blocks.children.GlassBlock;
 import components.entities.statics.blocks.children.IronBlock;
 import components.entities.statics.blocks.children.WoodBlock;
 
-public class BasicBlockFactory implements BlockFactory
-{
+public class BasicBlockFactory implements BlockFactory {
+
     @Override
-    public Block createBlock(String type, float x, float y)
-    {
+    public Block createBlock(String type, float x, float y) {
         Block block = null;
 
         switch (type) {

@@ -8,8 +8,8 @@ import java.util.HashMap;
 import app.views.*;
 import config.AppConfig;
 
-public class Router
-{
+public class Router {
+
     private static Router instance;
 
     private View currentView;
@@ -18,13 +18,11 @@ public class Router
 
     private HashMap<String, String> inputs = new HashMap<String, String>();
 
-    private Router()
-    {
+    private Router() {
         //
     }
 
-    public static Router getInstance()
-    {
+    public static Router getInstance() {
         if (instance == null) {
             instance = new Router();
         }
@@ -32,13 +30,11 @@ public class Router
         return instance;
     }
 
-    public void register(String viewName, String input)
-    {
+    public void register(String viewName, String input) {
         inputs.put(viewName, input);
     }
 
-    public void redirect(String viewName, boolean refresh)
-    {
+    public void redirect(String viewName, boolean refresh) {
         if (views.get(viewName) == null || refresh == true) {
             views.put(viewName, handle(inputs.get(viewName)));
         }
@@ -47,8 +43,7 @@ public class Router
     }
 
     @SuppressWarnings("all")
-    public View handle(String path)
-    {
+    public View handle(String path) {
         try {
             // Get names of controller and method
             String[] parts = path.split("@");
@@ -63,34 +58,26 @@ public class Router
             View view = (View) (method.invoke(controller.getConstructor().newInstance()));
 
             return view;
-        }
-        catch (ClassNotFoundException e) {
+        } catch (ClassNotFoundException e) {
             e.printStackTrace();
-        }
-        catch (InstantiationException e) {
+        } catch (InstantiationException e) {
             e.printStackTrace();
-        }
-        catch (IllegalAccessException e) {
+        } catch (IllegalAccessException e) {
             e.printStackTrace();
-        }
-        catch (IllegalArgumentException e) {
+        } catch (IllegalArgumentException e) {
             e.printStackTrace();
-        }
-        catch (InvocationTargetException e) {
+        } catch (InvocationTargetException e) {
             e.printStackTrace();
-        }
-        catch (NoSuchMethodException e) {
+        } catch (NoSuchMethodException e) {
             e.printStackTrace();
-        }
-        catch (ClassCastException e) {
+        } catch (ClassCastException e) {
             e.printStackTrace();
         }
 
         return null;
     }
 
-    public void tick()
-    {
+    public void tick() {
         if (currentView == null) {
             throw new Error("Can't find view");
         }
@@ -98,8 +85,7 @@ public class Router
         currentView.tick();
     }
 
-    public void render(Graphics graphics)
-    {
+    public void render(Graphics graphics) {
         if (currentView == null) {
             throw new Error("Can't find view");
         }

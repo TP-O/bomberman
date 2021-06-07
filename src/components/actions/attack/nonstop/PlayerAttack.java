@@ -18,9 +18,7 @@ public class PlayerAttack extends AttackDecorator {
     }
 
     @Override
-    public void attack() {
-        super.attack();
-
+    protected void decorate() {
         if (collision.isCollided()) {
             collision.getCollidedEntities().forEach(target -> {
                 target.setHealth(target.getHealth() - getAttacker().getDamage());

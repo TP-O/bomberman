@@ -11,26 +11,33 @@ import components.actions.move.collision.*;
 import components.actions.move.type.RandomMove;
 import components.entities.dynamics.characters.Character;
 
-public abstract class Monster extends Character
-{
+public abstract class Monster extends Character {
+
     protected Drop drop;
 
     protected Attack attack;
 
-    public Monster(float x, float y)
-    {
+    public Monster(float x, float y) {
         super();
 
         this.x = x;
         this.y = y;
-
-        margin = 10;
-        padding = 10;
     }
 
     @Override
-    protected void setEntityParameters()
-    {
+    public void setHealth(int health) {
+        super.setHealth(health);
+
+        if (isDeleted()) {
+            // Leave a souvenir :'(
+            drop.drop();
+        }
+    }
+
+    @Override
+    protected void setEntityParameters() {
+        margin = 10;
+        padding = 10;
         width = MonsterConfig.WIDTH;
         height = MonsterConfig.HEIGHT;
         health = MonsterConfig.HEALTH;
@@ -40,8 +47,7 @@ public abstract class Monster extends Character
     }
 
     @Override
-    protected void initializeActions()
-    {
+    protected void initializeActions() {
         super.initializeActions();
 
         // Set drop type
@@ -61,22 +67,11 @@ public abstract class Monster extends Character
     }
 
     @Override
-    public void setHealth(int health)
-    {
-        super.setHealth(health);
-
-        if (isDeleted()) {
-            // Leave a souvenir :'(
-            drop.drop();
-        }
-    }
-
-    @Override
-    public void tick()
-    {
+    public void tick() {
         super.tick();
 
         // Attack
         attack.attack();
     }
+
 }

@@ -20,5 +20,8 @@ public abstract class DisplayDecorator implements Display {
     @Override
     public void display(Graphics graphics) {
         display.display(graphics);
+        decorate(graphics);
     }
+
+    protected abstract void decorate(Graphics graphics);
 }

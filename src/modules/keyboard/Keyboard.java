@@ -9,14 +9,13 @@ import java.awt.event.KeyEvent;
 import config.KeyConfig;
 import core.Handler;
 
-public class Keyboard implements KeyListener, Module
-{
+public class Keyboard implements KeyListener, Module {
+
     public Key up, down, left, right, attack;
 
     private int keyUp, keyDown, keyLeft, keyRight, keyAttack;
 
-    public Keyboard()
-    {
+    public Keyboard() {
         up = new Key();
         down = new Key();
         left = new Key();
@@ -31,25 +30,21 @@ public class Keyboard implements KeyListener, Module
     }
 
     @Override
-    public void keyPressed(KeyEvent event)
-    {
+    public void keyPressed(KeyEvent event) {
         toggleKey(event.getKeyCode(), true);
     }
 
     @Override
-    public void keyReleased(KeyEvent event)
-    {
+    public void keyReleased(KeyEvent event) {
         toggleKey(event.getKeyCode(), false);
     }
 
     @Override
-    public void keyTyped(KeyEvent event)
-    {
+    public void keyTyped(KeyEvent event) {
         //
     }
 
-    public void toggleKey(int keyCode, boolean isPressed)
-    {
+    public void toggleKey(int keyCode, boolean isPressed) {
         if (keyCode == keyUp) {
             up.toggle(isPressed);
         }
@@ -68,8 +63,7 @@ public class Keyboard implements KeyListener, Module
     }
 
     @Override
-    public void register(Handler handler)
-    {
+    public void register(Handler handler) {
         handler.getFrame().addKeyListener(this);
     }
 }

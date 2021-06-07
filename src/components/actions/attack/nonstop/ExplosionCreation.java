@@ -6,6 +6,7 @@ import components.actions.attack.AttackDecorator;
 import components.entities.statics.explosions.Explosion;
 
 public class ExplosionCreation extends AttackDecorator {
+
     private int range;
 
     private Explosion explosion;
@@ -18,9 +19,7 @@ public class ExplosionCreation extends AttackDecorator {
     }
 
     @Override
-    public void attack() {
-        super.attack();
-
+    protected void decorate() {
         explosion.setX(calculateXOfExplosion(getAttacker().getX(),
                 getAttacker().getWidth(), getAttacker().getWidth() * range));
         explosion.setY(calculateYOfExplosion(getAttacker().getY(),

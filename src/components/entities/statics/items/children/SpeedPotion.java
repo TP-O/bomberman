@@ -4,13 +4,12 @@ import asset.Asset;
 import components.entities.dynamics.characters.player.Player;
 import components.entities.statics.items.Item;
 
-public class SpeedPotion extends Item
-{
+public class SpeedPotion extends Item {
+
     private final float VALUE = 0.5f;
 
     @Override
-    protected void setEntityParameters()
-    {
+    protected void setEntityParameters() {
         super.setEntityParameters();
 
         width = 32;
@@ -19,8 +18,7 @@ public class SpeedPotion extends Item
     }
 
     @Override
-    protected void loadAllFrames()
-    {
+    protected void loadAllFrames() {
         super.loadAllFrames();
 
         frames.add(Asset.get("speed-potion").crop(6, 18, 126, 143));
@@ -34,8 +32,7 @@ public class SpeedPotion extends Item
     }
 
     @Override
-    public void boost(Player player)
-    {
+    public void boost(Player player) {
         // Increase speed
         player.setSpeed(player.getSpeed() + VALUE);
 

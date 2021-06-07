@@ -1,6 +1,5 @@
 package app.events;
 
-public interface Event
-{
-    public void emit();   
+public interface Event {
+    public void emit();
 }

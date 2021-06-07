@@ -1,7 +1,7 @@
 package components.tiles;
 
-public class TileNode
-{
+public class TileNode {
+
     public TileNode prev;
 
     private Tile tile;
@@ -10,33 +10,27 @@ public class TileNode
 
     private boolean visited = false;
 
-    public TileNode(Tile tile)
-    {
+    public TileNode(Tile tile) {
         this.tile = tile;
     }
 
-    public Tile getTile()
-    {
+    public Tile getTile() {
         return tile;
     }
 
-    public int getDistance()
-    {
+    public int getDistance() {
         return distance;
     }
 
-    public boolean isVisited()
-    {
+    public boolean isVisited() {
         return visited;
     }
 
-    public void setDistance(int distance)
-    {
+    public void setDistance(int distance) {
         this.distance = distance >= 0 ? distance : this.distance;
     }
 
-    public void visited()
-    {
+    public void visited() {
         visited = true;
     }
 }

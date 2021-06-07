@@ -3,11 +3,10 @@ package factories.trap;
 import components.entities.statics.traps.Trap;
 import components.entities.statics.traps.children.*;
 
-public class BasicTrapFactory implements TrapFactory
-{
+public class BasicTrapFactory implements TrapFactory {
+
     @Override
-    public Trap createTrap(String type, float x, float y)
-    {
+    public Trap createTrap(String type, float x, float y) {
         Trap trap = null;
 
         switch (type) {

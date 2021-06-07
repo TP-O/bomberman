@@ -8,11 +8,10 @@ import components.tiles.horizontal.*;
 import components.tiles.floor.*;
 import components.tiles.water.*;
 
-public class BasicTileFactory implements TileFactory
-{
+public class BasicTileFactory implements TileFactory {
+
     @Override
-    public Tile createTile(int id, int x, int y)
-    {
+    public Tile createTile(int id, int x, int y) {
         Tile tile = null;
 
         switch (id) {

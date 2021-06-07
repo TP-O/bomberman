@@ -14,10 +14,9 @@ import components.entities.statics.obstacles.Obstacle;
 import components.entities.statics.traps.Trap;
 import helper.Helper;
 
-public class GameController
-{
-    public View playSolo()
-    {
+public class GameController {
+
+    public View playSolo() {
         // Init view
         View view = new GameView();
         view.reset();
@@ -32,6 +31,8 @@ public class GameController
         Player player = playerModel
                 .wherePhase((int) GameCache.get("phase"))
                 .get();
+        EntityCache.push("player", player);
+
         List<Monster> monsters = monsterModel
                 .wherePhase((int) GameCache.get("phase"))
                 .all();

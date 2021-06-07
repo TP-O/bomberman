@@ -1,13 +1,13 @@
 package factories.monster;
 
+import components.entities.dynamics.DynamicEntity;
 import components.entities.dynamics.characters.monster.Monster;
 import components.entities.dynamics.characters.monster.children.*;
 
-public class BasicMonsterFactory implements MonsterFactory
-{
+public class BasicMonsterFactory implements MonsterFactory {
+
     @Override
-    public Monster createMonster(String type, float x, float y)
-    {
+    public Monster createMonster(String type, float x, float y) {
         Monster monster = null;
 
         switch (type) {
@@ -39,10 +39,20 @@ public class BasicMonsterFactory implements MonsterFactory
                 monster = new Boss(x, y);
                 break;
 
+            case "Suicide":
+                monster = new Suicide(x, y);
+                break;
+
             default:
                 monster = null;
         }
 
         return monster;
+    }
+
+    @Override
+    public DynamicEntity createTopMonster() {
+        // TODO Auto-generated method stub
+        return null;
     }
 }

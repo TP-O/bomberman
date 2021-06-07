@@ -18,5 +18,8 @@ public abstract class PickUpDecorator implements PickUp {
     @Override
     public void pickUp() {
         pickUp.pickUp();
+        decorate();
     }
+
+    protected abstract void decorate();
 }

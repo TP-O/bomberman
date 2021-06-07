@@ -26,23 +26,23 @@ public class CollisionAction implements Collision {
 
     @Override
     public boolean isStrict() {
-        return this.strict;
+        return strict;
     }
 
     public Entity getEntity() {
-        return this.entity;
+        return entity;
     }
 
     public Entity getCollidedEntity() {
-        return this.collidedEntity;
+        return collidedEntity;
     }
 
     public List<Entity> getCollidedEntities() {
-        return this.collidedEntities;
+        return collidedEntities;
     }
 
     public void useStrictMode() {
-        this.strict = true;
+        strict = true;
     }
 
     public void setEntity(Entity entity) {
@@ -54,36 +54,31 @@ public class CollisionAction implements Collision {
     }
 
     public void clearCollidedEntities() {
-        this.collidedEntities.clear();
+        collidedEntities.clear();
     }
 
     @Override
-    public boolean isCollided()
-    {
+    public boolean isCollided() {
         return false;
     }
 
     @Override
-    public boolean isCollidedTop()
-    {
+    public boolean isCollidedTop() {
         return false;
     }
 
     @Override
-    public boolean isCollidedBottom()
-    {
+    public boolean isCollidedBottom() {
         return false;
     }
 
     @Override
-    public boolean isCollidedLeft()
-    {
+    public boolean isCollidedLeft() {
         return false;
     }
 
     @Override
-    public boolean isCollidedRight()
-    {
+    public boolean isCollidedRight() {
         return false;
     }
 }

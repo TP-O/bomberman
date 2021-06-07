@@ -7,13 +7,12 @@ import components.entities.dynamics.DynamicEntity;
 
 import java.awt.Graphics;
 
-public abstract class Character extends DynamicEntity
-{
+public abstract class Character extends DynamicEntity {
+
     protected Display display;
 
     @Override
-    protected void initializeActions()
-    {
+    protected void initializeActions() {
         super.initializeActions();
 
         display = new DisplayAction(this);
@@ -21,8 +20,7 @@ public abstract class Character extends DynamicEntity
     }
 
     @Override
-    public void render(Graphics graphics)
-    {
+    public void render(Graphics graphics) {
         super.render(graphics);
 
         // Display character's status: health...

@@ -33,25 +33,23 @@ public abstract class Player extends Character {
     public void setHealth(int health) {
         super.setHealth(health);
 
-        if (health <= 0) {
+        if (this.health <= 0) {
             Router.getInstance().redirect("GameOverMenu", false);
         }
     }
 
     @Override
     protected void setEntityParameters() {
+        padding = 5;
+        margin = 5;
         width = PlayerConfig.WIDTH;
-        height =  PlayerConfig.HEIGHT;
+        height = PlayerConfig.HEIGHT;
         speed = PlayerConfig.SPEED;
         health = PlayerConfig.HEALTH;
         life = PlayerConfig.HEALTH;
 
         bomb = new BombB();
-        bomb.getExplosion().setTargets(new String[] {
-            "Player",
-            "Monster",
-            "Block",
-        });
+        bomb.getExplosion().setTargets(new String[] { "Player", "Monster", "Block", });
     }
 
     @Override

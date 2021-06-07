@@ -3,7 +3,6 @@ package components.actions.attack;
 import components.entities.Entity;
 
 public abstract class AttackDecorator implements Attack {
-
     private Attack attack;
 
     public AttackDecorator(Attack attack) {
@@ -23,5 +22,8 @@ public abstract class AttackDecorator implements Attack {
     @Override
     public void attack() {
         attack.attack();
+        decorate();
     }
+
+    protected abstract void decorate();
 }

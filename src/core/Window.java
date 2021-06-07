@@ -5,6 +5,7 @@ import java.awt.Canvas;
 import java.awt.Dimension;
 
 public class Window {
+
     private String title;
 
     private int width;
@@ -21,8 +22,7 @@ public class Window {
         height = inHeight;
     }
 
-    public void display()
-    {
+    public void display() {
         frame = new JFrame(title);
         frame.setSize(width, height);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -40,13 +40,11 @@ public class Window {
         frame.pack();
     }
 
-    public Canvas getCanvas()
-    {
+    public Canvas getCanvas() {
         return canvas;
     }
 
-    public JFrame getFrame()
-    {
+    public JFrame getFrame() {
         return frame;
     }
 }

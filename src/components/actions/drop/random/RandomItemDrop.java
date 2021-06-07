@@ -18,11 +18,11 @@ public class RandomItemDrop extends ItemDrop {
     }
 
     @Override
-    public void drop() {
+    protected void decorate() {
         int chance = random.nextInt(rate);
 
         if (chance == 0) {
-            super.drop();
+            super.decorate();
         }
     }
 }

@@ -3,26 +3,23 @@ package components.entities.dynamics.characters.player.children;
 import asset.Asset;
 import components.entities.dynamics.characters.player.Player;
 
-public class Shadow extends Player
-{
-    public Shadow(float x, float y)
-    {
+public class Shadow extends Player {
+
+    public Shadow(float x, float y) {
         super(x, y);
     }
 
     @Override
-    protected void setEntityParameters()
-    {
+    protected void setEntityParameters() {
         super.setEntityParameters();
 
-        life= 140;
+        life = 140;
         health = 140;
         speed = 2.8f;
     }
 
     @Override
-    protected void loadAllFrames()
-    {
+    protected void loadAllFrames() {
         super.loadAllFrames();
 
         upFrames.add(Asset.get("shadow").crop(77, 192, 42, 64));

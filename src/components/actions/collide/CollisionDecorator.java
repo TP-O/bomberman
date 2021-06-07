@@ -14,41 +14,41 @@ public abstract class CollisionDecorator implements Collision {
 
     @Override
     public boolean isStrict() {
-        return this.collision.isStrict();
+        return collision.isStrict();
     }
 
     @Override
     public Entity getEntity() {
-        return this.collision.getEntity();
+        return collision.getEntity();
     }
 
     @Override
     public Entity getCollidedEntity() {
-        return this.collision.getCollidedEntity();
+        return collision.getCollidedEntity();
     }
 
     @Override
     public List<Entity> getCollidedEntities() {
-        return this.collision.getCollidedEntities();
+        return collision.getCollidedEntities();
     }
 
     @Override
     public void useStrictMode() {
-        this.collision.useStrictMode();
+        collision.useStrictMode();
     }
 
     @Override
     public void setEntity(Entity entity) {
-        this.collision.setEntity(entity);
+        collision.setEntity(entity);
     }
 
     @Override
     public void setCollidedEntity(Entity collidedEntity) {
-        this.collision.setCollidedEntity(collidedEntity);
+        collision.setCollidedEntity(collidedEntity);
     }
 
     @Override
     public void clearCollidedEntities() {
-        this.collision.clearCollidedEntities();
+        collision.clearCollidedEntities();
     }
 }

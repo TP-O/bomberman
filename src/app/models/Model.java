@@ -8,32 +8,28 @@ import org.json.simple.JSONObject;
 
 import helper.Helper;
 
-public abstract class Model<T>
-{
+public abstract class Model<T> {
+
     protected String table = "Unknown";
 
     protected T data = null;
 
     protected List<T> listData = new ArrayList<T>();
 
-    public Model()
-    {
+    public Model() {
         set();
     }
 
-    public T get()
-    {
+    public T get() {
         return data;
     }
 
-    public List<T> all()
-    {
+    public List<T> all() {
         return listData;
     }
 
     @SuppressWarnings("unchecked")
-    public Model<T> wherePhase(int phase)
-    {
+    public Model<T> wherePhase(int phase) {
         JSONArray result = (JSONArray) (Helper.readJsonArray(table)).get(phase);
 
         result.forEach(r -> {

@@ -3,17 +3,15 @@ package components.entities.statics.explosions.children;
 import asset.Asset;
 import components.entities.statics.explosions.Explosion;
 
-public class ExplosionJ extends Explosion
-{
+public class ExplosionJ extends Explosion {
+
     @Override
-    protected void setEntityParameters()
-    {
+    protected void setEntityParameters() {
         damage = 5;
     }
 
     @Override
-    protected void loadAllFrames()
-    {
+    protected void loadAllFrames() {
         super.loadAllFrames();
 
         frames.add(Asset.get("explosion09").crop(46, 172, 137, 126));

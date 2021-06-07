@@ -3,8 +3,8 @@ package components.actions.move;
 import components.actions.collide.Collision;
 import components.entities.dynamics.DynamicEntity;
 
-public abstract class MoveDecorator extends Move
-{
+public abstract class MoveDecorator extends Move {
+
     private Move move;
 
     public MoveDecorator(Move move) {
@@ -14,43 +14,46 @@ public abstract class MoveDecorator extends Move
     }
 
     public boolean isCollied() {
-        return this.move.isCollied();
+        return move.isCollied();
     }
 
     public DynamicEntity getEntity() {
-        return this.move.getEntity();
+        return move.getEntity();
     }
 
     public Collision getCollision() {
-        return this.move.getCollision();
+        return move.getCollision();
     }
 
     public void setCollision(Collision collision) {
-        this.move.setCollision(collision);
+        move.setCollision(collision);
     }
 
     public void moveUp() {
-        this.move.moveUp();
+        move.moveUp();
     }
 
     public void moveDown() {
-        this.move.moveDown();
+        move.moveDown();
     }
 
     public void moveLeft() {
-        this.move.moveLeft();
+        move.moveLeft();
     }
 
     public void moveRight() {
-        this.move.moveRight();
+        move.moveRight();
     }
 
     public void stand() {
-        this.move.stand();
+        move.stand();
     }
 
     @Override
     public void move() {
-        this.move.move();
+        move.move();
+        decorate();
     }
+
+    protected abstract void decorate();
 }
