@@ -21,6 +21,6 @@ public class RouterRegistration {
     }
 
     public void redirectToDefault() {
-        this.router.redirect("Game", true);
+        this.router.redirect("Menu", true);
     }
 }
